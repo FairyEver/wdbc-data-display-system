@@ -2,36 +2,36 @@ html, body {
   height: 100%;
   padding: 0px;
   margin: 0px;
-}
-#app {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-}
-// 背景颜色
-$colorBg: #04243E;
-// 主布局顶栏高度
-$layoutMainHeaderHeight: 30px;
-// 主布局
-.layout-main {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  background-color: $colorBg;
-  color: #FFF;
-  .layout-main__header {
-    height: $layoutMainHeaderHeight;
-    line-height: $layoutMainHeaderHeight;
-  }
-  .layout-main__main {
+  #app {
     position: absolute;
-    top: $layoutMainHeaderHeight;
+    top: 0px;
     bottom: 0px;
     left: 0px;
     right: 0px;
+    // 背景颜色
+    $colorBg: #04243E;
+    // 主布局顶栏高度
+    $layoutMainHeaderHeight: 30px;
+    // 主布局
+    .layout-main {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      background-color: $colorBg;
+      color: #FFF;
+      .layout-main__header {
+        height: $layoutMainHeaderHeight;
+        line-height: $layoutMainHeaderHeight;
+      }
+      .layout-main__main {
+        position: absolute;
+        top: $layoutMainHeaderHeight;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+      }
+    }
   }
 }
