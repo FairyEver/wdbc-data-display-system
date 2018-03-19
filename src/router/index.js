@@ -8,12 +8,12 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: resolve => { require(['@/components/layout-main/index.vue'], resolve) },
+      component: resolve => { require(['@/components/layout-main'], resolve) },
       children: [
         {
-          path: 'dashboard',
-          name: 'dashboard',
-          component: resolve => { require(['@/page/view/index.vue'], resolve) }
+          path: 'screen/demo1',
+          name: 'screen-demo1',
+          component: resolve => { require(['@/page/screen/demo1'], resolve) }
         }
       ]
     }
