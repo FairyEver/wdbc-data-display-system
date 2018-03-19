@@ -10,8 +10,6 @@ html, body {
     right: 0px;
     // 背景颜色
     $colorBg: #04243E;
-    // 主布局顶栏高度
-    $layoutMainHeaderHeight: 30px;
     // 主布局
     .layout-main {
       position: absolute;
@@ -26,16 +24,17 @@ html, body {
         max-width: 1920px;
         height: 100%;
       }
-      .layout-main__header {
-        height: $layoutMainHeaderHeight;
-        line-height: $layoutMainHeaderHeight;
-      }
       .layout-main__main {
-        position: absolute;
-        top: $layoutMainHeaderHeight;
-        bottom: 0px;
+        height: 100%;
+      }
+      .layout-main__dashboard {
+        position: fixed;
+        top: 0px;
         left: 0px;
-        right: 0px;
+        width: 100%;
+        background-color: rgba(#000, .5);
+        padding: 10px;
+        display: none;
       }
     }
   }
