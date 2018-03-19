@@ -1,9 +1,16 @@
 .flex-group {
   display: flex;
   &.col {
-    flex-flow: column;
+    flex-direction: column;
+    flex-wrap: nowrap;
   }
   &.row {
-    flex-flow: row;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .flex-item {
+    &.grow {
+      flex-grow: 1;
+    }
   }
 }
