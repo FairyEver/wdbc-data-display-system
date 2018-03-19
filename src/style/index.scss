@@ -1,3 +1,4 @@
+@import './flex.scss';
 html, body {
   height: 100%;
   padding: 0px;
@@ -24,13 +25,11 @@ html, body {
         margin: 0px auto;
         max-width: 1920px;
         height: 100%;
-        display: flex;
-        flex-flow: column;
-        .screen__header {
-          height: 100px;
-        }
-        .screen__body {
-          flex-grow: 1;
+        .hov {
+          transition: all .3s;
+          &:hover {
+            background-color: rgba(#FFF, .1);
+          }
         }
       }
       .layout-main__main {

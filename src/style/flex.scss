@@ -1,0 +1,9 @@
+.flex-group {
+  display: flex;
+  &.col {
+    flex-flow: column;
+  }
+  &.row {
+    flex-flow: row;
+  }
+}
