@@ -21,6 +21,11 @@ html, body {
       right: 0px;
       background-color: $colorBg;
       color: #FFF;
+      .container {
+        margin: 0px auto;
+        max-width: 1920px;
+        height: 100%;
+      }
       .layout-main__header {
         height: $layoutMainHeaderHeight;
         line-height: $layoutMainHeaderHeight;
@@ -31,11 +36,6 @@ html, body {
         bottom: 0px;
         left: 0px;
         right: 0px;
-        .container {
-          margin: 0px auto;
-          max-width: 1920px;
-          height: 100%;
-        }
       }
     }
   }
