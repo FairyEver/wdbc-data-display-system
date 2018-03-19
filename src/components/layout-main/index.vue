@@ -1,6 +1,8 @@
 <template>
   <div class="layout-main">
-    <div>Hello</div>
-    <router-view></router-view>
+    <div class="layout-main__header">Hello</div>
+    <div class="layout-main__main">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
