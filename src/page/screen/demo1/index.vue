@@ -1,5 +1,10 @@
 <template>
   <div class="container">
-    screen1
+    <div class="screen__header">
+      screen__header
+    </div>
+    <div class="screen__body">
+      screen__body
+    </div>
   </div>
 </template>

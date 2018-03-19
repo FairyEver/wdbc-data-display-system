@@ -19,10 +19,19 @@ html, body {
       right: 0px;
       background-color: $colorBg;
       color: #FFF;
+      // 页面
       .container {
         margin: 0px auto;
         max-width: 1920px;
         height: 100%;
+        display: flex;
+        flex-flow: column;
+        .screen__header {
+          height: 100px;
+        }
+        .screen__body {
+          flex-grow: 1;
+        }
       }
       .layout-main__main {
         height: 100%;
