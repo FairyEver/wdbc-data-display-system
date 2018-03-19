@@ -10,13 +10,19 @@ html, body {
   left: 0px;
   right: 0px;
 }
+// 背景颜色
+$colorBg: #04243E;
+// 主布局顶栏高度
 $layoutMainHeaderHeight: 30px;
+// 主布局
 .layout-main {
   position: absolute;
   top: 0px;
   bottom: 0px;
   left: 0px;
   right: 0px;
+  background-color: $colorBg;
+  color: #FFF;
   .layout-main__header {
     height: $layoutMainHeaderHeight;
     line-height: $layoutMainHeaderHeight;
