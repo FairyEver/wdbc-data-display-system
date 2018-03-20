@@ -15,19 +15,19 @@
       <!-- L -->
       <div class="flex-item grow flex-group col">
         <div ref="box-5" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineDemo></ChartLineDemo>
+          <ChartLineDemo ref="box-5-chart" @mounted="handleChartMounted"></ChartLineDemo>
         </div>
         <div ref="box-6" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineDemo></ChartLineDemo>
+          <ChartLineDemo ref="box-6-chart" @mounted="handleChartMounted"></ChartLineDemo>
         </div>
       </div>
       <!-- R -->
       <div class="flex-item grow flex-group col">
         <div ref="box-7" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineDemo></ChartLineDemo>
+          <ChartLineDemo ref="box-7-chart" @mounted="handleChartMounted"></ChartLineDemo>
         </div>
         <div ref="box-8" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineDemo></ChartLineDemo>
+          <ChartLineDemo ref="box-8-chart" @mounted="handleChartMounted"></ChartLineDemo>
         </div>
       </div>
     </div>
@@ -38,13 +38,22 @@
 export default {
   data () {
     return {
-      boxs: []
+      boxs: [],
+      mountedChartNum: 0,
+      needMountedChartNum: 4
     }
   },
-  mounted () {
-    this.init()
+  watch: {
+    mountedChartNum (num) {
+      if (num === this.needMountedChartNum) {
+        this.init()
+      }
+    }
   },
   methods: {
+    handleChartMounted () {
+      this.mountedChartNum += 1
+    },
     init () {
       // 获取所有的box
       for (const name in this.$refs) {
@@ -54,8 +63,13 @@ export default {
         }
       }
       this.boxs.forEach(box => {
-        console.log(this.$refs[box].offsetHeight)
-        console.log(this.$refs[box].offsetWidth)
+        const chart = this.$refs[`${box}-chart`]
+        if (chart) {
+          chart.init({
+            height: this.$refs[box].offsetHeight,
+            width: this.$refs[box].offsetWidth
+          })
+        }
       })
     }
   }
