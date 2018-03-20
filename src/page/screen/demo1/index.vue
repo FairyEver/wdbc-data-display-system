@@ -6,34 +6,34 @@
     </div>
     <!-- TOP -->
     <div class="flex-item flex-group row" style="height: 120px; padding: 5px;">
-      <div ref="box-1" class="flex-item grow hov" style="margin: 5px;">1</div>
-      <div ref="box-2" class="flex-item grow hov" style="margin: 5px;">1</div>
-      <div ref="box-3" class="flex-item grow hov" style="margin: 5px;">1</div>
-      <div ref="box-4" class="flex-item grow hov" style="margin: 5px;">1</div>
+      <div ref="box1" class="flex-item grow hov" style="margin: 5px;">1</div>
+      <div ref="box2" class="flex-item grow hov" style="margin: 5px;">1</div>
+      <div ref="box3" class="flex-item grow hov" style="margin: 5px;">1</div>
+      <div ref="box4" class="flex-item grow hov" style="margin: 5px;">1</div>
     </div>
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
       <div class="flex-item grow flex-group col">
-        <div ref="box-5" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineDemo ref="box-5-chart" v-bind="setting.lineDemo1" @mounted="handleChartMounted"></ChartLineDemo>
+        <div ref="box5" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarDemo ref="box5chart" v-bind="setting.box5chart" @mounted="handleChartMounted"></ChartBarDemo>
         </div>
-        <div ref="box-6" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineDemo ref="box-6-chart" v-bind="setting.lineDemo2" @mounted="handleChartMounted"></ChartLineDemo>
-        </div>
-      </div>
-      <div class="flex-item grow flex-group col">
-        <div ref="box-7" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineDemo ref="box-7-chart" v-bind="setting.lineDemo3" @mounted="handleChartMounted"></ChartLineDemo>
-        </div>
-        <div ref="box-8" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineDemo ref="box-8-chart" v-bind="setting.lineDemo4" @mounted="handleChartMounted"></ChartLineDemo>
+        <div ref="box6" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarDemo ref="box6chart" v-bind="setting.box6chart" @mounted="handleChartMounted"></ChartBarDemo>
         </div>
       </div>
       <div class="flex-item grow flex-group col">
-        <div ref="box-9" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineDemo ref="box-9-chart" v-bind="setting.lineDemo5" @mounted="handleChartMounted"></ChartLineDemo>
+        <div ref="box7" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarDemo ref="box7chart" v-bind="setting.box7chart" @mounted="handleChartMounted"></ChartBarDemo>
         </div>
-        <div ref="box-10" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineDemo ref="box-10-chart" v-bind="setting.lineDemo6" @mounted="handleChartMounted"></ChartLineDemo>
+        <div ref="box8" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarDemo ref="box8chart" v-bind="setting.box8chart" @mounted="handleChartMounted"></ChartBarDemo>
+        </div>
+      </div>
+      <div class="flex-item grow flex-group col">
+        <div ref="box9" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarDemo ref="box9chart" v-bind="setting.box9chart" @mounted="handleChartMounted"></ChartBarDemo>
+        </div>
+        <div ref="box10" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarDemo ref="box10chart" v-bind="setting.box10chart" @mounted="handleChartMounted"></ChartBarDemo>
         </div>
       </div>
     </div>
@@ -48,48 +48,48 @@ export default {
       mountedChartNum: 0,
       needMountedChartNum: 6,
       setting: {
-        lineDemo1: {
-          titleText: 'lineDemo',
+        box5chart: {
+          titleText: 'barDemo',
           itemColor: this.$color.cyan,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
           }
         },
-        lineDemo2: {
-          titleText: 'lineDemo',
+        box6chart: {
+          titleText: 'barDemo',
           itemColor: this.$color.yellow,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
           }
         },
-        lineDemo3: {
-          titleText: 'lineDemo',
+        box7chart: {
+          titleText: 'barDemo',
           itemColor: this.$color.red,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
           }
         },
-        lineDemo4: {
-          titleText: 'lineDemo',
+        box8chart: {
+          titleText: 'barDemo',
           itemColor: this.$color.green,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
           }
         },
-        lineDemo5: {
-          titleText: 'lineDemo',
+        box9chart: {
+          titleText: 'barDemo',
           itemColor: this.$color.orange,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
           }
         },
-        lineDemo6: {
-          titleText: 'lineDemo',
+        box10chart: {
+          titleText: 'barDemo',
           itemColor: this.$color.pink,
           url: 'x.mock',
           ajaxData: {
@@ -113,14 +113,13 @@ export default {
     init () {
       // 获取所有的box
       for (const name in this.$refs) {
-        const box = /box-\d+/
+        const box = /box\d+/
         if (box.test(name)) {
           this.boxs.push(name)
         }
       }
       this.boxs.forEach(box => {
-        const chart = this.$refs[`${box}-chart`]
-        console.log(chart)
+        const chart = this.$refs[`${box}chart`]
         if (chart) {
           chart.init({
             height: this.$refs[box].offsetHeight,

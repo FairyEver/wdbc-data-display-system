@@ -1,3 +1,3 @@
 import Vue from 'vue'
 
-Vue.component('ChartLineDemo', resolve => { require(['@/components/Charts/Line/Demo/index.vue'], resolve) })
+Vue.component('ChartBarDemo', resolve => { require(['@/components/Charts/Bar/Demo/index.vue'], resolve) })

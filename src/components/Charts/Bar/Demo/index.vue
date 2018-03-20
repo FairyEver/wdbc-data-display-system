@@ -34,10 +34,10 @@ export default {
           }
         },
         grid: {
-          left: '6%',
-          right: '6%',
-          top: '40',
-          bottom: '30'
+          left: this.gridLeft,
+          right: this.gridRight,
+          top: this.gridTop,
+          bottom: this.gridBottom
         },
         xAxis: {
           data: [],

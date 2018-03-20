@@ -30,6 +30,27 @@ export default {
       type: String,
       required: false,
       default: '#FFF'
+    },
+    // grid
+    gridTop: {
+      type: String,
+      required: false,
+      default: '40'
+    },
+    gridBottom: {
+      type: String,
+      required: false,
+      default: '30'
+    },
+    gridLeft: {
+      type: String,
+      required: false,
+      default: '10%'
+    },
+    gridRight: {
+      type: String,
+      required: false,
+      default: '5%'
     }
   },
   data () {
