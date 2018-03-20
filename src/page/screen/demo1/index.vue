@@ -8,19 +8,19 @@
       <!-- L -->
       <div class="flex-item grow flex-group col">
         <div class="flex-item grow hov" style="margin: 5px;">
-          L1
+          <ChartLineDemo></ChartLineDemo>
         </div>
         <div class="flex-item grow hov" style="margin: 5px;">
-          L2
+          <ChartLineDemo></ChartLineDemo>
         </div>
       </div>
       <!-- R -->
       <div class="flex-item grow flex-group col">
         <div class="flex-item grow hov" style="margin: 5px;">
-          R1
+          <ChartLineDemo></ChartLineDemo>
         </div>
         <div class="flex-item grow hov" style="margin: 5px;">
-          R2
+          <ChartLineDemo></ChartLineDemo>
         </div>
       </div>
     </div>
