@@ -24,7 +24,7 @@ export default {
     option () {
       return {
         title: {
-          text: 'ECharts 入门示例',
+          text: this.titleText,
           left: 'center',
           textStyle: {
             color: '#FFF'
@@ -33,10 +33,11 @@ export default {
         grid: {
           left: '6%',
           right: '6%',
-          bottom: 30
+          top: '40',
+          bottom: '30'
         },
         xAxis: {
-          data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
+          data: [],
           axisLine: {
             lineStyle: {
               color: '#FFF'
@@ -58,7 +59,7 @@ export default {
         series: [
           {
             type: 'bar',
-            data: [5, 20, 36, 10, 10, 20]
+            data: []
           }
         ]
       }
@@ -68,13 +69,29 @@ export default {
     this.$emit('mounted')
   },
   methods: {
+    // 请求数据 这个函数最后应该返回接口的数据
+    getData () {
+      return new Promise(async (resolve, reject) => {
+        const res = await this.$http.post('x.mock', {type: 2})
+        resolve(res.data.list)
+      })
+    },
+    // 返回拼好的option
+    optionMaker () {
+      return new Promise(async (resolve, reject) => {
+        const data = await this.getData()
+        const option = this.option
+        option.xAxis.data = data.map(e => e.name)
+        option.series[0].data = data.map(e => e.value)
+        resolve(option)
+      })
+    },
+    // 初始化
     init ({height, width}) {
       this.updateSize(height, width)
-        .then(() => {
-          // 基于准备好的dom，初始化echarts实例
-          var myChart = this.echarts.init(this.$refs.chart)
-          // 绘制图表
-          myChart.setOption(this.option)
+        .then(async () => {
+          this.chart = this.echarts.init(this.$refs.chart)
+          this.chart.setOption(await this.optionMaker())
         })
     }
   }

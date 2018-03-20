@@ -1,8 +1,13 @@
 import echarts from 'echarts'
 export default {
+  props: {
+    // 标题
+    titleText: {type: String, required: false, default: 'Chart'}
+  },
   data () {
     return {
-      echarts
+      echarts,
+      chart: null
     }
   },
   methods: {
