@@ -6,10 +6,18 @@
     </div>
     <!-- TOP -->
     <div class="flex-item flex-group row" style="height: 120px; padding: 5px;">
-      <div ref="box1" class="flex-item grow hov" style="margin: 5px;">1</div>
-      <div ref="box2" class="flex-item grow hov" style="margin: 5px;">1</div>
-      <div ref="box3" class="flex-item grow hov" style="margin: 5px;">1</div>
-      <div ref="box4" class="flex-item grow hov" style="margin: 5px;">1</div>
+      <div ref="box1" class="flex-item grow hov" style="margin: 5px;">
+        <ChartCountStyle1 ref="box1chart" v-bind="setting.box1chart" @mounted="handleChartMounted"></ChartCountStyle1>
+      </div>
+      <div ref="box2" class="flex-item grow hov" style="margin: 5px;">
+        <ChartCountStyle1 ref="box2chart" v-bind="setting.box2chart" @mounted="handleChartMounted"></ChartCountStyle1>
+      </div>
+      <div ref="box3" class="flex-item grow hov" style="margin: 5px;">
+        <ChartCountStyle1 ref="box3chart" v-bind="setting.box3chart" @mounted="handleChartMounted"></ChartCountStyle1>
+      </div>
+      <div ref="box4" class="flex-item grow hov" style="margin: 5px;">
+        <ChartCountStyle1 ref="box4chart" v-bind="setting.box4chart" @mounted="handleChartMounted"></ChartCountStyle1>
+      </div>
     </div>
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
       <div class="flex-item grow flex-group col">
@@ -46,8 +54,44 @@ export default {
     return {
       boxs: [],
       mountedChartNum: 0,
-      needMountedChartNum: 6,
+      needMountedChartNum: 10,
       setting: {
+        box1chart: {
+          titleText: 'count',
+          subTitleText: 'count style1',
+          itemColor: this.$color.cyan,
+          url: 'x.mock',
+          ajaxData: {
+            name: 'name'
+          }
+        },
+        box2chart: {
+          titleText: 'count',
+          subTitleText: 'count style1',
+          itemColor: this.$color.pink,
+          url: 'x.mock',
+          ajaxData: {
+            name: 'name'
+          }
+        },
+        box3chart: {
+          titleText: 'count',
+          subTitleText: 'count style1',
+          itemColor: this.$color.green,
+          url: 'x.mock',
+          ajaxData: {
+            name: 'name'
+          }
+        },
+        box4chart: {
+          titleText: 'count',
+          subTitleText: 'count style1',
+          itemColor: this.$color.orange,
+          url: 'x.mock',
+          ajaxData: {
+            name: 'name'
+          }
+        },
         box5chart: {
           titleText: 'barDemo',
           itemColor: this.$color.cyan,

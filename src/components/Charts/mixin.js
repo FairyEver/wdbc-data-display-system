@@ -7,6 +7,11 @@ export default {
       required: false,
       default: 'Chart'
     },
+    subTitleText: {
+      type: String,
+      required: false,
+      default: 'subTitleText'
+    },
     // 接口地址
     url: {
       type: String,
