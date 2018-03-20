@@ -3,8 +3,11 @@
 </template>
 
 <script>
-import echarts from 'echarts'
+import mixin from '@/components/Charts/mixin.js'
 export default {
+  mixins: [
+    mixin
+  ],
   data () {
     return {
       height: 0,
@@ -23,22 +26,16 @@ export default {
     this.$emit('mounted')
   },
   methods: {
-    updateSize (height, width) {
-      return new Promise((resolve, reject) => {
-        this.height = height
-        this.width = width
-        this.$nextTick(resolve)
-      })
-    },
     init ({height, width}) {
       this.updateSize(height, width)
         .then(() => {
           // 基于准备好的dom，初始化echarts实例
-          var myChart = echarts.init(this.$refs.chart)
+          var myChart = this.echarts.init(this.$refs.chart)
           // 绘制图表
           myChart.setOption({
             title: {
-              text: 'ECharts 入门示例'
+              text: 'ECharts 入门示例',
+              left: 'center'
             },
             tooltip: {},
             xAxis: {
