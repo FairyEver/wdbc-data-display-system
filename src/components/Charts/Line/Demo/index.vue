@@ -1,7 +1,5 @@
 <template>
-  <div ref="chart" style="height: 200px; width: 200px;">
-    
-  </div>
+  <div ref="chart" style="height: 200px; width: 200px;"></div>
 </template>
 
 <script>
@@ -29,4 +27,3 @@ export default {
   }
 }
 </script>
-
