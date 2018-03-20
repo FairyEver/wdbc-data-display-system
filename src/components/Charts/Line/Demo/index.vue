@@ -11,7 +11,8 @@ export default {
   data () {
     return {
       height: 0,
-      width: 0
+      width: 0,
+      intervalObj: null
     }
   },
   computed: {
@@ -52,7 +53,7 @@ export default {
           },
           splitLine: {
             lineStyle: {
-              color: '#FFF'
+              color: '#0F3551'
             }
           }
         },
@@ -72,7 +73,10 @@ export default {
     // 请求数据 这个函数最后应该返回接口的数据
     getData () {
       return new Promise(async (resolve, reject) => {
-        const res = await this.$http.post('x.mock', {type: 2})
+        const res = await this.$http.post(this.url, {
+          type: 2,
+          ...this.ajaxData
+        })
         resolve(res.data.list)
       })
     },
@@ -92,6 +96,9 @@ export default {
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(await this.optionMaker())
+          this.intervalObj = setInterval(async () => {
+            this.chart.setOption(await this.optionMaker())
+          }, this.interval)
         })
     }
   }
