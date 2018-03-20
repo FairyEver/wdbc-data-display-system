@@ -10,8 +10,10 @@ export default {
   ],
   data () {
     return {
+      // 宽高
       height: 0,
       width: 0,
+      // 定时器
       intervalObj: null
     }
   },
@@ -60,6 +62,9 @@ export default {
         series: [
           {
             type: 'bar',
+            itemStyle: {
+              color: this.itemColor
+            },
             data: []
           }
         ]

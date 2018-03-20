@@ -24,6 +24,12 @@ export default {
       type: Number,
       required: false,
       default: 3000
+    },
+    // 图表的颜色
+    itemColor: {
+      type: String,
+      required: false,
+      default: '#FFF'
     }
   },
   data () {
