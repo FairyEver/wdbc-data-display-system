@@ -3,7 +3,7 @@
 </template>
 
 <script>
-// import echarts from 'echarts'
+import echarts from 'echarts'
 export default {
   data () {
     return {
@@ -23,29 +23,37 @@ export default {
     this.$emit('mounted')
   },
   methods: {
-    init ({height = 300, width = 300}) {
-      this.height = height
-      this.width = width
-      // 基于准备好的dom，初始化echarts实例
-      // var myChart = echarts.init(this.$refs.chart)
-      // 绘制图表
-      // myChart.setOption({
-      //   title: {
-      //     text: 'ECharts 入门示例'
-      //   },
-      //   tooltip: {},
-      //   xAxis: {
-      //     data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-      //   },
-      //   yAxis: {},
-      //   series: [
-      //     {
-      //       name: '销量',
-      //       type: 'bar',
-      //       data: [5, 20, 36, 10, 10, 20]
-      //     }
-      //   ]
-      // })
+    updateSize (height, width) {
+      return new Promise((resolve, reject) => {
+        this.height = height
+        this.width = width
+        this.$nextTick(resolve)
+      })
+    },
+    init ({height, width}) {
+      this.updateSize(height, width)
+        .then(() => {
+          // 基于准备好的dom，初始化echarts实例
+          var myChart = echarts.init(this.$refs.chart)
+          // 绘制图表
+          myChart.setOption({
+            title: {
+              text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            xAxis: {
+              data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+            },
+            yAxis: {},
+            series: [
+              {
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+              }
+            ]
+          })
+        })
     }
   }
 }
