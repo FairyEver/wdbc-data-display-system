@@ -35,13 +35,36 @@ export default {
           myChart.setOption({
             title: {
               text: 'ECharts 入门示例',
-              left: 'center'
+              left: 'center',
+              textStyle: {
+                color: '#FFF'
+              }
             },
-            tooltip: {},
+            grid: {
+              left: '6%',
+              right: '6%',
+              bottom: 30
+            },
             xAxis: {
-              data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+              data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
+              axisLine: {
+                lineStyle: {
+                  color: '#FFF'
+                }
+              }
             },
-            yAxis: {},
+            yAxis: {
+              axisLine: {
+                lineStyle: {
+                  color: '#FFF'
+                }
+              },
+              splitLine: {
+                lineStyle: {
+                  color: '#FFF'
+                }
+              }
+            },
             series: [
               {
                 name: '销量',
