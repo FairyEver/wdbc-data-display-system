@@ -28,6 +28,7 @@ export default {
       return {
         title: {
           text: this.titleText,
+          top: '6',
           left: 'center',
           textStyle: {
             color: '#FFF'
@@ -63,7 +64,8 @@ export default {
           {
             type: 'bar',
             itemStyle: {
-              color: this.itemColor
+              color: this.itemColor,
+              barBorderRadius: [4, 4, 0, 0]
             },
             data: []
           }

@@ -1,6 +1,6 @@
 <template>
   <div class="container flex-group col">
-    <div class="flex-item flex-group col center screen-header" style="height: 100px;">
+    <div class="flex-item flex-group col center screen-header" style="height: 80px;">
       <p class="title">页面标题</p>
       <p class="sub-title">页面小标题</p>
     </div>
@@ -14,26 +14,26 @@
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
       <div class="flex-item grow flex-group col">
         <div ref="box5" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarDemo ref="box5chart" v-bind="setting.box5chart" @mounted="handleChartMounted"></ChartBarDemo>
+          <ChartBarBase ref="box5chart" v-bind="setting.box5chart" @mounted="handleChartMounted"></ChartBarBase>
         </div>
         <div ref="box6" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarDemo ref="box6chart" v-bind="setting.box6chart" @mounted="handleChartMounted"></ChartBarDemo>
+          <ChartBarBase ref="box6chart" v-bind="setting.box6chart" @mounted="handleChartMounted"></ChartBarBase>
         </div>
       </div>
       <div class="flex-item grow flex-group col">
         <div ref="box7" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarDemo ref="box7chart" v-bind="setting.box7chart" @mounted="handleChartMounted"></ChartBarDemo>
+          <ChartBarBase ref="box7chart" v-bind="setting.box7chart" @mounted="handleChartMounted"></ChartBarBase>
         </div>
         <div ref="box8" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarDemo ref="box8chart" v-bind="setting.box8chart" @mounted="handleChartMounted"></ChartBarDemo>
+          <ChartBarBase ref="box8chart" v-bind="setting.box8chart" @mounted="handleChartMounted"></ChartBarBase>
         </div>
       </div>
       <div class="flex-item grow flex-group col">
         <div ref="box9" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarDemo ref="box9chart" v-bind="setting.box9chart" @mounted="handleChartMounted"></ChartBarDemo>
+          <ChartBarBase ref="box9chart" v-bind="setting.box9chart" @mounted="handleChartMounted"></ChartBarBase>
         </div>
         <div ref="box10" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarDemo ref="box10chart" v-bind="setting.box10chart" @mounted="handleChartMounted"></ChartBarDemo>
+          <ChartBarBase ref="box10chart" v-bind="setting.box10chart" @mounted="handleChartMounted"></ChartBarBase>
         </div>
       </div>
     </div>
