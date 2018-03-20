@@ -27,6 +27,7 @@ html, body {
         height: 100%;
         .hov {
           transition: all .3s;
+          background-color: rgba(#000, .1);
           &:hover {
             background-color: rgba(#FFF, .1);
           }
@@ -34,6 +35,16 @@ html, body {
       }
       .layout-main__main {
         height: 100%;
+        .layout-main__main-header {
+          .title {
+            font-size: 26px;
+            user-select: none;
+          }
+          .sub-title {
+            font-size: 12px;
+            user-select: none;
+          }
+        }
       }
       .layout-main__dashboard {
         position: fixed;

@@ -8,6 +8,10 @@
     flex-direction: row;
     flex-wrap: nowrap;
   }
+  &.center {
+    align-items: center;
+    justify-content: center;
+  }
   .flex-item {
     &.grow {
       flex-grow: 1;
