@@ -51,15 +51,19 @@ export default {
           type: 1,
           ...this.ajaxData
         })
-        resolve(res.data.list)
+        resolve(res.data.num)
       })
     },
     // 初始化
     init ({height, width}) {
       this.updateSize(height, width)
         .then(async () => {
-          this.countupObj = new this.CountUp(this.$refs.num, 0, 100)
+          const data = await this.getData()
+          this.countupObj = new this.CountUp(this.$refs.num, 0, data)
           this.countupObj.start()
+          this.intervalObj = setInterval(async () => {
+            this.countupObj.update(await this.getData())
+          }, this.interval)
         })
     }
   }
@@ -74,7 +78,9 @@ export default {
   user-select: none;
   cursor: pointer;
   .title-group {
+    width: 50%;
     margin-right: 20px;
+    text-align: right;
     .title {
       margin: 0px;
       padding: 0px;
@@ -90,6 +96,7 @@ export default {
     }
   }
   .num-group {
+    width: 50%;
     font-size: 70px;
     line-height: 70px;
   }

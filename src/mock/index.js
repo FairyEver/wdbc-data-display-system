@@ -3,7 +3,9 @@ var Mock = require('mockjs')
 Mock.mock(/\.mock/, ({url, type, body}) => {
   const bodyObj = JSON.parse(body)
   if (bodyObj.type === 1) {
-    return 100
+    return Mock.mock({
+      num: '@natural(100, 300)'
+    })
   } else if (bodyObj.type === 2) {
     return Mock.mock({
       list: [
