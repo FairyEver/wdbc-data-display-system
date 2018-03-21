@@ -21,6 +21,12 @@ export default new Router({
           path: 'screen/demo2',
           name: 'screen-demo2',
           component: resolve => { require(['@/page/screen/demo2'], resolve) }
+        },
+        {
+          title: '演示页面3',
+          path: 'screen/demo3',
+          name: 'screen-demo3',
+          component: resolve => { require(['@/page/screen/demo3'], resolve) }
         }
       ]
     }
