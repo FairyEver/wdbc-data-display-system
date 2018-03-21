@@ -5,3 +5,5 @@ Vue.component('ChartBarBase', resolve => { require(['@/components/Charts/Bar/Bas
 Vue.component('ChartCountStyle1', resolve => { require(['@/components/Charts/Count/Style1/index.vue'], resolve) })
 
 Vue.component('ChartLineBase', resolve => { require(['@/components/Charts/Line/Base/index.vue'], resolve) })
+
+Vue.component('ChartPieBase', resolve => { require(['@/components/Charts/Pie/Base/index.vue'], resolve) })

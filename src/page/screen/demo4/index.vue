@@ -22,7 +22,7 @@
           <ChartLineBase
             ref="box-line-base-2-g-c"
             title-text="lineBase"
-            grid-left="40"
+            grid-left="50"
             grid-right="20"
             :item-color="$color.yellow"
             :label-color="$color.bg"
@@ -47,7 +47,7 @@
           <ChartLineBase
             ref="box-line-base-4-g-c"
             title-text="lineBase"
-            grid-left="40"
+            grid-left="50"
             grid-right="20"
             :item-color="$color.pink"
             :label-color="'#FFF'"
