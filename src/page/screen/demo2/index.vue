@@ -97,25 +97,6 @@
           </ChartBarBase>
         </div>
       </div>
-      <!-- col -->
-      <div class="flex-item grow flex-group col">
-        <div ref="box-big-5-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarBase
-            ref="box-big-5-g-c"
-            title-text="barBase"
-            :series-color="$color.orange"
-            @mounted="mountedChartNum ++">
-          </ChartBarBase>
-        </div>
-        <div ref="box-big-6-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarBase
-            ref="box-big-6-g-c"
-            title-text="barBase"
-            :series-color="$color.pink"
-            @mounted="mountedChartNum ++">
-          </ChartBarBase>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -126,7 +107,15 @@ export default {
     return {
       boxs: [],
       mountedChartNum: 0,
-      needMountedChartNum: 11
+      needMountedChartNum: 0
+    }
+  },
+  mounted () {
+    // 注册有多少个图表容器
+    for (const name in this.$refs) {
+      if (/^box-[a-zA-Z0-9-]+-g$/.test(name)) {
+        this.needMountedChartNum++
+      }
     }
   },
   watch: {
