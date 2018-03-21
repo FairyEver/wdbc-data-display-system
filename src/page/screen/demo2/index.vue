@@ -39,15 +39,6 @@
           <ChartBarBase ref="box8chart" v-bind="setting.box8chart" @mounted="handleChartMounted"></ChartBarBase>
         </div>
       </div>
-      <!-- col -->
-      <div class="flex-item grow flex-group col">
-        <div ref="box9" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarBase ref="box9chart" v-bind="setting.box9chart" @mounted="handleChartMounted"></ChartBarBase>
-        </div>
-        <div ref="box10" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarBase ref="box10chart" v-bind="setting.box10chart" @mounted="handleChartMounted"></ChartBarBase>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -58,7 +49,7 @@ export default {
     return {
       boxs: [],
       mountedChartNum: 0,
-      needMountedChartNum: 10,
+      needMountedChartNum: 8,
       // 图表设置
       setting: {
         box1chart: {
@@ -124,22 +115,6 @@ export default {
         box8chart: {
           titleText: 'barDemo',
           seriesColor: this.$color.green,
-          url: 'x.mock',
-          ajaxData: {
-            name: 'your data'
-          }
-        },
-        box9chart: {
-          titleText: 'barDemo',
-          seriesColor: this.$color.orange,
-          url: 'x.mock',
-          ajaxData: {
-            name: 'your data'
-          }
-        },
-        box10chart: {
-          titleText: 'barDemo',
-          seriesColor: this.$color.pink,
           url: 'x.mock',
           ajaxData: {
             name: 'your data'

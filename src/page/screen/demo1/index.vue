@@ -7,16 +7,44 @@
     <!-- row -->
     <div class="flex-item flex-group row" style="height: 120px; padding: 5px;">
       <div ref="box1" class="flex-item grow hov" style="margin: 5px;">
-        <ChartCountStyle1 ref="box1chart" v-bind="setting.box1chart" @mounted="handleChartMounted"></ChartCountStyle1>
+        <ChartCountStyle1
+          ref="box1chart"
+          title-text="count"
+          sub-title-text="count style1"
+          url="x.mock"
+          :num-color="$color.cyan"
+          @mounted="handleChartMounted">
+        </ChartCountStyle1>
       </div>
       <div ref="box2" class="flex-item grow hov" style="margin: 5px;">
-        <ChartCountStyle1 ref="box2chart" v-bind="setting.box2chart" @mounted="handleChartMounted"></ChartCountStyle1>
+        <ChartCountStyle1
+          ref="box2chart"
+          title-text="count"
+          sub-title-text="count style1"
+          url="x.mock"
+          :num-color="$color.pink"
+          @mounted="handleChartMounted">
+        </ChartCountStyle1>
       </div>
       <div ref="box3" class="flex-item grow hov" style="margin: 5px;">
-        <ChartCountStyle1 ref="box3chart" v-bind="setting.box3chart" @mounted="handleChartMounted"></ChartCountStyle1>
+        <ChartCountStyle1
+          ref="box3chart"
+          title-text="count"
+          sub-title-text="count style1"
+          url="x.mock"
+          :num-color="$color.green"
+          @mounted="handleChartMounted">
+        </ChartCountStyle1>
       </div>
       <div ref="box4" class="flex-item grow hov" style="margin: 5px;">
-        <ChartCountStyle1 ref="box4chart" v-bind="setting.box4chart" @mounted="handleChartMounted"></ChartCountStyle1>
+        <ChartCountStyle1
+          ref="box4chart"
+          title-text="count"
+          sub-title-text="count style1"
+          url="x.mock"
+          :num-color="$color.orange"
+          @mounted="handleChartMounted">
+        </ChartCountStyle1>
       </div>
     </div>
     <!-- row -->
