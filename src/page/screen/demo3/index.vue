@@ -7,9 +7,9 @@
     <div class="flex-item grow flex-group row">
       <!-- col -->
       <div class="flex-item flex-group col" style="width: 300px;">
-        <div ref="box-small-1-g" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-count-style1-1-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartCountStyle1
-            ref="box-small-1-g-c"
+            ref="box-count-style1-1-g-c"
             title-text="count"
             sub-title-text="count style1"
             title-size="34"
@@ -20,9 +20,9 @@
             @mounted="mountedChartNum ++">
           </ChartCountStyle1>
         </div>
-        <div ref="box-small-2-g" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-count-style1-2-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartCountStyle1
-            ref="box-small-2-g-c"
+            ref="box-count-style1-2-g-c"
             title-text="count"
             sub-title-text="count style1"
             title-size="34"
@@ -33,9 +33,9 @@
             @mounted="mountedChartNum ++">
           </ChartCountStyle1>
         </div>
-        <div ref="box-small-3-g" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-count-style1-3-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartCountStyle1
-            ref="box-small-3-g-c"
+            ref="box-count-style1-3-g-c"
             title-text="count"
             sub-title-text="count style1"
             title-size="34"
@@ -46,9 +46,9 @@
             @mounted="mountedChartNum ++">
           </ChartCountStyle1>
         </div>
-        <div ref="box-small-4-g" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-count-style1-4-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartCountStyle1
-            ref="box-small-4-g-c"
+            ref="box-count-style1-4-g-c"
             title-text="count"
             sub-title-text="count style1"
             title-size="34"
@@ -59,9 +59,9 @@
             @mounted="mountedChartNum ++">
           </ChartCountStyle1>
         </div>
-        <div ref="box-small-5-g" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-count-style1-5-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartCountStyle1
-            ref="box-small-5-g-c"
+            ref="box-count-style1-5-g-c"
             title-text="count"
             sub-title-text="count style1"
             title-size="34"
@@ -75,9 +75,9 @@
       </div>
       <!-- col -->
       <div class="flex-item grow flex-group col">
-        <div ref="box-big-1-g" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-bar-base-1-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
-            ref="box-big-1-g-c"
+            ref="box-bar-base-1-g-c"
             title-text="barBase"
             grid-left="50"
             grid-right="20"
@@ -85,9 +85,9 @@
             @mounted="mountedChartNum ++">
           </ChartBarBase>
         </div>
-        <div ref="box-big-2-g" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-bar-base-2-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
-            ref="box-big-2-g-c"
+            ref="box-bar-base-2-g-c"
             title-text="barBase"
             grid-left="40"
             grid-right="20"
@@ -98,9 +98,9 @@
       </div>
       <!-- col -->
       <div class="flex-item grow flex-group col">
-        <div ref="box-big-3-g" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-bar-base-3-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
-            ref="box-big-3-g-c"
+            ref="box-bar-base-3-g-c"
             title-text="barBase"
             grid-left="50"
             grid-right="20"
@@ -108,9 +108,9 @@
             @mounted="mountedChartNum ++">
           </ChartBarBase>
         </div>
-        <div ref="box-big-4-g" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-bar-base-4-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
-            ref="box-big-4-g-c"
+            ref="box-bar-base-4-g-c"
             title-text="barBase"
             grid-left="40"
             grid-right="20"

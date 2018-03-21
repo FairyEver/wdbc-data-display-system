@@ -1,4 +1,5 @@
 export default {
+  bg: '#04243E',
   cyan: '#00FCFF',
   yellow: '#FFF400',
   red: '#FF0000',

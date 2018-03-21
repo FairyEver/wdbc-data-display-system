@@ -29,7 +29,8 @@ export default {
     yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
     yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
     // series
-    lineColor: {type: String, required: false, default: '#0F3551'}
+    itemColor: {type: String, required: false, default: '#0F3551'},
+    labelColor: {type: String, required: false, default: '#FFF'}
   },
   data () {
     return {
@@ -91,9 +92,12 @@ export default {
         series: [
           {
             type: 'line',
-            lineStyle: {
-              color: this.lineColor
+            smooth: 0.3,
+            itemStyle: {
+              color: this.itemColor
             },
+            symbol: 'circle',
+            symbolSize: 6,
             areaStyle: {
               color: {
                 type: 'linear',
@@ -103,20 +107,31 @@ export default {
                 y2: 1,
                 colorStops: [
                   {
-                    offset: 0, color: this.$toRGB(this.lineColor) // 0% 处的颜色
+                    offset: 0, color: this.$toRGB(this.itemColor)
                   }, {
-                    offset: 1, color: this.$toRGB(this.lineColor, 0) // 100% 处的颜色
+                    offset: 1, color: this.$toRGB(this.itemColor, 0)
                   }
                 ],
-                globalCoord: false // 缺省为 false
+                globalCoord: false
               }
             },
             label: {
               normal: {
                 show: true,
-                position: 'top'
+                position: 'top',
+                distance: '10',
+                color: this.labelColor,
+                backgroundColor: this.itemColor,
+                padding: [3, 6],
+                borderRadius: 2
               }
             },
+            // emphasis: {
+            //   itemStyle: {
+            //     color: '#FFF',
+            //     borderColor: '#000'
+            //   }
+            // },
             data: []
           }
         ]
