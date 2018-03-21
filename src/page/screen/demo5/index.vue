@@ -12,7 +12,7 @@
             ref="box-pie-base-1-g-c"
             title-text="pieBase"
             :item-color="$color.cyan"
-            @mounted="mountedChartNum ++">
+            @mounted="mountedChartNum++">
           </ChartPieBase>
         </div>
         <div ref="box-pie-base-2-g" class="flex-item grow hov" style="margin: 5px;">
@@ -20,7 +20,7 @@
             ref="box-pie-base-2-g-c"
             title-text="pieBase"
             :item-color="$color.yellow"
-            @mounted="mountedChartNum ++">
+            @mounted="mountedChartNum++">
           </ChartPieBase>
         </div>
       </div>
@@ -31,7 +31,7 @@
             ref="box-pie-base-3-g-c"
             title-text="pieBase"
             :item-color="$color.green"
-            @mounted="mountedChartNum ++">
+            @mounted="mountedChartNum++">
           </ChartPieBase>
         </div>
         <div ref="box-pie-base-4-g" class="flex-item grow hov" style="margin: 5px;">
@@ -39,7 +39,26 @@
             ref="box-pie-base-4-g-c"
             title-text="pieBase"
             :item-color="$color.pink"
-            @mounted="mountedChartNum ++">
+            @mounted="mountedChartNum++">
+          </ChartPieBase>
+        </div>
+      </div>
+      <!-- col -->
+      <div class="flex-item grow flex-group col">
+        <div ref="box-pie-base-5-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartPieBase
+            ref="box-pie-base-5-g-c"
+            title-text="pieBase"
+            :item-color="$color.green"
+            @mounted="mountedChartNum++">
+          </ChartPieBase>
+        </div>
+        <div ref="box-pie-base-6-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartPieBase
+            ref="box-pie-base-6-g-c"
+            title-text="pieBase"
+            :item-color="$color.pink"
+            @mounted="mountedChartNum++">
           </ChartPieBase>
         </div>
       </div>

@@ -15,7 +15,7 @@
             grid-right="20"
             :item-color="$color.cyan"
             :label-color="$color.bg"
-            @mounted="mountedChartNum ++">
+            @mounted="mountedChartNum++">
           </ChartLineBase>
         </div>
         <div ref="box-line-base-2-g" class="flex-item grow hov" style="margin: 5px;">
@@ -26,7 +26,7 @@
             grid-right="20"
             :item-color="$color.yellow"
             :label-color="$color.bg"
-            @mounted="mountedChartNum ++">
+            @mounted="mountedChartNum++">
           </ChartLineBase>
         </div>
       </div>
@@ -40,7 +40,7 @@
             grid-right="20"
             :item-color="$color.green"
             :label-color="$color.bg"
-            @mounted="mountedChartNum ++">
+            @mounted="mountedChartNum++">
           </ChartLineBase>
         </div>
         <div ref="box-line-base-4-g" class="flex-item grow hov" style="margin: 5px;">
@@ -51,7 +51,7 @@
             grid-right="20"
             :item-color="$color.pink"
             :label-color="'#FFF'"
-            @mounted="mountedChartNum ++">
+            @mounted="mountedChartNum++">
           </ChartLineBase>
         </div>
       </div>

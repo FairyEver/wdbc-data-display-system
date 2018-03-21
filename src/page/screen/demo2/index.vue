@@ -16,7 +16,7 @@
           num-size="54"
           url="x.mock"
           :num-color="$color.cyan"
-          @mounted="mountedChartNum ++">
+          @mounted="mountedChartNum++">
         </ChartCountStyle1>
       </div>
       <div ref="box-count-style1-2-g" class="flex-item grow hov" style="margin: 5px;">
@@ -29,7 +29,7 @@
           num-size="54"
           url="x.mock"
           :num-color="$color.pink"
-          @mounted="mountedChartNum ++">
+          @mounted="mountedChartNum++">
         </ChartCountStyle1>
       </div>
       <div ref="box-count-style1-3-g" class="flex-item grow hov" style="margin: 5px;">
@@ -42,7 +42,7 @@
           num-size="54"
           url="x.mock"
           :num-color="$color.green"
-          @mounted="mountedChartNum ++">
+          @mounted="mountedChartNum++">
         </ChartCountStyle1>
       </div>
       <div ref="box-count-style1-4-g" class="flex-item grow hov" style="margin: 5px;">
@@ -55,7 +55,7 @@
           num-size="54"
           url="x.mock"
           :num-color="$color.orange"
-          @mounted="mountedChartNum ++">
+          @mounted="mountedChartNum++">
         </ChartCountStyle1>
       </div>
       <div ref="box-count-style1-5-g" class="flex-item grow hov" style="margin: 5px;">
@@ -68,7 +68,7 @@
           num-size="54"
           url="x.mock"
           :num-color="$color.red"
-          @mounted="mountedChartNum ++">
+          @mounted="mountedChartNum++">
         </ChartCountStyle1>
       </div>
     </div>
@@ -83,7 +83,7 @@
             grid-left="50"
             grid-right="20"
             :series-color="$color.cyan"
-            @mounted="mountedChartNum ++">
+            @mounted="mountedChartNum++">
           </ChartBarBase>
         </div>
         <div ref="box-bar-base-2-g" class="flex-item grow hov" style="margin: 5px;">
@@ -93,7 +93,7 @@
             grid-left="40"
             grid-right="20"
             :series-color="$color.yellow"
-            @mounted="mountedChartNum ++">
+            @mounted="mountedChartNum++">
           </ChartBarBase>
         </div>
       </div>
@@ -106,7 +106,7 @@
             grid-left="40"
             grid-right="20"
             :series-color="$color.red"
-            @mounted="mountedChartNum ++">
+            @mounted="mountedChartNum++">
           </ChartBarBase>
         </div>
         <div ref="box-bar-base-4-g" class="flex-item grow hov" style="margin: 5px;">
@@ -116,7 +116,7 @@
             grid-left="40"
             grid-right="20"
             :series-color="$color.green"
-            @mounted="mountedChartNum ++">
+            @mounted="mountedChartNum++">
           </ChartBarBase>
         </div>
       </div>
