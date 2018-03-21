@@ -29,7 +29,7 @@ export default {
     yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
     yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
     // series
-    seriesColor: {type: String, required: false, default: '#0F3551'}
+    lineColor: {type: String, required: false, default: '#0F3551'}
   },
   data () {
     return {
@@ -91,8 +91,25 @@ export default {
         series: [
           {
             type: 'line',
-            itemStyle: {
-              color: this.seriesColor
+            lineStyle: {
+              color: this.lineColor
+            },
+            areaStyle: {
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0, color: this.$toRGB(this.lineColor) // 0% 处的颜色
+                  }, {
+                    offset: 1, color: this.$toRGB(this.lineColor, 0) // 100% 处的颜色
+                  }
+                ],
+                globalCoord: false // 缺省为 false
+              }
             },
             label: {
               normal: {

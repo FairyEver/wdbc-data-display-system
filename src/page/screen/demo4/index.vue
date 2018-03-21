@@ -13,7 +13,7 @@
             title-text="lineBase"
             grid-left="50"
             grid-right="20"
-            :series-color="$color.cyan"
+            :line-color="$color.cyan"
             @mounted="mountedChartNum ++">
           </ChartLineBase>
         </div>
@@ -23,7 +23,7 @@
             title-text="lineBase"
             grid-left="40"
             grid-right="20"
-            :series-color="$color.yellow"
+            :line-color="$color.yellow"
             @mounted="mountedChartNum ++">
           </ChartLineBase>
         </div>
@@ -36,7 +36,7 @@
             title-text="lineBase"
             grid-left="50"
             grid-right="20"
-            :series-color="$color.green"
+            :line-color="$color.green"
             @mounted="mountedChartNum ++">
           </ChartLineBase>
         </div>
@@ -46,7 +46,7 @@
             title-text="lineBase"
             grid-left="40"
             grid-right="20"
-            :series-color="$color.pink"
+            :line-color="$color.pink"
             @mounted="mountedChartNum ++">
           </ChartLineBase>
         </div>

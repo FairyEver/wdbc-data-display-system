@@ -16,6 +16,30 @@ Vue.prototype.$http = axios
 
 Vue.prototype.$color = color
 
+Vue.prototype.$toRGB = (color, rgba = null) => {
+  var sColor = color.toLowerCase()
+  var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/
+  if (sColor && reg.test(sColor)) {
+    if (sColor.length === 4) {
+      var sColorNew = '#'
+      for (var i = 1; i < 4; i += 1) {
+        sColorNew += sColor.slice(i, i + 1).concat(sColor.slice(i, i + 1))
+      }
+      sColor = sColorNew
+    }
+    var sColorChange = []
+    for (var a = 1; a < 7; a += 2) {
+      sColorChange.push(parseInt('0x' + sColor.slice(a, a + 2)))
+    }
+    if (rgba !== null) {
+      return `rgba(${[...sColorChange, rgba].join(',')})`
+    } else {
+      return `rgb(${sColorChange.join(',')})`
+    }
+  }
+  return sColor
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
