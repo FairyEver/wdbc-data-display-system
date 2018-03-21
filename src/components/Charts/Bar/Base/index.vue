@@ -18,6 +18,7 @@ export default {
     }
   },
   computed: {
+    // 容器样式
     style () {
       return {
         height: `${this.height}px`,

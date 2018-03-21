@@ -4,9 +4,7 @@
       <p class="title">{{titleText}}</p>
       <p class="sub-title">{{subTitleText}}</p>
     </div>
-    <div class="num-group" :style="styleNumGroup">
-      233
-    </div>
+    <div class="num-group" :style="styleNumGroup">233</div>
   </div>
 </template>
 
@@ -26,12 +24,14 @@ export default {
     }
   },
   computed: {
+    // 容器样式
     style () {
       return {
         height: `${this.height}px`,
         width: `${this.width}px`
       }
     },
+    // 数字容器样式
     styleNumGroup () {
       return {
         color: this.itemColor
@@ -46,7 +46,7 @@ export default {
     getData () {
       return new Promise(async (resolve, reject) => {
         const res = await this.$http.post(this.url, {
-          type: 2,
+          type: 1,
           ...this.ajaxData
         })
         resolve(res.data.list)
@@ -63,7 +63,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .chart-count-style-1 {
   display: flex;
   justify-content: center;

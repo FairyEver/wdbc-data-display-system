@@ -1,4 +1,5 @@
 import echarts from 'echarts'
+import countup from 'countup.js'
 export default {
   props: {
     // 标题
@@ -30,13 +31,13 @@ export default {
       required: false,
       default: 3000
     },
-    // 图表的颜色
+    // 图表的颜色 主体颜色
     itemColor: {
       type: String,
       required: false,
       default: '#FFF'
     },
-    // grid
+    // grid 设置
     gridTop: {
       type: String,
       required: false,
@@ -60,8 +61,13 @@ export default {
   },
   data () {
     return {
+      // 库
       echarts,
-      chart: null
+      countup,
+      // 图表对象
+      chart: null,
+      // 数字动画对象
+      countupObj: null
     }
   },
   methods: {
