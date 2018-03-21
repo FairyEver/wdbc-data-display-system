@@ -1,14 +1,14 @@
 <template>
   <div class="container flex-group col">
     <div class="flex-item flex-group col center screen-header" style="height: 80px;">
-      <p class="title">第2个页面</p>
-      <p class="sub-title">第2个页面的小标题</p>
+      <p class="title">第一个页面</p>
+      <p class="sub-title">第一个页面的小标题</p>
     </div>
     <!-- row -->
     <div class="flex-item flex-group row" style="height: 120px; padding: 5px;">
-      <div ref="box1" class="flex-item grow hov" style="margin: 5px;">
+      <div ref="box-small-1-g" class="flex-item grow hov" style="margin: 5px;">
         <ChartCountStyle1
-          ref="box1chart"
+          ref="box-small-1-g-c"
           title-text="count"
           sub-title-text="count style1"
           url="x.mock"
@@ -16,9 +16,9 @@
           @mounted="mountedChartNum ++">
         </ChartCountStyle1>
       </div>
-      <div ref="box2" class="flex-item grow hov" style="margin: 5px;">
+      <div ref="box-small-2-g" class="flex-item grow hov" style="margin: 5px;">
         <ChartCountStyle1
-          ref="box2chart"
+          ref="box-small-2-g-c"
           title-text="count"
           sub-title-text="count style1"
           url="x.mock"
@@ -26,9 +26,9 @@
           @mounted="mountedChartNum ++">
         </ChartCountStyle1>
       </div>
-      <div ref="box3" class="flex-item grow hov" style="margin: 5px;">
+      <div ref="box-small-3-g" class="flex-item grow hov" style="margin: 5px;">
         <ChartCountStyle1
-          ref="box3chart"
+          ref="box-small-3-g-c"
           title-text="count"
           sub-title-text="count style1"
           url="x.mock"
@@ -36,9 +36,9 @@
           @mounted="mountedChartNum ++">
         </ChartCountStyle1>
       </div>
-      <div ref="box4" class="flex-item grow hov" style="margin: 5px;">
+      <div ref="box-small-4-g" class="flex-item grow hov" style="margin: 5px;">
         <ChartCountStyle1
-          ref="box4chart"
+          ref="box-small-4-g-c"
           title-text="count"
           sub-title-text="count style1"
           url="x.mock"
@@ -46,9 +46,9 @@
           @mounted="mountedChartNum ++">
         </ChartCountStyle1>
       </div>
-      <div ref="box12" class="flex-item grow hov" style="margin: 5px;">
+      <div ref="box-small-5-g" class="flex-item grow hov" style="margin: 5px;">
         <ChartCountStyle1
-          ref="box12chart"
+          ref="box-small-5-g-c"
           title-text="count"
           sub-title-text="count style1"
           url="x.mock"
@@ -61,17 +61,17 @@
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
       <!-- col -->
       <div class="flex-item grow flex-group col">
-        <div ref="box5" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-big-1-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
-            ref="box5chart"
+            ref="box-big-1-g-c"
             title-text="barBase"
             :series-color="$color.cyan"
             @mounted="mountedChartNum ++">
           </ChartBarBase>
         </div>
-        <div ref="box6" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-big-2-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
-            ref="box6chart"
+            ref="box-big-2-g-c"
             title-text="barBase"
             :series-color="$color.yellow"
             @mounted="mountedChartNum ++">
@@ -80,17 +80,17 @@
       </div>
       <!-- col -->
       <div class="flex-item grow flex-group col">
-        <div ref="box7" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-big-3-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
-            ref="box7chart"
+            ref="box-big-3-g-c"
             title-text="barBase"
             :series-color="$color.red"
             @mounted="mountedChartNum ++">
           </ChartBarBase>
         </div>
-        <div ref="box8" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-big-4-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
-            ref="box8chart"
+            ref="box-big-4-g-c"
             title-text="barBase"
             :series-color="$color.green"
             @mounted="mountedChartNum ++">
@@ -99,17 +99,17 @@
       </div>
       <!-- col -->
       <div class="flex-item grow flex-group col">
-        <div ref="box9" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-big-5-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
-            ref="box9chart"
+            ref="box-big-5-g-c"
             title-text="barBase"
             :series-color="$color.orange"
             @mounted="mountedChartNum ++">
           </ChartBarBase>
         </div>
-        <div ref="box10" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-big-6-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
-            ref="box10chart"
+            ref="box-big-6-g-c"
             title-text="barBase"
             :series-color="$color.pink"
             @mounted="mountedChartNum ++">
@@ -141,9 +141,8 @@ export default {
     // 初始化
     init () {
       for (const name in this.$refs) {
-        const box = /box\d+/
-        if (box.test(name)) {
-          const chart = this.$refs[`${name}chart`]
+        if (/^box-[a-zA-Z0-9-]+-g$/.test(name)) {
+          const chart = this.$refs[`${name}-c`]
           if (!chart) {
             return
           }

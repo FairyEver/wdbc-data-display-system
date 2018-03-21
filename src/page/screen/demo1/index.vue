@@ -131,11 +131,8 @@ export default {
     // 初始化
     init () {
       for (const name in this.$refs) {
-        const box = /^box-[a-zA-Z0-9-]+-g$/
-        console.log(name)
-        if (box.test(name)) {
+        if (/^box-[a-zA-Z0-9-]+-g$/.test(name)) {
           const chart = this.$refs[`${name}-c`]
-          console.log(chart)
           if (!chart) {
             return
           }
