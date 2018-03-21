@@ -11,7 +11,7 @@
           <ChartPieBase
             ref="box-pie-base-1-g-c"
             title-text="pieBase"
-            :item-color="$color.cyan"
+            :color="$color.group1"
             @mounted="mountedChartNum++">
           </ChartPieBase>
         </div>
@@ -19,7 +19,7 @@
           <ChartPieBase
             ref="box-pie-base-2-g-c"
             title-text="pieBase"
-            :item-color="$color.yellow"
+            :color="$color.group1"
             @mounted="mountedChartNum++">
           </ChartPieBase>
         </div>
@@ -30,7 +30,7 @@
           <ChartPieBase
             ref="box-pie-base-3-g-c"
             title-text="pieBase"
-            :item-color="$color.green"
+            :color="$color.group1"
             @mounted="mountedChartNum++">
           </ChartPieBase>
         </div>
@@ -38,7 +38,7 @@
           <ChartPieBase
             ref="box-pie-base-4-g-c"
             title-text="pieBase"
-            :item-color="$color.pink"
+            :color="$color.group1"
             @mounted="mountedChartNum++">
           </ChartPieBase>
         </div>
@@ -49,7 +49,7 @@
           <ChartPieBase
             ref="box-pie-base-5-g-c"
             title-text="pieBase"
-            :item-color="$color.green"
+            :color="$color.group1"
             @mounted="mountedChartNum++">
           </ChartPieBase>
         </div>
@@ -58,6 +58,7 @@
             ref="box-pie-base-6-g-c"
             title-text="pieBase"
             :item-color="$color.pink"
+            :color="$color.group1"
             @mounted="mountedChartNum++">
           </ChartPieBase>
         </div>
