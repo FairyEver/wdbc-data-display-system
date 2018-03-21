@@ -4,7 +4,7 @@
       <p class="title">页面标题</p>
       <p class="sub-title">页面小标题</p>
     </div>
-    <!-- TOP -->
+    <!-- row -->
     <div class="flex-item flex-group row" style="height: 120px; padding: 5px;">
       <div ref="box1" class="flex-item grow hov" style="margin: 5px;">
         <ChartCountStyle1 ref="box1chart" v-bind="setting.box1chart" @mounted="handleChartMounted"></ChartCountStyle1>
@@ -19,7 +19,9 @@
         <ChartCountStyle1 ref="box4chart" v-bind="setting.box4chart" @mounted="handleChartMounted"></ChartCountStyle1>
       </div>
     </div>
+    <!-- row -->
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
+      <!-- col -->
       <div class="flex-item grow flex-group col">
         <div ref="box5" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase ref="box5chart" v-bind="setting.box5chart" @mounted="handleChartMounted"></ChartBarBase>
@@ -28,6 +30,7 @@
           <ChartBarBase ref="box6chart" v-bind="setting.box6chart" @mounted="handleChartMounted"></ChartBarBase>
         </div>
       </div>
+      <!-- col -->
       <div class="flex-item grow flex-group col">
         <div ref="box7" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase ref="box7chart" v-bind="setting.box7chart" @mounted="handleChartMounted"></ChartBarBase>
@@ -36,6 +39,7 @@
           <ChartBarBase ref="box8chart" v-bind="setting.box8chart" @mounted="handleChartMounted"></ChartBarBase>
         </div>
       </div>
+      <!-- col -->
       <div class="flex-item grow flex-group col">
         <div ref="box9" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase ref="box9chart" v-bind="setting.box9chart" @mounted="handleChartMounted"></ChartBarBase>
@@ -62,7 +66,7 @@ export default {
           seriesColor: this.$color.cyan,
           url: 'x.mock',
           ajaxData: {
-            name: 'name'
+            name: 'your data'
           }
         },
         box2chart: {
@@ -71,7 +75,7 @@ export default {
           seriesColor: this.$color.pink,
           url: 'x.mock',
           ajaxData: {
-            name: 'name'
+            name: 'your data'
           }
         },
         box3chart: {
@@ -80,7 +84,7 @@ export default {
           seriesColor: this.$color.green,
           url: 'x.mock',
           ajaxData: {
-            name: 'name'
+            name: 'your data'
           }
         },
         box4chart: {
@@ -89,7 +93,7 @@ export default {
           seriesColor: this.$color.orange,
           url: 'x.mock',
           ajaxData: {
-            name: 'name'
+            name: 'your data'
           }
         },
         box5chart: {
@@ -97,7 +101,7 @@ export default {
           seriesColor: this.$color.cyan,
           url: 'x.mock',
           ajaxData: {
-            name: 'name'
+            name: 'your data'
           }
         },
         box6chart: {
@@ -105,7 +109,7 @@ export default {
           seriesColor: this.$color.yellow,
           url: 'x.mock',
           ajaxData: {
-            name: 'name'
+            name: 'your data'
           }
         },
         box7chart: {
@@ -113,7 +117,7 @@ export default {
           seriesColor: this.$color.red,
           url: 'x.mock',
           ajaxData: {
-            name: 'name'
+            name: 'your data'
           }
         },
         box8chart: {
@@ -121,7 +125,7 @@ export default {
           seriesColor: this.$color.green,
           url: 'x.mock',
           ajaxData: {
-            name: 'name'
+            name: 'your data'
           }
         },
         box9chart: {
@@ -129,7 +133,7 @@ export default {
           seriesColor: this.$color.orange,
           url: 'x.mock',
           ajaxData: {
-            name: 'name'
+            name: 'your data'
           }
         },
         box10chart: {
@@ -137,13 +141,14 @@ export default {
           seriesColor: this.$color.pink,
           url: 'x.mock',
           ajaxData: {
-            name: 'name'
+            name: 'your data'
           }
         }
       }
     }
   },
   watch: {
+    // 监视已经完成初始化的图表数量
     mountedChartNum (num) {
       if (num === this.needMountedChartNum) {
         this.init()
@@ -151,9 +156,11 @@ export default {
     }
   },
   methods: {
+    // 图表mounted回调
     handleChartMounted () {
       this.mountedChartNum += 1
     },
+    // 初始化
     init () {
       // 获取所有的box
       for (const name in this.$refs) {
@@ -164,12 +171,16 @@ export default {
       }
       this.boxs.forEach(box => {
         const chart = this.$refs[`${box}chart`]
-        if (chart) {
-          chart.init({
-            height: this.$refs[box].offsetHeight,
-            width: this.$refs[box].offsetWidth
-          })
+        if (!chart) {
+          return
         }
+        if (!chart.init) {
+          return
+        }
+        chart.init({
+          height: this.$refs[box].offsetHeight,
+          width: this.$refs[box].offsetWidth
+        })
       })
     }
   }
