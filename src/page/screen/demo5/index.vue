@@ -6,7 +6,7 @@
     </div>
     <div class="flex-item grow flex-group row">
       <!-- col -->
-      <div class="flex-item grow flex-group col">
+      <div class="flex-item flex-group col" style="width: 33%;">
         <div ref="box-pie-base-1-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartPieBase
             ref="box-pie-base-1-g-c"
@@ -31,34 +31,7 @@
             ref="box-pie-base-3-g-c"
             title-text="pieBase"
             :color="$color.group1"
-            @mounted="mountedChartNum++">
-          </ChartPieBase>
-        </div>
-        <div ref="box-pie-base-4-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartPieBase
-            ref="box-pie-base-4-g-c"
-            title-text="pieBase"
-            :color="$color.group1"
-            @mounted="mountedChartNum++">
-          </ChartPieBase>
-        </div>
-      </div>
-      <!-- col -->
-      <div class="flex-item grow flex-group col">
-        <div ref="box-pie-base-5-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartPieBase
-            ref="box-pie-base-5-g-c"
-            title-text="pieBase"
-            :color="$color.group1"
-            @mounted="mountedChartNum++">
-          </ChartPieBase>
-        </div>
-        <div ref="box-pie-base-6-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartPieBase
-            ref="box-pie-base-6-g-c"
-            title-text="pieBase"
-            :item-color="$color.pink"
-            :color="$color.group1"
+            :radius="['50%', '80%']"
             @mounted="mountedChartNum++">
           </ChartPieBase>
         </div>

@@ -19,6 +19,8 @@ export default {
     ajaxData: {type: Object, required: false, default: () => ({})},
     // 发送请求的间隔
     interval: {type: Number, required: false, default: 10000},
+    // 半径
+    radius: {type: Array, required: false, default: () => ['40%', '60%']},
     // 颜色选项
     color: {type: Array, required: false, default: () => []}
   },
@@ -53,7 +55,7 @@ export default {
         series: [
           {
             type: 'pie',
-            radius: ['40%', '60%'],
+            radius: this.radius,
             avoidLabelOverlap: false,
             data: []
           }
