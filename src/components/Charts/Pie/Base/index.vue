@@ -51,7 +51,7 @@ export default {
         series: [
           {
             type: 'pie',
-            radius: ['50%', '70%'],
+            radius: ['40%', '60%'],
             avoidLabelOverlap: false,
             data: []
           }
