@@ -53,8 +53,7 @@ export default {
       return {
         series: [
           {
-            name:'访问来源',
-            type:'pie',
+            type: 'pie',
             radius: ['50%', '70%'],
             avoidLabelOverlap: false,
             label: {
@@ -75,7 +74,7 @@ export default {
                 show: false
               }
             },
-            data:[]
+            data: []
           }
         ]
       }
