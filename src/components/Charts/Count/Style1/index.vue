@@ -4,7 +4,7 @@
       <p class="title">{{titleText}}</p>
       <p class="sub-title">{{subTitleText}}</p>
     </div>
-    <div class="num-group" :style="styleNumGroup">233</div>
+    <div ref="num" class="num-group" :style="styleNumGroup">233</div>
   </div>
 </template>
 
@@ -56,7 +56,8 @@ export default {
     init ({height, width}) {
       this.updateSize(height, width)
         .then(async () => {
-          console.log('Hello')
+          console.log(height)
+          console.log(width)
         })
     }
   }

@@ -1,5 +1,6 @@
 import echarts from 'echarts'
-import countup from 'countup.js'
+import CountUp from 'countup.js'
+// https://github.com/inorganik/CountUp.js
 export default {
   props: {
     // 标题
@@ -63,7 +64,7 @@ export default {
     return {
       // 库
       echarts,
-      countup,
+      CountUp,
       // 图表对象
       chart: null,
       // 数字动画对象
