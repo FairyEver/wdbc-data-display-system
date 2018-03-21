@@ -4,7 +4,7 @@
       <p class="title" :style="styleTitle">{{titleText}}</p>
       <p class="sub-title" :style="styleSubTitle">{{subTitleText}}</p>
     </div>
-    <div class="num-group" :style="styleNumGroup">
+    <div class="num-group" :style="styleNum">
       <span ref="num"></span>
     </div>
   </div>
@@ -24,6 +24,8 @@ export default {
     subTitleText: {type: String, required: false, default: 'Chart'},
     subTitleColor: {type: String, required: false, default: '#FFF'},
     subTitleSize: {type: String, required: false, default: '20'},
+    // 数字
+    numSize: {type: String, required: false, default: '70'},
     // 接口地址
     url: {type: String, required: false, default: 'x.mock'},
     // 发送请求的时候带的参数
@@ -52,22 +54,24 @@ export default {
     },
     styleTitle () {
       return {
-        'color': `${this.titleColor}px`,
+        'color': this.titleColor,
         'fontSize': `${this.titleSize}px`,
         'lineHeight': `${this.titleSize}px`
       }
     },
     styleSubTitle () {
       return {
-        'color': `${this.subTitleColor}px`,
+        'color': this.subTitleColor,
         'fontSize': `${this.subTitleSize}px`,
         'lineHeight': `${this.subTitleSize}px`
       }
     },
-    // 数字容器样式
-    styleNumGroup () {
+    // 数字样式
+    styleNum () {
       return {
-        color: this.seriesColor
+        color: this.seriesColor,
+        'fontSize': `${this.numSize}px`,
+        'lineHeight': `${this.numSize}px`
       }
     }
   },
@@ -124,8 +128,6 @@ export default {
   }
   .num-group {
     width: 50%;
-    font-size: 70px;
-    line-height: 70px;
   }
 }
 </style>
