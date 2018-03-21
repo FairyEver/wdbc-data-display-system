@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex-group col">
+  <div class="container flex-group col abs-full">
     <div class="flex-item flex-group col center screen-header" style="height: 80px;">
       <p class="title">第一个页面</p>
       <p class="sub-title">第一个页面的小标题</p>
@@ -11,7 +11,6 @@
           ref="box-small-1-g-c"
           title-text="count"
           sub-title-text="count style1"
-          url="x.mock"
           :num-color="$color.cyan"
           @mounted="mountedChartNum++">
         </ChartCountStyle1>
@@ -21,7 +20,6 @@
           ref="box-small-2-g-c"
           title-text="count"
           sub-title-text="count style1"
-          url="x.mock"
           :num-color="$color.pink"
           @mounted="mountedChartNum++">
         </ChartCountStyle1>
@@ -31,7 +29,6 @@
           ref="box-small-3-g-c"
           title-text="count"
           sub-title-text="count style1"
-          url="x.mock"
           :num-color="$color.green"
           @mounted="mountedChartNum++">
         </ChartCountStyle1>
@@ -41,7 +38,6 @@
           ref="box-small-4-g-c"
           title-text="count"
           sub-title-text="count style1"
-          url="x.mock"
           :num-color="$color.orange"
           @mounted="mountedChartNum++">
         </ChartCountStyle1>

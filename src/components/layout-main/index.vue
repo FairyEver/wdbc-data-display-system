@@ -1,7 +1,9 @@
 <template>
   <div class="layout-main">
     <div class="layout-main__main">
-      <router-view></router-view>
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
     </div>
     <div v-if="dashboard" class="layout-main__dashboard">
       <div>

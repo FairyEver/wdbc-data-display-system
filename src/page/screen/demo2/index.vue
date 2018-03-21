@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex-group col">
+  <div class="container flex-group col abs-full">
     <div class="flex-item flex-group col center screen-header" style="height: 80px;">
       <p class="title">演示页面二</p>
       <p class="sub-title">第二个页面的小标题</p>

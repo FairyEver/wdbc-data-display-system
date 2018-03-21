@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex-group col">
+  <div class="container flex-group col abs-full">
     <div class="flex-item flex-group col center screen-header" style="height: 80px;">
       <p class="title">演示页面三</p>
       <p class="sub-title">第三个页面的小标题</p>
@@ -12,7 +12,7 @@
             ref="box-small-1-g-c"
             title-text="count"
             sub-title-text="count style1"
-            title-size="30"
+            title-size="34"
             sub-title-size="16"
             num-size="54"
             url="x.mock"
@@ -25,7 +25,7 @@
             ref="box-small-2-g-c"
             title-text="count"
             sub-title-text="count style1"
-            title-size="30"
+            title-size="34"
             sub-title-size="16"
             num-size="54"
             url="x.mock"
@@ -38,7 +38,7 @@
             ref="box-small-3-g-c"
             title-text="count"
             sub-title-text="count style1"
-            title-size="30"
+            title-size="34"
             sub-title-size="16"
             num-size="54"
             url="x.mock"
@@ -51,7 +51,7 @@
             ref="box-small-4-g-c"
             title-text="count"
             sub-title-text="count style1"
-            title-size="30"
+            title-size="34"
             sub-title-size="16"
             num-size="54"
             url="x.mock"
@@ -64,7 +64,7 @@
             ref="box-small-5-g-c"
             title-text="count"
             sub-title-text="count style1"
-            title-size="30"
+            title-size="34"
             sub-title-size="16"
             num-size="54"
             url="x.mock"
