@@ -59,11 +59,12 @@ export default {
       boxs: [],
       mountedChartNum: 0,
       needMountedChartNum: 10,
+      // 图表设置
       setting: {
         box1chart: {
           titleText: 'count',
           subTitleText: 'count style1',
-          seriesColor: this.$color.cyan,
+          numColor: this.$color.cyan,
           url: 'x.mock',
           ajaxData: {
             name: 'your data'
@@ -72,7 +73,7 @@ export default {
         box2chart: {
           titleText: 'count',
           subTitleText: 'count style1',
-          seriesColor: this.$color.pink,
+          numColor: this.$color.pink,
           url: 'x.mock',
           ajaxData: {
             name: 'your data'
@@ -81,7 +82,7 @@ export default {
         box3chart: {
           titleText: 'count',
           subTitleText: 'count style1',
-          seriesColor: this.$color.green,
+          numColor: this.$color.green,
           url: 'x.mock',
           ajaxData: {
             name: 'your data'
@@ -90,7 +91,7 @@ export default {
         box4chart: {
           titleText: 'count',
           subTitleText: 'count style1',
-          seriesColor: this.$color.orange,
+          numColor: this.$color.orange,
           url: 'x.mock',
           ajaxData: {
             name: 'your data'

@@ -26,14 +26,13 @@ export default {
     subTitleSize: {type: String, required: false, default: '20'},
     // 数字
     numSize: {type: String, required: false, default: '70'},
+    numColor: {type: String, required: false, default: '#FFF'},
     // 接口地址
     url: {type: String, required: false, default: 'x.mock'},
     // 发送请求的时候带的参数
     ajaxData: {type: Object, required: false, default: () => ({})},
     // 发送请求的间隔
-    interval: {type: Number, required: false, default: 3000},
-    // series
-    seriesColor: {type: String, required: false, default: '#0F3551'}
+    interval: {type: Number, required: false, default: 3000}
   },
   data () {
     return {
@@ -69,7 +68,7 @@ export default {
     // 数字样式
     styleNum () {
       return {
-        color: this.seriesColor,
+        color: this.numColor,
         'fontSize': `${this.numSize}px`,
         'lineHeight': `${this.numSize}px`
       }
