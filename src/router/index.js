@@ -11,9 +11,16 @@ export default new Router({
       component: resolve => { require(['@/components/layout-main'], resolve) },
       children: [
         {
+          title: '演示页面1',
           path: 'screen/demo1',
           name: 'screen-demo1',
           component: resolve => { require(['@/page/screen/demo1'], resolve) }
+        },
+        {
+          title: '演示页面2',
+          path: 'screen/demo2',
+          name: 'screen-demo2',
+          component: resolve => { require(['@/page/screen/demo2'], resolve) }
         }
       ]
     }

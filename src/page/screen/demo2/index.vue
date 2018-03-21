@@ -1,8 +1,8 @@
 <template>
   <div class="container flex-group col">
     <div class="flex-item flex-group col center screen-header" style="height: 80px;">
-      <p class="title">第一个页面</p>
-      <p class="sub-title">第一个页面的小标题</p>
+      <p class="title">第二个页面</p>
+      <p class="sub-title">第二个页面的小标题</p>
     </div>
     <!-- row -->
     <div class="flex-item flex-group row" style="height: 120px; padding: 5px;">

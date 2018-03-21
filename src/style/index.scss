@@ -56,7 +56,13 @@ html, body {
         width: 100%;
         background-color: rgba(#000, .5);
         padding: 10px;
-        display: none;
+        // display: none;
+        .link {
+          color: #FFF;
+          font-size: 12px;
+          text-decoration: none;
+          margin-right: 10px;
+        }
       }
     }
   }
