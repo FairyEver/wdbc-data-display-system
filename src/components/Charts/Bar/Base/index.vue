@@ -18,7 +18,7 @@ export default {
     // 发送请求的时候带的参数
     ajaxData: {type: Object, required: false, default: () => ({})},
     // 发送请求的间隔
-    interval: {type: Number, required: false, default: 3000},
+    interval: {type: Number, required: false, default: 10000},
     // grid 设置
     gridTop: {type: String, required: false, default: '40'},
     gridBottom: {type: String, required: false, default: '30'},
