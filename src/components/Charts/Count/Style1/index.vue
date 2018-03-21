@@ -68,25 +68,27 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
+  cursor: pointer;
   .title-group {
     margin-right: 20px;
     .title {
       margin: 0px;
       padding: 0px;
-      font-size: 30px;
-      line-height: 30px;
-      margin-bottom: 10px;
+      font-size: 36px;
+      line-height: 36px;
+      margin-bottom: 5px;
     }
     .sub-title {
       margin: 0px;
       padding: 0px;
-      font-size: 14px;
-      line-height: 14px;
+      font-size: 20px;
+      line-height: 20px;
     }
   }
   .num-group {
-    font-size: 60px;
-    line-height: 60px;
+    font-size: 70px;
+    line-height: 70px;
   }
 }
 </style>
