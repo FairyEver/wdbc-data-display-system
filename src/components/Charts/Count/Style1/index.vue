@@ -1,8 +1,8 @@
 <template>
   <div :style="style" class="chart-count-style-1">
     <div class="title-group">
-      <p class="title">{{titleText}}</p>
-      <p class="sub-title">{{subTitleText}}</p>
+      <p class="title" :style="styleTitle">{{titleText}}</p>
+      <p class="sub-title" :style="styleSubTitle">{{subTitleText}}</p>
     </div>
     <div class="num-group" :style="styleNumGroup">
       <span ref="num"></span>
@@ -16,6 +16,23 @@ export default {
   mixins: [
     mixin
   ],
+  props: {
+    // 标题
+    titleText: {type: String, required: false, default: 'Chart'},
+    titleColor: {type: String, required: false, default: '#FFF'},
+    titleSize: {type: String, required: false, default: '36'},
+    subTitleText: {type: String, required: false, default: 'Chart'},
+    subTitleColor: {type: String, required: false, default: '#FFF'},
+    subTitleSize: {type: String, required: false, default: '20'},
+    // 接口地址
+    url: {type: String, required: false, default: 'x.mock'},
+    // 发送请求的时候带的参数
+    ajaxData: {type: Object, required: false, default: () => ({})},
+    // 发送请求的间隔
+    interval: {type: Number, required: false, default: 3000},
+    // series
+    seriesColor: {type: String, required: false, default: '#0F3551'}
+  },
   data () {
     return {
       // 宽高
@@ -33,10 +50,24 @@ export default {
         width: `${this.width}px`
       }
     },
+    styleTitle () {
+      return {
+        'color': `${this.titleColor}px`,
+        'fontSize': `${this.titleSize}px`,
+        'lineHeight': `${this.titleSize}px`
+      }
+    },
+    styleSubTitle () {
+      return {
+        'color': `${this.subTitleColor}px`,
+        'fontSize': `${this.subTitleSize}px`,
+        'lineHeight': `${this.subTitleSize}px`
+      }
+    },
     // 数字容器样式
     styleNumGroup () {
       return {
-        color: this.itemColor
+        color: this.seriesColor
       }
     }
   },
@@ -84,15 +115,11 @@ export default {
     .title {
       margin: 0px;
       padding: 0px;
-      font-size: 36px;
-      line-height: 36px;
       margin-bottom: 5px;
     }
     .sub-title {
       margin: 0px;
       padding: 0px;
-      font-size: 20px;
-      line-height: 20px;
     }
   }
   .num-group {

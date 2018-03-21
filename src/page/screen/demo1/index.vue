@@ -59,7 +59,7 @@ export default {
         box1chart: {
           titleText: 'count',
           subTitleText: 'count style1',
-          itemColor: this.$color.cyan,
+          seriesColor: this.$color.cyan,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
@@ -68,7 +68,7 @@ export default {
         box2chart: {
           titleText: 'count',
           subTitleText: 'count style1',
-          itemColor: this.$color.pink,
+          seriesColor: this.$color.pink,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
@@ -77,7 +77,7 @@ export default {
         box3chart: {
           titleText: 'count',
           subTitleText: 'count style1',
-          itemColor: this.$color.green,
+          seriesColor: this.$color.green,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
@@ -86,7 +86,7 @@ export default {
         box4chart: {
           titleText: 'count',
           subTitleText: 'count style1',
-          itemColor: this.$color.orange,
+          seriesColor: this.$color.orange,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
@@ -94,7 +94,7 @@ export default {
         },
         box5chart: {
           titleText: 'barDemo',
-          itemColor: this.$color.cyan,
+          seriesColor: this.$color.cyan,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
@@ -102,7 +102,7 @@ export default {
         },
         box6chart: {
           titleText: 'barDemo',
-          itemColor: this.$color.yellow,
+          seriesColor: this.$color.yellow,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
@@ -110,7 +110,7 @@ export default {
         },
         box7chart: {
           titleText: 'barDemo',
-          itemColor: this.$color.red,
+          seriesColor: this.$color.red,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
@@ -118,7 +118,7 @@ export default {
         },
         box8chart: {
           titleText: 'barDemo',
-          itemColor: this.$color.green,
+          seriesColor: this.$color.green,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
@@ -126,7 +126,7 @@ export default {
         },
         box9chart: {
           titleText: 'barDemo',
-          itemColor: this.$color.orange,
+          seriesColor: this.$color.orange,
           url: 'x.mock',
           ajaxData: {
             name: 'name'
@@ -134,7 +134,7 @@ export default {
         },
         box10chart: {
           titleText: 'barDemo',
-          itemColor: this.$color.pink,
+          seriesColor: this.$color.pink,
           url: 'x.mock',
           ajaxData: {
             name: 'name'

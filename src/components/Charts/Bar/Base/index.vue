@@ -8,6 +8,30 @@ export default {
   mixins: [
     mixin
   ],
+  props: {
+    // 标题
+    titleText: {type: String, required: false, default: 'Chart'},
+    titleColor: {type: String, required: false, default: '#FFF'},
+    titleSize: {type: String, required: false, default: '20'},
+    // 接口地址
+    url: {type: String, required: false, default: 'x.mock'},
+    // 发送请求的时候带的参数
+    ajaxData: {type: Object, required: false, default: () => ({})},
+    // 发送请求的间隔
+    interval: {type: Number, required: false, default: 3000},
+    // grid 设置
+    gridTop: {type: String, required: false, default: '40'},
+    gridBottom: {type: String, required: false, default: '30'},
+    gridLeft: {type: String, required: false, default: '10%'},
+    gridRight: {type: String, required: false, default: '5%'},
+    // 坐标轴
+    xAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
+    yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
+    yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
+    // series
+    seriesColor: {type: String, required: false, default: '#0F3551'},
+    seriesBorderRadius: {type: Array, required: false, default: () => [4, 4, 0, 0]}
+  },
   data () {
     return {
       // 宽高
@@ -32,7 +56,8 @@ export default {
           top: '6',
           left: 'center',
           textStyle: {
-            color: '#FFF'
+            color: this.titleColor,
+            fontSize: this.titleSize
           }
         },
         grid: {
@@ -45,19 +70,19 @@ export default {
           data: [],
           axisLine: {
             lineStyle: {
-              color: '#FFF'
+              color: this.xAxisAxisLineColor
             }
           }
         },
         yAxis: {
           axisLine: {
             lineStyle: {
-              color: '#FFF'
+              color: this.yAxisAxisLineColor
             }
           },
           splitLine: {
             lineStyle: {
-              color: '#0F3551'
+              color: this.yAxisSplitLineColor
             }
           }
         },
@@ -65,8 +90,8 @@ export default {
           {
             type: 'bar',
             itemStyle: {
-              color: this.itemColor,
-              barBorderRadius: [4, 4, 0, 0]
+              color: this.seriesColor,
+              barBorderRadius: this.seriesBorderRadius
             },
             data: []
           }
