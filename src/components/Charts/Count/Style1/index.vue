@@ -4,7 +4,9 @@
       <p class="title">{{titleText}}</p>
       <p class="sub-title">{{subTitleText}}</p>
     </div>
-    <div ref="num" class="num-group" :style="styleNumGroup">233</div>
+    <div class="num-group" :style="styleNumGroup">
+      <span ref="num"></span>
+    </div>
   </div>
 </template>
 
@@ -56,8 +58,8 @@ export default {
     init ({height, width}) {
       this.updateSize(height, width)
         .then(async () => {
-          console.log(height)
-          console.log(width)
+          this.countupObj = new this.CountUp(this.$refs.num, 0, 100)
+          this.countupObj.start()
         })
     }
   }
