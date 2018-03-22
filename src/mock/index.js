@@ -27,35 +27,35 @@ Mock.mock(/\.mock/, ({url, type, body}) => {
         {
           name: '类型1',
           data: [
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)'
+            '@natural(1, 100)',
+            '@natural(1, 100)',
+            '@natural(1, 100)',
+            '@natural(1, 100)',
+            '@natural(1, 100)',
+            '@natural(1, 100)',
+            '@natural(1, 100)'
           ]
         }, {
           name: '类型2',
           data: [
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)'
+            '@natural(101, 200)',
+            '@natural(101, 200)',
+            '@natural(101, 200)',
+            '@natural(101, 200)',
+            '@natural(101, 200)',
+            '@natural(101, 200)',
+            '@natural(101, 200)'
           ]
         }, {
           name: '类型3',
           data: [
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)',
-            '@natural(10, 300)'
+            '@natural(201, 300)',
+            '@natural(201, 300)',
+            '@natural(201, 300)',
+            '@natural(201, 300)',
+            '@natural(201, 300)',
+            '@natural(201, 300)',
+            '@natural(201, 300)'
           ]
         }
       ]
