@@ -14,7 +14,7 @@
             title-text="barBase"
             grid-left="50"
             grid-right="20"
-            :series-color="$color.cyan"
+            :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
             @mounted="mountedChartNum++">
           </ChartLineMulti>
         </div>

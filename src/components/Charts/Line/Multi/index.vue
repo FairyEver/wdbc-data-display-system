@@ -32,7 +32,7 @@ export default {
     yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
     yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
     // series
-    seriesColor: {type: String, required: false, default: '#0F3551'},
+    seriesColor: {type: Array, required: false, default: () => ['#0F3551']},
     seriesLabelColor: {type: String, required: false, default: '#FFF'}
   },
   data () {
@@ -126,45 +126,48 @@ export default {
         const option = this.option
         option.legend.data = data.legend
         option.xAxis.data = data.xAxis
-        option.series = data.series.map(e => ({
-          name: e.name,
-          type: 'line',
-          smooth: 0.3,
-          itemStyle: {
-            color: this.seriesColor
-          },
-          symbol: 'circle',
-          symbolSize: 6,
-          areaStyle: {
-            color: {
-              type: 'linear',
-              x: 0,
-              y: 0,
-              x2: 0,
-              y2: 1,
-              colorStops: [
-                {
-                  offset: 0, color: this.$toRGB(this.seriesColor)
-                }, {
-                  offset: 1, color: this.$toRGB(this.seriesColor, 0)
-                }
-              ],
-              globalCoord: false
-            }
-          },
-          label: {
-            normal: {
-              show: true,
-              position: 'top',
-              distance: '5',
-              color: this.seriesLabelColor,
-              backgroundColor: this.seriesColor,
-              padding: [3, 6],
-              borderRadius: 2
-            }
-          },
-          data: e.data
-        }))
+        option.series = data.series.map((e, index) => {
+          const color = this.seriesColor[index % this.seriesColor.length]
+          return {
+            name: e.name,
+            type: 'line',
+            smooth: 0.3,
+            itemStyle: {
+              color: color
+            },
+            symbol: 'circle',
+            symbolSize: 6,
+            areaStyle: {
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0, color: this.$toRGB(color)
+                  }, {
+                    offset: 1, color: this.$toRGB(color, 0)
+                  }
+                ],
+                globalCoord: false
+              }
+            },
+            label: {
+              normal: {
+                show: true,
+                position: 'top',
+                distance: '5',
+                color: this.seriesLabelColor,
+                backgroundColor: color,
+                padding: [3, 6],
+                borderRadius: 2
+              }
+            },
+            data: e.data
+          }
+        })
         resolve(option)
       })
     },
