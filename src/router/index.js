@@ -39,6 +39,12 @@ export default new Router({
           path: 'screen/demo5',
           name: 'screen-demo5',
           component: resolve => { require(['@/page/screen/demo5'], resolve) }
+        },
+        {
+          title: '多条折线图',
+          path: 'screen/demo6',
+          name: 'screen-demo6',
+          component: resolve => { require(['@/page/screen/demo6'], resolve) }
         }
       ]
     }

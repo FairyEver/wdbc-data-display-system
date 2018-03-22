@@ -19,5 +19,18 @@ Mock.mock(/\.mock/, ({url, type, body}) => {
         {name: 'H', value: '@natural(10, 300)'}
       ]
     })
+  } else if (bodyObj.type === 3) {
+    return Mock.mock({
+      list: [
+        {name: 'A3', value: '@natural(10, 300)'},
+        {name: 'B3', value: '@natural(10, 300)'},
+        {name: 'C3', value: '@natural(10, 300)'},
+        {name: 'D3', value: '@natural(10, 300)'},
+        {name: 'E3', value: '@natural(10, 300)'},
+        {name: 'F3', value: '@natural(10, 300)'},
+        {name: 'G3', value: '@natural(10, 300)'},
+        {name: 'H3', value: '@natural(10, 300)'}
+      ]
+    })
   }
 })

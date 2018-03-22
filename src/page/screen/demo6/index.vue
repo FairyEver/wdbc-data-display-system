@@ -7,17 +7,20 @@
     <!-- row -->
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
       <!-- col -->
-      <div class="flex-item grow flex-group col">
+      <div class="flex-item flex-group col" style="width: 66%;">
         <div ref="box-bar-base-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarBase
+          <ChartLineMulti
             ref="box-bar-base-1-g-c"
             title-text="barBase"
             grid-left="50"
             grid-right="20"
             :series-color="$color.cyan"
             @mounted="mountedChartNum++">
-          </ChartBarBase>
+          </ChartLineMulti>
         </div>
+      </div>
+      <!-- col -->
+      <div class="flex-item grow flex-group col">
         <div ref="box-bar-base-2-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
             ref="box-bar-base-2-g-c"
@@ -28,9 +31,6 @@
             @mounted="mountedChartNum++">
           </ChartBarBase>
         </div>
-      </div>
-      <!-- col -->
-      <div class="flex-item grow flex-group col">
         <div ref="box-bar-base-3-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
             ref="box-bar-base-3-g-c"

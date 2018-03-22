@@ -52,87 +52,80 @@ export default {
     option () {
       return {
         title: {
-          text: this.titleText,
-          top: '6',
-          left: 'center',
-          textStyle: {
-            color: this.titleColor,
-            fontSize: this.titleSize
-          }
+          text: '堆叠区域图'
+        },
+        legend: {
+          data: ['邮件营销', '联盟广告', '视频广告']
         },
         grid: {
-          left: this.gridLeft,
-          right: this.gridRight,
-          top: this.gridTop,
-          bottom: this.gridBottom
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
         },
-        xAxis: {
-          data: [],
-          type: 'category',
-          boundaryGap: false,
-          axisLine: {
-            lineStyle: {
-              color: this.xAxisAxisLineColor
-            }
-          }
-        },
-        yAxis: {
-          type: 'value',
-          axisLine: {
-            lineStyle: {
-              color: this.yAxisAxisLineColor
-            }
-          },
-          splitLine: {
-            lineStyle: {
-              color: this.yAxisSplitLineColor
-            }
-          }
-        },
-        series: [
+        xAxis: [
           {
-            type: 'line',
-            smooth: 0.3,
-            itemStyle: {
-              color: this.itemColor
-            },
-            symbol: 'circle',
-            symbolSize: 6,
-            areaStyle: {
-              color: {
-                type: 'linear',
-                x: 0,
-                y: 0,
-                x2: 0,
-                y2: 1,
-                colorStops: [
-                  {
-                    offset: 0, color: this.$toRGB(this.itemColor)
-                  }, {
-                    offset: 1, color: this.$toRGB(this.itemColor, 0)
-                  }
-                ],
-                globalCoord: false
+            type: 'category',
+            boundaryGap: false,
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+            axisLine: {
+              lineStyle: {
+                color: this.xAxisAxisLineColor
+              }
+            }
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            axisLine: {
+              lineStyle: {
+                color: this.yAxisAxisLineColor
               }
             },
+            splitLine: {
+              lineStyle: {
+                color: this.yAxisSplitLineColor
+              }
+            }
+          }
+        ],
+        series: [
+          {
+            name: '邮件营销',
+            type: 'line',
+            stack: '总量',
             label: {
               normal: {
                 show: true,
-                position: 'top',
-                distance: '10',
-                color: this.labelColor,
-                backgroundColor: this.itemColor,
-                padding: [3, 6],
-                borderRadius: 2
+                position: 'top'
               }
             },
-            // emphasis: {
-            //   itemStyle: {
-            //     color: '#FFF',
-            //     borderColor: '#000'
-            //   }
-            // },
-            data: []
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+            name: '联盟广告',
+            type: 'line',
+            stack: '总量',
+            label: {
+              normal: {
+                show: true,
+                position: 'top'
+              }
+            },
+            data: [220, 182, 191, 234, 290, 330, 310]
+          },
+          {
+            name: '视频广告',
+            type: 'line',
+            stack: '总量',
+            label: {
+              normal: {
+                show: true,
+                position: 'top'
+              }
+            },
+            data: [150, 232, 201, 154, 190, 330, 410]
           }
         ]
       }
@@ -146,7 +139,7 @@ export default {
     getData () {
       return new Promise(async (resolve, reject) => {
         const res = await this.$http.post(this.url, {
-          type: 2,
+          type: 3,
           ...this.ajaxData
         })
         resolve(res.data.list)
@@ -156,9 +149,10 @@ export default {
     optionMaker () {
       return new Promise(async (resolve, reject) => {
         const data = await this.getData()
+        console.log(data)
         const option = this.option
-        option.xAxis.data = data.map(e => e.name)
-        option.series[0].data = data.map(e => e.value)
+        // option.xAxis.data = data.map(e => e.name)
+        // option.series[0].data = data.map(e => e.value)
         resolve(option)
       })
     },
