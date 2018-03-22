@@ -8,13 +8,12 @@
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
       <!-- col -->
       <div class="flex-item flex-group col" style="width: 66%;">
-        <div ref="box-bar-base-1-g" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-line-multi-1-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartLineMulti
-            ref="box-bar-base-1-g-c"
-            title-text="barBase"
-            grid-left="50"
-            grid-right="20"
+            ref="box-line-multi-1-g-c"
+            title-text="lineMulti"
             :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
+            :series-label-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
             @mounted="mountedChartNum++">
           </ChartLineMulti>
         </div>

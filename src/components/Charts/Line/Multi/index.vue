@@ -33,7 +33,7 @@ export default {
     yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
     // series
     seriesColor: {type: Array, required: false, default: () => ['#0F3551']},
-    seriesLabelColor: {type: String, required: false, default: '#FFF'}
+    seriesLabelColor: {type: Array, required: false, default: () => ['#FFF']}
   },
   data () {
     return {
@@ -127,13 +127,15 @@ export default {
         option.legend.data = data.legend
         option.xAxis.data = data.xAxis
         option.series = data.series.map((e, index) => {
-          const color = this.seriesColor[index % this.seriesColor.length]
+          const i = index % this.seriesColor.length
+          const areaColor = this.seriesColor[i]
+          const labelColor = this.seriesLabelColor[i]
           return {
             name: e.name,
             type: 'line',
             smooth: 0.3,
             itemStyle: {
-              color: color
+              color: areaColor
             },
             symbol: 'circle',
             symbolSize: 6,
@@ -146,9 +148,9 @@ export default {
                 y2: 1,
                 colorStops: [
                   {
-                    offset: 0, color: this.$toRGB(color)
+                    offset: 0, color: this.$toRGB(areaColor)
                   }, {
-                    offset: 1, color: this.$toRGB(color, 0)
+                    offset: 1, color: this.$toRGB(areaColor, 0)
                   }
                 ],
                 globalCoord: false
@@ -159,8 +161,8 @@ export default {
                 show: true,
                 position: 'top',
                 distance: '5',
-                color: this.seriesLabelColor,
-                backgroundColor: color,
+                color: labelColor,
+                backgroundColor: areaColor,
                 padding: [3, 6],
                 borderRadius: 2
               }
