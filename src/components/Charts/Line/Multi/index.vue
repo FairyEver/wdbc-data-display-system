@@ -13,6 +13,9 @@ export default {
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
     titleSize: {type: String, required: false, default: '14'},
+    // 图例
+    legendTop: {type: String, required: false, default: '40'},
+    legendTextColor: {type: String, required: false, default: '#FFF'},
     // 接口地址
     url: {type: String, required: false, default: 'x.mock'},
     // 发送请求的时候带的参数
@@ -52,9 +55,19 @@ export default {
     option () {
       return {
         title: {
-          text: '堆叠区域图'
+          text: this.titleText,
+          top: '6',
+          left: 'center',
+          textStyle: {
+            color: this.titleColor,
+            fontSize: this.titleSize
+          }
         },
         legend: {
+          top: this.legendTop,
+          textStyle: {
+            color: this.legendTextColor
+          },
           data: ['邮件营销', '联盟广告', '视频广告']
         },
         grid: {
@@ -94,7 +107,6 @@ export default {
           {
             name: '邮件营销',
             type: 'line',
-            stack: '总量',
             label: {
               normal: {
                 show: true,
@@ -106,7 +118,6 @@ export default {
           {
             name: '联盟广告',
             type: 'line',
-            stack: '总量',
             label: {
               normal: {
                 show: true,
@@ -118,7 +129,6 @@ export default {
           {
             name: '视频广告',
             type: 'line',
-            stack: '总量',
             label: {
               normal: {
                 show: true,
@@ -142,7 +152,7 @@ export default {
           type: 3,
           ...this.ajaxData
         })
-        resolve(res.data.list)
+        resolve(res.data)
       })
     },
     // 返回拼好的option
