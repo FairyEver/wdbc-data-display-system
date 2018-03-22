@@ -33,7 +33,7 @@ export default {
     yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
     // series
     seriesColor: {type: Array, required: false, default: () => ['#0F3551']},
-    seriesLabelColor: {type: Array, required: false, default: () => ['#FFF']}
+    seriesLabelTextColor: {type: Array, required: false, default: () => ['#FFF']}
   },
   data () {
     return {
@@ -129,7 +129,7 @@ export default {
         option.series = data.series.map((e, index) => {
           const i = index % this.seriesColor.length
           const areaColor = this.seriesColor[i]
-          const labelColor = this.seriesLabelColor[i]
+          const labelColor = this.seriesLabelTextColor[i]
           return {
             name: e.name,
             type: 'line',

@@ -30,7 +30,7 @@ export default {
     yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
     // series
     seriesColor: {type: String, required: false, default: '#0F3551'},
-    seriesLabelColor: {type: String, required: false, default: '#FFF'}
+    seriesLabelTextColor: {type: String, required: false, default: '#FFF'}
   },
   data () {
     return {
@@ -120,7 +120,7 @@ export default {
                 show: true,
                 position: 'top',
                 distance: '5',
-                color: this.seriesLabelColor,
+                color: this.seriesLabelTextColor,
                 backgroundColor: this.seriesColor,
                 padding: [3, 6],
                 borderRadius: 2

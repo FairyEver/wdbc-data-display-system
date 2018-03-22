@@ -13,7 +13,7 @@
             ref="box-line-multi-1-g-c"
             title-text="lineMulti"
             :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
-            :series-label-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
+            :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
             @mounted="mountedChartNum++">
           </ChartLineMulti>
         </div>
