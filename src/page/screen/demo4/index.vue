@@ -13,8 +13,8 @@
             title-text="lineBase"
             grid-left="50"
             grid-right="20"
-            :item-color="$color.cyan"
-            :label-color="$color.bg"
+            :series-color="$color.cyan"
+            :series-label-color="$color.bg"
             @mounted="mountedChartNum++">
           </ChartLineBase>
         </div>
@@ -24,8 +24,8 @@
             title-text="lineBase"
             grid-left="50"
             grid-right="20"
-            :item-color="$color.yellow"
-            :label-color="$color.bg"
+            :series-color="$color.yellow"
+            :series-label-color="$color.bg"
             @mounted="mountedChartNum++">
           </ChartLineBase>
         </div>
@@ -38,8 +38,8 @@
             title-text="lineBase"
             grid-left="50"
             grid-right="20"
-            :item-color="$color.green"
-            :label-color="$color.bg"
+            :series-color="$color.green"
+            :series-label-color="$color.bg"
             @mounted="mountedChartNum++">
           </ChartLineBase>
         </div>
@@ -49,8 +49,8 @@
             title-text="lineBase"
             grid-left="50"
             grid-right="20"
-            :item-color="$color.pink"
-            :label-color="'#FFF'"
+            :series-color="$color.pink"
+            :series-label-color="'#FFF'"
             @mounted="mountedChartNum++">
           </ChartLineBase>
         </div>

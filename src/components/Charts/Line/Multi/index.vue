@@ -32,8 +32,8 @@ export default {
     yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
     yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
     // series
-    itemColor: {type: String, required: false, default: '#0F3551'},
-    labelColor: {type: String, required: false, default: '#FFF'}
+    seriesColor: {type: String, required: false, default: '#0F3551'},
+    seriesLabelColor: {type: String, required: false, default: '#FFF'}
   },
   data () {
     return {
@@ -68,7 +68,7 @@ export default {
           textStyle: {
             color: this.legendTextColor
           },
-          data: ['邮件营销', '联盟广告', '视频广告']
+          data: []
         },
         grid: {
           left: '3%',
@@ -76,18 +76,16 @@ export default {
           bottom: '3%',
           containLabel: true
         },
-        xAxis: [
-          {
-            type: 'category',
-            boundaryGap: false,
-            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-            axisLine: {
-              lineStyle: {
-                color: this.xAxisAxisLineColor
-              }
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+          axisLine: {
+            lineStyle: {
+              color: this.xAxisAxisLineColor
             }
           }
-        ],
+        },
         yAxis: [
           {
             type: 'value',
@@ -103,41 +101,7 @@ export default {
             }
           }
         ],
-        series: [
-          {
-            name: '邮件营销',
-            type: 'line',
-            label: {
-              normal: {
-                show: true,
-                position: 'top'
-              }
-            },
-            data: [120, 132, 101, 134, 90, 230, 210]
-          },
-          {
-            name: '联盟广告',
-            type: 'line',
-            label: {
-              normal: {
-                show: true,
-                position: 'top'
-              }
-            },
-            data: [220, 182, 191, 234, 290, 330, 310]
-          },
-          {
-            name: '视频广告',
-            type: 'line',
-            label: {
-              normal: {
-                show: true,
-                position: 'top'
-              }
-            },
-            data: [150, 232, 201, 154, 190, 330, 410]
-          }
-        ]
+        series: []
       }
     }
   },
@@ -159,10 +123,48 @@ export default {
     optionMaker () {
       return new Promise(async (resolve, reject) => {
         const data = await this.getData()
-        console.log(data)
         const option = this.option
-        // option.xAxis.data = data.map(e => e.name)
-        // option.series[0].data = data.map(e => e.value)
+        option.legend.data = data.legend
+        option.xAxis.data = data.xAxis
+        option.series = data.series.map(e => ({
+          name: e.name,
+          type: 'line',
+          smooth: 0.3,
+          itemStyle: {
+            color: this.seriesColor
+          },
+          symbol: 'circle',
+          symbolSize: 6,
+          areaStyle: {
+            color: {
+              type: 'linear',
+              x: 0,
+              y: 0,
+              x2: 0,
+              y2: 1,
+              colorStops: [
+                {
+                  offset: 0, color: this.$toRGB(this.seriesColor)
+                }, {
+                  offset: 1, color: this.$toRGB(this.seriesColor, 0)
+                }
+              ],
+              globalCoord: false
+            }
+          },
+          label: {
+            normal: {
+              show: true,
+              position: 'top',
+              distance: '5',
+              color: this.seriesLabelColor,
+              backgroundColor: this.seriesColor,
+              padding: [3, 6],
+              borderRadius: 2
+            }
+          },
+          data: e.data
+        }))
         resolve(option)
       })
     },

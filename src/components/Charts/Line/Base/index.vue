@@ -29,8 +29,8 @@ export default {
     yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
     yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
     // series
-    itemColor: {type: String, required: false, default: '#0F3551'},
-    labelColor: {type: String, required: false, default: '#FFF'}
+    seriesColor: {type: String, required: false, default: '#0F3551'},
+    seriesLabelColor: {type: String, required: false, default: '#FFF'}
   },
   data () {
     return {
@@ -94,7 +94,7 @@ export default {
             type: 'line',
             smooth: 0.3,
             itemStyle: {
-              color: this.itemColor
+              color: this.seriesColor
             },
             symbol: 'circle',
             symbolSize: 6,
@@ -107,9 +107,9 @@ export default {
                 y2: 1,
                 colorStops: [
                   {
-                    offset: 0, color: this.$toRGB(this.itemColor)
+                    offset: 0, color: this.$toRGB(this.seriesColor)
                   }, {
-                    offset: 1, color: this.$toRGB(this.itemColor, 0)
+                    offset: 1, color: this.$toRGB(this.seriesColor, 0)
                   }
                 ],
                 globalCoord: false
@@ -119,19 +119,13 @@ export default {
               normal: {
                 show: true,
                 position: 'top',
-                distance: '10',
-                color: this.labelColor,
-                backgroundColor: this.itemColor,
+                distance: '5',
+                color: this.seriesLabelColor,
+                backgroundColor: this.seriesColor,
                 padding: [3, 6],
                 borderRadius: 2
               }
             },
-            // emphasis: {
-            //   itemStyle: {
-            //     color: '#FFF',
-            //     borderColor: '#000'
-            //   }
-            // },
             data: []
           }
         ]
