@@ -90,7 +90,22 @@ export default {
           {
             type: 'bar',
             itemStyle: {
-              color: this.seriesColor,
+              // color: this.seriesColor,
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [{
+                  offset: 0,
+                  color: this.$toRGB(this.seriesColor, 1)
+                }, {
+                  offset: 1,
+                  color: this.$toRGB(this.seriesColor, 0.5)
+                }],
+                globalCoord: false // 缺省为 false
+              },
               barBorderRadius: this.seriesBorderRadius
             },
             data: []
