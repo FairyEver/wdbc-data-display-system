@@ -7,7 +7,7 @@
     <!-- row -->
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
       <!-- col -->
-      <div class="flex-item flex-group col" style="width: 66%;">
+      <div class="flex-item flex-group col" style="width: 75%;">
         <div ref="box-line-multi-1-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartLineMulti
             ref="box-line-multi-1-g-c"
