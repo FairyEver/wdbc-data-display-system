@@ -21,7 +21,7 @@ Mock.mock(/\.mock/, ({url, type, body}) => {
     })
   } else if (bodyObj.type === 3) {
     return Mock.mock({
-      legend: ['类型1', '类型2', '类型3', '类型4'],
+      legend: ['类型1', '类型2', '类型3'],
       xAxis: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
       series: [
         {
@@ -56,17 +56,6 @@ Mock.mock(/\.mock/, ({url, type, body}) => {
             '@natural(201, 300)',
             '@natural(201, 300)',
             '@natural(201, 300)'
-          ]
-        }, {
-          name: '类型4',
-          data: [
-            '@natural(301, 400)',
-            '@natural(301, 400)',
-            '@natural(301, 400)',
-            '@natural(301, 400)',
-            '@natural(301, 400)',
-            '@natural(301, 400)',
-            '@natural(301, 400)'
           ]
         }
       ]

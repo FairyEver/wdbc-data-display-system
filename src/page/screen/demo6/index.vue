@@ -7,18 +7,6 @@
     <!-- row -->
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
       <!-- col -->
-      <div class="flex-item flex-group col" style="width: 75%;">
-        <div ref="box-line-multi-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineMulti
-            ref="box-line-multi-1-g-c"
-            title-text="lineMulti"
-            :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
-            :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
-            @mounted="mountedChartNum++">
-          </ChartLineMulti>
-        </div>
-      </div>
-      <!-- col -->
       <div class="flex-item grow flex-group col">
         <div ref="box-bar-base-2-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarBase
@@ -49,6 +37,18 @@
             :series-color="$color.green"
             @mounted="mountedChartNum++">
           </ChartBarBase>
+        </div>
+      </div>
+      <!-- col -->
+      <div class="flex-item flex-group col" style="width: 75%;">
+        <div ref="box-line-multi-1-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartLineMulti
+            ref="box-line-multi-1-g-c"
+            title-text="今日行情"
+            :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
+            :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
+            @mounted="mountedChartNum++">
+          </ChartLineMulti>
         </div>
       </div>
     </div>
