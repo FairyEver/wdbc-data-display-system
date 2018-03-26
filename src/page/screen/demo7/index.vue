@@ -5,14 +5,12 @@
       <p class="sub-title">多条折线图 - 小标题</p>
     </div>
     <!-- row -->
-    <div ref="box-line-multi-1-g" class="flex-item grow hov" style="margin: 10px;">
-      <ChartLineMulti
-        ref="box-line-multi-1-g-c"
+    <div ref="box-line-stack-1-g" class="flex-item grow hov" style="margin: 10px;">
+      <ChartLineStack
+        ref="box-line-stack-1-g-c"
         title-text="今日行情"
-        :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
-        :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
         @mounted="mountedChartNum++">
-      </ChartLineMulti>
+      </ChartLineStack>
     </div>
   </div>
 </template>
