@@ -5,11 +5,11 @@
       <span ref="num"></span>
     </p>
     <p class="sub-title">
-      <span>+</span>
+      <span>{{symbol}}</span>
       <span ref="num2">67</span>
       <span>
-        <img src="@/assets/image/arrow-up.svg">
-        <img src="@/assets/image/arrow-down.svg">
+        <img v-if="symbol === '+'" src="@/assets/image/arrow-up.svg">
+        <img v-if="symbol === '-'" src="@/assets/image/arrow-down.svg">
       </span>
       <span ref="num3">1.92</span>
       <span>%</span>
@@ -48,7 +48,9 @@ export default {
       // 数字动画对象
       countupObj: null,
       countupObj2: null,
-      countupObj3: null
+      countupObj3: null,
+      // 符号 true + | false -
+      symbol: ''
     }
   },
   computed: {
@@ -94,16 +96,18 @@ export default {
       this.updateSize(height, width)
         .then(async () => {
           const data = await this.getData()
+          this.symbol = data.num2 >= 0 ? '+' : '-'
           this.countupObj = new this.CountUp(this.$refs.num, 0, data.num)
-          this.countupObj2 = new this.CountUp(this.$refs.num2, 0, data.num2)
+          this.countupObj2 = new this.CountUp(this.$refs.num2, 0, Math.abs(data.num2))
           this.countupObj3 = new this.CountUp(this.$refs.num3, 0, data.num3)
           this.countupObj.start()
           this.countupObj2.start()
           this.countupObj3.start()
           this.intervalObj = setInterval(async () => {
             const data = await this.getData()
+            this.symbol = data.num2 >= 0 ? '+' : '-'
             this.countupObj.update(data.num)
-            this.countupObj2.update(data.num2)
+            this.countupObj2.update(Math.abs(data.num2))
             this.countupObj3.update(data.num3)
           }, this.interval)
         })
