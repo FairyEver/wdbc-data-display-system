@@ -9,6 +9,7 @@
       <ChartBarStack
         ref="box-bar-stack-1-g-c"
         title-text="今日行情"
+        :ajax-data="{name: 'bar-stack'}"
         @mounted="mountedChartNum++">
       </ChartBarStack>
     </div>
