@@ -1,7 +1,5 @@
 # CDDS
 
-> Because the project is planned to change, the project has been abandoned.
-
 ## Build Setup
 
 ``` bash
