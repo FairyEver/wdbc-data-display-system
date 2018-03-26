@@ -94,9 +94,12 @@ export default {
       this.updateSize(height, width)
         .then(async () => {
           const data = await this.getData()
-          this.countupObj = new this.CountUp(this.$refs.num, 0, data.num).start()
-          this.countupObj2 = new this.CountUp(this.$refs.num2, 0, data.num2).start()
-          this.countupObj3 = new this.CountUp(this.$refs.num3, 0, data.num3).start()
+          this.countupObj = new this.CountUp(this.$refs.num, 0, data.num)
+          this.countupObj2 = new this.CountUp(this.$refs.num2, 0, data.num2)
+          this.countupObj3 = new this.CountUp(this.$refs.num3, 0, data.num3)
+          this.countupObj.start()
+          this.countupObj2.start()
+          this.countupObj3.start()
           this.intervalObj = setInterval(async () => {
             const data = await this.getData()
             this.countupObj.update(data.num)
