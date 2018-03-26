@@ -71,10 +71,10 @@ export default {
           data: []
         },
         grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
+          left: this.gridLeft,
+          right: this.gridRight,
+          top: this.gridTop,
+          bottom: this.gridBottom
         },
         xAxis: {
           type: 'category',
