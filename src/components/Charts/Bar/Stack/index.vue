@@ -23,7 +23,7 @@ export default {
     // 发送请求的间隔
     interval: {type: Number, required: false, default: 10000},
     // grid 设置
-    gridTop: {type: String, required: false, default: '40'},
+    gridTop: {type: String, required: false, default: '80'},
     gridBottom: {type: String, required: false, default: '30'},
     gridLeft: {type: String, required: false, default: '10%'},
     gridRight: {type: String, required: false, default: '5%'},
@@ -34,7 +34,7 @@ export default {
     seriesColor: {type: String, required: false, default: '#0F3551'},
     seriesBorderRadius: {type: Array, required: false, default: () => [0, 4, 4, 0]},
     seriesBarGap: {type: String, required: false, default: '0%'},
-    seriesBarCategoryGap: {type: String, required: false, default: '50%'}
+    seriesBarCategoryGap: {type: String, required: false, default: '30%'}
   },
   data () {
     return {
