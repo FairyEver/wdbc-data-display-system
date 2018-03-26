@@ -4,9 +4,15 @@ Mock.mock(/\.mock/, ({url, type, body}) => {
   const bodyObj = JSON.parse(body)
   if (bodyObj.type === 1) {
     // 简单一个数字的数据
-    return Mock.mock({
-      num: '@natural(100, 300)'
-    })
+    if (bodyObj.name === 'djzs' || bodyObj.name === 'cbzs' || bodyObj.name === 'ylzs') {
+      return Mock.mock({
+        num: '@natural(400, 500)'
+      })
+    } else {
+      return Mock.mock({
+        num: '@natural(100, 300)'
+      })
+    }
   } else if (bodyObj.type === 2) {
     // 键值对数据
     return Mock.mock({
@@ -24,11 +30,11 @@ Mock.mock(/\.mock/, ({url, type, body}) => {
   } else if (bodyObj.type === 3) {
     // 多series数据
     if (bodyObj.name === 'bar-stack') {
+      // 判断参数 层叠柱状图
       const all = Mock.mock({
         name: '所有采集点',
         data: ['@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)']
       })
-      // 判断参数 层叠柱状图
       return Mock.mock({
         legend: ['今日活跃', '所有采集点'],
         yAxis: ['河北', '山东', '浙江', '辽宁', '山西', '广东', '黑龙江'],
