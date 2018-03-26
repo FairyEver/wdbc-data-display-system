@@ -2,7 +2,6 @@ var Mock = require('mockjs')
 
 Mock.mock(/\.mock/, ({url, type, body}) => {
   const bodyObj = JSON.parse(body)
-  console.log(bodyObj)
   if (bodyObj.type === 1) {
     // 简单一个数字的数据
     return Mock.mock({
