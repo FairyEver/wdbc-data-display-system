@@ -92,7 +92,6 @@ export default {
           {
             type: 'bar',
             itemStyle: {
-              // color: this.seriesColor,
               color: {
                 type: 'linear',
                 x: 0,
