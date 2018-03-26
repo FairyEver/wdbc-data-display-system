@@ -30,7 +30,9 @@ export default {
     yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
     // series
     seriesColor: {type: String, required: false, default: '#0F3551'},
-    seriesBorderRadius: {type: Array, required: false, default: () => [4, 4, 0, 0]}
+    seriesBorderRadius: {type: Array, required: false, default: () => [4, 4, 0, 0]},
+    seriesBarGap: {type: String, required: false, default: '0%'},
+    seriesBarCategoryGap: {type: String, required: false, default: '50%'}
   },
   data () {
     return {
@@ -108,6 +110,8 @@ export default {
               },
               barBorderRadius: this.seriesBorderRadius
             },
+            barGap: this.seriesBarGap,
+            barCategoryGap: this.seriesBarCategoryGap,
             data: []
           }
         ]

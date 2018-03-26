@@ -32,7 +32,9 @@ export default {
     yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
     // series
     seriesColor: {type: String, required: false, default: '#0F3551'},
-    seriesLabelTextColor: {type: String, required: false, default: '#FFF'}
+    seriesBorderRadius: {type: Array, required: false, default: () => [0, 4, 4, 0]},
+    seriesBarGap: {type: String, required: false, default: '0%'},
+    seriesBarCategoryGap: {type: String, required: false, default: '50%'}
   },
   data () {
     return {
@@ -77,10 +79,10 @@ export default {
         },
         xAxis: {
           type: 'value',
-          axisTick : {show: false},
+          axisTick: {show: false},
           axisLine: {
             show: false,
-            lineStyle:{
+            lineStyle: {
               color: this.xAxisAxisLineColor
             }
           },
@@ -91,57 +93,57 @@ export default {
         yAxis: [
           {
             type: 'category',
-            axisTick : {show: false},
+            axisTick: {show: false},
             axisLine: {
-              lineStyle:{
+              lineStyle: {
                 color: this.yAxisAxisLineColor
               }
             },
-            data: ['广州','深圳','东莞','天津','惠州','北京三级','成都','南京','重庆','长沙']
+            data: []
           },
           {
             type: 'category',
-            axisLine: {show:false},
-            axisTick: {show:false},
-            axisLabel: {show:false},
-            splitArea: {show:false},
-            splitLine: {show:false},
-            data: ['广州','深圳','东莞','天津','惠州','北京三级','成都','南京','重庆','长沙']
+            axisLine: {show: false},
+            axisTick: {show: false},
+            axisLabel: {show: false},
+            splitArea: {show: false},
+            splitLine: {show: false},
+            data: []
           }
         ],
         series: [
           {
-            name: '有效房源量',
+            name: '',
             type: 'bar',
-            yAxisIndex:1,
-            itemStyle:{
+            yAxisIndex: 1,
+            itemStyle: {
               normal: {
                 show: true,
-                color: '#277ace',
-                barBorderRadius:50,
-                borderWidth:0,
-                borderColor:'#333'
+                color: this.$toRGB(this.seriesColor, 0.5),
+                barBorderRadius: this.seriesBorderRadius,
+                borderWidth: 0,
+                borderColor: '#333'
               }
             },
-            barGap:'0%',
-            barCategoryGap:'50%',
-            data: [120, 132, 101, 134, 90, 230, 210, 125, 231, 132]
+            barGap: this.seriesBarGap,
+            barCategoryGap: this.seriesBarCategoryGap,
+            data: []
           },
           {
-            name: '钥匙量',
+            name: '',
             type: 'bar',
-            itemStyle:{
+            itemStyle: {
               normal: {
                 show: true,
-                color: '#5de3e1',
-                barBorderRadius:50,
-                borderWidth:0,
-                borderColor:'#333'
+                color: this.$toRGB(this.seriesColor, 1),
+                barBorderRadius: this.seriesBorderRadius,
+                borderWidth: 0,
+                borderColor: '#333'
               }
             },
-            barGap:'0%',
-            barCategoryGap:'50%',
-            data: [32, 52, 41, 64, 15, 10, 32, 25, 210, 32]
+            barGap: this.seriesBarGap,
+            barCategoryGap: this.seriesBarCategoryGap,
+            data: []
           }
         ]
       }
@@ -155,10 +157,10 @@ export default {
     getData () {
       return new Promise(async (resolve, reject) => {
         const res = await this.$http.post(this.url, {
-          type: 2,
+          type: 3,
           ...this.ajaxData
         })
-        resolve(res.data.list)
+        resolve(res.data)
       })
     },
     // 返回拼好的option
@@ -166,9 +168,15 @@ export default {
       return new Promise(async (resolve, reject) => {
         const data = await this.getData()
         const option = this.option
-        option.xAxis.data = data.map(e => e.name)
-        option.series[0].data = data.map(e => e.value)
-        resolve(this.option)
+        option.legend.data = data.legend
+        option.yAxis[0].data = data.yAxis
+        option.yAxis[1].data = data.yAxis
+        option.series[0].name = data.series[0].name
+        option.series[0].data = data.series[0].data
+        option.series[1].name = data.series[1].name
+        option.series[1].data = data.series[1].data
+        console.log(option)
+        resolve(option)
       })
     },
     // 初始化
@@ -177,9 +185,9 @@ export default {
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(await this.optionMaker())
-          this.intervalObj = setInterval(async () => {
-            this.chart.setOption(await this.optionMaker())
-          }, this.interval)
+          // this.intervalObj = setInterval(async () => {
+          //   this.chart.setOption(await this.optionMaker())
+          // }, this.interval)
         })
     }
   }

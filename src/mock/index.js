@@ -2,6 +2,7 @@ var Mock = require('mockjs')
 
 Mock.mock(/\.mock/, ({url, type, body}) => {
   const bodyObj = JSON.parse(body)
+  console.log(bodyObj)
   if (bodyObj.type === 1) {
     // 简单一个数字的数据
     return Mock.mock({
@@ -23,21 +24,41 @@ Mock.mock(/\.mock/, ({url, type, body}) => {
     })
   } else if (bodyObj.type === 3) {
     // 多series数据
-    return Mock.mock({
-      legend: ['类型1', '类型2', '类型3'],
-      xAxis: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
-      series: [
-        {
-          name: '类型1',
-          data: ['@natural(1, 100)', '@natural(1, 100)', '@natural(1, 100)', '@natural(1, 100)', '@natural(1, 100)', '@natural(1, 100)', '@natural(1, 100)']
-        }, {
-          name: '类型2',
-          data: ['@natural(101, 200)', '@natural(101, 200)', '@natural(101, 200)', '@natural(101, 200)', '@natural(101, 200)', '@natural(101, 200)', '@natural(101, 200)']
-        }, {
-          name: '类型3',
-          data: ['@natural(201, 300)', '@natural(201, 300)', '@natural(201, 300)', '@natural(201, 300)', '@natural(201, 300)', '@natural(201, 300)', '@natural(201, 300)']
-        }
-      ]
-    })
+    if (bodyObj.name === 'bar-stack') {
+      const all = Mock.mock({
+        name: '所有采集点',
+        data: ['@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)']
+      })
+      // 判断参数 层叠柱状图
+      return Mock.mock({
+        legend: ['今日活跃', '所有采集点'],
+        yAxis: ['河北', '山东', '浙江', '辽宁', '山西', '广东', '黑龙江'],
+        series: [
+          all,
+          {
+            name: '今日活跃',
+            data: all.data.map(e => e - 10)
+          }
+        ]
+      })
+    } else {
+      // 判断参数 最基础的数据 多条折线图
+      return Mock.mock({
+        legend: ['类型1', '类型2', '类型3'],
+        xAxis: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+        series: [
+          {
+            name: '类型1',
+            data: ['@natural(1, 100)', '@natural(1, 100)', '@natural(1, 100)', '@natural(1, 100)', '@natural(1, 100)', '@natural(1, 100)', '@natural(1, 100)']
+          }, {
+            name: '类型2',
+            data: ['@natural(101, 200)', '@natural(101, 200)', '@natural(101, 200)', '@natural(101, 200)', '@natural(101, 200)', '@natural(101, 200)', '@natural(101, 200)']
+          }, {
+            name: '类型3',
+            data: ['@natural(201, 300)', '@natural(201, 300)', '@natural(201, 300)', '@natural(201, 300)', '@natural(201, 300)', '@natural(201, 300)', '@natural(201, 300)']
+          }
+        ]
+      })
+    }
   }
 })
