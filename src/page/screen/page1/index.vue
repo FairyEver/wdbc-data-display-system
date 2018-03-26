@@ -17,6 +17,15 @@
             @mounted="mountedChartNum++">
           </ChartLineMulti>
         </div>
+        <div ref="box-line-multi-3-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartLineMulti
+            ref="box-line-multi-3-g-c"
+            title-text="今日行情"
+            :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
+            :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
+            @mounted="mountedChartNum++">
+          </ChartLineMulti>
+        </div>
       </div>
       <!-- col -->
       <div class="flex-item grow flex-group col">

@@ -4,7 +4,7 @@
     <p class="num" :style="styleNum">
       <span ref="num"></span>
     </p>
-    <p class="sub-title">
+    <p class="sub-title" :style="styleSubTitle">
       <span>{{symbol}}</span>
       <span ref="num2">67</span>
       <span>
@@ -28,6 +28,7 @@ export default {
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
     titleSize: {type: String, required: false, default: '24'},
+    subTitleSize: {type: String, required: false, default: '24'},
     // 数字
     numSize: {type: String, required: false, default: '64'},
     numColor: {type: String, required: false, default: '#FFF'},
@@ -66,6 +67,12 @@ export default {
         'color': this.titleColor,
         'fontSize': `${this.titleSize}px`,
         'lineHeight': `${this.titleSize}px`
+      }
+    },
+    styleSubTitle () {
+      return {
+        'fontSize': `${this.subTitleSize}px`,
+        'lineHeight': `${this.subTitleSize}px`
       }
     },
     // 数字样式
@@ -136,7 +143,7 @@ export default {
   }
   .sub-title {
     img {
-      height: 12px;
+      height: 18px;
     }
   }
 }
