@@ -20,7 +20,16 @@
       </div>
       <!-- col -->
       <div class="flex-item grow flex-group col">
-        //
+        <div class="flex-item flex-group row" style="height: 200px; padding: 5px;">
+          <div class="flex-item grow"></div>
+          <div class="flex-item hov" style="width: 200px; margin: 5px;"></div>
+          <div class="flex-item hov" style="width: 200px; margin: 5px;"></div>
+          <div class="flex-item hov" style="width: 200px; margin: 5px;"></div>
+          <div class="flex-item grow"></div>
+        </div>
+        <div class="flex-item grow" style="height: 200px;">
+          h
+        </div>
       </div>
       <!-- col -->
       <div class="flex-item flex-group col" style="width: 25%;">
