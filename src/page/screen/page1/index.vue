@@ -21,8 +21,8 @@
           <ChartLineMulti
             ref="box-line-multi-3-g-c"
             title-text="今日行情"
-            :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
-            :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
+            :series-color="[$color.cyan, $color.green, $color.yellow]"
+            :series-label-text-color="[$color.bg, $color.bg, $color.bg]"
             @mounted="mountedChartNum++">
           </ChartLineMulti>
         </div>
@@ -73,8 +73,8 @@
           <ChartLineMulti
             ref="box-line-multi-2-g-c"
             title-text="今日行情"
-            :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
-            :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
+            :series-color="[$color.group1[0], $color.group1[1], $color.group1[2]]"
+            :series-label-text-color="['#FFF', '#FFF', '#FFF']"
             @mounted="mountedChartNum++">
           </ChartLineMulti>
         </div>
