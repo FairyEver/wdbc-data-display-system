@@ -40,7 +40,9 @@ export default {
       height: 0,
       width: 0,
       // 定时器
-      intervalObj: null
+      intervalObj: null,
+      // 数字动画对象
+      countupObj: null
     }
   },
   computed: {

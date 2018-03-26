@@ -6,12 +6,12 @@
     </p>
     <p class="sub-title">
       <span>+</span>
-      <span>67</span>
+      <span ref="num2">67</span>
       <span>
         <img src="@/assets/image/arrow-up.svg">
         <img src="@/assets/image/arrow-down.svg">
       </span>
-      <span>1.92</span>
+      <span ref="num3">1.92</span>
       <span>%</span>
     </p>
   </div>
@@ -44,7 +44,11 @@ export default {
       height: 0,
       width: 0,
       // 定时器
-      intervalObj: null
+      intervalObj: null,
+      // 数字动画对象
+      countupObj: null,
+      countupObj2: null,
+      countupObj3: null
     }
   },
   computed: {
@@ -82,8 +86,7 @@ export default {
           type: 1,
           ...this.ajaxData
         })
-        console.log(res)
-        resolve(res.data.num)
+        resolve(res.data)
       })
     },
     // 初始化
@@ -91,10 +94,14 @@ export default {
       this.updateSize(height, width)
         .then(async () => {
           const data = await this.getData()
-          this.countupObj = new this.CountUp(this.$refs.num, 0, data)
-          this.countupObj.start()
+          this.countupObj = new this.CountUp(this.$refs.num, 0, data.num).start()
+          this.countupObj2 = new this.CountUp(this.$refs.num2, 0, data.num2).start()
+          this.countupObj3 = new this.CountUp(this.$refs.num3, 0, data.num3).start()
           this.intervalObj = setInterval(async () => {
-            this.countupObj.update(await this.getData())
+            const data = await this.getData()
+            this.countupObj.update(data.num)
+            this.countupObj2.update(data.num2)
+            this.countupObj3.update(data.num3)
           }, this.interval)
         })
     }

@@ -7,8 +7,8 @@ Mock.mock(/\.mock/, ({url, type, body}) => {
     if (bodyObj.name === 'djzs' || bodyObj.name === 'cbzs' || bodyObj.name === 'ylzs') {
       return Mock.mock({
         num: '@natural(400, 500)',
-        num1: '@natural(-99, 99)',
-        num2: '@natural(1, 20)'
+        num2: '@natural(-99, 99)',
+        num3: '@natural(1, 20)'
       })
     } else {
       return Mock.mock({

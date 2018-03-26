@@ -8,9 +8,7 @@ export default {
       echarts,
       CountUp,
       // 图表对象
-      chart: null,
-      // 数字动画对象
-      countupObj: null
+      chart: null
     }
   },
   methods: {
