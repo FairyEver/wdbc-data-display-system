@@ -26,6 +26,7 @@
             <ChartCountStyle2
               ref="box-count-style2-1-g-c"
               title-text="蛋价指数"
+              :ajax-data="{name: 'djzs'}"
               :title-color="$color.cyan"
               :num-color="$color.cyan"
               @mounted="mountedChartNum++">
@@ -35,6 +36,7 @@
             <ChartCountStyle2
               ref="box-count-style2-2-g-c"
               title-text="成本指数"
+              :ajax-data="{name: 'cbzs'}"
               :title-color="$color.yellow"
               :num-color="$color.yellow"
               @mounted="mountedChartNum++">
@@ -44,6 +46,7 @@
             <ChartCountStyle2
               ref="box-count-style2-3-g-c"
               title-text="盈利指数"
+              :ajax-data="{name: 'ylzs'}"
               :title-color="$color.green"
               :num-color="$color.green"
               @mounted="mountedChartNum++">
