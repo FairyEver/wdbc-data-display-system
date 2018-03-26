@@ -5,12 +5,12 @@
       <p class="sub-title">多条折线图 - 小标题</p>
     </div>
     <!-- row -->
-    <div ref="box-line-stack-1-g" class="flex-item grow hov" style="margin: 10px;">
-      <ChartLineStack
-        ref="box-line-stack-1-g-c"
+    <div ref="box-bar-stack-1-g" class="flex-item grow hov" style="margin: 10px;">
+      <ChartBarStack
+        ref="box-bar-stack-1-g-c"
         title-text="今日行情"
         @mounted="mountedChartNum++">
-      </ChartLineStack>
+      </ChartBarStack>
     </div>
   </div>
 </template>

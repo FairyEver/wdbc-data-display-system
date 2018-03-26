@@ -13,6 +13,9 @@ export default {
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
     titleSize: {type: String, required: false, default: '14'},
+    // 图例
+    legendTop: {type: String, required: false, default: '40'},
+    legendTextColor: {type: String, required: false, default: '#FFF'},
     // 接口地址
     url: {type: String, required: false, default: 'x.mock'},
     // 发送请求的时候带的参数
@@ -27,7 +30,6 @@ export default {
     // 坐标轴
     xAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
     yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
-    yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
     // series
     seriesColor: {type: String, required: false, default: '#0F3551'},
     seriesLabelTextColor: {type: String, required: false, default: '#FFF'}
@@ -66,67 +68,80 @@ export default {
           top: this.gridTop,
           bottom: this.gridBottom
         },
-        xAxis: {
-          data: [],
-          type: 'category',
-          boundaryGap: false,
-          axisLine: {
-            lineStyle: {
-              color: this.xAxisAxisLineColor
-            }
-          }
+        legend: {
+          top: this.legendTop,
+          textStyle: {
+            color: this.legendTextColor
+          },
+          data: ['钥匙量', '有效房源量']
         },
-        yAxis: {
+        xAxis: {
           type: 'value',
+          axisTick : {show: false},
           axisLine: {
-            lineStyle: {
-              color: this.yAxisAxisLineColor
+            show: false,
+            lineStyle:{
+              color: this.xAxisAxisLineColor
             }
           },
           splitLine: {
-            lineStyle: {
-              color: this.yAxisSplitLineColor
-            }
+            show: false
           }
         },
+        yAxis: [
+          {
+            type: 'category',
+            axisTick : {show: false},
+            axisLine: {
+              lineStyle:{
+                color: this.yAxisAxisLineColor
+              }
+            },
+            data: ['广州','深圳','东莞','天津','惠州','北京三级','成都','南京','重庆','长沙']
+          },
+          {
+            type: 'category',
+            axisLine: {show:false},
+            axisTick: {show:false},
+            axisLabel: {show:false},
+            splitArea: {show:false},
+            splitLine: {show:false},
+            data: ['广州','深圳','东莞','天津','惠州','北京三级','成都','南京','重庆','长沙']
+          }
+        ],
         series: [
           {
-            type: 'line',
-            smooth: 0.3,
-            itemStyle: {
-              color: this.seriesColor
-            },
-            symbol: 'circle',
-            symbolSize: 6,
-            areaStyle: {
-              color: {
-                type: 'linear',
-                x: 0,
-                y: 0,
-                x2: 0,
-                y2: 1,
-                colorStops: [
-                  {
-                    offset: 0, color: this.$toRGB(this.seriesColor)
-                  }, {
-                    offset: 1, color: this.$toRGB(this.seriesColor, 0)
-                  }
-                ],
-                globalCoord: false
-              }
-            },
-            label: {
+            name: '有效房源量',
+            type: 'bar',
+            yAxisIndex:1,
+            itemStyle:{
               normal: {
                 show: true,
-                position: 'top',
-                distance: '5',
-                color: this.seriesLabelTextColor,
-                backgroundColor: this.seriesColor,
-                padding: [3, 6],
-                borderRadius: 2
+                color: '#277ace',
+                barBorderRadius:50,
+                borderWidth:0,
+                borderColor:'#333'
               }
             },
-            data: []
+            barGap:'0%',
+            barCategoryGap:'50%',
+            data: [120, 132, 101, 134, 90, 230, 210, 125, 231, 132]
+          },
+          {
+            name: '钥匙量',
+            type: 'bar',
+            itemStyle:{
+              normal: {
+                show: true,
+                color: '#5de3e1',
+                barBorderRadius:50,
+                borderWidth:0,
+                borderColor:'#333'
+              }
+            },
+            barGap:'0%',
+            barCategoryGap:'50%',
+            data: [32, 52, 41, 64, 15, 10, 32, 25, 210, 32]
           }
         ]
       }
@@ -153,7 +168,7 @@ export default {
         const option = this.option
         option.xAxis.data = data.map(e => e.name)
         option.series[0].data = data.map(e => e.value)
-        resolve(option)
+        resolve(this.option)
       })
     },
     // 初始化
