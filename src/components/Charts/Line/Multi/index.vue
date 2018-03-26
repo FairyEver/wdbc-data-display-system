@@ -25,7 +25,7 @@ export default {
     // grid 设置
     gridTop: {type: String, required: false, default: '80'},
     gridBottom: {type: String, required: false, default: '30'},
-    gridLeft: {type: String, required: false, default: '10%'},
+    gridLeft: {type: String, required: false, default: '50'},
     gridRight: {type: String, required: false, default: '5%'},
     // 坐标轴
     xAxisAxisLineColor: {type: String, required: false, default: '#FFF'},

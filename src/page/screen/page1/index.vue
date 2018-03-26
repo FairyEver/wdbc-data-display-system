@@ -33,6 +33,15 @@
             @mounted="mountedChartNum++">
           </ChartLineMulti>
         </div>
+        <div ref="box-bar-stack-1-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarStack
+            ref="box-bar-stack-1-g-c"
+            title-text="今日行情"
+            :series-color="$color.cyan"
+            :ajax-data="{name: 'bar-stack'}"
+            @mounted="mountedChartNum++">
+          </ChartBarStack>
+        </div>
       </div>
     </div>
   </div>
