@@ -82,6 +82,7 @@ export default {
           type: 1,
           ...this.ajaxData
         })
+        console.log(res)
         resolve(res.data.num)
       })
     },

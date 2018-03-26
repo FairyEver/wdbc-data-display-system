@@ -6,7 +6,9 @@ Mock.mock(/\.mock/, ({url, type, body}) => {
     // 简单一个数字的数据
     if (bodyObj.name === 'djzs' || bodyObj.name === 'cbzs' || bodyObj.name === 'ylzs') {
       return Mock.mock({
-        num: '@natural(400, 500)'
+        num: '@natural(400, 500)',
+        num1: '@natural(-99, 99)',
+        num2: '@natural(1, 20)'
       })
     } else {
       return Mock.mock({
