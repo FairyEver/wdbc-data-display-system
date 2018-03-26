@@ -27,12 +27,9 @@ export default {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
-    titleSize: {type: String, required: false, default: '36'},
-    subTitleText: {type: String, required: false, default: 'Chart'},
-    subTitleColor: {type: String, required: false, default: '#FFF'},
-    subTitleSize: {type: String, required: false, default: '20'},
+    titleSize: {type: String, required: false, default: '24'},
     // 数字
-    numSize: {type: String, required: false, default: '70'},
+    numSize: {type: String, required: false, default: '64'},
     numColor: {type: String, required: false, default: '#FFF'},
     // 接口地址
     url: {type: String, required: false, default: 'x.mock'},
@@ -63,13 +60,6 @@ export default {
         'color': this.titleColor,
         'fontSize': `${this.titleSize}px`,
         'lineHeight': `${this.titleSize}px`
-      }
-    },
-    styleSubTitle () {
-      return {
-        'color': this.subTitleColor,
-        'fontSize': `${this.subTitleSize}px`,
-        'lineHeight': `${this.subTitleSize}px`
       }
     },
     // 数字样式

@@ -25,8 +25,8 @@
           <div ref="box-count-style2-1-g" class="flex-item hov" style="width: 200px; margin: 5px;">
             <ChartCountStyle2
               ref="box-count-style2-1-g-c"
-              title-text="count"
-              sub-title-text="count style2"
+              title-text="蛋价指数"
+              :title-color="$color.cyan"
               :num-color="$color.cyan"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
@@ -34,18 +34,18 @@
           <div ref="box-count-style2-2-g" class="flex-item hov" style="width: 200px; margin: 5px;">
             <ChartCountStyle2
               ref="box-count-style2-2-g-c"
-              title-text="count"
-              sub-title-text="count style2"
-              :num-color="$color.cyan"
+              title-text="成本指数"
+              :title-color="$color.yellow"
+              :num-color="$color.yellow"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
           <div ref="box-count-style2-3-g" class="flex-item hov" style="width: 200px; margin: 5px;">
             <ChartCountStyle2
               ref="box-count-style2-3-g-c"
-              title-text="count"
-              sub-title-text="count style2"
-              :num-color="$color.cyan"
+              title-text="盈利指数"
+              :title-color="$color.green"
+              :num-color="$color.green"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
