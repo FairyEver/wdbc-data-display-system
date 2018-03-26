@@ -140,6 +140,7 @@ export default {
   }
   .num {
     font-size: 40px;
+    margin: 10px 0px;
   }
   .sub-title {
     img {
