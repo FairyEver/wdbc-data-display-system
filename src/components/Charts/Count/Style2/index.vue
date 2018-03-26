@@ -131,7 +131,7 @@ export default {
   }
   .sub-title {
     img {
-      height: 18px;
+      height: 12px;
     }
   }
 }
