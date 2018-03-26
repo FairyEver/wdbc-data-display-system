@@ -22,9 +22,33 @@
       <div class="flex-item grow flex-group col">
         <div class="flex-item flex-group row" style="height: 200px; padding: 5px;">
           <div class="flex-item grow"></div>
-          <div class="flex-item hov" style="width: 200px; margin: 5px;"></div>
-          <div class="flex-item hov" style="width: 200px; margin: 5px;"></div>
-          <div class="flex-item hov" style="width: 200px; margin: 5px;"></div>
+          <div ref="box-count-style2-1-g" class="flex-item hov" style="width: 200px; margin: 5px;">
+            <ChartCountStyle2
+              ref="box-count-style2-1-g-c"
+              title-text="count"
+              sub-title-text="count style2"
+              :num-color="$color.cyan"
+              @mounted="mountedChartNum++">
+            </ChartCountStyle2>
+          </div>
+          <div ref="box-count-style2-2-g" class="flex-item hov" style="width: 200px; margin: 5px;">
+            <ChartCountStyle2
+              ref="box-count-style2-2-g-c"
+              title-text="count"
+              sub-title-text="count style2"
+              :num-color="$color.cyan"
+              @mounted="mountedChartNum++">
+            </ChartCountStyle2>
+          </div>
+          <div ref="box-count-style2-3-g" class="flex-item hov" style="width: 200px; margin: 5px;">
+            <ChartCountStyle2
+              ref="box-count-style2-3-g-c"
+              title-text="count"
+              sub-title-text="count style2"
+              :num-color="$color.cyan"
+              @mounted="mountedChartNum++">
+            </ChartCountStyle2>
+          </div>
           <div class="flex-item grow"></div>
         </div>
         <div class="flex-item grow" style="height: 200px;">
