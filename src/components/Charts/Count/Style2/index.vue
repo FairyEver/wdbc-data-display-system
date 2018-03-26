@@ -1,20 +1,16 @@
 <template>
   <div :style="style" class="chart-count-style-2">
-    <!-- <div class="title-group">
-      <p class="title" :style="styleTitle">{{titleText}}</p>
-      <p class="sub-title" :style="styleSubTitle">{{subTitleText}}</p>
-    </div>
-    <div class="num-group" :style="styleNum">
-      <span ref="num"></span>
-    </div> -->
     <p class="title" :style="styleTitle">{{titleText}}</p>
-    <p class="num">
+    <p class="num" :style="styleNum">
       <span ref="num"></span>
     </p>
     <p class="sub-title">
       <span>+</span>
       <span>67</span>
-      <span>⬆️</span>
+      <span>
+        <img src="@/assets/image/arrow-up.svg">
+        <img src="@/assets/image/arrow-down.svg">
+      </span>
       <span>1.92</span>
       <span>%</span>
     </p>
@@ -132,6 +128,11 @@ export default {
   }
   .num {
     font-size: 40px;
+  }
+  .sub-title {
+    img {
+      height: 18px;
+    }
   }
 }
 </style>
