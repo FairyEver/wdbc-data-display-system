@@ -74,14 +74,14 @@ export default {
             type: 'slider',
             yAxisIndex: [0, 1],
             filterMode: 'empty',
-            start: 50,
-            end: 100
+            start: 0,
+            end: 25
           }, {
             type: 'inside',
             yAxisIndex: [0, 1],
             filterMode: 'empty',
-            start: 50,
-            end: 100
+            start: 0,
+            end: 25
           }
         ],
         legend: {

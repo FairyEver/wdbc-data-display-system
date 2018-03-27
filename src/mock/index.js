@@ -35,11 +35,40 @@ Mock.mock(/\.mock/, ({url, type, body}) => {
       // 判断参数 层叠柱状图
       const all = Mock.mock({
         name: '所有采集点',
-        data: ['@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)', '@natural(20, 100)']
+        data: [
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)',
+          '@natural(20, 100)'
+        ]
       })
       return Mock.mock({
         legend: ['今日活跃', '所有采集点'],
-        yAxis: ['河北', '山东', '浙江', '辽宁', '山西', '广东', '黑龙江'],
+        yAxis: ['河北', '山东', '浙江', '辽宁', '山西', '广东', '黑龙江', '河北2', '山东2', '浙江2', '辽宁2', '山西2', '广东2', '黑龙江2', '河北', '山东', '浙江', '辽宁', '山西', '广东', '黑龙江', '河北2', '山东2', '浙江2', '辽宁2', '山西2', '广东2', '黑龙江2'],
         series: [
           all,
           {
