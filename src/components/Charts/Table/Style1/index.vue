@@ -1,12 +1,12 @@
 <template>
   <div :style="style" class="chart-table-style-1">
-    <div class="header">{{titleText}}</div>
-    <table>
-      <tr>
-        <th v-for="(item, index) in table.title" :key="index">{{item}}</th>
+    <div :style="styleHeader">{{titleText}}</div>
+    <table class="table" :style="styleTable">
+      <tr class="table-title">
+        <th v-for="(item, index) in table.title" :key="index" style="padding: 0px;">{{item}}</th>
       </tr>
       <tr class="table-row" v-for="(row, index) in table.rows" :key="`row${index}`">
-        <td v-for="(col, colIndex) in row" :key="`col${colIndex}`">{{col}}</td>
+        <td v-for="(col, colIndex) in row" :key="`col${colIndex}`" style="padding: 0px;">{{col}}</td>
       </tr>
     </table>
   </div>
@@ -22,7 +22,7 @@ export default {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
-    titleSize: {type: String, required: false, default: '36'},
+    titleSize: {type: String, required: false, default: '16'},
     // 接口地址
     url: {type: String, required: false, default: 'x.mock'},
     // 发送请求的时候带的参数
@@ -55,6 +55,20 @@ export default {
       return {
         height: `${this.height}px`,
         width: `${this.width}px`
+      }
+    },
+    styleHeader () {
+      return {
+        color: `${this.titleColor}px`,
+        fontSize: `${this.titleSize}px`,
+        height: '30px',
+        lineHeight: '30px',
+        textAlign: 'center'
+      }
+    },
+    styleTable () {
+      return {
+        height: `${this.height - 30}px`,
       }
     }
   },
@@ -92,33 +106,15 @@ export default {
 <style lang="scss">
 .chart-table-style-1 {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   user-select: none;
   cursor: pointer;
-  .header {
-  }
   .table {
+    height: 100%;
     width: 100%;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    .table-title {
-      display: flex;
-      flex-direction: row;
-      div {
-        flex-grow: 1;
-        text-align: center;
-      }
-    }
-    .table-row {
-      display: flex;
-      flex-direction: row;
-      div {
-        flex-grow: 1;
-        text-align: center;
-      }
+    text-align: center;
+    thead {
+      text-align: center;
     }
   }
 }
