@@ -9,7 +9,7 @@
       <!-- col -->
       <div class="flex-item grow flex-group col">
         <!-- 上半部分 -->
-        <div class="flex-item grow flex-group row">
+        <div class="flex-item grow flex-group col">
 
         </div>
         <!-- 表格 -->
