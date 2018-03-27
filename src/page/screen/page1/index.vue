@@ -57,8 +57,11 @@
             </div>
           </div>
           <!-- 上半部分 右侧 -->
-          <div class="flex-item grow">
-            map
+          <div ref="box-map-style1-1-g" class="flex-item grow">
+            <ChartMapStyle1
+              ref="box-map-style1-1-g-c"
+              @mounted="mountedChartNum++">
+            </ChartMapStyle1>
           </div>
         </div>
         <!-- 表格 -->
