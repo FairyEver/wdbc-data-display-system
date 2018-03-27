@@ -70,6 +70,20 @@ export default {
           top: this.gridTop,
           bottom: this.gridBottom
         },
+        dataZoom: [{
+            type: 'slider',
+            yAxisIndex: [0, 1],
+            filterMode: 'empty',
+            start: 50,
+            end: 100
+          }, {
+            type: 'inside',
+            yAxisIndex: [0, 1],
+            filterMode: 'empty',
+            start: 50,
+            end: 100
+          }
+        ],
         legend: {
           top: this.legendTop,
           textStyle: {
