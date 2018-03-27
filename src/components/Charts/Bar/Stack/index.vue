@@ -205,10 +205,12 @@ export default {
           this.scroll()
         })
     },
+    // 刷新数据
     async refreshData () {
       this.chart.setOption(await this.optionMaker())
       this.scroll()
     },
+    // 滚动一圈
     scroll () {
       let start = 0
       let end = 20
