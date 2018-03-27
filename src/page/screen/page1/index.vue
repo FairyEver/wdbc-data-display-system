@@ -63,9 +63,7 @@
           </div>
           <div class="flex-item grow"></div>
         </div>
-        <div class="flex-item grow" style="height: 200px;">
-          h
-        </div>
+        <div class="flex-item grow" style="height: 200px;">map</div>
       </div>
       <!-- col -->
       <div class="flex-item flex-group col" style="width: 25%;">
