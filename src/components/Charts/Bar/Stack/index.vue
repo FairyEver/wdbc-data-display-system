@@ -20,8 +20,8 @@ export default {
     url: {type: String, required: false, default: 'x.mock'},
     // 发送请求的时候带的参数
     ajaxData: {type: Object, required: false, default: () => ({})},
-    // 这个图表比较特殊 是滚动条滚动结束后再请求
-    interval: {type: Number, required: false, default: 10000},
+    // 这个图表比较特殊 是滚动条滚动结束后再请求 这个时间指的是每次滚动条滚动的时间间隔
+    interval: {type: Number, required: false, default: 1000},
     // grid 设置
     gridTop: {type: String, required: false, default: '80'},
     gridBottom: {type: String, required: false, default: '30'},
@@ -70,18 +70,21 @@ export default {
           top: this.gridTop,
           bottom: this.gridBottom
         },
-        dataZoom: [{
+        dataZoom: [
+          {
+            show: false,
             type: 'slider',
             yAxisIndex: [0, 1],
             filterMode: 'empty',
             start: 0,
-            end: 25
+            end: 20
           }, {
+            show: false,
             type: 'inside',
             yAxisIndex: [0, 1],
             filterMode: 'empty',
             start: 0,
-            end: 25
+            end: 20
           }
         ],
         legend: {
@@ -189,7 +192,6 @@ export default {
         option.series[0].data = data.series[0].data
         option.series[1].name = data.series[1].name
         option.series[1].data = data.series[1].data
-        console.log(option)
         resolve(option)
       })
     },
@@ -199,10 +201,48 @@ export default {
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(await this.optionMaker())
-          // this.intervalObj = setInterval(async () => {
-          //   this.chart.setOption(await this.optionMaker())
-          // }, this.interval)
+          // 自动滚动
+          this.scroll()
         })
+    },
+    async refreshData () {
+      this.chart.setOption(await this.optionMaker())
+      this.scroll()
+    },
+    scroll () {
+      let start = 0
+      let end = 20
+      const step = 2
+      this.intervalObj = setInterval(() => {
+        if (start === 100 - step || end === 100) {
+          clearInterval(this.intervalObj)
+          start = 0
+          end = 20
+          this.refreshData()
+        } else {
+          start += step
+          end += step
+          this.chart.setOption({
+            dataZoom: [
+              {
+                show: false,
+                type: 'slider',
+                yAxisIndex: [0, 1],
+                filterMode: 'empty',
+                start: start,
+                end: end
+              }, {
+                show: false,
+                type: 'inside',
+                yAxisIndex: [0, 1],
+                filterMode: 'empty',
+                start: start,
+                end: end
+              }
+            ]
+          })
+        }
+      }, this.interval)
     }
   }
 }
