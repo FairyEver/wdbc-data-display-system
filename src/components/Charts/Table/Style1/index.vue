@@ -29,7 +29,7 @@ export default {
     // 发送请求的时候带的参数
     ajaxData: {type: Object, required: false, default: () => ({})},
     // 发送请求的间隔
-    interval: {type: Number, required: false, default: 10000}
+    interval: {type: Number, required: false, default: 3000}
   },
   data () {
     return {
@@ -92,17 +92,19 @@ export default {
           const data = await this.getData()
           this.table.title = data.title
           this.tableRows = data.rows
-          this.table.rows = this.giveMeFive()
           // this.countupObj = new this.CountUp(this.$refs.num, 0, data)
           // this.countupObj.start()
-          // this.intervalObj = setInterval(async () => {
-          //   this.countupObj.update(await this.getData())
-          // }, this.interval)
+          this.table.rows = this.giveMeFive()
+          this.intervalObj = setInterval(async () => {
+            // this.countupObj.update(await this.getData())
+            this.table.rows = this.giveMeFive()
+          }, this.interval)
         })
     },
     // 依次返回 tableRows 中的五个值
     giveMeFive () {
-      return this.tableRows.splice(this.tableRowStartIndex, this.tableRowStartIndex + 5)
+      const five = this.tableRows.splice(this.tableRowStartIndex, this.tableRowStartIndex + 5)
+      return five
     }
   }
 }
