@@ -1,6 +1,8 @@
 <template>
   <div :style="style" class="chart-table-style-1">
-    table
+    <div class="header">
+      {{titleText}}
+    </div>
   </div>
 </template>
 

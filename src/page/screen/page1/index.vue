@@ -17,14 +17,12 @@
             @mounted="mountedChartNum++">
           </ChartLineMulti>
         </div>
-        <div ref="box-line-multi-3-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineMulti
-            ref="box-line-multi-3-g-c"
-            title-text="今日行情"
-            :series-color="[$color.cyan, $color.green, $color.yellow]"
-            :series-label-text-color="[$color.bg, $color.bg, $color.bg]"
+        <div ref="box-table-style1-1-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartTableStyle1
+            ref="box-table-style1-1-g-c"
+            title-text="轮播"
             @mounted="mountedChartNum++">
-          </ChartLineMulti>
+          </ChartTableStyle1>
         </div>
       </div>
       <!-- col -->
