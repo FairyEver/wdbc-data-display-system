@@ -1,5 +1,8 @@
 import echarts from 'echarts'
 import CountUp from 'countup.js'
+import chinaMap from '@/assets/map/china.js'
+echarts.registerMap('china', chinaMap)
+
 // https://github.com/inorganik/CountUp.js
 export default {
   data () {
