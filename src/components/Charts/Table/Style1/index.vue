@@ -1,7 +1,13 @@
 <template>
   <div :style="style" class="chart-table-style-1">
-    <div class="header">
-      {{titleText}}
+    <div class="header">{{titleText}}</div>
+    <div class="table">
+      <div class="table-title">
+        <div v-for="(item, index) in table.title" :key="index">{{item}}</div>
+      </div>
+      <div class="table-row" v-for="(row, index) in table.rows" :key="`row${index}`">
+        <div v-for="(col, colIndex) in row" :key="`col${colIndex}`">{{col}}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -30,7 +36,17 @@ export default {
       height: 0,
       width: 0,
       // 定时器
-      intervalObj: null
+      intervalObj: null,
+      table: {
+        title: ['地址', '红壳蛋', '粉壳蛋', '白壳蛋', '玉米', '豆粕', '淘汰鸡'],
+        rows: [
+          ['地址1', 15, 15, 15, 15, 15, 15],
+          ['地址2', 15, 15, 15, 15, 15, 15],
+          ['地址3', 15, 15, 15, 15, 15, 15],
+          ['地址4', 15, 15, 15, 15, 15, 15],
+          ['地址5', 15, 15, 15, 15, 15, 15]
+        ]
+      }
     }
   },
   computed: {
@@ -39,14 +55,6 @@ export default {
       return {
         height: `${this.height}px`,
         width: `${this.width}px`
-      }
-    },
-    // 数字样式
-    styleNum () {
-      return {
-        color: this.numColor,
-        'fontSize': `${this.numSize}px`,
-        'lineHeight': `${this.numSize}px`
       }
     }
   },
@@ -69,6 +77,7 @@ export default {
       this.updateSize(height, width)
         .then(async () => {
           const data = await this.getData()
+          console.log(data)
           // this.countupObj = new this.CountUp(this.$refs.num, 0, data)
           // this.countupObj.start()
           // this.intervalObj = setInterval(async () => {
@@ -85,24 +94,32 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   user-select: none;
   cursor: pointer;
-  .title-group {
-    width: 50%;
-    margin-right: 20px;
-    text-align: right;
-    .title {
-      margin: 0px;
-      padding: 0px;
-      margin-bottom: 5px;
-    }
-    .sub-title {
-      margin: 0px;
-      padding: 0px;
-    }
+  .header {
   }
-  .num-group {
-    width: 50%;
+  .table {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    .table-title {
+      display: flex;
+      flex-direction: row;
+      div {
+        flex-grow: 1;
+        text-align: center;
+      }
+    }
+    .table-row {
+      display: flex;
+      flex-direction: row;
+      div {
+        flex-grow: 1;
+        text-align: center;
+      }
+    }
   }
 }
 </style>
