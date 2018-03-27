@@ -1,11 +1,11 @@
 <template>
   <div :style="style" class="chart-table-style-1">
-    <div :style="styleHeader">{{titleText}}</div>
+    <div class="header" :style="styleHeader">{{titleText}}</div>
     <table class="table" :style="styleTable">
       <tr class="table-title">
         <th v-for="(item, index) in table.title" :key="index" style="padding: 0px;">{{item}}</th>
       </tr>
-      <tr class="table-row" v-for="(row, index) in table.rows" :key="`row${index}`">
+      <tr class="table-row" :class="{'n2': index % 2 === 0}" v-for="(row, index) in table.rows" :key="`row${index}`">
         <td v-for="(col, colIndex) in row" :key="`col${colIndex}`" style="padding: 0px;">{{col}}</td>
       </tr>
     </table>
@@ -23,6 +23,7 @@ export default {
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
     titleSize: {type: String, required: false, default: '16'},
+    titleHeight: {type: String, required: false, default: '40'},
     // 接口地址
     url: {type: String, required: false, default: 'x.mock'},
     // 发送请求的时候带的参数
@@ -61,14 +62,14 @@ export default {
       return {
         color: `${this.titleColor}px`,
         fontSize: `${this.titleSize}px`,
-        height: '30px',
-        lineHeight: '30px',
+        height: `${this.titleHeight}px`,
+        lineHeight: `${this.titleHeight}px`,
         textAlign: 'center'
       }
     },
     styleTable () {
       return {
-        height: `${this.height - 30}px`,
+        height: `${this.height - Number(this.titleHeight)}px`
       }
     }
   },
@@ -109,12 +110,25 @@ export default {
   flex-direction: column;
   user-select: none;
   cursor: pointer;
+  .header {
+    background-color: rgba(#FFF, .1);
+    margin: 0px 2px;
+  }
   .table {
     height: 100%;
     width: 100%;
     text-align: center;
     thead {
       text-align: center;
+    }
+    .table-title {
+      background-color: rgba(#FFF, .3);
+    }
+    .table-row {
+      background-color: rgba(#FFF, 0.3);
+      &.n2 {
+        background-color: rgba(#FFF, .1);
+      }
     }
   }
 }
