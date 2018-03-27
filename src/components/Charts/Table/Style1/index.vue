@@ -40,6 +40,7 @@ export default {
       intervalObj: null,
       // 表格数据 缓存区
       tableRows: [],
+      tableRowStartIndex: 0,
       // 表格数据 这个数据是实际显示的
       table: {
         title: [],
@@ -89,15 +90,19 @@ export default {
       this.updateSize(height, width)
         .then(async () => {
           const data = await this.getData()
-          console.log(data)
           this.table.title = data.title
-          this.table.rows = data.rows
+          this.tableRows = data.rows
+          this.table.rows = this.giveMeFive()
           // this.countupObj = new this.CountUp(this.$refs.num, 0, data)
           // this.countupObj.start()
           // this.intervalObj = setInterval(async () => {
           //   this.countupObj.update(await this.getData())
           // }, this.interval)
         })
+    },
+    // 依次返回 tableRows 中的五个值
+    giveMeFive () {
+      return this.tableRows.splice(this.tableRowStartIndex, this.tableRowStartIndex + 5)
     }
   }
 }
