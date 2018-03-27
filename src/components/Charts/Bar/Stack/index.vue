@@ -20,7 +20,7 @@ export default {
     url: {type: String, required: false, default: 'x.mock'},
     // 发送请求的时候带的参数
     ajaxData: {type: Object, required: false, default: () => ({})},
-    // 发送请求的间隔
+    // 这个图表比较特殊 是滚动条滚动结束后再请求
     interval: {type: Number, required: false, default: 10000},
     // grid 设置
     gridTop: {type: String, required: false, default: '80'},
@@ -199,9 +199,9 @@ export default {
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(await this.optionMaker())
-          this.intervalObj = setInterval(async () => {
-            this.chart.setOption(await this.optionMaker())
-          }, this.interval)
+          // this.intervalObj = setInterval(async () => {
+          //   this.chart.setOption(await this.optionMaker())
+          // }, this.interval)
         })
     }
   }
