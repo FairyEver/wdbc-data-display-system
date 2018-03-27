@@ -1,12 +1,6 @@
 <template>
-  <div :style="style" class="chart-count-style-1">
-    <div class="title-group">
-      <p class="title" :style="styleTitle">{{titleText}}</p>
-      <p class="sub-title" :style="styleSubTitle">{{subTitleText}}</p>
-    </div>
-    <div class="num-group" :style="styleNum">
-      <span ref="num"></span>
-    </div>
+  <div :style="style" class="chart-table-style-1">
+    table
   </div>
 </template>
 
@@ -21,12 +15,6 @@ export default {
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
     titleSize: {type: String, required: false, default: '36'},
-    subTitleText: {type: String, required: false, default: 'Chart'},
-    subTitleColor: {type: String, required: false, default: '#FFF'},
-    subTitleSize: {type: String, required: false, default: '20'},
-    // 数字
-    numSize: {type: String, required: false, default: '70'},
-    numColor: {type: String, required: false, default: '#FFF'},
     // 接口地址
     url: {type: String, required: false, default: 'x.mock'},
     // 发送请求的时候带的参数
@@ -40,9 +28,7 @@ export default {
       height: 0,
       width: 0,
       // 定时器
-      intervalObj: null,
-      // 数字动画对象
-      countupObj: null
+      intervalObj: null
     }
   },
   computed: {
@@ -51,20 +37,6 @@ export default {
       return {
         height: `${this.height}px`,
         width: `${this.width}px`
-      }
-    },
-    styleTitle () {
-      return {
-        'color': this.titleColor,
-        'fontSize': `${this.titleSize}px`,
-        'lineHeight': `${this.titleSize}px`
-      }
-    },
-    styleSubTitle () {
-      return {
-        'color': this.subTitleColor,
-        'fontSize': `${this.subTitleSize}px`,
-        'lineHeight': `${this.subTitleSize}px`
       }
     },
     // 数字样式
@@ -87,7 +59,7 @@ export default {
           type: 1,
           ...this.ajaxData
         })
-        resolve(res.data.num)
+        resolve(res.data)
       })
     },
     // 初始化
@@ -95,11 +67,11 @@ export default {
       this.updateSize(height, width)
         .then(async () => {
           const data = await this.getData()
-          this.countupObj = new this.CountUp(this.$refs.num, 0, data)
-          this.countupObj.start()
-          this.intervalObj = setInterval(async () => {
-            this.countupObj.update(await this.getData())
-          }, this.interval)
+          // this.countupObj = new this.CountUp(this.$refs.num, 0, data)
+          // this.countupObj.start()
+          // this.intervalObj = setInterval(async () => {
+          //   this.countupObj.update(await this.getData())
+          // }, this.interval)
         })
     }
   }
@@ -107,7 +79,7 @@ export default {
 </script>
 
 <style lang="scss">
-.chart-count-style-1 {
+.chart-table-style-1 {
   display: flex;
   justify-content: center;
   align-items: center;
