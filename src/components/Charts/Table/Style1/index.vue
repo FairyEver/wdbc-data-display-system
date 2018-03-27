@@ -28,7 +28,7 @@ export default {
     url: {type: String, required: false, default: 'x.mock'},
     // 发送请求的时候带的参数
     ajaxData: {type: Object, required: false, default: () => ({})},
-    // 发送请求的间隔
+    // 表格滚动时间间隔
     interval: {type: Number, required: false, default: 3000}
   },
   data () {
@@ -92,23 +92,24 @@ export default {
           const data = await this.getData()
           this.table.title = data.title
           this.tableRows = data.rows
-          // this.countupObj = new this.CountUp(this.$refs.num, 0, data)
-          // this.countupObj.start()
-          this.table.rows = this.giveMeFive()
+          this.table.rows = await this.giveMeFive()
           this.intervalObj = setInterval(async () => {
-            // this.countupObj.update(await this.getData())
-            this.table.rows = this.giveMeFive()
+            this.table.rows = await this.giveMeFive()
           }, this.interval)
         })
     },
     // 依次返回 tableRows 中的五个值
-    giveMeFive () {
-      if (this.tableRowStartIndex >= this.tableRows.length) {
-        this.tableRowStartIndex = 0
-      }
-      const five = this.tableRows.slice(this.tableRowStartIndex, this.tableRowStartIndex + 5)
-      this.tableRowStartIndex += 5
-      return five
+    async giveMeFive () {
+      return new Promise(async (resolve, reject) => {
+        if (this.tableRowStartIndex >= this.tableRows.length) {
+          this.tableRowStartIndex = 0
+          const data = await this.getData()
+          this.tableRows = data.rows
+        }
+        const five = this.tableRows.slice(this.tableRowStartIndex, this.tableRowStartIndex + 5)
+        this.tableRowStartIndex += 5
+        resolve(five)
+      })
     }
   }
 }
