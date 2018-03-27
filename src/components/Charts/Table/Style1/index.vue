@@ -103,7 +103,11 @@ export default {
     },
     // 依次返回 tableRows 中的五个值
     giveMeFive () {
-      const five = this.tableRows.splice(this.tableRowStartIndex, this.tableRowStartIndex + 5)
+      if (this.tableRowStartIndex >= this.tableRows.length) {
+        this.tableRowStartIndex = 0
+      }
+      const five = this.tableRows.slice(this.tableRowStartIndex, this.tableRowStartIndex + 5)
+      this.tableRowStartIndex += 5
       return five
     }
   }
