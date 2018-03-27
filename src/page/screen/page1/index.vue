@@ -66,6 +66,7 @@
           <ChartTableStyle1
             ref="box-table-style1-1-g-c"
             title-text="市场行情报价"
+            :ajax-data="{name: 'table-hq'}"
             @mounted="mountedChartNum++">
           </ChartTableStyle1>
         </div>

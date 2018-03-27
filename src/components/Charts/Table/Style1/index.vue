@@ -38,15 +38,12 @@ export default {
       width: 0,
       // 定时器
       intervalObj: null,
+      // 表格数据 缓存区
+      tableRows: [],
+      // 表格数据 这个数据是实际显示的
       table: {
-        title: ['地址', '红壳蛋', '粉壳蛋', '白壳蛋', '玉米', '豆粕', '淘汰鸡', '时间', '人员'],
-        rows: [
-          ['这是一个很长很长很长的地址1', 15, 15, 15, 15, 15, 15, '20:08', '人员'],
-          ['这是一个很长很长很长的地址2', 15, 15, 15, 15, 15, 15, '20:08', '人员'],
-          ['这是一个很长很长很长的地址3', 15, 15, 15, 15, 15, 15, '20:08', '人员'],
-          ['这是一个很长很长很长的地址4', 15, 15, 15, 15, 15, 15, '20:08', '人员'],
-          ['这是一个很长很长很长的地址5', 15, 15, 15, 15, 15, 15, '20:08', '人员']
-        ]
+        title: [],
+        rows: []
       }
     }
   },
@@ -81,7 +78,7 @@ export default {
     getData () {
       return new Promise(async (resolve, reject) => {
         const res = await this.$http.post(this.url, {
-          type: 1,
+          type: 3,
           ...this.ajaxData
         })
         resolve(res.data)
@@ -93,6 +90,8 @@ export default {
         .then(async () => {
           const data = await this.getData()
           console.log(data)
+          this.table.title = data.title
+          this.table.rows = data.rows
           // this.countupObj = new this.CountUp(this.$refs.num, 0, data)
           // this.countupObj.start()
           // this.intervalObj = setInterval(async () => {
