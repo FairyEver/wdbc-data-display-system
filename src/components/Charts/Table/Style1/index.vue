@@ -1,14 +1,14 @@
 <template>
   <div :style="style" class="chart-table-style-1">
     <div class="header">{{titleText}}</div>
-    <div class="table">
-      <div class="table-title">
-        <div v-for="(item, index) in table.title" :key="index">{{item}}</div>
-      </div>
-      <div class="table-row" v-for="(row, index) in table.rows" :key="`row${index}`">
-        <div v-for="(col, colIndex) in row" :key="`col${colIndex}`">{{col}}</div>
-      </div>
-    </div>
+    <table>
+      <tr>
+        <th v-for="(item, index) in table.title" :key="index">{{item}}</th>
+      </tr>
+      <tr class="table-row" v-for="(row, index) in table.rows" :key="`row${index}`">
+        <td v-for="(col, colIndex) in row" :key="`col${colIndex}`">{{col}}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
