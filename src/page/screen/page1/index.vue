@@ -1,8 +1,8 @@
 <template>
   <div class="container flex-group col abs-full">
     <div class="flex-item flex-group col center screen-header" style="height: 80px;">
-      <p class="title">第一个页面</p>
-      <p class="sub-title">第一个页面的小标题</p>
+      <p class="title">智慧蛋鸡全国行情数据展示</p>
+      <!-- <p class="sub-title">第一个页面的小标题</p> -->
     </div>
     <!-- row -->
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
@@ -60,6 +60,7 @@
           <div ref="box-map-style1-1-g" class="flex-item grow">
             <ChartMapStyle1
               ref="box-map-style1-1-g-c"
+              title-text="全国采集点"
               @mounted="mountedChartNum++">
             </ChartMapStyle1>
           </div>

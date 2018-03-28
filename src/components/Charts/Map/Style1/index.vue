@@ -4,6 +4,7 @@
 
 <script>
 import mixin from '@/components/Charts/mixin.js'
+import shuJuCaiJiDian from './data'
 export default {
   mixins: [
     mixin
@@ -12,27 +13,7 @@ export default {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
-    titleSize: {type: String, required: false, default: '14'},
-    // 接口地址
-    url: {type: String, required: false, default: 'x.mock'},
-    // 发送请求的时候带的参数
-    ajaxData: {type: Object, required: false, default: () => ({})},
-    // 发送请求的间隔
-    interval: {type: Number, required: false, default: 10000},
-    // grid 设置
-    gridTop: {type: String, required: false, default: '40'},
-    gridBottom: {type: String, required: false, default: '30'},
-    gridLeft: {type: String, required: false, default: '50'},
-    gridRight: {type: String, required: false, default: '5%'},
-    // 坐标轴
-    xAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
-    yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
-    yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
-    // series
-    seriesColor: {type: String, required: false, default: '#0F3551'},
-    seriesBorderRadius: {type: Array, required: false, default: () => [4, 4, 0, 0]},
-    seriesBarGap: {type: String, required: false, default: '0%'},
-    seriesBarCategoryGap: {type: String, required: false, default: '50%'}
+    titleSize: {type: String, required: false, default: '14'}
   },
   data () {
     return {
@@ -62,55 +43,88 @@ export default {
             fontSize: this.titleSize
           }
         },
-        grid: {
-          left: this.gridLeft,
-          right: this.gridRight,
-          top: this.gridTop,
-          bottom: this.gridBottom
+        tooltip: {
+          show: false,
+          trigger: 'item'
         },
-        xAxis: {
-          data: [],
-          axisLine: {
-            lineStyle: {
-              color: this.xAxisAxisLineColor
-            }
-          }
-        },
-        yAxis: {
-          axisLine: {
-            lineStyle: {
-              color: this.yAxisAxisLineColor
+        geo: {
+          map: 'china',
+          label: {
+            emphasis: {
+              show: false
             }
           },
-          splitLine: {
-            lineStyle: {
-              color: this.yAxisSplitLineColor
+          roam: false,
+          itemStyle: {
+            normal: {
+              areaColor: '#134C55',
+              borderColor: '#11CDD9',
+              borderWidth: 2
+            },
+            emphasis: {
+              areaColor: '#FFCF2D',
+              borderWidth: 2,
+              borderColor: '#FF8D23',
+              shadowColor: 'rgba(0, 0, 0, 0.4)',
+              shadowBlur: 20,
+              shadowOffsetY: 4
             }
           }
         },
         series: [
           {
-            type: 'bar',
-            itemStyle: {
-              color: {
-                type: 'linear',
-                x: 0,
-                y: 0,
-                x2: 0,
-                y2: 1,
-                colorStops: [{
-                  offset: 0,
-                  color: this.$toRGB(this.seriesColor, 1)
-                }, {
-                  offset: 1,
-                  color: this.$toRGB(this.seriesColor, 0.5)
-                }],
-                globalCoord: false // 缺省为 false
+            name: '行情数据',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            symbolSize: 5,
+            label: {
+              normal: {
+                formatter: '{b}',
+                position: 'right',
+                show: false
               },
-              barBorderRadius: this.seriesBorderRadius
+              emphasis: {
+                show: true
+              }
             },
-            barGap: this.seriesBarGap,
-            barCategoryGap: this.seriesBarCategoryGap,
+            itemStyle: {
+              normal: {
+                color: '#f4e925'
+              }
+            },
+            data: shuJuCaiJiDian
+          },
+          {
+            type: 'map',
+            mapType: 'china',
+            roam: false,
+            itemStyle: {
+              normal: {
+                areaColor: 'rgba(0,0,0,0)',
+                label: {
+                  show: false
+                },
+                borderWidth: 2,
+                borderColor: '#11CDD9'
+              },
+              emphasis: {
+                label: {
+                  show: true,
+                  position: ['50%', '50%'],
+                  fontSize: 16,
+                  color: '#52D7E9',
+                  backgroundColor: 'rgba(0,0,0,.7)',
+                  padding: [4, 6],
+                  borderRadius: 2
+                },
+                areaColor: '#FFCF2D',
+                borderWidth: 2,
+                borderColor: '#FF8D23',
+                shadowColor: 'rgba(0, 0, 0, 0.4)',
+                shadowBlur: 20,
+                shadowOffsetY: 4
+              }
+            },
             data: []
           }
         ]
@@ -146,10 +160,11 @@ export default {
       this.updateSize(height, width)
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
-          this.chart.setOption(await this.optionMaker())
-          this.intervalObj = setInterval(async () => {
-            this.chart.setOption(await this.optionMaker())
-          }, this.interval)
+          // this.chart.setOption(await this.optionMaker())
+          this.chart.setOption(this.option)
+          // this.intervalObj = setInterval(async () => {
+          //   this.chart.setOption(await this.optionMaker())
+          // }, this.interval)
         })
     }
   }
