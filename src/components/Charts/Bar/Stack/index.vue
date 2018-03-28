@@ -21,7 +21,7 @@ export default {
     // 发送请求的时候带的参数
     ajaxData: {type: Object, required: false, default: () => ({})},
     // 这个图表比较特殊 是滚动条滚动结束后再请求 这个时间指的是每次滚动条滚动的时间间隔
-    interval: {type: Number, required: false, default: 1000},
+    interval: {type: Number, required: false, default: 2000},
     // grid 设置
     gridTop: {type: String, required: false, default: '80'},
     gridBottom: {type: String, required: false, default: '30'},

@@ -45,14 +45,15 @@
                 </ChartCountStyle2>
               </div>
             </div>
-            <div ref="box-bar-stack-1-g" class="flex-item grow hov" style="margin: 5px;">
-              <ChartBarStack
-                ref="box-bar-stack-1-g-c"
+            <!-- 曲线 -->
+            <div ref="box-line-multi-1-g" class="flex-item grow hov" style="margin: 5px;">
+              <ChartLineMulti
+                ref="box-line-multi-1-g-c"
                 title-text="今日行情"
-                :series-color="$color.cyan"
-                :ajax-data="{name: 'bar-stack'}"
+                :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
+                :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
                 @mounted="mountedChartNum++">
-              </ChartBarStack>
+              </ChartLineMulti>
             </div>
           </div>
           <!-- 上半部分 右侧 -->
@@ -85,15 +86,14 @@
             @mounted="mountedChartNum++">
           </ChartLineMulti>
         </div>
-        <!-- 曲线 -->
-        <div ref="box-line-multi-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineMulti
-            ref="box-line-multi-1-g-c"
+        <div ref="box-bar-stack-1-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarStack
+            ref="box-bar-stack-1-g-c"
             title-text="今日行情"
-            :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
-            :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
+            :series-color="$color.cyan"
+            :ajax-data="{name: 'bar-stack'}"
             @mounted="mountedChartNum++">
-          </ChartLineMulti>
+          </ChartBarStack>
         </div>
       </div>
     </div>
