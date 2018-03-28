@@ -1,6 +1,6 @@
 <template>
   <div :style="style" class="chart-table-style-1">
-    <div class="header" :style="styleHeader">{{titleText}}</div>
+    <div class="header" :style="styleHeader">{{date}} {{titleText}}</div>
     <table class="table" :style="styleTable">
       <tr class="table-title">
         <th v-for="(item, index) in table.title" :key="index" style="padding: 0px;">{{item}}</th>
@@ -45,7 +45,9 @@ export default {
       table: {
         title: [],
         rows: []
-      }
+      },
+      // 当前日期
+      date: ''
     }
   },
   computed: {
@@ -90,6 +92,7 @@ export default {
       this.updateSize(height, width)
         .then(async () => {
           const data = await this.getData()
+          this.getDate()
           this.table.title = data.title
           this.tableRows = data.rows
           this.table.rows = await this.giveMeFive()
@@ -105,11 +108,16 @@ export default {
           this.tableRowStartIndex = 0
           const data = await this.getData()
           this.tableRows = data.rows
+          this.getDate()
         }
         const five = this.tableRows.slice(this.tableRowStartIndex, this.tableRowStartIndex + 5)
         this.tableRowStartIndex += 5
         resolve(five)
       })
+    },
+    getDate () {
+      var date = new Date()
+      this.date = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + date.getDate()
     }
   }
 }
