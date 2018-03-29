@@ -25,7 +25,7 @@ export default {
     // grid 设置
     gridTop: {type: String, required: false, default: '80'},
     gridBottom: {type: String, required: false, default: '30'},
-    gridLeft: {type: String, required: false, default: '50'},
+    gridLeft: {type: String, required: false, default: '100'},
     gridRight: {type: String, required: false, default: '5%'},
     // 坐标轴
     xAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
@@ -183,7 +183,7 @@ export default {
     // 返回拼好的option
     optionMaker () {
       return new Promise(async (resolve, reject) => {
-        const data = await this.getData()
+        const data = this.transform(await this.getData())
         const option = this.option
         option.legend.data = data.legend
         option.yAxis[0].data = data.yAxis

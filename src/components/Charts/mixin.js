@@ -5,6 +5,14 @@ echarts.registerMap('china', chinaMap)
 
 // https://github.com/inorganik/CountUp.js
 export default {
+  props: {
+    // 处理接口返回的数据
+    transform: {
+      type: Function,
+      required: false,
+      default: (data) => data
+    }
+  },
   data () {
     return {
       // 库

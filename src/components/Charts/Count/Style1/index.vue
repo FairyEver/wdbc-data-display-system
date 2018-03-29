@@ -87,18 +87,18 @@ export default {
           type: 1,
           ...this.ajaxData
         })
-        resolve(res.data.num)
+        resolve(res.data)
       })
     },
     // 初始化
     init ({height, width}) {
       this.updateSize(height, width)
         .then(async () => {
-          const data = await this.getData()
+          const data = this.transform(await this.getData()).num
           this.countupObj = new this.CountUp(this.$refs.num, 0, data)
           this.countupObj.start()
           this.intervalObj = setInterval(async () => {
-            this.countupObj.update(await this.getData())
+            this.countupObj.update(this.transform(await this.getData()).num)
           }, this.interval)
         })
     }

@@ -91,7 +91,7 @@ export default {
     init ({height, width}) {
       this.updateSize(height, width)
         .then(async () => {
-          const data = await this.getData()
+          const data = this.transform(await this.getData())
           this.getDate()
           this.table.title = data.title
           this.tableRows = data.rows
@@ -106,7 +106,7 @@ export default {
       return new Promise(async (resolve, reject) => {
         if (this.tableRowStartIndex >= this.tableRows.length) {
           this.tableRowStartIndex = 0
-          const data = await this.getData()
+          const data = this.transform(await this.getData())
           this.tableRows = data.rows
           this.getDate()
         }

@@ -75,14 +75,14 @@ export default {
           type: 2,
           ...this.ajaxData
         })
-        resolve(res.data.list)
+        resolve(res.data)
       })
     },
     // 返回拼好的option
     optionMaker () {
       return new Promise(async (resolve, reject) => {
         const option = this.option
-        option.series[0].data = await this.getData()
+        option.series[0].data = this.transform(await this.getData()).list
         resolve(option)
       })
     },

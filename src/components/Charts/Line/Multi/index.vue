@@ -122,7 +122,7 @@ export default {
     // 返回拼好的option
     optionMaker () {
       return new Promise(async (resolve, reject) => {
-        const data = await this.getData()
+        const data = this.transform(await this.getData())
         const option = this.option
         option.legend.data = data.legend
         option.xAxis.data = data.xAxis

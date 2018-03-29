@@ -6,12 +6,12 @@
     </p>
     <p class="sub-title" :style="styleSubTitle">
       <span>{{symbol}}</span>
-      <span ref="num2">67</span>
+      <span ref="num2"></span>
       <span>
         <img v-if="symbol === '+'" src="@/assets/image/arrow-up.svg">
         <img v-if="symbol === '-'" src="@/assets/image/arrow-down.svg">
       </span>
-      <span ref="num3">1.92</span>
+      <span ref="num3"></span>
       <span>%</span>
     </p>
   </div>
@@ -37,7 +37,7 @@ export default {
     // 发送请求的时候带的参数
     ajaxData: {type: Object, required: false, default: () => ({})},
     // 发送请求的间隔
-    interval: {type: Number, required: false, default: 10000}
+    interval: {type: Number, required: false, default: 30 * 60 * 1000}
   },
   data () {
     return {
@@ -102,20 +102,20 @@ export default {
     init ({height, width}) {
       this.updateSize(height, width)
         .then(async () => {
-          const data = await this.getData()
+          const data = this.transform(await this.getData())
           this.symbol = data.num2 >= 0 ? '+' : '-'
           this.countupObj = new this.CountUp(this.$refs.num, 0, data.num)
           this.countupObj2 = new this.CountUp(this.$refs.num2, 0, Math.abs(data.num2))
-          this.countupObj3 = new this.CountUp(this.$refs.num3, 0, data.num3)
+          this.countupObj3 = new this.CountUp(this.$refs.num3, 0, data.num3, 2)
           this.countupObj.start()
           this.countupObj2.start()
           this.countupObj3.start()
           this.intervalObj = setInterval(async () => {
-            const data = await this.getData()
+            const data = this.transform(await this.getData())
             this.symbol = data.num2 >= 0 ? '+' : '-'
             this.countupObj.update(data.num)
             this.countupObj2.update(Math.abs(data.num2))
-            this.countupObj3.update(data.num3)
+            this.countupObj3.update(data.num3, 2)
           }, this.interval)
         })
     }

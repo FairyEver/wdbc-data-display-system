@@ -128,13 +128,13 @@ export default {
           type: 2,
           ...this.ajaxData
         })
-        resolve(res.data.list)
+        resolve(res.data)
       })
     },
     // 返回拼好的option
     optionMaker () {
       return new Promise(async (resolve, reject) => {
-        const data = await this.getData()
+        const data = this.transform(await this.getData()).list
         const option = this.option
         option.xAxis.data = data.map(e => e.name)
         option.series[0].data = data.map(e => e.value)

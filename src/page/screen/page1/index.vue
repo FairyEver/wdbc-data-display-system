@@ -18,7 +18,9 @@
                 <ChartCountStyle2
                   ref="box-count-style2-1-g-c"
                   title-text="蛋价指数"
+                  url="http://192.168.164.120:6080/api/marketQuotationHomeIndex"
                   :ajax-data="{name: 'djzs'}"
+                  :transform="(data) => data.dataInfo.quotationData"
                   :title-color="$color.cyan"
                   :num-color="$color.cyan"
                   @mounted="mountedChartNum++">
@@ -28,7 +30,9 @@
                 <ChartCountStyle2
                   ref="box-count-style2-2-g-c"
                   title-text="成本指数"
+                  url="http://192.168.164.120:6080/api/marketQuotationHomeIndex"
                   :ajax-data="{name: 'cbzs'}"
+                  :transform="(data) => data.dataInfo.quotationData"
                   :title-color="$color.yellow"
                   :num-color="$color.yellow"
                   @mounted="mountedChartNum++">
@@ -38,7 +42,9 @@
                 <ChartCountStyle2
                   ref="box-count-style2-3-g-c"
                   title-text="盈利指数"
+                  url="http://192.168.164.120:6080/api/marketQuotationHomeIndex"
                   :ajax-data="{name: 'ylzs'}"
+                  :transform="(data) => data.dataInfo.quotationData"
                   :title-color="$color.green"
                   :num-color="$color.green"
                   @mounted="mountedChartNum++">
@@ -48,9 +54,11 @@
             <div ref="box-bar-stack-1-g" class="flex-item grow hov" style="margin: 5px;">
               <ChartBarStack
                 ref="box-bar-stack-1-g-c"
-                title-text="今日行情"
+                title-text="今日采集情况"
                 :series-color="$color.cyan"
+                url="http://192.168.164.120:6080/api/getCurrentCollectionPoint"
                 :ajax-data="{name: 'bar-stack'}"
+                :transform="(data) => data.dataInfo"
                 @mounted="mountedChartNum++">
               </ChartBarStack>
             </div>
@@ -69,7 +77,8 @@
           <ChartTableStyle1
             ref="box-table-style1-1-g-c"
             title-text="市场行情报价"
-            :ajax-data="{name: 'table-hq'}"
+            url="http://192.168.164.120:6080/api/getMarketQuotationPrice"
+            :transform="(data) => data.dataInfo"
             @mounted="mountedChartNum++">
           </ChartTableStyle1>
         </div>
@@ -79,13 +88,14 @@
         <div ref="box-line-multi-2-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartLineMulti
             ref="box-line-multi-2-g-c"
-            title-text="今日行情"
+            title-text="全国行情指数"
             :series-color="[$color.group1[0], $color.group1[1], $color.group1[2]]"
             :series-label-text-color="['#FFF', '#FFF', '#FFF']"
+            url="http://192.168.164.120:6080/api/marketQuotationIndexGraph"
+            :transform="(data) => data.dataInfo"
             @mounted="mountedChartNum++">
           </ChartLineMulti>
         </div>
-        <!-- 曲线 -->
         <div ref="box-line-multi-1-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartLineMulti
             ref="box-line-multi-1-g-c"
