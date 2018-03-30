@@ -13,4 +13,6 @@ Vue.component('ChartMapStyle1', resolve => { require(['@/components/Charts/Map/S
 
 Vue.component('ChartPieBase', resolve => { require(['@/components/Charts/Pie/Base/index.vue'], resolve) })
 
+Vue.component('ChartRadarStyle1', resolve => { require(['@/components/Charts/Radar/Style1/index.vue'], resolve) })
+
 Vue.component('ChartTableStyle1', resolve => { require(['@/components/Charts/Table/Style1/index.vue'], resolve) })

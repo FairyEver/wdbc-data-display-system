@@ -53,6 +53,12 @@ export default new Router({
           component: resolve => { require(['@/page/screen/demo7'], resolve) }
         },
         {
+          title: '雷达图1',
+          path: 'screen/demo8',
+          name: 'screen-demo8',
+          component: resolve => { require(['@/page/screen/demo8'], resolve) }
+        },
+        {
           title: '页面1',
           path: 'screen/page1',
           name: 'screen-page1',
