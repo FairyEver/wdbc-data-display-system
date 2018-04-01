@@ -13,7 +13,7 @@ export default {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
-    titleSize: {type: String, required: false, default: '14'}
+    titleSize: {type: String, required: false, default: '20'}
   },
   data () {
     return {
@@ -36,7 +36,7 @@ export default {
       return {
         title: {
           text: this.titleText,
-          top: '6',
+          top: '10',
           left: 'center',
           textStyle: {
             color: this.titleColor,

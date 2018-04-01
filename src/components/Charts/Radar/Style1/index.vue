@@ -67,7 +67,7 @@ export default {
           left: 10,
           top: 50,
           orient: 'vertical',
-          data: ['最高价', '平均价', '最低价'],
+          data: ['平均价', '最高价', '最低价'],
           textStyle: {
             color: '#FFF'
           }
@@ -77,8 +77,7 @@ export default {
           name: {
             formatter: (value, indicator) => {
               return [
-                `{title|${value}}`,
-                `{texta|均价: ${indicator.label.avg.value}元}`,
+                `{title|${value}均价 ${indicator.label.avg.value}元}}`,
                 `{texth|${indicator.label.max.name} ${indicator.label.max.value}元}`,
                 `{textl|${indicator.label.min.name} ${indicator.label.min.value}元}`
               ].join('\n')
@@ -91,11 +90,6 @@ export default {
               },
               texth: {
                 color: this.$color.red,
-                fontSize: 14,
-                lineHeight: 16
-              },
-              texta: {
-                color: this.$color.yellow,
                 fontSize: 14,
                 lineHeight: 16
               },
@@ -155,12 +149,12 @@ export default {
               value: [],
               name: '平均价',
               itemStyle: {
-                color: this.$color.yellow
+                color: '#FFF'
               },
               symbol: 'circle',
               symbolSize: 6,
               lineStyle: {
-                color: this.$color.yellow
+                color: '#FFF'
               }
             },
             {

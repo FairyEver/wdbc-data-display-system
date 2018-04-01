@@ -1,6 +1,6 @@
 <template>
   <div :style="style" class="chart-count-style-2">
-    <p class="title" :style="styleTitle">{{titleText}}</p>
+    <p v-if="symbol" class="title" :style="styleTitle">{{titleText}}</p>
     <p class="num" :style="styleNum">
       <span ref="num"></span>
     </p>
@@ -12,7 +12,7 @@
         <img v-if="symbol === '-'" src="@/assets/image/arrow-down.svg">
       </span>
       <span ref="num3"></span>
-      <span>%</span>
+      <span v-if="symbol">%</span>
     </p>
   </div>
 </template>
@@ -26,12 +26,10 @@ export default {
   props: {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
-    titleColor: {type: String, required: false, default: '#FFF'},
     titleSize: {type: String, required: false, default: '24'},
     subTitleSize: {type: String, required: false, default: '24'},
     // 数字
     numSize: {type: String, required: false, default: '64'},
-    numColor: {type: String, required: false, default: '#FFF'},
     // 接口地址
     url: {type: String, required: false, default: 'x.mock'},
     // 发送请求的时候带的参数
@@ -72,15 +70,27 @@ export default {
     styleSubTitle () {
       return {
         'fontSize': `${this.subTitleSize}px`,
-        'lineHeight': `${this.subTitleSize}px`
+        'lineHeight': `${this.subTitleSize}px`,
+        'color': this.color
       }
     },
     // 数字样式
     styleNum () {
       return {
-        color: this.numColor,
+        'color': this.color,
         'fontSize': `${this.numSize}px`,
         'lineHeight': `${this.numSize}px`
+      }
+    },
+    // 颜色
+    color () {
+      switch (this.symbol) {
+        case '+':
+          return this.$color.red
+        case '-':
+          return this.$color.green
+        default:
+          return '#FFF'
       }
     }
   },
@@ -103,8 +113,14 @@ export default {
       this.updateSize(height, width)
         .then(async () => {
           const data = this.transform(await this.getData())
-          this.symbol = data.num2 >= 0 ? '+' : '-'
-          this.countupObj = new this.CountUp(this.$refs.num, 0, data.num)
+          if (data.num2 === 0) {
+            this.symbol = '='
+          } else if (data.num2 > 0) {
+            this.symbol = '+'
+          } else {
+            this.symbol = '-'
+          }
+          this.countupObj = new this.CountUp(this.$refs.num, 0, data.num, 0, 2, {useGrouping: false})
           this.countupObj2 = new this.CountUp(this.$refs.num2, 0, Math.abs(data.num2))
           this.countupObj3 = new this.CountUp(this.$refs.num3, 0, data.num3, 2)
           this.countupObj.start()
@@ -112,7 +128,13 @@ export default {
           this.countupObj3.start()
           this.intervalObj = setInterval(async () => {
             const data = this.transform(await this.getData())
-            this.symbol = data.num2 >= 0 ? '+' : '-'
+            if (data.num2 === 0) {
+              this.symbol = '='
+            } else if (data.num2 > 0) {
+              this.symbol = '+'
+            } else {
+              this.symbol = '-'
+            }
             this.countupObj.update(data.num)
             this.countupObj2.update(Math.abs(data.num2))
             this.countupObj3.update(data.num3, 2)
@@ -141,6 +163,7 @@ export default {
   .num {
     font-size: 40px;
     margin: 10px 0px;
+    font-weight: bold;
   }
   .sub-title {
     img {

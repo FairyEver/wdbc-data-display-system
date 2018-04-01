@@ -1,6 +1,6 @@
 <template>
   <div :style="style" class="chart-table-style-1">
-    <div class="header" :style="styleHeader">{{date}} {{titleText}}</div>
+    <div class="header" :style="styleHeader">{{titleText}} {{date}}</div>
     <table class="table" :style="styleTable">
       <tr class="table-title">
         <th v-for="(item, index) in table.title" :key="index" style="padding: 0px;">{{item}}</th>
@@ -22,7 +22,7 @@ export default {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
-    titleSize: {type: String, required: false, default: '16'},
+    titleSize: {type: String, required: false, default: '20'},
     titleHeight: {type: String, required: false, default: '40'},
     // 接口地址
     url: {type: String, required: false, default: 'x.mock'},
