@@ -23,7 +23,7 @@ export default {
     // 这个图表比较特殊 是滚动条滚动结束后再请求 这个时间指的是每次滚动条滚动的时间间隔
     interval: {type: Number, required: false, default: 2000},
     // grid 设置
-    gridTop: {type: String, required: false, default: '80'},
+    gridTop: {type: String, required: false, default: '60'},
     gridBottom: {type: String, required: false, default: '30'},
     gridLeft: {type: String, required: false, default: '100'},
     gridRight: {type: String, required: false, default: '5%'},

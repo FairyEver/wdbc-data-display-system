@@ -11,11 +11,8 @@
         <div class="flex-item grow flex-group row">
           <!-- 上半部分 左侧 -->
           <div class="flex-item flex-group col" style="width: 35%;">
-            <!-- 三大指数 -->
-            <div v-if="mountedChartNum === needMountedChartNum" class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px;">
-              今日全国行情指数
-            </div>
-            <div ref="box-count-style3-1-g" class="flex-item hov" style="height: 240px; margin: 5px;">
+            <!-- 销售额 -->
+            <div ref="box-count-style3-1-g" class="flex-item hov" style="height: 200px; margin: 5px;">
               <ChartCountStyle3
                 ref="box-count-style3-1-g-c"
                 title-text="销售额"
@@ -23,15 +20,18 @@
                 @mounted="mountedChartNum++">
               </ChartCountStyle3>
             </div>
-            <!-- <div ref="box-radar-style1-1-g" class="flex-item grow hov" style="margin: 5px;">
-              <ChartRadarStyle1
-                ref="box-radar-style1-1-g-c"
-                title-text="今日全国市场价格对比"
-                url="http://192.168.164.120:6080/api/countrywideMarketPriceCompare"
-                :transform="(data) => data.dataInfo"
+            <!-- 销售额曲线 -->
+            <div ref="box-line-base-1-g" class="flex-item grow hov" style="margin: 5px;">
+              <ChartLineBase
+                ref="box-line-base-1-g-c"
+                title-text="lineBase"
+                grid-left="50"
+                grid-right="20"
+                :series-color="$color.cyan"
+                :series-label-text-color="$color.bg"
                 @mounted="mountedChartNum++">
-              </ChartRadarStyle1>
-            </div> -->
+              </ChartLineBase>
+            </div>
           </div>
           <!-- 上半部分 右侧 -->
           <div ref="box-map-style1-1-g" class="flex-item grow">
@@ -43,20 +43,19 @@
           </div>
         </div>
         <!-- 表格 -->
-        <div ref="box-bar-base-1-g" class="flex-item hov" style="height: 300px; margin: 5px;">
-          <ChartBarBase
-            ref="box-bar-base-1-g-c"
-            title-text="barBase"
-            grid-left="50"
-            grid-right="20"
-            :series-color="$color.cyan"
+        <div ref="box-table-style1-1-g" class="flex-item hov" style="height: 300px; margin: 5px;">
+          <ChartTableStyle1
+            ref="box-table-style1-1-g-c"
+            title-text="各地市场报价行情"
+            :ajax-data="{name: 'table-hq'}"
             @mounted="mountedChartNum++">
-          </ChartBarBase>
+          </ChartTableStyle1>
         </div>
       </div>
       <!-- col -->
       <div class="flex-item flex-group col" style="width: 25%;">
-        <div ref="box-count-style3-2-g" class="flex-item hov" style="height: 240px; margin: 5px;">
+        <!-- 销售数据 -->
+        <div ref="box-count-style3-2-g" class="flex-item hov" style="height: 200px; margin: 5px;">
           <ChartCountStyle3
             ref="box-count-style3-2-g-c"
             title-text="销售量"
@@ -64,28 +63,18 @@
             @mounted="mountedChartNum++">
           </ChartCountStyle3>
         </div>
-        <!-- <div ref="box-line-multi-2-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineMulti
-            ref="box-line-multi-2-g-c"
-            title-text="全国行情指数趋势"
-            :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
-            :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
-            url="http://192.168.164.120:6080/api/marketQuotationIndexGraph"
-            :transform="(data) => data.dataInfo"
-            @mounted="mountedChartNum++">
-          </ChartLineMulti>
-        </div>
-        <div ref="box-bar-stack-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarStack
-            ref="box-bar-stack-1-g-c"
-            title-text="今日采集情况"
+        <!-- 销售数据曲线 -->
+        <div ref="box-line-base-2-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartLineBase
+            ref="box-line-base-2-g-c"
+            title-text="lineBase"
+            grid-left="50"
+            grid-right="20"
             :series-color="$color.cyan"
-            url="http://192.168.164.120:6080/api/getCurrentCollectionPoint"
-            :ajax-data="{name: 'bar-stack'}"
-            :transform="(data) => data.dataInfo"
+            :series-label-text-color="$color.bg"
             @mounted="mountedChartNum++">
-          </ChartBarStack>
-        </div> -->
+          </ChartLineBase>
+        </div>
       </div>
     </div>
   </div>
