@@ -11,7 +11,6 @@
           <ChartLineBase
             ref="box-line-base-1-g-c"
             title-text="lineBase"
-            grid-left="50"
             grid-right="20"
             :series-color="$color.cyan"
             :series-label-text-color="$color.bg"
@@ -22,7 +21,6 @@
           <ChartLineBase
             ref="box-line-base-2-g-c"
             title-text="lineBase"
-            grid-left="50"
             grid-right="20"
             :series-color="$color.yellow"
             :series-label-text-color="$color.bg"
@@ -36,7 +34,6 @@
           <ChartLineBase
             ref="box-line-base-3-g-c"
             title-text="lineBase"
-            grid-left="50"
             grid-right="20"
             :series-color="$color.green"
             :series-label-text-color="$color.bg"
@@ -47,7 +44,6 @@
           <ChartLineBase
             ref="box-line-base-4-g-c"
             title-text="lineBase"
-            grid-left="50"
             grid-right="20"
             :series-color="$color.pink"
             :series-label-text-color="'#FFF'"

@@ -24,8 +24,8 @@ export default {
     interval: {type: Number, required: false, default: 2000},
     // grid 设置
     gridTop: {type: String, required: false, default: '60'},
-    gridBottom: {type: String, required: false, default: '30'},
-    gridLeft: {type: String, required: false, default: '100'},
+    gridBottom: {type: String, required: false, default: '20'},
+    gridLeft: {type: String, required: false, default: '20'},
     gridRight: {type: String, required: false, default: '5%'},
     // 坐标轴
     xAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
@@ -68,7 +68,8 @@ export default {
           left: this.gridLeft,
           right: this.gridRight,
           top: this.gridTop,
-          bottom: this.gridBottom
+          bottom: this.gridBottom,
+          containLabel: true
         },
         dataZoom: [
           {

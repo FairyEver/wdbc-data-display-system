@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 Vue.component('ChartBarBase', resolve => { require(['@/components/Charts/Bar/Base/index.vue'], resolve) })
 Vue.component('ChartBarStack', resolve => { require(['@/components/Charts/Bar/Stack/index.vue'], resolve) })
+Vue.component('ChartBarMulti', resolve => { require(['@/components/Charts/Bar/Multi/index.vue'], resolve) })
 
 Vue.component('ChartCountStyle1', resolve => { require(['@/components/Charts/Count/Style1/index.vue'], resolve) })
 Vue.component('ChartCountStyle2', resolve => { require(['@/components/Charts/Count/Style2/index.vue'], resolve) })

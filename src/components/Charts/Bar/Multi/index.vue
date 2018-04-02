@@ -23,7 +23,7 @@ export default {
     // 发送请求的间隔
     interval: {type: Number, required: false, default: 10000},
     // grid 设置
-    gridTop: {type: String, required: false, default: '60'},
+    gridTop: {type: String, required: false, default: '80'},
     gridBottom: {type: String, required: false, default: '20'},
     gridLeft: {type: String, required: false, default: '20'},
     gridRight: {type: String, required: false, default: '5%'},
@@ -32,8 +32,10 @@ export default {
     yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
     yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
     // series
-    seriesColor: {type: Array, required: false, default: () => ['#0F3551']},
-    seriesLabelTextColor: {type: Array, required: false, default: () => ['#FFF']}
+    seriesColor: {type: String, required: false, default: '#0F3551'},
+    seriesBorderRadius: {type: Array, required: false, default: () => [4, 4, 0, 0]},
+    seriesBarGap: {type: String, required: false, default: '0%'},
+    seriesBarCategoryGap: {type: String, required: false, default: '50%'}
   },
   data () {
     return {
@@ -68,7 +70,7 @@ export default {
           textStyle: {
             color: this.legendTextColor
           },
-          data: []
+          data: ['2011年', '2012年']
         },
         grid: {
           left: this.gridLeft,
@@ -77,32 +79,26 @@ export default {
           bottom: this.gridBottom,
           containLabel: true
         },
+        yAxis: {
+          type: 'value',
+          boundaryGap: [0, '10%']
+        },
         xAxis: {
           type: 'category',
-          boundaryGap: false,
-          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-          axisLine: {
-            lineStyle: {
-              color: this.xAxisAxisLineColor
-            }
-          }
+          data: ['巴西','印尼','美国','印度','中国','世界人口(万)']
         },
-        yAxis: [
+        series: [
           {
-            type: 'value',
-            axisLine: {
-              lineStyle: {
-                color: this.yAxisAxisLineColor
-              }
-            },
-            splitLine: {
-              lineStyle: {
-                color: this.yAxisSplitLineColor
-              }
-            }
+            name: '2011年',
+            type: 'bar',
+            data: [18203, 23489, 29034, 104970, 131744, 630230]
+          },
+          {
+            name: '2012年',
+            type: 'bar',
+            data: [19325, 23438, 31000, 121594, 134141, 681807]
           }
-        ],
-        series: []
+        ]
       }
     }
   },
@@ -114,7 +110,7 @@ export default {
     getData () {
       return new Promise(async (resolve, reject) => {
         const res = await this.$http.post(this.url, {
-          type: 3,
+          type: 2,
           ...this.ajaxData
         })
         resolve(res.data)
@@ -123,55 +119,11 @@ export default {
     // 返回拼好的option
     optionMaker () {
       return new Promise(async (resolve, reject) => {
-        const data = this.transform(await this.getData())
+        const data = this.transform(await this.getData()).list
         const option = this.option
-        option.legend.data = data.legend
-        option.xAxis.data = data.xAxis
-        option.series = data.series.map((e, index) => {
-          const i = index % this.seriesColor.length
-          const areaColor = this.seriesColor[i]
-          const labelColor = this.seriesLabelTextColor[i]
-          return {
-            name: e.name,
-            type: 'line',
-            smooth: 0.3,
-            itemStyle: {
-              color: areaColor
-            },
-            symbol: 'circle',
-            symbolSize: 6,
-            areaStyle: {
-              color: {
-                type: 'linear',
-                x: 0,
-                y: 0,
-                x2: 0,
-                y2: 1,
-                colorStops: [
-                  {
-                    offset: 0, color: this.$toRGB(areaColor)
-                  }, {
-                    offset: 1, color: this.$toRGB(areaColor, 0)
-                  }
-                ],
-                globalCoord: false
-              }
-            },
-            label: {
-              normal: {
-                show: true,
-                position: 'top',
-                distance: '5',
-                color: labelColor,
-                backgroundColor: areaColor,
-                padding: [3, 6],
-                borderRadius: 2
-              }
-            },
-            data: e.data
-          }
-        })
-        resolve(option)
+        option.xAxis.data = data.map(e => e.name)
+        option.series[0].data = data.map(e => e.value)
+        resolve(this.option)
       })
     },
     // 初始化

@@ -79,7 +79,6 @@
           <ChartBarBase
             ref="box-bar-base-1-g-c"
             title-text="barBase"
-            grid-left="50"
             grid-right="20"
             :series-color="$color.cyan"
             @mounted="mountedChartNum++">
@@ -102,7 +101,6 @@
           <ChartBarBase
             ref="box-bar-base-3-g-c"
             title-text="barBase"
-            grid-left="50"
             grid-right="20"
             :series-color="$color.green"
             @mounted="mountedChartNum++">
