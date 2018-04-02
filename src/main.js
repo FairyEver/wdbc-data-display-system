@@ -45,5 +45,48 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  data () {
+    return {
+      isFullScreen: false,
+      host: 'http://192.168.164.120:6080'
+      // host: 'http://10.1.1.132:666'
+    }
+  },
+  methods: {
+    toggleFullScreen () {
+      if (this.isFullScreen) {
+        this.exitFullScreen()
+      } else {
+        this.fullScreen()
+      }
+    },
+    // 全屏
+    fullScreen () {
+      var docElm = document.documentElement
+      if (docElm.requestFullscreen) {
+        docElm.requestFullscreen()
+      } else if (docElm.mozRequestFullScreen) {
+        docElm.mozRequestFullScreen()
+      } else if (docElm.webkitRequestFullScreen) {
+        docElm.webkitRequestFullScreen()
+      } else if (docElm.msRequestFullscreen) {
+        docElm.msRequestFullscreen()
+      }
+      this.isFullScreen = true
+    },
+    // 退出全屏
+    exitFullScreen () {
+      if (document.exitFullscreen) {
+        document.exitFullscreen()
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen()
+      } else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen()
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen()
+      }
+      this.isFullScreen = false
+    }
+  }
 })

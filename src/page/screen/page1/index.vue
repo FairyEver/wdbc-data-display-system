@@ -20,7 +20,7 @@
                 <ChartCountStyle2
                   ref="box-count-style2-1-g-c"
                   title-text="蛋价指数"
-                  url="http://192.168.164.120:6080/api/marketQuotationHomeIndex"
+                  :url="`${$root.host}/api/marketQuotationHomeIndex`"
                   :ajax-data="{name: 'djzs'}"
                   :transform="(data) => data.dataInfo.quotationData"
                   @mounted="mountedChartNum++">
@@ -30,7 +30,7 @@
                 <ChartCountStyle2
                   ref="box-count-style2-2-g-c"
                   title-text="成本指数"
-                  url="http://192.168.164.120:6080/api/marketQuotationHomeIndex"
+                  :url="`${$root.host}/api/marketQuotationHomeIndex`"
                   :ajax-data="{name: 'cbzs'}"
                   :transform="(data) => data.dataInfo.quotationData"
                   @mounted="mountedChartNum++">
@@ -40,7 +40,7 @@
                 <ChartCountStyle2
                   ref="box-count-style2-3-g-c"
                   title-text="盈利指数"
-                  url="http://192.168.164.120:6080/api/marketQuotationHomeIndex"
+                  :url="`${$root.host}/api/marketQuotationHomeIndex`"
                   :ajax-data="{name: 'ylzs'}"
                   :transform="(data) => data.dataInfo.quotationData"
                   @mounted="mountedChartNum++">
@@ -51,7 +51,7 @@
               <ChartRadarStyle1
                 ref="box-radar-style1-1-g-c"
                 title-text="今日全国市场价格对比"
-                url="http://192.168.164.120:6080/api/countrywideMarketPriceCompare"
+                :url="`${$root.host}/api/countrywideMarketPriceCompare`"
                 :transform="(data) => data.dataInfo"
                 @mounted="mountedChartNum++">
               </ChartRadarStyle1>
@@ -71,7 +71,7 @@
           <ChartTableStyle1
             ref="box-table-style1-1-g-c"
             title-text="各地市场报价行情"
-            url="http://192.168.164.120:6080/api/getMarketQuotationPrice"
+            :url="`${$root.host}/api/getMarketQuotationPrice`"
             :transform="(data) => data.dataInfo"
             @mounted="mountedChartNum++">
           </ChartTableStyle1>
@@ -85,7 +85,7 @@
             title-text="全国行情指数趋势"
             :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
             :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
-            url="http://192.168.164.120:6080/api/marketQuotationIndexGraph"
+            :url="`${$root.host}/api/marketQuotationIndexGraph`"
             :transform="(data) => data.dataInfo"
             @mounted="mountedChartNum++">
           </ChartLineMulti>
@@ -95,7 +95,7 @@
             ref="box-bar-stack-1-g-c"
             title-text="今日采集情况"
             :series-color="$color.cyan"
-            url="http://192.168.164.120:6080/api/getCurrentCollectionPoint"
+            :url="`${$root.host}/api/getCurrentCollectionPoint`"
             :ajax-data="{name: 'bar-stack'}"
             :transform="(data) => data.dataInfo"
             @mounted="mountedChartNum++">

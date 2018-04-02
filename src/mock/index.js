@@ -10,6 +10,8 @@ Mock.mock(/\.mock/, ({url, type, body}) => {
         num2: '@natural(-99, 99)',
         num3: '@natural(1, 20)'
       })
+    } else if (bodyObj.name === 'cell-4') {
+      return Mock.mock(['@natural(10, 300)', '@natural(100, 3000)', '@natural(400, 800)', '@natural(10, 80)'])
     } else {
       return Mock.mock({
         num: '@natural(100, 300)'

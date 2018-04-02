@@ -63,6 +63,12 @@ export default new Router({
           path: 'screen/page1',
           name: 'screen-page1',
           component: resolve => { require(['@/page/screen/page1'], resolve) }
+        },
+        {
+          title: '页面2',
+          path: 'screen/page2',
+          name: 'screen-page2',
+          component: resolve => { require(['@/page/screen/page2'], resolve) }
         }
       ]
     }
