@@ -49,11 +49,15 @@ new Vue({
   data () {
     return {
       isFullScreen: false,
-      host: 'http://192.168.164.120:6080'
-      // host: 'http://10.1.1.132:666'
+      host: process.env.HOST
     }
   },
   methods: {
+    // 刷新页面
+    reloadPage () {
+      location.reload()
+    },
+    // 切换全屏
     toggleFullScreen () {
       if (this.isFullScreen) {
         this.exitFullScreen()
