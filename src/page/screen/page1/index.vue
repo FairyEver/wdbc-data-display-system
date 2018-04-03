@@ -57,16 +57,15 @@
           </ChartLineMulti>
         </div>
 
-        <div ref="box-line-multi-2-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineMulti
-            ref="box-line-multi-2-g-c"
-            title-text="全国行情指数趋势"
-            :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
-            :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
-            :url="`${$root.host}/api/marketQuotationIndexGraph`"
-            :transform="(data) => data.dataInfo"
+        <div ref="box-line-base-1-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartLineBase
+            ref="box-line-base-1-g-c"
+            title-text="lineBase"
+            grid-right="20"
+            :series-color="$color.cyan"
+            :series-label-text-color="$color.bg"
             @mounted="mountedChartNum++">
-          </ChartLineMulti>
+          </ChartLineBase>
         </div>
 
       </div>
@@ -144,16 +143,20 @@
           </ChartLineMulti>
         </div>
 
-        <div ref="box-line-multi-4-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineMulti
-            ref="box-line-multi-4-g-c"
-            title-text="全国行情指数趋势"
-            :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
-            :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
-            :url="`${$root.host}/api/marketQuotationIndexGraph`"
-            :transform="(data) => data.dataInfo"
-            @mounted="mountedChartNum++">
-          </ChartLineMulti>
+        <div class="flex-item grow flex-group row hov" style="margin: 5px;">
+          <div ref="box-line-base-2-g" class="flex-item grow">
+
+          </div>
+          <div ref="box-line-base-2-g" class="flex-item grow">
+            <ChartLineBase
+              ref="box-line-base-2-g-c"
+              title-text="lineBase"
+              grid-right="20"
+              :series-color="$color.cyan"
+              :series-label-text-color="$color.bg"
+              @mounted="mountedChartNum++">
+            </ChartLineBase>
+          </div>
         </div>
 
       </div>
