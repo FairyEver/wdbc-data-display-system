@@ -6,13 +6,13 @@
     <!-- row -->
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
       <!-- 左侧 -->
-      <div class="flex-item flex-group col" style="width: 30%;">
+      <div class="flex-item flex-group col" style="width: 25%;">
         
         <!-- 三大指数 -->
-        <div class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px;">
+        <div class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px; margin-right: -100px;">
           今日全国行情指数
         </div>
-        <div class="flex-item flex-group row" style="height: 200px; padding: 5px;">
+        <div class="flex-item flex-group row" style="height: 200px; padding: 5px; margin-right: -100px;">
           <div ref="box-count-style2-1-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
               ref="box-count-style2-1-g-c"
@@ -93,13 +93,13 @@
 
       </div>
       <!-- 右侧 -->
-      <div class="flex-item flex-group col" style="width: 30%;">
+      <div class="flex-item flex-group col" style="width: 25%;">
         
         <!-- 三大指数 -->
-        <div class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px;">
+        <div class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px; margin-left: -100px;">
           今日全国行情指数
         </div>
-        <div class="flex-item flex-group row" style="height: 200px; padding: 5px;">
+        <div class="flex-item flex-group row" style="height: 200px; padding: 5px; margin-left: -100px;">
           <div ref="box-count-style2-4-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
               ref="box-count-style2-4-g-c"
