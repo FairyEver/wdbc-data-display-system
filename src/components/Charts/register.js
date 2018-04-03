@@ -9,6 +9,7 @@ Vue.component('ChartCountStyle2', resolve => { require(['@/components/Charts/Cou
 Vue.component('ChartCountStyle3', resolve => { require(['@/components/Charts/Count/Style3/index.vue'], resolve) })
 
 Vue.component('ChartLineBase', resolve => { require(['@/components/Charts/Line/Base/index.vue'], resolve) })
+Vue.component('ChartLineBasePlus', resolve => { require(['@/components/Charts/Line/BasePlus/index.vue'], resolve) })
 Vue.component('ChartLineMulti', resolve => { require(['@/components/Charts/Line/Multi/index.vue'], resolve) })
 
 Vue.component('ChartMapStyle1', resolve => { require(['@/components/Charts/Map/Style1/index.vue'], resolve) })
