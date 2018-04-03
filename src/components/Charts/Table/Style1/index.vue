@@ -3,7 +3,7 @@
     <div class="header" :style="styleHeader">{{titleText}} {{date}}</div>
     <table class="table" :style="styleTable">
       <tr class="table-title">
-        <th v-for="(item, index) in table.title" :key="index" style="padding: 0px;">{{item}}</th>
+        <th v-for="(item, index) in table.title" :key="index" style="padding: 0px;" :style="{width: index === 0 ? '300px' : 'auto'}">{{item}}</th>
       </tr>
       <tr class="table-row" :class="{'n2': index % 2 === 0}" v-for="(row, index) in table.rows" :key="`row${index}`">
         <td v-for="(col, colIndex) in row" :key="`col${colIndex}`" style="padding: 0px;">{{col}}</td>
@@ -145,6 +145,7 @@ export default {
     }
     .table-row {
       background-color: rgba(#FFF, 0.3);
+      font-size: 14px;
       &.n2 {
         background-color: rgba(#FFF, .1);
       }
