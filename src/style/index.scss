@@ -117,3 +117,20 @@ html, body {
     }
   }
 }
+
+.ul-list-col {
+  background-color: rgba(#000, .1);
+  ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    li {
+      padding: 5px;
+      text-align: center;
+      font-size: 14px;
+      &.active {
+        background-color: rgba(#FFF, .1);
+      }
+    }
+  }
+}

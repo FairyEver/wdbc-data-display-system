@@ -57,15 +57,27 @@
           </ChartLineMulti>
         </div>
 
-        <div ref="box-line-base-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartLineBase
-            ref="box-line-base-1-g-c"
-            title-text="lineBase"
-            grid-right="20"
-            :series-color="$color.cyan"
-            :series-label-text-color="$color.bg"
-            @mounted="mountedChartNum++">
-          </ChartLineBase>
+        <div class="flex-item flex-group row hov" style="margin: 5px; height: 300px;">
+          <div class="flex-item ul-list-col" style="width: 100px;">
+            <ul>
+              <li class="active">红壳蛋鸡</li>
+              <li>粉壳蛋鸡</li>
+              <li>白壳蛋鸡</li>
+              <li>玉米</li>
+              <li>豆粕</li>
+              <li>淘汰鸡</li>
+            </ul>
+          </div>
+          <div ref="box-line-base-1-g" class="flex-item grow">
+            <ChartLineBase
+              ref="box-line-base-1-g-c"
+              title-text="lineBase"
+              grid-right="20"
+              :series-color="$color.cyan"
+              :series-label-text-color="$color.bg"
+              @mounted="mountedChartNum++">
+            </ChartLineBase>
+          </div>
         </div>
 
       </div>
@@ -143,9 +155,16 @@
           </ChartLineMulti>
         </div>
 
-        <div class="flex-item grow flex-group row hov" style="margin: 5px;">
-          <div ref="box-line-base-2-g" class="flex-item grow">
-
+        <div class="flex-item flex-group row hov" style="margin: 5px; height: 300px;">
+          <div class="flex-item ul-list-col" style="width: 100px;">
+            <ul>
+              <li class="active">红壳蛋鸡</li>
+              <li>粉壳蛋鸡</li>
+              <li>白壳蛋鸡</li>
+              <li>玉米</li>
+              <li>豆粕</li>
+              <li>淘汰鸡</li>
+            </ul>
           </div>
           <div ref="box-line-base-2-g" class="flex-item grow">
             <ChartLineBase
