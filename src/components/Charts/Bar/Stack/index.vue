@@ -12,7 +12,7 @@ export default {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
-    titleSize: {type: String, required: false, default: '20'},
+    titleSize: {type: String, required: false, default: '18'},
     // 图例
     legendTop: {type: String, required: false, default: '40'},
     legendTextColor: {type: String, required: false, default: '#FFF'},

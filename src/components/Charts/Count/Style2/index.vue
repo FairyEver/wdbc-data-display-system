@@ -27,7 +27,7 @@ export default {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
     titleSize: {type: String, required: false, default: '24'},
-    subTitleSize: {type: String, required: false, default: '20'},
+    subtitleSize: {type: String, required: false, default: '18'},
     // 数字
     numSize: {type: String, required: false, default: '64'},
     // 接口地址

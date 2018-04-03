@@ -23,7 +23,7 @@ export default {
     titleSize: {type: String, required: false, default: '36'},
     subTitleText: {type: String, required: false, default: 'Chart'},
     subTitleColor: {type: String, required: false, default: '#FFF'},
-    subTitleSize: {type: String, required: false, default: '20'},
+    subtitleSize: {type: String, required: false, default: '18'},
     // 数字
     numSize: {type: String, required: false, default: '70'},
     numColor: {type: String, required: false, default: '#FFF'},

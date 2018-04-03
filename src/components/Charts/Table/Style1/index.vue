@@ -22,7 +22,7 @@ export default {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
-    titleSize: {type: String, required: false, default: '20'},
+    titleSize: {type: String, required: false, default: '18'},
     titleHeight: {type: String, required: false, default: '40'},
     // 接口地址
     url: {type: String, required: false, default: 'x.mock'},
