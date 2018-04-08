@@ -81,11 +81,26 @@ export default {
         },
         yAxis: {
           type: 'value',
-          boundaryGap: [0, '10%']
+          boundaryGap: [0, '10%'],
+          axisLine: {
+            lineStyle: {
+              color: this.yAxisAxisLineColor
+            }
+          },
+          splitLine: {
+            lineStyle: {
+              color: this.yAxisSplitLineColor
+            }
+          }
         },
         xAxis: {
           type: 'category',
-          data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)']
+          data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)'],
+          axisLine: {
+            lineStyle: {
+              color: this.xAxisAxisLineColor
+            }
+          }
         },
         series: [
           {
