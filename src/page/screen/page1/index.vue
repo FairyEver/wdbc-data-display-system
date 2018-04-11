@@ -233,7 +233,8 @@ export default {
     // 这个页面比较特殊 自己定义自己的初始化方法
     async init2 () {
       this.allPoint = await this.getAllCollectionPoint()
-      console.log(this.allPoint)
+      // areaCode
+      // areaName
       this.init()
         .then(() => {
           // 页面首次加载完了
