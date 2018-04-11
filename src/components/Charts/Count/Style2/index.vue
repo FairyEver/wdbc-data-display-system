@@ -5,14 +5,17 @@
       <span ref="num"></span>
     </p>
     <p class="sub-title" :style="styleSubTitle">
-      <span>{{symbol}}</span>
-      <span ref="num2"></span>
+      <span v-if="symbol !== '='">{{symbol}}</span>
+      <span v-if="symbol !== '='" ref="num2"></span>
+      <span v-if="symbol === '='">持平</span>
       <span>
         <img v-if="symbol === '+'" src="@/assets/image/arrow-up.svg">
         <img v-if="symbol === '-'" src="@/assets/image/arrow-down.svg">
       </span>
-      <span ref="num3"></span>
-      <span v-if="symbol">%</span>
+      <template v-if="symbol !== '='">
+        <span ref="num3"></span>
+        <span v-if="symbol">%</span>
+      </template>
     </p>
   </div>
 </template>
@@ -126,20 +129,25 @@ export default {
           this.countupObj.start()
           this.countupObj2.start()
           this.countupObj3.start()
-          this.intervalObj = setInterval(async () => {
-            const data = this.transform(await this.getData())
-            if (data.num2 === 0) {
-              this.symbol = '='
-            } else if (data.num2 > 0) {
-              this.symbol = '+'
-            } else {
-              this.symbol = '-'
-            }
-            this.countupObj.update(data.num)
-            this.countupObj2.update(Math.abs(data.num2))
-            this.countupObj3.update(data.num3, 2)
-          }, this.interval)
+          if (this.interval !== 0) {
+            this.intervalObj = setInterval(() => {
+              this.refresh()
+            }, this.interval)
+          }
         })
+    },
+    async refresh () {
+      const data = this.transform(await this.getData())
+      if (data.num2 === 0) {
+        this.symbol = '='
+      } else if (data.num2 > 0) {
+        this.symbol = '+'
+      } else {
+        this.symbol = '-'
+      }
+      this.countupObj.update(data.num)
+      this.countupObj2.update(Math.abs(data.num2))
+      this.countupObj3.update(data.num3, 2)
     }
   }
 }

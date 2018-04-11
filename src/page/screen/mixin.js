@@ -1,6 +1,7 @@
 export default {
   data () {
     return {
+      useMixinAutoInit: true,
       boxs: [],
       mountedChartNum: 0,
       needMountedChartNum: 0
@@ -18,28 +19,35 @@ export default {
     // 监视已经完成初始化的图表数量
     mountedChartNum (num) {
       if (num === this.needMountedChartNum) {
-        this.init()
+        if (this.useMixinAutoInit) {
+          this.init()
+        } else {
+          this.init2()
+        }
       }
     }
   },
   methods: {
     // 初始化
     init () {
-      for (const name in this.$refs) {
-        if (/^box-[a-zA-Z0-9-]+-g$/.test(name)) {
-          const chart = this.$refs[`${name}-c`]
-          if (!chart) {
-            return
+      return new Promise((resolve, reject) => {
+        for (const name in this.$refs) {
+          if (/^box-[a-zA-Z0-9-]+-g$/.test(name)) {
+            const chart = this.$refs[`${name}-c`]
+            if (!chart) {
+              return
+            }
+            if (!chart.init) {
+              return
+            }
+            chart.init({
+              height: this.$refs[name].offsetHeight,
+              width: this.$refs[name].offsetWidth
+            })
           }
-          if (!chart.init) {
-            return
-          }
-          chart.init({
-            height: this.$refs[name].offsetHeight,
-            width: this.$refs[name].offsetWidth
-          })
         }
-      }
+        resolve()
+      })
     }
   }
 }

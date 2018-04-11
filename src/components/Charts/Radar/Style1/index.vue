@@ -193,7 +193,6 @@ export default {
     optionMaker () {
       return new Promise(async (resolve, reject) => {
         const data = this.transform(await this.getData())
-        console.log(data)
         const option = this.option
         option.radar.indicator = data.indicator
         option.series[0].data[0].value = data.series[0]

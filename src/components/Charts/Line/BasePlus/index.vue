@@ -148,11 +148,13 @@ export default {
       } else {
         value = this.value < this.options.length - 1 ? this.value + 1 : 0
       }
-      console.log(value)
       return new Promise(async (resolve, reject) => {
-        const res = await this.$http.post(this.url, {
-          type: 2,
-          name: this.options[value].value
+        const res = await this.$http.get(this.url, {
+          params: {
+            type: 2,
+            name: this.options[value].value,
+            quotationType: this.options[value].value
+          }
         })
         this.$emit('input', value)
         resolve(res.data)

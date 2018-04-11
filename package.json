@@ -14,6 +14,7 @@
     "axios": "^0.18.0",
     "countup.js": "^1.9.3",
     "echarts": "^4.0.4",
+    "lodash.get": "^4.4.2",
     "mockjs": "^1.0.1-beta3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"

@@ -11,34 +11,38 @@
         <div class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px; margin-right: -100px;">
           今日全国行情指数
         </div>
+        <!-- 全国指数 -->
         <div class="flex-item flex-group row" style="height: 200px; padding: 5px; margin-right: -100px;">
-          <div ref="box-count-style2-1-g" class="flex-item grow hov" style="margin: 5px;">
+          <div ref="box-count-style2-4-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
-              ref="box-count-style2-1-g-c"
+              ref="box-count-style2-4-g-c"
               title-text="蛋价指数"
               :url="`${$root.host}/api/marketQuotationHomeIndex`"
               :ajax-data="{name: 'djzs'}"
               :transform="(data) => data.dataInfo.quotationData"
+              :interval="0"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
-          <div ref="box-count-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
+          <div ref="box-count-style2-5-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
-              ref="box-count-style2-2-g-c"
+              ref="box-count-style2-5-g-c"
               title-text="成本指数"
               :url="`${$root.host}/api/marketQuotationHomeIndex`"
               :ajax-data="{name: 'cbzs'}"
               :transform="(data) => data.dataInfo.quotationData"
+              :interval="0"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
-          <div ref="box-count-style2-3-g" class="flex-item grow hov" style="margin: 5px;">
+          <div ref="box-count-style2-6-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
-              ref="box-count-style2-3-g-c"
+              ref="box-count-style2-6-g-c"
               title-text="盈利指数"
               :url="`${$root.host}/api/marketQuotationHomeIndex`"
               :ajax-data="{name: 'ylzs'}"
               :transform="(data) => data.dataInfo.quotationData"
+              :interval="0"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
@@ -68,11 +72,13 @@
           <div ref="box-line-base-plus-1-g" class="flex-item grow">
             <ChartLineBasePlus
               ref="box-line-base-plus-1-g-c"
-              title-text="lineBase"
+              title-text="全国价格信息"
+              :url="`${$root.host}/api/getProductPrice`"
               :series-color="$color.cyan"
               :series-label-text-color="$color.bg"
               :options="options"
               v-model="activeL"
+              :transform="(data) => data.dataInfo"
               @mounted="mountedChartNum++">
             </ChartLineBasePlus>
           </div>
@@ -101,35 +107,45 @@
       <div class="flex-item flex-group col" style="width: 25%;">
         <!-- 三大指数 -->
         <div class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px; margin-left: -100px;">
-          今日全国行情指数
+          今日{{activePointName}}行情指数
         </div>
+        <!-- 地区指数 -->
         <div class="flex-item flex-group row" style="height: 200px; padding: 5px; margin-left: -100px;">
-          <div ref="box-count-style2-4-g" class="flex-item grow hov" style="margin: 5px;">
+          <div ref="box-count-style2-1-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
-              ref="box-count-style2-4-g-c"
+              ref="box-count-style2-1-g-c"
               title-text="蛋价指数"
-              :url="`${$root.host}/api/marketQuotationHomeIndex`"
-              :ajax-data="{name: 'djzs'}"
+              :url="`${$root.host}/api/marketQuotationProvinceIndex`"
+              :ajax-data="{
+                name: 'djzs',
+                areaId: activePointCode
+              }"
               :transform="(data) => data.dataInfo.quotationData"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
-          <div ref="box-count-style2-5-g" class="flex-item grow hov" style="margin: 5px;">
+          <div ref="box-count-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
-              ref="box-count-style2-5-g-c"
+              ref="box-count-style2-2-g-c"
               title-text="成本指数"
-              :url="`${$root.host}/api/marketQuotationHomeIndex`"
-              :ajax-data="{name: 'cbzs'}"
+              :url="`${$root.host}/api/marketQuotationProvinceIndex`"
+              :ajax-data="{
+                name: 'cbzs',
+                areaId: activePointCode
+              }"
               :transform="(data) => data.dataInfo.quotationData"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
-          <div ref="box-count-style2-6-g" class="flex-item grow hov" style="margin: 5px;">
+          <div ref="box-count-style2-3-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
-              ref="box-count-style2-6-g-c"
+              ref="box-count-style2-3-g-c"
               title-text="盈利指数"
-              :url="`${$root.host}/api/marketQuotationHomeIndex`"
-              :ajax-data="{name: 'ylzs'}"
+              :url="`${$root.host}/api/marketQuotationProvinceIndex`"
+              :ajax-data="{
+                name: 'ylzs',
+                areaId: activePointCode
+              }"
               :transform="(data) => data.dataInfo.quotationData"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
@@ -138,7 +154,7 @@
         <div ref="box-line-multi-3-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartLineMulti
             ref="box-line-multi-3-g-c"
-            title-text="全国行情指数趋势"
+            :title-text="`${activePointName}行情指数趋势`"
             :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
             :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
             :url="`${$root.host}/api/marketQuotationIndexGraph`"
@@ -157,7 +173,7 @@
               </li>
             </ul>
           </div>
-          <div ref="box-line-base-plus-2-g" class="flex-item grow">
+          <!-- <div ref="box-line-base-plus-2-g" class="flex-item grow">
             <ChartLineBasePlus
               ref="box-line-base-plus-2-g-c"
               title-text="lineBase"
@@ -167,7 +183,7 @@
               v-model="activeR"
               @mounted="mountedChartNum++">
             </ChartLineBasePlus>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -176,22 +192,35 @@
 
 <script>
 import mixin from '../mixin'
+import _get from 'lodash.get'
 export default {
   mixins: [
     mixin
   ],
   data () {
     return {
+      useMixinAutoInit: false,
       activeL: 'null',
       activeR: 'null',
       options: [
-        {name: '红壳蛋鸡', value: 'hkdj'},
-        {name: '粉壳蛋鸡', value: 'fkdj'},
-        {name: '白壳蛋鸡', value: 'bkdj'},
-        {name: '玉米', value: 'ym'},
-        {name: '豆粕', value: 'dp'},
-        {name: '淘汰鸡', value: 'ttj'}
-      ]
+        {name: '白壳鸡蛋', value: 1},
+        {name: '红壳鸡蛋', value: 2},
+        {name: '粉壳鸡蛋', value: 3},
+        {name: '玉米', value: 4},
+        {name: '豆粕', value: 5},
+        {name: '淘汰鸡', value: 6}
+      ],
+      // 全国所有的地区
+      allPoint: [],
+      activePoint: 0
+    }
+  },
+  computed: {
+    activePointCode () {
+      return _get(this.allPoint, `[${this.activePoint}].areaCode`, '110000')
+    },
+    activePointName () {
+      return _get(this.allPoint, `[${this.activePoint}].areaName`, '-')
     }
   },
   methods: {
@@ -200,6 +229,22 @@ export default {
     },
     handleAjaxEndR (index) {
       this.activeR = index
+    },
+    // 这个页面比较特殊 自己定义自己的初始化方法
+    async init2 () {
+      this.allPoint = await this.getAllCollectionPoint()
+      console.log(this.allPoint)
+      this.init()
+        .then(() => {
+          // 页面首次加载完了
+        })
+    },
+    // 获得所有的地区
+    getAllCollectionPoint () {
+      return new Promise(async (resolve, reject) => {
+        const res = await this.$http.post(this.$root.host + '/api/getAllCollectionPoint')
+        resolve(res.data.dataInfo.data)
+      })
     }
   }
 }
