@@ -161,6 +161,7 @@
             :series-color="[$color.cyan, $color.green, $color.yellow, $color.red]"
             :series-label-text-color="[$color.bg, $color.bg, $color.bg, '#FFF']"
             :url="`${$root.host}/api/marketQuotationIndexGraph`"
+            :interval="0"
             :transform="(data) => data.dataInfo"
             @mounted="mountedChartNum++">
           </ChartLineMulti>
@@ -266,6 +267,10 @@ export default {
       this.$refs['box-count-style2-4-g-c'].refresh()
       this.$refs['box-count-style2-5-g-c'].refresh()
       this.$refs['box-count-style2-6-g-c'].refresh()
+      // 右侧 中间
+      this.$refs['box-line-multi-3-g-c'].refresh()
+      // 右侧 下面
+      this.$refs['box-line-base-plus-2-g-c'].refresh()
     }
   }
 }

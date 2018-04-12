@@ -191,6 +191,9 @@ export default {
             }
           }, this.interval)
         })
+    },
+    refresh () {
+      console.log('refresh')
     }
   }
 }
