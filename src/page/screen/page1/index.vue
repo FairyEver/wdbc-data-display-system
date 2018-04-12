@@ -270,7 +270,7 @@ export default {
       // 右侧 中间
       this.$refs['box-line-multi-3-g-c'].refresh()
       // 右侧 下面
-      this.$refs['box-line-base-plus-2-g-c'].refresh()
+      this.$refs['box-line-base-plus-2-g-c'].newRound()
     }
   }
 }

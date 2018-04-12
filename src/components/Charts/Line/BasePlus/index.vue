@@ -155,7 +155,8 @@ export default {
           params: {
             type: 2,
             name: this.options[value].value,
-            quotationType: this.options[value].value
+            quotationType: this.options[value].value,
+            ...this.ajaxData
           }
         })
         this.$emit('input', value)
@@ -178,22 +179,27 @@ export default {
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(await this.optionMaker())
-          this.intervalObj = setInterval(async () => {
-            if (this.value === this.options.length - 1) {
-              if (this.loop) {
-                this.chart.setOption(await this.optionMaker())
-              } else {
-                this.$emit('end')
-                clearInterval(this.intervalObj)
-              }
-            } else {
-              this.chart.setOption(await this.optionMaker())
-            }
+          this.intervalObj = setInterval(() => {
+            this.refresh()
           }, this.interval)
         })
     },
-    refresh () {
-      console.log('refresh')
+    // 重新请求数据
+    async refresh () {
+      if (this.value === this.options.length - 1) {
+        if (this.loop) {
+          this.chart.setOption(await this.optionMaker())
+        } else {
+          this.$emit('end')
+          clearInterval(this.intervalObj)
+        }
+      } else {
+        this.chart.setOption(await this.optionMaker())
+      }
+    },
+    // 新的一圈
+    newRound () {
+      console.log('newRound')
     }
   }
 }
