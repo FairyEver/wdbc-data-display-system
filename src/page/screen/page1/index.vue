@@ -13,9 +13,9 @@
         </div>
         <!-- 全国指数 -->
         <div class="flex-item flex-group row" style="height: 200px; padding: 5px; margin-right: -100px;">
-          <div ref="box-count-style2-4-g" class="flex-item grow hov" style="margin: 5px;">
+          <div ref="box-count-style2-1-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
-              ref="box-count-style2-4-g-c"
+              ref="box-count-style2-1-g-c"
               title-text="蛋价指数"
               :url="`${$root.host}/api/marketQuotationHomeIndex`"
               :ajax-data="{name: 'djzs'}"
@@ -24,9 +24,9 @@
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
-          <div ref="box-count-style2-5-g" class="flex-item grow hov" style="margin: 5px;">
+          <div ref="box-count-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
-              ref="box-count-style2-5-g-c"
+              ref="box-count-style2-2-g-c"
               title-text="成本指数"
               :url="`${$root.host}/api/marketQuotationHomeIndex`"
               :ajax-data="{name: 'cbzs'}"
@@ -35,9 +35,9 @@
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
-          <div ref="box-count-style2-6-g" class="flex-item grow hov" style="margin: 5px;">
+          <div ref="box-count-style2-3-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
-              ref="box-count-style2-6-g-c"
+              ref="box-count-style2-3-g-c"
               title-text="盈利指数"
               :url="`${$root.host}/api/marketQuotationHomeIndex`"
               :ajax-data="{name: 'ylzs'}"
@@ -107,45 +107,48 @@
       <div class="flex-item flex-group col" style="width: 25%;">
         <!-- 三大指数 -->
         <div class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px; margin-left: -100px;">
-          今日{{activePointName}}行情指数
+          今日 {{activePointName}}-{{activePointCode}} 行情指数
         </div>
         <!-- 地区指数 -->
         <div class="flex-item flex-group row" style="height: 200px; padding: 5px; margin-left: -100px;">
-          <div ref="box-count-style2-1-g" class="flex-item grow hov" style="margin: 5px;">
+          <div ref="box-count-style2-4-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
-              ref="box-count-style2-1-g-c"
+              ref="box-count-style2-4-g-c"
               title-text="蛋价指数"
               :url="`${$root.host}/api/marketQuotationProvinceIndex`"
               :ajax-data="{
                 name: 'djzs',
                 areaId: activePointCode
               }"
+              :interval="0"
               :transform="(data) => data.dataInfo.quotationData"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
-          <div ref="box-count-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
+          <div ref="box-count-style2-5-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
-              ref="box-count-style2-2-g-c"
+              ref="box-count-style2-5-g-c"
               title-text="成本指数"
               :url="`${$root.host}/api/marketQuotationProvinceIndex`"
               :ajax-data="{
                 name: 'cbzs',
                 areaId: activePointCode
               }"
+              :interval="0"
               :transform="(data) => data.dataInfo.quotationData"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
-          <div ref="box-count-style2-3-g" class="flex-item grow hov" style="margin: 5px;">
+          <div ref="box-count-style2-6-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
-              ref="box-count-style2-3-g-c"
+              ref="box-count-style2-6-g-c"
               title-text="盈利指数"
               :url="`${$root.host}/api/marketQuotationProvinceIndex`"
               :ajax-data="{
                 name: 'ylzs',
                 areaId: activePointCode
               }"
+              :interval="0"
               :transform="(data) => data.dataInfo.quotationData"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
@@ -173,17 +176,24 @@
               </li>
             </ul>
           </div>
-          <!-- <div ref="box-line-base-plus-2-g" class="flex-item grow">
+          <div ref="box-line-base-plus-2-g" class="flex-item grow">
             <ChartLineBasePlus
               ref="box-line-base-plus-2-g-c"
-              title-text="lineBase"
+              :title-text="`${activePointName}价格信息`"
+              :url="`${$root.host}/api/getProductPrice`"
+              :ajax-data="{
+                areaId: activePointCode
+              }"
               :series-color="$color.cyan"
               :series-label-text-color="$color.bg"
               :options="options"
               v-model="activeR"
-              @mounted="mountedChartNum++">
+              :loop="false"
+              :transform="(data) => data.dataInfo"
+              @mounted="mountedChartNum++"
+              @end="handleRoundEnd">
             </ChartLineBasePlus>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -246,6 +256,16 @@ export default {
         const res = await this.$http.post(this.$root.host + '/api/getAllCollectionPoint')
         resolve(res.data.dataInfo.data)
       })
+    },
+    // 右下角的图播放完了一圈
+    handleRoundEnd () {
+      console.log('handleRoundEnd')
+      // 更新index
+      this.activePoint = this.activePoint === this.allPoint.length - 1 ? 0 : this.activePoint + 1
+      // 触发更新 右上角指数
+      this.$refs['box-count-style2-4-g-c'].refresh()
+      this.$refs['box-count-style2-5-g-c'].refresh()
+      this.$refs['box-count-style2-6-g-c'].refresh()
     }
   }
 }

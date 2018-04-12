@@ -18,7 +18,9 @@ export default {
     // 发送请求的时候带的参数
     ajaxData: {type: Object, required: false, default: () => ({})},
     // 发送请求的间隔
-    interval: {type: Number, required: false, default: 10000},
+    interval: {type: Number, required: false, default: 3000},
+    // 循环
+    loop: {type: Boolean, required: false, default: true},
     // grid 设置
     gridTop: {type: String, required: false, default: '60'},
     gridBottom: {type: String, required: false, default: '20'},
@@ -177,7 +179,16 @@ export default {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(await this.optionMaker())
           this.intervalObj = setInterval(async () => {
-            this.chart.setOption(await this.optionMaker())
+            if (this.value === this.options.length - 1) {
+              if (this.loop) {
+                this.chart.setOption(await this.optionMaker())
+              } else {
+                this.$emit('end')
+                clearInterval(this.intervalObj)
+              }
+            } else {
+              this.chart.setOption(await this.optionMaker())
+            }
           }, this.interval)
         })
     }
