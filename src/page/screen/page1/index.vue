@@ -248,7 +248,7 @@ export default {
     },
     // 更新 optionsR
     async updateOptionsR () {
-      return new Promise((resolve, reject) => {
+      return new Promise(async (resolve, reject) => {
         const res = await this.getProvinceHadProduct(this.allPoint[0].areaCode)
         this.optionsR = res.map(e => Number(e)).map(e => this.optionsL.find(ele => ele.value === e))
         resolve()
