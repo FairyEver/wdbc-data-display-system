@@ -214,6 +214,8 @@ export default {
         {name: '豆粕', value: 5},
         {name: '淘汰鸡', value: 6}
       ],
+      // 右下角的option
+      optionsR: [],
       // 全国所有的地区
       allPoint: [],
       activePoint: 0
@@ -237,8 +239,8 @@ export default {
     // 这个页面比较特殊 自己定义自己的初始化方法
     async init2 () {
       this.allPoint = await this.getAllCollectionPoint()
-      const list = await this.getProvinceHadProduct(this.allPoint[0].areaCode)
-      console.log(list)
+      const thisPointUsefulOption = await this.getProvinceHadProduct(this.allPoint[0].areaCode)
+      console.log(thisPointUsefulOption)
       this.init()
         .then(() => {
           // 页面首次加载完了
