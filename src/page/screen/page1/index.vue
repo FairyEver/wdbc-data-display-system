@@ -237,10 +237,19 @@ export default {
     // 这个页面比较特殊 自己定义自己的初始化方法
     async init2 () {
       this.allPoint = await this.getAllCollectionPoint()
+      const list = await this.getProvinceHadProduct(this.allPoint[0].areaCode)
+      console.log(list)
       this.init()
         .then(() => {
           // 页面首次加载完了
         })
+    },
+    // 获得某个地区的可用分类
+    getProvinceHadProduct (areaId = '') {
+      return new Promise(async (resolve, reject) => {
+        const res = await this.$http.get(`${this.$root.host}/api/getProvinceHadProduct?areaId=${areaId}`)
+        resolve(res.data.dataInfo.result)
+      })
     },
     // 获得所有的地区
     getAllCollectionPoint () {
