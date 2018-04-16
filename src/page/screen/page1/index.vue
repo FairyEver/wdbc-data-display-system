@@ -172,7 +172,7 @@
           <div class="flex-item ul-list-col" style="width: 100px;">
             <ul>
               <li
-                v-for="(item, index) in optionsL"
+                v-for="(item, index) in optionsR"
                 :key="index"
                 :class="{active: index === activeR}">
                 {{item.name}}
@@ -238,24 +238,30 @@ export default {
     },
     // 这个页面比较特殊 自己定义自己的初始化方法
     async init2 () {
+      // 获取全国所有可用的地区
       this.allPoint = await this.getAllCollectionPoint()
-      const thisPointUsefulOption = await this.getProvinceHadProduct(this.allPoint[0].areaCode)
-      this.optionsR = thisPointUsefulOption.map(e => {
-        
-      })
+      // 更新 optionsR
+      await this.updateOptionsR()
+      // 初始化图表
       this.init()
-        .then(() => {
-          // 页面首次加载完了
-        })
+        .then(() => {})
     },
-    // 获得某个地区的可用分类
+    // 更新 optionsR
+    async updateOptionsR () {
+      return new Promise((resolve, reject) => {
+        const res = await this.getProvinceHadProduct(this.allPoint[0].areaCode)
+        this.optionsR = res.map(e => Number(e)).map(e => this.optionsL.find(ele => ele.value === e))
+        resolve()
+      })
+    },
+    // [数据获取] 获得某个地区的可用分类
     getProvinceHadProduct (areaId = '') {
       return new Promise(async (resolve, reject) => {
         const res = await this.$http.get(`${this.$root.host}/api/getProvinceHadProduct?areaId=${areaId}`)
         resolve(res.data.dataInfo.result)
       })
     },
-    // 获得所有的地区
+    // [数据获取] 获得所有的地区
     getAllCollectionPoint () {
       return new Promise(async (resolve, reject) => {
         const res = await this.$http.post(this.$root.host + '/api/getAllCollectionPoint')
