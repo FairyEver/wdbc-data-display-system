@@ -240,7 +240,9 @@ export default {
     async init2 () {
       this.allPoint = await this.getAllCollectionPoint()
       const thisPointUsefulOption = await this.getProvinceHadProduct(this.allPoint[0].areaCode)
-      console.log(thisPointUsefulOption)
+      this.optionsR = thisPointUsefulOption.map(e => {
+        
+      })
       this.init()
         .then(() => {
           // 页面首次加载完了
