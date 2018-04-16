@@ -62,7 +62,7 @@
           <div class="flex-item ul-list-col" style="width: 100px;">
             <ul>
               <li
-                v-for="(item, index) in options"
+                v-for="(item, index) in optionsL"
                 :key="index"
                 :class="{active: index === activeL}">
                 {{item.name}}
@@ -76,7 +76,7 @@
               :url="`${$root.host}/api/getProductPrice`"
               :series-color="$color.cyan"
               :series-label-text-color="$color.bg"
-              :options="options"
+              :options="optionsL"
               v-model="activeL"
               :transform="(data) => data.dataInfo"
               @mounted="mountedChartNum++">
@@ -107,7 +107,9 @@
       <div class="flex-item flex-group col" style="width: 25%;">
         <!-- 三大指数 -->
         <div class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px; margin-left: -100px;">
-          今日 {{activePointName}}-{{activePointCode}} 行情指数
+          今日
+          <!-- {{activePointName}}-{{activePointCode}} -->
+          行情指数
         </div>
         <!-- 地区指数 -->
         <div class="flex-item flex-group row" style="height: 200px; padding: 5px; margin-left: -100px;">
@@ -170,30 +172,21 @@
           <div class="flex-item ul-list-col" style="width: 100px;">
             <ul>
               <li
-                v-for="(item, index) in options"
+                v-for="(item, index) in optionsL"
                 :key="index"
                 :class="{active: index === activeR}">
                 {{item.name}}
               </li>
             </ul>
           </div>
-          <div ref="box-line-base-plus-2-g" class="flex-item grow">
-            <ChartLineBasePlus
-              ref="box-line-base-plus-2-g-c"
-              :title-text="`${activePointName}价格信息`"
-              :url="`${$root.host}/api/getProductPrice`"
-              :ajax-data="{
-                areaId: activePointCode
-              }"
+          <div ref="box-line-base-2-g" class="flex-item grow">
+            <ChartLineBase
+              ref="box-line-base-2-g-c"
+              title-text="今日采集情况"
               :series-color="$color.cyan"
               :series-label-text-color="$color.bg"
-              :options="options"
-              v-model="activeR"
-              :loop="false"
-              :transform="(data) => data.dataInfo"
-              @mounted="mountedChartNum++"
-              @end="handleRoundEnd">
-            </ChartLineBasePlus>
+              @mounted="mountedChartNum++">
+            </ChartLineBase>
           </div>
         </div>
       </div>
@@ -213,7 +206,7 @@ export default {
       useMixinAutoInit: false,
       activeL: 'null',
       activeR: 'null',
-      options: [
+      optionsL: [
         {name: '白壳鸡蛋', value: 1},
         {name: '红壳鸡蛋', value: 2},
         {name: '粉壳鸡蛋', value: 3},
@@ -244,8 +237,6 @@ export default {
     // 这个页面比较特殊 自己定义自己的初始化方法
     async init2 () {
       this.allPoint = await this.getAllCollectionPoint()
-      // areaCode
-      // areaName
       this.init()
         .then(() => {
           // 页面首次加载完了
