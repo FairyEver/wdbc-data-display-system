@@ -174,8 +174,6 @@ export default {
     },
     // 刷新数据
     async refresh () {
-      console.log('----')
-      console.log(this.ajaxData)
       this.chart.setOption(await this.optionMaker())
     }
   }
