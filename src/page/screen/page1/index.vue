@@ -185,7 +185,8 @@
               title-text="今日采集情况"
               :url="`${$root.host}/api/getProductPrice`"
               :ajax-data="{
-                quotationType: 1
+                quotationType: 1,
+                areaId: activePointCode
               }"
               :transform="(data) => data.dataInfo"
               :series-color="$color.cyan"
@@ -236,12 +237,6 @@ export default {
     }
   },
   methods: {
-    handleAjaxEndL (index) {
-      this.activeL = index
-    },
-    handleAjaxEndR (index) {
-      this.activeR = index
-    },
     // 这个页面比较特殊 自己定义自己的初始化方法
     async init2 () {
       // 获取全国所有可用的地区
