@@ -185,7 +185,7 @@
               title-text="今日采集情况"
               :url="`${$root.host}/api/getProductPrice`"
               :ajax-data="{
-                quotationType: 2,
+                quotationType: activeQuotationType,
                 areaId: activePointCode
               }"
               :transform="(data) => data.dataInfo"
@@ -225,6 +225,7 @@ export default {
       optionsR: [],
       // 全国所有的地区
       allPoint: [],
+      activeQuotationType: 0,
       activePoint: 0
     }
   },
@@ -252,6 +253,7 @@ export default {
       return new Promise(async (resolve, reject) => {
         const res = await this.getProvinceHadProduct(this.allPoint[0].areaCode)
         this.optionsR = res.map(e => Number(e)).map(e => this.optionsL.find(ele => ele.value === e))
+        this.activeQuotationType = this.optionsR[0].value
         resolve()
       })
     },
