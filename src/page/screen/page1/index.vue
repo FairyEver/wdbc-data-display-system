@@ -185,7 +185,7 @@
               title-text="今日采集情况"
               :url="`${$root.host}/api/getProductPrice`"
               :ajax-data="{
-                quotationType: 1,
+                quotationType: 2,
                 areaId: activePointCode
               }"
               :transform="(data) => data.dataInfo"
