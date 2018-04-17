@@ -247,17 +247,11 @@ export default {
       this.init()
         .then(() => {
           // 启动右下角的队列
-          this.optionsR.reduce((p, option) => {
-            return p.then(() => {
-              return new Promise((resolve, reject) => {
-                this.activeQuotationType = option.value
-                this.$nextTick(() => {
-                  this.$refs['box-line-base-2-g-c'].refresh()
-                })
-                setTimeout(resolve, 3000)
-              })
-            })
-          }, Promise.resolve())
+          this.optionsR.reduce((p, option) => p.then(() => new Promise((resolve, reject) => {
+            this.activeQuotationType = option.value
+            this.$nextTick(this.$refs['box-line-base-2-g-c'].refresh)
+            setTimeout(resolve, 3000)
+          })), Promise.resolve())
         })
     },
     // 更新 optionsR
