@@ -252,6 +252,9 @@ export default {
             this.$nextTick(this.$refs['box-line-base-2-g-c'].refresh)
             setTimeout(resolve, 3000)
           })), Promise.resolve())
+            .then(() => {
+              // 这时候一圈已经结束了
+            })
         })
     },
     // 更新 optionsR
