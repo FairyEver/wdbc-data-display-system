@@ -174,7 +174,7 @@
               <li
                 v-for="(item, index) in optionsR"
                 :key="index"
-                :class="{active: index === activeR}">
+                :class="{active: item.value === activeQuotationType}">
                 {{item.name}}
               </li>
             </ul>
@@ -212,7 +212,6 @@ export default {
     return {
       useMixinAutoInit: false,
       activeL: 'null',
-      activeR: 'null',
       optionsL: [
         {name: '白壳鸡蛋', value: 1},
         {name: '红壳鸡蛋', value: 2},
@@ -246,7 +245,20 @@ export default {
       await this.updateOptionsR()
       // 初始化图表
       this.init()
-        .then(() => {})
+        .then(() => {
+          // 启动右下角的队列
+          this.optionsR.reduce((p, option) => {
+            return p.then(() => {
+              return new Promise((resolve, reject) => {
+                this.activeQuotationType = option.value
+                this.$nextTick(() => {
+                  this.$refs['box-line-base-2-g-c'].refresh()
+                })
+                setTimeout(resolve, 3000)
+              })
+            })
+          }, Promise.resolve())
+        })
     },
     // 更新 optionsR
     async updateOptionsR () {
