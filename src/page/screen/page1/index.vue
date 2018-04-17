@@ -183,6 +183,11 @@
             <ChartLineBase
               ref="box-line-base-2-g-c"
               title-text="今日采集情况"
+              :url="`${$root.host}/api/getProductPrice`"
+              :ajax-data="{
+                quotationType: 1
+              }"
+              :transform="(data) => data.dataInfo"
               :series-color="$color.cyan"
               :series-label-text-color="$color.bg"
               :interval="0"

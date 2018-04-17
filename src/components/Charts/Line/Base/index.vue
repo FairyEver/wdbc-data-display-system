@@ -140,9 +140,11 @@ export default {
     // 请求数据 这个函数最后应该返回接口的数据
     getData () {
       return new Promise(async (resolve, reject) => {
-        const res = await this.$http.post(this.url, {
-          type: 2,
-          ...this.ajaxData
+        const res = await this.$http.get(this.url, {
+          params: {
+            type: 2,
+            ...this.ajaxData
+          }
         })
         resolve(res.data)
       })
