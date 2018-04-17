@@ -170,6 +170,7 @@ export default {
           }
         })
     },
+    // 刷新数据
     async refresh () {
       this.chart.setOption(await this.optionMaker())
     }

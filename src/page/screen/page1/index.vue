@@ -185,6 +185,7 @@
               title-text="今日采集情况"
               :series-color="$color.cyan"
               :series-label-text-color="$color.bg"
+              :interval="0"
               @mounted="mountedChartNum++">
             </ChartLineBase>
           </div>
