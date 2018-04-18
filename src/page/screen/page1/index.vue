@@ -107,9 +107,7 @@
       <div class="flex-item flex-group col" style="width: 25%;">
         <!-- 三大指数 -->
         <div class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px; margin-left: -100px;">
-          今日
-          <!-- {{activePointName}}-{{activePointCode}} -->
-          行情指数
+          今日{{activePointName}}行情指数
         </div>
         <!-- 地区指数 -->
         <div class="flex-item flex-group row" style="height: 200px; padding: 5px; margin-left: -100px;">
@@ -182,7 +180,7 @@
           <div ref="box-line-base-2-g" class="flex-item grow">
             <ChartLineBase
               ref="box-line-base-2-g-c"
-              title-text="今日采集情况"
+              :title-text="`今日${activePointName}采集情况`"
               :url="`${$root.host}/api/getProductPrice`"
               :ajax-data="{
                 quotationType: activeQuotationType,
@@ -247,14 +245,18 @@ export default {
       this.init()
         .then(() => {
           // 启动右下角的队列
-          this.optionsR.reduce((p, option) => p.then(() => new Promise((resolve, reject) => {
-            this.activeQuotationType = option.value
-            this.$nextTick(this.$refs['box-line-base-2-g-c'].refresh)
-            setTimeout(resolve, 3000)
-          })), Promise.resolve())
-            .then(() => {
-              // 这时候一圈已经结束了
-            })
+          this.startQueue()
+        })
+    },
+    // 启动右下角的队列
+    startQueue () {
+      this.optionsR.reduce((p, option) => p.then(() => new Promise((resolve, reject) => {
+        this.activeQuotationType = option.value
+        this.$nextTick(this.$refs['box-line-base-2-g-c'].refresh)
+        setTimeout(resolve, 3000)
+      })), Promise.resolve())
+        .then(() => {
+          this.handleRoundEnd()
         })
     },
     // 更新 optionsR
@@ -282,7 +284,6 @@ export default {
     },
     // 右下角的图播放完了一圈
     handleRoundEnd () {
-      console.log('handleRoundEnd')
       // 更新index
       this.activePoint = this.activePoint === this.allPoint.length - 1 ? 0 : this.activePoint + 1
       // 触发更新 右上角指数
@@ -292,7 +293,7 @@ export default {
       // 右侧 中间
       this.$refs['box-line-multi-3-g-c'].refresh()
       // 右侧 下面
-      this.$refs['box-line-base-plus-2-g-c'].newRound()
+      this.startQueue()
     }
   }
 }
