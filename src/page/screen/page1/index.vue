@@ -180,7 +180,7 @@
           <div ref="box-line-base-2-g" class="flex-item grow">
             <ChartLineBase
               ref="box-line-base-2-g-c"
-              :title-text="`今日${activePointName}采集情况`"
+              :title-text="`今日${activePointName}${activeQuotationTypeName}采集情况`"
               :url="`${$root.host}/api/getProductPrice`"
               :ajax-data="{
                 quotationType: activeQuotationType,
@@ -232,6 +232,10 @@ export default {
     },
     activePointName () {
       return _get(this.allPoint, `[${this.activePoint}].areaName`, '-')
+    },
+    activeQuotationTypeName () {
+      const option = this.optionsR.find(e => e.value === this.activeQuotationType)
+      return option ? option.name : ''
     }
   },
   methods: {
