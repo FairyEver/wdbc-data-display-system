@@ -222,8 +222,8 @@ export default {
       optionsR: [],
       // 全国所有的地区
       allPoint: [],
-      activeQuotationType: 0,
-      activePoint: 0
+      activePoint: 0,
+      activeQuotationType: 0
     }
   },
   computed: {
