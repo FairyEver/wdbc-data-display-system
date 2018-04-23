@@ -8,6 +8,12 @@
       <!-- 左侧 -->
       <div class="flex-item flex-group col" style="width: 25%;">
       </div>
+      <!-- 中间 -->
+      <div class="flex-item flex-group col" style="width: 25%;">
+      </div>
+      <!-- 右侧 -->
+      <div class="flex-item flex-group col" style="width: 25%;">
+      </div>
     </div>
   </div>
 </template>
