@@ -266,7 +266,7 @@ export default {
     // 更新 optionsR
     async updateOptionsR () {
       return new Promise(async (resolve, reject) => {
-        const res = await this.getProvinceHadProduct(this.allPoint[0].areaCode)
+        const res = await this.getProvinceHadProduct(this.allPoint[this.activePoint].areaCode)
         this.optionsR = res.map(e => Number(e)).map(e => this.optionsL.find(ele => ele.value === e))
         this.activeQuotationType = this.optionsR[0].value
         resolve()
@@ -287,9 +287,11 @@ export default {
       })
     },
     // 右下角的图播放完了一圈
-    handleRoundEnd () {
+    async handleRoundEnd () {
       // 更新index
       this.activePoint = this.activePoint === this.allPoint.length - 1 ? 0 : this.activePoint + 1
+      // 更新 optionsR
+      await this.updateOptionsR()
       // 触发更新 右上角指数
       this.$refs['box-count-style2-4-g-c'].refresh()
       this.$refs['box-count-style2-5-g-c'].refresh()
