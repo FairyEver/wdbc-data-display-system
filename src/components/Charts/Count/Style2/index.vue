@@ -6,7 +6,7 @@
     </p>
     <p class="sub-title" :style="styleSubTitle">
       <span v-if="symbol !== '='">{{symbol}}</span>
-      <span v-if="symbol !== '='" ref="num2"></span>
+      <span v-show="symbol !== '='" ref="num2"></span>
       <span v-if="symbol === '='">持平</span>
       <span>
         <img v-if="symbol === '+'" src="@/assets/image/arrow-up.svg">
