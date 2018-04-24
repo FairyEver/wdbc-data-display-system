@@ -23,16 +23,7 @@ export default {
     gridTop: {type: String, required: false, default: '40'},
     gridBottom: {type: String, required: false, default: '20'},
     gridLeft: {type: String, required: false, default: '20'},
-    gridRight: {type: String, required: false, default: '5%'},
-    // 坐标轴
-    xAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
-    yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
-    yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
-    // series
-    seriesColor: {type: String, required: false, default: '#0F3551'},
-    seriesBorderRadius: {type: Array, required: false, default: () => [4, 4, 0, 0]},
-    seriesBarGap: {type: String, required: false, default: '0%'},
-    seriesBarCategoryGap: {type: String, required: false, default: '50%'}
+    gridRight: {type: String, required: false, default: '5%'}
   },
   data () {
     return {

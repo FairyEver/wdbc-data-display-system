@@ -16,9 +16,21 @@
           </ChartBarTop10>
         </div>
         <!-- 全国养殖户年龄分布 -->
-        <div class="flex-item grow hov" style="margin: 5px;"></div>
+        <div ref="box-bar-top-2-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarTop10
+            ref="box-bar-top-2-g-c"
+            title-text="barBase"
+            @mounted="mountedChartNum++">
+          </ChartBarTop10>
+        </div>
         <!-- 全国养殖户从业年限分布 -->
-        <div class="flex-item grow hov" style="margin: 5px;"></div>
+        <div ref="box-bar-top-3-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarTop10
+            ref="box-bar-top-3-g-c"
+            title-text="barBase"
+            @mounted="mountedChartNum++">
+          </ChartBarTop10>
+        </div>
       </div>
       <!-- 中间 -->
       <div class="flex-item grow flex-group col">
