@@ -179,9 +179,7 @@ export default {
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(await this.optionMaker())
-          this.intervalObj = setInterval(() => {
-            this.refresh()
-          }, this.interval)
+          this.intervalObj = setInterval(this.refresh, this.interval)
         })
     },
     // 重新请求数据

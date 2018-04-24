@@ -130,9 +130,7 @@ export default {
           this.countupObj2.start()
           this.countupObj3.start()
           if (this.interval !== 0) {
-            this.intervalObj = setInterval(() => {
-              this.refresh()
-            }, this.interval)
+            this.intervalObj = setInterval(this.refresh, this.interval)
           }
         })
     },

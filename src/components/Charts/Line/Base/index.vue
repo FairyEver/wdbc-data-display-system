@@ -166,9 +166,7 @@ export default {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(await this.optionMaker())
           if (this.interval !== 0) {
-            this.intervalObj = setInterval(() => {
-              this.refresh()
-            }, this.interval)
+            this.intervalObj = setInterval(this.refresh, this.interval)
           }
         })
     },

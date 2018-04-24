@@ -148,10 +148,14 @@ export default {
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(await this.optionMaker())
-          this.intervalObj = setInterval(async () => {
-            this.chart.setOption(await this.optionMaker())
-          }, this.interval)
+          if (this.interval) {
+            this.intervalObj = setInterval(this.refresh, this.interval)
+          }
         })
+    },
+    // 更新数据
+    async refresh () {
+      this.chart.setOption(await this.optionMaker())
     }
   }
 }
