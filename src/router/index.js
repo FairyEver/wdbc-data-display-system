@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+const dev = process.env.NODE_ENV === 'development'
+
 Vue.use(Router)
 
 export default new Router({
@@ -64,12 +66,14 @@ export default new Router({
           name: 'screen-page1',
           component: resolve => { require(['@/page/screen/page1'], resolve) }
         },
-        {
-          title: '页面2',
-          path: 'screen/page2',
-          name: 'screen-page2',
-          component: resolve => { require(['@/page/screen/page2'], resolve) }
-        }
+        ...dev ? [
+          {
+            title: '页面2',
+            path: 'screen/page2',
+            name: 'screen-page2',
+            component: resolve => { require(['@/page/screen/page2'], resolve) }
+          }
+        ] : []
       ]
     }
   ]
