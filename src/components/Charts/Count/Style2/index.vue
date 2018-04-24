@@ -12,10 +12,8 @@
         <img v-if="symbol === '+'" src="@/assets/image/arrow-up.svg">
         <img v-if="symbol === '-'" src="@/assets/image/arrow-down.svg">
       </span>
-      <template v-if="symbol !== '='">
-        <span ref="num3"></span>
-        <span v-if="symbol">%</span>
-      </template>
+      <span v-show="symbol !== '='" ref="num3"></span>
+      <span v-show="symbol !== '='">%</span>
     </p>
   </div>
 </template>
