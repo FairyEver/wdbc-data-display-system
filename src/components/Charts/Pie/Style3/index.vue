@@ -9,21 +9,16 @@ export default {
     mixin
   ],
   props: {
-    // 标题
-    titleText: {type: String, required: false, default: 'Chart'},
-    titleColor: {type: String, required: false, default: '#FFF'},
-    titleSize: {type: String, required: false, default: '18'},
-    // 接口地址
-    url: {type: String, required: false, default: 'x.mock'},
-    // 发送请求的时候带的参数
-    ajaxData: {type: Object, required: false, default: () => ({})},
-    // 发送请求的间隔
-    interval: {type: Number, required: false, default: 10000},
-    // grid 设置
-    gridTop: {type: String, required: false, default: '40'},
-    gridBottom: {type: String, required: false, default: '20'},
-    gridLeft: {type: String, required: false, default: '20'},
-    gridRight: {type: String, required: false, default: '5%'}
+    data: { default: () => 30 },
+    // 样式设置
+    colorDark: { default: '#341F24' },
+    colorLight: { default: '#DB5F52' },
+    // 中间的字体大小
+    fontSize: { default: 14 },
+    // 圆环的参数
+    radius: {
+      default: () => ['60%', '80%']
+    }
   },
   data () {
     return {
@@ -51,7 +46,7 @@ export default {
           textStyle: {
             fontWeight: 'normal',
             color: this.colorLight,
-            fontSize: 14
+            fontSize: this.fontSize
           }
         },
         series: [
@@ -59,10 +54,10 @@ export default {
             name: '订单数量',
             type: 'pie',
             hoverAnimation: false,
-            radius: ['60%', '80%'],
+            radius: this.radius,
             center: ['50%', '50%'],
             clockwise: false,
-            data: [],
+            data: 30,
             label: {
               normal: {
                 show: false
