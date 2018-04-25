@@ -39,11 +39,23 @@
         <!-- 三种蛋鸡分布 -->
         <div class="flex-item hov flex-group row" style="height: 200px; margin: 5px;">
           <!-- 三块 -->
-          <div class="flex-item grow">
+          <div ref="box-pie-style3-c1-g" class="flex-item grow">
+            <ChartPieStyle3
+              ref="box-pie-style3-c1-g-c"
+              @mounted="mountedChartNum++">
+            </ChartPieStyle3>
           </div>
-          <div class="flex-item grow">
+          <div ref="box-pie-style3-c2-g" class="flex-item grow">
+            <ChartPieStyle3
+              ref="box-pie-style3-c2-g-c"
+              @mounted="mountedChartNum++">
+            </ChartPieStyle3>
           </div>
-          <div class="flex-item grow">
+          <div ref="box-pie-style3-c3-g" class="flex-item grow">
+            <ChartPieStyle3
+              ref="box-pie-style3-c3-g-c"
+              @mounted="mountedChartNum++">
+            </ChartPieStyle3>
           </div>
         </div>
       </div>
@@ -58,8 +70,18 @@
                 @mounted="mountedChartNum++">
               </ChartPieStyle3>
             </div>
-            <div class="flex-item grow"></div>
-            <div class="flex-item grow"></div>
+            <div ref="box-pie-style3-r2-g" class="flex-item grow">
+              <ChartPieStyle3
+                ref="box-pie-style3-r2-g-c"
+                @mounted="mountedChartNum++">
+              </ChartPieStyle3>
+            </div>
+            <div ref="box-pie-style3-r3-g" class="flex-item grow">
+              <ChartPieStyle3
+                ref="box-pie-style3-r3-g-c"
+                @mounted="mountedChartNum++">
+              </ChartPieStyle3>
+            </div>
           </div>
           <div ref="box-bar-style2-3-g" class="flex-item grow">
             <ChartBarStyle2

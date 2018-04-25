@@ -9,7 +9,7 @@ export default {
     mixin
   ],
   props: {
-    data: { default: () => 30 },
+    data: { default: () => [50, 50] },
     // 样式设置
     colorDark: { default: '#341F24' },
     colorLight: { default: '#DB5F52' },
@@ -37,10 +37,15 @@ export default {
         width: `${this.width}px`
       }
     },
+    // 百分比的数字
+    titleText () {
+      const [num1, num2] = this.data
+      return Math.round(num1 / (num1 + num2) * 100)
+    },
     option () {
       return {
         title: {
-          text: '%',
+          text: `${this.titleText}%`,
           x: 'center',
           y: 'center',
           textStyle: {
@@ -57,7 +62,7 @@ export default {
             radius: this.radius,
             center: ['50%', '50%'],
             clockwise: false,
-            data: 30,
+            data: this.data,
             label: {
               normal: {
                 show: false
@@ -94,12 +99,15 @@ export default {
     },
     // 初始化
     init ({height, width}) {
-      console.log(height, width)
       this.updateSize(height, width)
         .then(() => {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(this.optionMaker())
         })
+    },
+    // 更新数据
+    refresh () {
+      this.chart.setOption(this.optionMaker())
     }
   }
 }
