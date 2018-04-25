@@ -39,23 +39,41 @@
         <!-- 三种蛋鸡分布 -->
         <div class="flex-item hov flex-group row" style="height: 200px; margin: 5px;">
           <!-- 三块 -->
-          <div ref="box-pie-style3-c1-g" class="flex-item grow">
-            <ChartPieStyle3
-              ref="box-pie-style3-c1-g-c"
-              @mounted="mountedChartNum++">
-            </ChartPieStyle3>
+          <div class="flex-item grow flex-group col">
+            <div ref="box-pie-style3-c1-g" class="flex-item grow">
+              <ChartPieStyle3
+                ref="box-pie-style3-c1-g-c"
+                :color-light="pieColors[0]"
+                @mounted="mountedChartNum++">
+              </ChartPieStyle3>
+            </div>
+            <div class="flex-item center-pie-title" :style="{color: pieColors[0]}">
+              红壳蛋鸡养殖户
+            </div>
           </div>
-          <div ref="box-pie-style3-c2-g" class="flex-item grow">
-            <ChartPieStyle3
-              ref="box-pie-style3-c2-g-c"
-              @mounted="mountedChartNum++">
-            </ChartPieStyle3>
+          <div class="flex-item grow flex-group col">
+            <div ref="box-pie-style3-c2-g" class="flex-item grow">
+              <ChartPieStyle3
+                ref="box-pie-style3-c2-g-c"
+                :color-light="pieColors[1]"
+                @mounted="mountedChartNum++">
+              </ChartPieStyle3>
+            </div>
+            <div class="flex-item center-pie-title" :style="{color: pieColors[1]}">
+              红壳蛋鸡养殖户
+            </div>
           </div>
-          <div ref="box-pie-style3-c3-g" class="flex-item grow">
-            <ChartPieStyle3
-              ref="box-pie-style3-c3-g-c"
-              @mounted="mountedChartNum++">
-            </ChartPieStyle3>
+          <div class="flex-item grow flex-group col">
+            <div ref="box-pie-style3-c3-g" class="flex-item grow">
+              <ChartPieStyle3
+                ref="box-pie-style3-c3-g-c"
+                :color-light="pieColors[2]"
+                @mounted="mountedChartNum++">
+              </ChartPieStyle3>
+            </div>
+            <div class="flex-item center-pie-title" :style="{color: pieColors[2]}">
+              红壳蛋鸡养殖户
+            </div>
           </div>
         </div>
       </div>
@@ -64,23 +82,36 @@
         <!-- 全国养殖户户数TOP10 -->
         <div class="flex-item grow flex-group row hov" style="margin: 5px;">
           <div class="flex-item flex-group col" style="width: 100px;">
-            <div ref="box-pie-style3-r1-g" class="flex-item grow">
-              <ChartPieStyle3
-                ref="box-pie-style3-r1-g-c"
-                @mounted="mountedChartNum++">
-              </ChartPieStyle3>
+            <!-- 三块 -->
+            <div class="flex-item grow flex-group col">
+              <div ref="box-pie-style3-r1-g" class="flex-item grow">
+                <ChartPieStyle3
+                  ref="box-pie-style3-r1-g-c"
+                  :color-light="pieColors[0]"
+                  @mounted="mountedChartNum++">
+                </ChartPieStyle3>
+              </div>
+              <div class="flex-item center-pie-title" :style="{color: pieColors[0]}">红壳占比</div>
             </div>
-            <div ref="box-pie-style3-r2-g" class="flex-item grow">
-              <ChartPieStyle3
-                ref="box-pie-style3-r2-g-c"
-                @mounted="mountedChartNum++">
-              </ChartPieStyle3>
+            <div class="flex-item grow flex-group col">
+              <div ref="box-pie-style3-r2-g" class="flex-item grow">
+                <ChartPieStyle3
+                  ref="box-pie-style3-r2-g-c"
+                  :color-light="pieColors[1]"
+                  @mounted="mountedChartNum++">
+                </ChartPieStyle3>
+              </div>
+              <div class="flex-item center-pie-title" :style="{color: pieColors[1]}">粉壳占比</div>
             </div>
-            <div ref="box-pie-style3-r3-g" class="flex-item grow">
-              <ChartPieStyle3
-                ref="box-pie-style3-r3-g-c"
-                @mounted="mountedChartNum++">
-              </ChartPieStyle3>
+            <div class="flex-item grow flex-group col">
+              <div ref="box-pie-style3-r3-g" class="flex-item grow">
+                <ChartPieStyle3
+                  ref="box-pie-style3-r3-g-c"
+                  :color-light="pieColors[2]"
+                  @mounted="mountedChartNum++">
+                </ChartPieStyle3>
+              </div>
+              <div class="flex-item center-pie-title" :style="{color: pieColors[2]}">白壳占比</div>
             </div>
           </div>
           <div ref="box-bar-style2-3-g" class="flex-item grow">
@@ -117,6 +148,23 @@ import mixin from '../mixin'
 export default {
   mixins: [
     mixin
-  ]
+  ],
+  data () {
+    return {
+      pieColors: [
+        '#E6E09F',
+        '#90DEF5',
+        '#4F9CE0'
+      ]
+    }
+  }
 }
 </script>
+
+<style lang="scss">
+.center-pie-title {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+</style>

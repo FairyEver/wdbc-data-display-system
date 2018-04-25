@@ -9,9 +9,9 @@ export default {
     mixin
   ],
   props: {
-    data: { default: () => [50, 50] },
+    data: { default: () => 50 },
     // 样式设置
-    colorDark: { default: '#341F24' },
+    colorDark: { default: '#021C31' },
     colorLight: { default: '#DB5F52' },
     // 中间的字体大小
     fontSize: { default: 14 },
@@ -37,15 +37,32 @@ export default {
         width: `${this.width}px`
       }
     },
-    // 百分比的数字
-    titleText () {
-      const [num1, num2] = this.data
-      return Math.round(num1 / (num1 + num2) * 100)
+    dataComputed () {
+      return [
+        {
+          name: 'name',
+          value: this.data,
+          itemStyle: {
+            normal: {
+              color: this.colorLight
+            }
+          }
+        },
+        {
+          name: 'other',
+          value: 100 - this.data,
+          itemStyle: {
+            normal: {
+              color: this.colorDark
+            }
+          }
+        }
+      ]
     },
     option () {
       return {
         title: {
-          text: `${this.titleText}%`,
+          text: `${this.data}%`,
           x: 'center',
           y: 'center',
           textStyle: {
@@ -95,6 +112,7 @@ export default {
     // 返回拼好的option
     optionMaker () {
       const option = this.option
+      option.series[0].data = this.dataComputed
       return option
     },
     // 初始化
