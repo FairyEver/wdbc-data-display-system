@@ -45,52 +45,42 @@ export default {
     option () {
       return {
         title: {
-          text: this.titleText,
-          top: '10',
-          left: 'center',
+          text: '%',
+          x: 'center',
+          y: 'center',
           textStyle: {
-            color: this.titleColor,
-            fontSize: this.titleSize
+            fontWeight: 'normal',
+            color: this.colorLight,
+            fontSize: 14
           }
         },
-        color: [
-          '#f7d09c',
-          '#9c62e4',
-          '#db5c5e',
-          '#5ea2db',
-          '#55be9d',
-          '#da9664'
-        ],
         series: [
           {
-            data: [],
-            name: '占比',
+            name: '订单数量',
             type: 'pie',
-            center: ['50%', '55%'],
-            radius: ['25%', '50%'],
-            avoidLabelOverlap: true,
-            itemStyle: {
-              normal: {
-                borderColor: '#171F29',
-                borderWidth: 4
-              }
-            },
+            hoverAnimation: false,
+            radius: ['60%', '80%'],
+            center: ['50%', '50%'],
+            clockwise: false,
+            data: [],
             label: {
               normal: {
-                show: true,
-                formatter: '{b}\n{d}%',
-                textStyle: {
-                  fontSize: 12,
-                  color: '#BCC4CE'
-                }
-              },
-              emphasis: {
-                show: true
+                show: false
               }
             },
             labelLine: {
               normal: {
-                show: true
+                show: false
+              }
+            },
+            itemStyle: {
+              normal: {
+                borderWidth: 0,
+                borderColor: this.colorDark
+              },
+              emphasis: {
+                borderWidth: 0,
+                borderColor: this.colorDark
               }
             }
           }
@@ -102,49 +92,17 @@ export default {
     this.$emit('mounted')
   },
   methods: {
-    // 请求数据 这个函数最后应该返回接口的数据
-    getData () {
-      return new Promise(async (resolve, reject) => {
-        // const res = await this.$http.post(this.url, {
-        //   type: 2,
-        //   ...this.ajaxData
-        // })
-        // resolve(res.data)
-        resolve({
-          list: [
-            {name: '30岁以下', value: 3885},
-            {name: '30-35', value: 33544},
-            {name: '35-40', value: 61497},
-            {name: '40-45', value: 29520},
-            {name: '45岁以上', value: 7466}
-          ]
-        })
-      })
-    },
     // 返回拼好的option
     optionMaker () {
-      return new Promise(async (resolve, reject) => {
-        const data = this.transform(await this.getData()).list
-        const option = this.option
-        console.log(option.series[0].data)
-        option.series[0].data = data
-        resolve(option)
-      })
+      const option = this.option
+      return option
     },
     // 初始化
     init ({height, width}) {
       this.updateSize(height, width)
-        .then(async () => {
-          this.chart = this.echarts.init(this.$refs.chart)
-          this.chart.setOption(await this.optionMaker())
-          if (this.interval) {
-            this.intervalObj = setInterval(this.refresh, this.interval)
-          }
+        .then(() => {
+          this.chart.setOption(this.optionMaker())
         })
-    },
-    // 更新数据
-    async refresh () {
-      this.chart.setOption(await this.optionMaker())
     }
   }
 }
