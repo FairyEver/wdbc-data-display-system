@@ -87,31 +87,34 @@
               <div ref="box-pie-style3-r1-g" class="flex-item grow">
                 <ChartPieStyle3
                   ref="box-pie-style3-r1-g-c"
+                  :radius="['60%', '70%']"
                   :color-light="pieColors[0]"
                   @mounted="mountedChartNum++">
                 </ChartPieStyle3>
               </div>
-              <div class="flex-item center-pie-title" :style="{color: pieColors[0]}">红壳占比</div>
+              <div class="flex-item center-pie-title mini" :style="{color: pieColors[0]}">红壳占比</div>
             </div>
             <div class="flex-item grow flex-group col">
               <div ref="box-pie-style3-r2-g" class="flex-item grow">
                 <ChartPieStyle3
                   ref="box-pie-style3-r2-g-c"
+                  :radius="['60%', '70%']"
                   :color-light="pieColors[1]"
                   @mounted="mountedChartNum++">
                 </ChartPieStyle3>
               </div>
-              <div class="flex-item center-pie-title" :style="{color: pieColors[1]}">粉壳占比</div>
+              <div class="flex-item center-pie-title mini" :style="{color: pieColors[1]}">粉壳占比</div>
             </div>
             <div class="flex-item grow flex-group col">
               <div ref="box-pie-style3-r3-g" class="flex-item grow">
                 <ChartPieStyle3
                   ref="box-pie-style3-r3-g-c"
+                  :radius="['60%', '70%']"
                   :color-light="pieColors[2]"
                   @mounted="mountedChartNum++">
                 </ChartPieStyle3>
               </div>
-              <div class="flex-item center-pie-title" :style="{color: pieColors[2]}">白壳占比</div>
+              <div class="flex-item center-pie-title mini" :style="{color: pieColors[2]}">白壳占比</div>
             </div>
           </div>
           <div ref="box-bar-style2-3-g" class="flex-item grow">
@@ -166,5 +169,9 @@ export default {
   height: 30px;
   line-height: 30px;
   text-align: center;
+  &.mini {
+    height: 24px;
+    line-height: 24px;
+  }
 }
 </style>
