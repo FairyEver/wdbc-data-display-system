@@ -4,6 +4,7 @@ Vue.component('ChartBarBase', resolve => { require(['@/components/Charts/Bar/Bas
 Vue.component('ChartBarStack', resolve => { require(['@/components/Charts/Bar/Stack/index.vue'], resolve) })
 Vue.component('ChartBarMulti', resolve => { require(['@/components/Charts/Bar/Multi/index.vue'], resolve) })
 Vue.component('ChartBarTop10', resolve => { require(['@/components/Charts/Bar/Top10/index.vue'], resolve) })
+Vue.component('ChartBarStyle2', resolve => { require(['@/components/Charts/Bar/Style2/index.vue'], resolve) })
 
 Vue.component('ChartCountStyle1', resolve => { require(['@/components/Charts/Count/Style1/index.vue'], resolve) })
 Vue.component('ChartCountStyle2', resolve => { require(['@/components/Charts/Count/Style2/index.vue'], resolve) })

@@ -67,8 +67,10 @@ export default {
         //     return res
         //   }
         // },
-        yAxis: {
+        xAxis: {
+          // data: this.data.map(e => e.name).reverse(),
           data: [],
+          interval: 500,
           axisLine: {
             // 坐标轴
             lineStyle: {
@@ -85,8 +87,7 @@ export default {
             color: '#BCC4CE'
           }
         },
-        xAxis: {
-          position: 'top',
+        yAxis: {
           axisLine: {
             // 坐标轴
             lineStyle: {
@@ -112,12 +113,30 @@ export default {
         series: [
           {
             type: 'bar',
+            // data: this.data.reverse(),
             data: [],
-            barMaxWidth: 14,
+            barMaxWidth: 50,
             itemStyle: {
               normal: {
-                color: '#DD9C38',
-                barBorderRadius: [0, 1, 1, 0]
+                barBorderRadius: [2, 2, 0, 0],
+                color: function (params) {
+                  var colorList = [
+                    '#5ea2db',
+                    '#db5c5e',
+                    '#f7d09c',
+                    '#55be9d',
+                    '#9c62e4',
+                    '#da9664'
+                  ]
+                  return colorList[params.dataIndex]
+                }
+              }
+            },
+            label: {
+              normal: {
+                show: true,
+                position: 'top',
+                formatter: '{c}'
               }
             }
           }
@@ -139,17 +158,12 @@ export default {
         // resolve(res.data)
         resolve({
           list: [
-            {name: '河北', value: 1000},
-            {name: '山东', value: 980},
-            {name: '江苏', value: 900},
-            {name: '辽宁', value: 850},
-            {name: '河南', value: 800},
-            {name: '安徽', value: 670},
-            {name: '陕西', value: 620},
-            {name: '山西', value: 600},
-            {name: '吉林', value: 550},
-            {name: '内蒙', value: 300}
-          ].reverse()
+            {name: '30岁以下', value: 3885},
+            {name: '30-35', value: 33544},
+            {name: '35-40', value: 61497},
+            {name: '40-45', value: 29520},
+            {name: '45岁以上', value: 7466}
+          ]
         })
       })
     },
@@ -158,7 +172,7 @@ export default {
       return new Promise(async (resolve, reject) => {
         const data = this.transform(await this.getData()).list
         const option = this.option
-        option.yAxis.data = data.map(e => e.name)
+        option.xAxis.data = data.map(e => e.name)
         option.series[0].data = data.map(e => e.value)
         resolve(option)
       })
