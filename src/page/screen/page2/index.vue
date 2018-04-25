@@ -24,12 +24,12 @@
           </ChartBarStyle2>
         </div>
         <!-- 全国养殖户从业年限分布 -->
-        <div ref="box-bar-top-3-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarTop10
-            ref="box-bar-top-3-g-c"
-            title-text="barBase"
+        <div ref="box-pie-style2-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartPieStyle2
+            ref="box-pie-style2-g-c"
+            title-text="全国养殖户从业年限分布"
             @mounted="mountedChartNum++">
-          </ChartBarTop10>
+          </ChartPieStyle2>
         </div>
       </div>
       <!-- 中间 -->
