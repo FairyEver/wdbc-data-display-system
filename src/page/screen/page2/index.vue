@@ -52,7 +52,9 @@
         <!-- 全国养殖户户数TOP10 -->
         <div class="flex-item grow flex-group row hov" style="margin: 5px;">
           <div class="flex-item flex-group col" style="width: 100px;">
-            <div class="flex-item grow"></div>
+            <div ref="box-pie-style3-r1-g" class="flex-item grow">
+              <ChartPieStyle3 ref="box-pie-style3-r1-g-c"></ChartPieStyle3>
+            </div>
             <div class="flex-item grow"></div>
             <div class="flex-item grow"></div>
           </div>

@@ -85,6 +85,7 @@ export default {
   },
   mounted () {
     this.$emit('mounted')
+    console.log('111')
   },
   methods: {
     // 返回拼好的option
