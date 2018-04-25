@@ -37,7 +37,18 @@
         <!-- 地图 -->
         <div class="flex-item grow hov" style="margin: 5px;"></div>
         <!-- 三种蛋鸡分布 -->
-        <div class="flex-item hov" style="height: 200px; margin: 5px;"></div>
+        <div class="flex-item hov flex-group row" style="height: 200px; margin: 5px;">
+          <!-- 三块 -->
+          <div class="flex-item grow">
+            
+          </div>
+          <div class="flex-item grow">
+            
+          </div>
+          <div class="flex-item grow">
+            
+          </div>
+        </div>
       </div>
       <!-- 右侧 -->
       <div class="flex-item flex-group col" style="width: 25%;">
