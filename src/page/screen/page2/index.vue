@@ -53,7 +53,10 @@
         <div class="flex-item grow flex-group row hov" style="margin: 5px;">
           <div class="flex-item flex-group col" style="width: 100px;">
             <div ref="box-pie-style3-r1-g" class="flex-item grow">
-              <ChartPieStyle3 ref="box-pie-style3-r1-g-c"></ChartPieStyle3>
+              <ChartPieStyle3
+                ref="box-pie-style3-r1-g-c"
+                @mounted="mountedChartNum++">
+              </ChartPieStyle3>
             </div>
             <div class="flex-item grow"></div>
             <div class="flex-item grow"></div>
@@ -92,18 +95,6 @@ import mixin from '../mixin'
 export default {
   mixins: [
     mixin
-  ],
-  data () {
-    return {
-      useMixinAutoInit: false
-    }
-  },
-  methods: {
-    // 这个页面比较特殊 自己定义自己的初始化方法
-    async init2 () {
-      this.init()
-      console.log('init2')
-    }
-  }
+  ]
 }
 </script>

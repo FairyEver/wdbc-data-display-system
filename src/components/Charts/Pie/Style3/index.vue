@@ -85,7 +85,6 @@ export default {
   },
   mounted () {
     this.$emit('mounted')
-    console.log('111')
   },
   methods: {
     // 返回拼好的option
@@ -95,8 +94,10 @@ export default {
     },
     // 初始化
     init ({height, width}) {
+      console.log(height, width)
       this.updateSize(height, width)
         .then(() => {
+          this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(this.optionMaker())
         })
     }
