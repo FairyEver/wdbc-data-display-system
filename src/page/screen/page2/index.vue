@@ -53,12 +53,13 @@
       <!-- 右侧 -->
       <div class="flex-item flex-group col" style="width: 25%;">
         <!-- 全国养殖户户数TOP10 -->
-        <div ref="box-bar-top-2-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarTop10
-            ref="box-bar-top-2-g-c"
-            title-text="全国养殖户户数TOP10"
-            @mounted="mountedChartNum++">
-          </ChartBarTop10>
+        <div class="flex-item grow flex-group row hov" style="margin: 5px;">
+          <div class="flex-item flex-group col" style="width: 100px;">
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+            <div class="flex-item"></div>
+          </div>
+          <div class="flex-item grow"></div>
         </div>
         <!-- 全国养殖户年龄分布 -->
         <div ref="box-bar-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
