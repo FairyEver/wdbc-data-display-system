@@ -16,6 +16,7 @@
     "echarts": "^4.0.4",
     "lodash.get": "^4.4.2",
     "mockjs": "^1.0.1-beta3",
+    "react-router": "^4.2.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

@@ -37,12 +37,13 @@
         <!-- 地图 -->
         <div class="flex-item grow hov" style="margin: 5px;"></div>
         <!-- 三种蛋鸡分布 -->
-        <div class="flex-item hov flex-group row" style="height: 200px; margin: 5px;">
+        <div class="flex-item hov flex-group row" style="height: 160px; margin: 5px; padding: 20px 0px;">
           <!-- 三块 -->
           <div class="flex-item grow flex-group col">
             <div ref="box-pie-style3-c1-g" class="flex-item grow">
               <ChartPieStyle3
                 ref="box-pie-style3-c1-g-c"
+                :data="30"
                 :color-light="pieColors[0]"
                 @mounted="mountedChartNum++">
               </ChartPieStyle3>
@@ -55,6 +56,7 @@
             <div ref="box-pie-style3-c2-g" class="flex-item grow">
               <ChartPieStyle3
                 ref="box-pie-style3-c2-g-c"
+                :data="40"
                 :color-light="pieColors[1]"
                 @mounted="mountedChartNum++">
               </ChartPieStyle3>
@@ -67,6 +69,7 @@
             <div ref="box-pie-style3-c3-g" class="flex-item grow">
               <ChartPieStyle3
                 ref="box-pie-style3-c3-g-c"
+                :data="80"
                 :color-light="pieColors[2]"
                 @mounted="mountedChartNum++">
               </ChartPieStyle3>
@@ -88,6 +91,7 @@
                 <ChartPieStyle3
                   ref="box-pie-style3-r1-g-c"
                   :radius="['60%', '70%']"
+                  :data="30"
                   :color-light="pieColors[0]"
                   @mounted="mountedChartNum++">
                 </ChartPieStyle3>
@@ -99,6 +103,7 @@
                 <ChartPieStyle3
                   ref="box-pie-style3-r2-g-c"
                   :radius="['60%', '70%']"
+                  :data="10"
                   :color-light="pieColors[1]"
                   @mounted="mountedChartNum++">
                 </ChartPieStyle3>
@@ -110,6 +115,7 @@
                 <ChartPieStyle3
                   ref="box-pie-style3-r3-g-c"
                   :radius="['60%', '70%']"
+                  :data="60"
                   :color-light="pieColors[2]"
                   @mounted="mountedChartNum++">
                 </ChartPieStyle3>
