@@ -15,6 +15,7 @@ Vue.component('ChartLineBasePlus', resolve => { require(['@/components/Charts/Li
 Vue.component('ChartLineMulti', resolve => { require(['@/components/Charts/Line/Multi/index.vue'], resolve) })
 
 Vue.component('ChartMapStyle1', resolve => { require(['@/components/Charts/Map/Style1/index.vue'], resolve) })
+Vue.component('ChartMapStyle2', resolve => { require(['@/components/Charts/Map/Style2/index.vue'], resolve) })
 
 Vue.component('ChartPieBase', resolve => { require(['@/components/Charts/Pie/Base/index.vue'], resolve) })
 Vue.component('ChartPieStyle2', resolve => { require(['@/components/Charts/Pie/Style2/index.vue'], resolve) })

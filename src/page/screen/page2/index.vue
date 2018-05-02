@@ -35,7 +35,12 @@
       <!-- 中间 -->
       <div class="flex-item grow flex-group col">
         <!-- 地图 -->
-        <div class="flex-item grow hov" style="margin: 5px;"></div>
+        <div ref="box-map-center-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartMapStyle2
+            ref="box-map-center-g-c"
+            @mounted="mountedChartNum++">
+          </ChartMapStyle2>
+        </div>
         <!-- 三种蛋鸡分布 -->
         <div class="flex-item hov flex-group row" style="height: 160px; margin: 5px; padding: 20px 0px;">
           <!-- 三块 -->
@@ -160,11 +165,21 @@ export default {
   ],
   data () {
     return {
+      useMixinAutoInit: false,
       pieColors: [
         '#E6E09F',
         '#90DEF5',
         '#4F9CE0'
       ]
+    }
+  },
+  methods: {
+    async init2 () {
+      // 初始化图表
+      this.init()
+        .then(() => {
+          console.log('222')
+        })
     }
   }
 }
