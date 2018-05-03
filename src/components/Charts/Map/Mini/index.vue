@@ -59,8 +59,6 @@ export default {
             type: 'map',
             mapType: 'shandong',
             roam: false,
-            left: 50,
-            right: 50,
             itemStyle: {
               normal: {
                 areaColor: 'rgba(0,0,0,0)',
