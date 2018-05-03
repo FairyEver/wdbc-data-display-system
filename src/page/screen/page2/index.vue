@@ -128,12 +128,12 @@
               <div class="flex-item center-pie-title mini" :style="{color: pieColors[2]}">白壳占比</div>
             </div>
           </div>
-          <div ref="box-bar-style2-3-g" class="flex-item grow">
-            <ChartBarStyle2
-              ref="box-bar-style2-3-g-c"
+          <div ref="box-map-mini-g" class="flex-item grow">
+            <ChartMapMini
+              ref="box-map-mini-g-c"
               title-text="全国养殖户年龄分布"
               @mounted="mountedChartNum++">
-            </ChartBarStyle2>
+            </ChartMapMini>
           </div>
         </div>
         <!-- 全国养殖户年龄分布 -->
