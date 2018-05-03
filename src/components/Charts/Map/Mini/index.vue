@@ -44,19 +44,6 @@ export default {
         tooltip: {
           show: false
         },
-        visualMap: {
-          type: 'continuous',
-          show: true,
-          min: 0,
-          max: 10000,
-          itemWidth: 8,
-          itemHeight: 50,
-          color: ['#1EB2BD', '#134C55'],
-          text: ['高', '低'],
-          textStyle: {
-            color: '#2DB1FF'
-          }
-        },
         toolbox: {
           show: false
         },
@@ -70,7 +57,7 @@ export default {
         series: [
           {
             type: 'map',
-            mapType: 'china',
+            mapType: 'shandong',
             roam: false,
             left: 50,
             right: 50,
