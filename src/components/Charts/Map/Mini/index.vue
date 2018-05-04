@@ -13,7 +13,11 @@ export default {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
-    titleSize: {type: String, required: false, default: '18'}
+    titleSize: {type: String, required: false, default: '18'},
+    // 地图激活的区域
+    mapType: {type: String, required: false, default: ''},
+    // 地图数据
+    mapdata: {type: Array, required: false, default: () => []}
   },
   data () {
     return {
@@ -57,16 +61,18 @@ export default {
         series: [
           {
             type: 'map',
-            mapType: 'shandong',
+            mapType: this.mapType,
             roam: false,
             itemStyle: {
               normal: {
                 areaColor: 'rgba(0,0,0,0)',
                 label: {
-                  show: false
+                  show: false,
+                  fontSize: 8,
+                  color: '#52D7E9'
                 },
-                borderWidth: 2,
-                borderColor: '#11CDD9'
+                borderWidth: 1,
+                borderColor: '#1E6591'
               },
               emphasis: {
                 label: {
@@ -78,15 +84,15 @@ export default {
                   padding: [4, 6],
                   borderRadius: 2
                 },
-                areaColor: '#FFCF2D',
-                borderWidth: 2,
-                borderColor: '#FF8D23',
+                areaColor: '#78F7FF',
+                borderWidth: 1,
+                borderColor: '#0C1019',
                 shadowColor: 'rgba(0, 0, 0, 0.4)',
                 shadowBlur: 20,
                 shadowOffsetY: 4
               }
             },
-            data: []
+            data: this.mapdata
           }
         ]
       }
@@ -103,20 +109,13 @@ export default {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(this.option)
         })
+        .thne(() => {
+          this.activeMap()
+        })
     },
     // 激活某个地区
-    activeMap (name = '河北') {
-      this.chart.dispatchAction({
-        type: 'mapSelect',
-        name
-      })
-    },
-    // 取消激活某个地区
-    unActiveMap (name = '河北') {
-      this.chart.dispatchAction({
-        type: 'mapUnSelect',
-        name
-      })
+    activeMap () {
+      this.chart.setOption(this.option)
     }
   }
 }
