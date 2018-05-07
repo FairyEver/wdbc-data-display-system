@@ -44,6 +44,8 @@
         <div ref="box-map-center-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartMapStyle2
             ref="box-map-center-g-c"
+            :url="`${$root.host}/api/getCountryFarmDistributing`"
+            :transform="(data) => data.dataInfo.result"
             @initDone="handleMapInitDone"
             @mounted="mountedChartNum++">
           </ChartMapStyle2>
@@ -197,16 +199,16 @@ export default {
         })
     },
     // [数据获取] 获得所有的地区
-    getAllCollectionPoint () {
+    getCountryAllCollectionPoint () {
       return new Promise(async (resolve, reject) => {
-        const res = await this.$http.post(this.$root.host + '/api/getAllCollectionPoint')
+        const res = await this.$http.post(this.$root.host + '/api/getCountryAllCollectionPoint')
         resolve(res.data.dataInfo.data)
       })
     },
     // 中间的地图加载完了数据
     async handleMapInitDone () {
       // 获取全国的地区
-      this.allCollectionPoint = await this.getAllCollectionPoint()
+      this.allCollectionPoint = await this.getCountryAllCollectionPoint()
       // 启动轮播队列
       this.startQueue()
     },

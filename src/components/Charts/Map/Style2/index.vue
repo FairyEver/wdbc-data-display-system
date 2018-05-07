@@ -121,29 +121,29 @@ export default {
     // 请求数据 这个函数最后应该返回接口的数据
     getData () {
       return new Promise(async (resolve, reject) => {
-        // const res = await this.$http.post(this.url, {
-        //   type: 2,
-        //   ...this.ajaxData
-        // })
-        // resolve(res.data)
-        resolve({
-          list: [
-            {'name': '湖南省', 'all': '1450'},
-            {'name': '广东省', 'all': '31'},
-            {'name': '广西壮族自治区', 'all': '38'},
-            {'name': '上海市', 'all': '19'},
-            {'name': '海南省', 'all': '17'}
-          ].map(e => ({
-            name: e.name,
-            value: e.all
-          }))
+        const res = await this.$http.post(this.url, {
+          type: 2,
+          ...this.ajaxData
         })
+        resolve(res.data)
+        // resolve({
+        //   list: [
+        //     {'name': '湖南省', 'all': '1450'},
+        //     {'name': '广东省', 'all': '31'},
+        //     {'name': '广西壮族自治区', 'all': '38'},
+        //     {'name': '上海市', 'all': '19'},
+        //     {'name': '海南省', 'all': '17'}
+        //   ].map(e => ({
+        //     name: e.name,
+        //     value: e.all
+        //   }))
+        // })
       })
     },
     // 返回拼好的option
     optionMaker () {
       return new Promise(async (resolve, reject) => {
-        const data = this.transform(await this.getData()).list
+        const data = this.transform(await this.getData())
         const option = this.option
         option.series[0].data = data
         resolve(option)
