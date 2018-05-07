@@ -21,6 +21,8 @@
         <div ref="box-bar-style2-1-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarStyle2
             ref="box-bar-style2-1-g-c"
+            :url="`${$root.host}/api/getAgeDistributing`"
+            :transform="(data) => data.dataInfo.result"
             title-text="全国养殖户年龄分布"
             @mounted="mountedChartNum++">
           </ChartBarStyle2>
@@ -197,13 +199,13 @@ export default {
     },
     // 中间的地图加载完了数据
     async handleMapInitDone () {
+      // 获取全国的地区
       this.allCollectionPoint = await this.getAllCollectionPoint()
       // 启动轮播队列
       this.startQueue()
     },
     // 启动轮播队列
     startQueue () {
-      
       this.allCollectionPoint.reduce((p, point) => {
         return p.then(() => {
           return new Promise((resolve, reject) => {
