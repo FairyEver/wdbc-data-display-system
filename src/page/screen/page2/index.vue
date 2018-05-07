@@ -31,6 +31,8 @@
         <div ref="box-pie-style2-1-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartPieStyle2
             ref="box-pie-style2-1-g-c"
+            :url="`${$root.host}/api/getFeedingPeriodDistributing`"
+            :transform="(data) => data.dataInfo.result"
             title-text="全国养殖户从业年限分布"
             @mounted="mountedChartNum++">
           </ChartPieStyle2>
@@ -156,6 +158,8 @@
         <div ref="box-pie-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartPieStyle2
             ref="box-pie-style2-2-g-c"
+            :url="`${$root.host}/api/getFeedingPeriodDistributing`"
+            :transform="(data) => data.dataInfo.result"
             title-text="全国养殖户从业年限分布"
             :auto-get-data="false"
             @mounted="mountedChartNum++">

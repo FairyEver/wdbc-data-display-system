@@ -105,26 +105,26 @@ export default {
     // 请求数据 这个函数最后应该返回接口的数据
     getData () {
       return new Promise(async (resolve, reject) => {
-        // const res = await this.$http.post(this.url, {
-        //   type: 2,
-        //   ...this.ajaxData
-        // })
-        // resolve(res.data)
-        resolve({
-          list: [
-            {name: '2年以下', value: 3885},
-            {name: '2-5年', value: 33544},
-            {name: '5-10年', value: 61497},
-            {name: '10-15年', value: 29520},
-            {name: '15年以上', value: 7466}
-          ]
+        const res = await this.$http.post(this.url, {
+          type: 2,
+          ...this.ajaxData
         })
+        resolve(res.data)
+        // resolve({
+        //   list: [
+        //     {name: '2年以下', value: 3885},
+        //     {name: '2-5年', value: 33544},
+        //     {name: '5-10年', value: 61497},
+        //     {name: '10-15年', value: 29520},
+        //     {name: '15年以上', value: 7466}
+        //   ]
+        // })
       })
     },
     // 返回拼好的option
     optionMaker () {
       return new Promise(async (resolve, reject) => {
-        const data = this.transform(await this.getData()).list
+        const data = this.transform(await this.getData())
         const option = this.option
         option.series[0].data = data
         resolve(option)
