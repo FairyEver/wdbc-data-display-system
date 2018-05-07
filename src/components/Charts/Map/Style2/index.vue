@@ -4,7 +4,6 @@
 
 <script>
 import mixin from '@/components/Charts/mixin.js'
-import data from './data'
 export default {
   mixins: [
     mixin
@@ -107,7 +106,7 @@ export default {
                 shadowOffsetY: 4
               }
             },
-            data: data
+            data: []
           }
         ]
       }
@@ -127,11 +126,11 @@ export default {
         // resolve(res.data)
         resolve({
           list: [
-            {'name': '湖南', 'all': '1450'},
-            {'name': '广东', 'all': '31'},
-            {'name': '广西', 'all': '38'},
-            {'name': '上海', 'all': '19'},
-            {'name': '海南', 'all': '17'}
+            {'name': '湖南省', 'all': '1450'},
+            {'name': '广东省', 'all': '31'},
+            {'name': '广西壮族自治区', 'all': '38'},
+            {'name': '上海市', 'all': '19'},
+            {'name': '海南省', 'all': '17'}
           ].map(e => ({
             name: e.name,
             value: e.all
@@ -154,6 +153,8 @@ export default {
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(await this.optionMaker())
+          // 告诉外面 数据加载完了
+          this.$emit('initDone')
           if (this.interval) {
             this.intervalObj = setInterval(this.refresh, this.interval)
           }

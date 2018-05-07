@@ -13,7 +13,7 @@ export default {
       },
       "properties": {
         "cp": [121.509062, 25.044332],
-        "name": "台湾",
+        "name": "台湾省",
         "childNum": 6
       }
     },
@@ -27,7 +27,7 @@ export default {
       },
       "properties": {
         "cp": [114.502461, 38.045474],
-        "name": "河北",
+        "name": "河北省",
         "childNum": 3
       }
     },
@@ -41,7 +41,7 @@ export default {
       },
       "properties": {
         "cp": [112.549248, 37.857014],
-        "name": "山西",
+        "name": "山西省",
         "childNum": 1
       }
     },
@@ -55,7 +55,7 @@ export default {
       },
       "properties": {
         "cp": [111.670801, 40.818311],
-        "name": "内蒙古",
+        "name": "内蒙古自治区",
         "childNum": 2
       }
     },
@@ -69,7 +69,7 @@ export default {
       },
       "properties": {
         "cp": [123.429096, 41.796767],
-        "name": "辽宁",
+        "name": "辽宁省",
         "childNum": 16
       }
     },
@@ -83,7 +83,7 @@ export default {
       },
       "properties": {
         "cp": [125.3245, 43.886841],
-        "name": "吉林",
+        "name": "吉林省",
         "childNum": 1
       }
     },
@@ -97,7 +97,7 @@ export default {
       },
       "properties": {
         "cp": [126.642464, 45.756967],
-        "name": "黑龙江",
+        "name": "黑龙江省",
         "childNum": 2
       }
     },
@@ -111,7 +111,7 @@ export default {
       },
       "properties": {
         "cp": [118.767413, 32.041544],
-        "name": "江苏",
+        "name": "江苏省",
         "childNum": 1
       }
     },
@@ -125,7 +125,7 @@ export default {
       },
       "properties": {
         "cp": [120.153576, 30.287459],
-        "name": "浙江",
+        "name": "浙江省",
         "childNum": 45
       }
     },
@@ -139,7 +139,7 @@ export default {
       },
       "properties": {
         "cp": [117.283042, 31.86119],
-        "name": "安徽",
+        "name": "安徽省",
         "childNum": 3
       }
     },
@@ -153,7 +153,7 @@ export default {
       },
       "properties": {
         "cp": [119.306239, 26.075302],
-        "name": "福建",
+        "name": "福建省",
         "childNum": 18
       }
     },
@@ -167,7 +167,7 @@ export default {
       },
       "properties": {
         "cp": [115.892151, 28.676493],
-        "name": "江西",
+        "name": "江西省",
         "childNum": 1
       }
     },
@@ -181,7 +181,7 @@ export default {
       },
       "properties": {
         "cp": [117.000923, 36.675807],
-        "name": "山东",
+        "name": "山东省",
         "childNum": 13
       }
     },
@@ -195,7 +195,7 @@ export default {
       },
       "properties": {
         "cp": [113.665412, 34.757975],
-        "name": "河南",
+        "name": "河南省",
         "childNum": 1
       }
     },
@@ -209,7 +209,7 @@ export default {
       },
       "properties": {
         "cp": [114.298572, 30.584355],
-        "name": "湖北",
+        "name": "湖北省",
         "childNum": 3
       }
     },
@@ -223,7 +223,7 @@ export default {
       },
       "properties": {
         "cp": [112.982279, 28.19409],
-        "name": "湖南",
+        "name": "湖南省",
         "childNum": 3
       }
     },
@@ -237,7 +237,7 @@ export default {
       },
       "properties": {
         "cp": [113.280637, 23.125178],
-        "name": "广东",
+        "name": "广东省",
         "childNum": 24
       }
     },
@@ -251,7 +251,7 @@ export default {
       },
       "properties": {
         "cp": [108.320004, 22.82402],
-        "name": "广西",
+        "name": "广西壮族自治区",
         "childNum": 2
       }
     },
@@ -265,7 +265,7 @@ export default {
       },
       "properties": {
         "cp": [110.33119, 20.031971],
-        "name": "海南",
+        "name": "海南省",
         "childNum": 1
       }
     },
@@ -279,7 +279,7 @@ export default {
       },
       "properties": {
         "cp": [104.065735, 30.659462],
-        "name": "四川",
+        "name": "四川省",
         "childNum": 2
       }
     },
@@ -293,7 +293,7 @@ export default {
       },
       "properties": {
         "cp": [106.713478, 26.578343],
-        "name": "贵州",
+        "name": "贵州省",
         "childNum": 3
       }
     },
@@ -307,7 +307,7 @@ export default {
       },
       "properties": {
         "cp": [102.712251, 25.040609],
-        "name": "云南",
+        "name": "云南省",
         "childNum": 1
       }
     },
@@ -321,7 +321,7 @@ export default {
       },
       "properties": {
         "cp": [91.132212, 29.660361],
-        "name": "西藏",
+        "name": "西藏自治区",
         "childNum": 1
       }
     },
@@ -335,7 +335,7 @@ export default {
       },
       "properties": {
         "cp": [108.948024, 34.263161],
-        "name": "陕西",
+        "name": "陕西省",
         "childNum": 1
       }
     },
@@ -349,7 +349,7 @@ export default {
       },
       "properties": {
         "cp": [103.823557, 36.058039],
-        "name": "甘肃",
+        "name": "甘肃省",
         "childNum": 2
       }
     },
@@ -363,7 +363,7 @@ export default {
       },
       "properties": {
         "cp": [101.778916, 36.623178],
-        "name": "青海",
+        "name": "青海省",
         "childNum": 2
       }
     },
@@ -377,7 +377,7 @@ export default {
       },
       "properties": {
         "cp": [106.278179, 38.46637],
-        "name": "宁夏",
+        "name": "宁夏回族自治区",
         "childNum": 2
       }
     },
@@ -391,7 +391,7 @@ export default {
       },
       "properties": {
         "cp": [87.617733, 43.792818],
-        "name": "新疆",
+        "name": "新疆维吾尔自治区",
         "childNum": 1
       }
     },
@@ -405,7 +405,7 @@ export default {
       },
       "properties": {
         "cp": [116.405285, 39.904989],
-        "name": "北京",
+        "name": "北京市",
         "childNum": 1
       }
     },
@@ -419,7 +419,7 @@ export default {
       },
       "properties": {
         "cp": [117.190182, 39.125596],
-        "name": "天津",
+        "name": "天津市",
         "childNum": 1
       }
     },
@@ -433,7 +433,7 @@ export default {
       },
       "properties": {
         "cp": [121.472644, 31.231706],
-        "name": "上海",
+        "name": "上海市",
         "childNum": 6
       }
     },
@@ -447,7 +447,7 @@ export default {
       },
       "properties": {
         "cp": [106.504962, 29.533155],
-        "name": "重庆",
+        "name": "重庆省",
         "childNum": 2
       }
     },
@@ -461,7 +461,7 @@ export default {
       },
       "properties": {
         "cp": [114.173355, 22.320048],
-        "name": "香港",
+        "name": "香港特别行政区",
         "childNum": 5
       }
     },
@@ -475,7 +475,7 @@ export default {
       },
       "properties": {
         "cp": [113.54909, 22.198951],
-        "name": "澳门",
+        "name": "澳门特别行政区",
         "childNum": 1
       }
     }],

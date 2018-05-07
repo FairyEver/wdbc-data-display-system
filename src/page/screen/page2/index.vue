@@ -38,6 +38,7 @@
         <div ref="box-map-center-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartMapStyle2
             ref="box-map-center-g-c"
+            @initDone="handleMapInitDone"
             @mounted="mountedChartNum++">
           </ChartMapStyle2>
         </div>
@@ -180,8 +181,26 @@ export default {
       // 初始化图表
       this.init()
         .then(() => {
-          console.log('222')
+          //
         })
+    },
+    // [数据获取] 获得所有的地区
+    getAllCollectionPoint () {
+      return new Promise(async (resolve, reject) => {
+        const res = await this.$http.post(this.$root.host + '/api/getAllCollectionPoint')
+        resolve(res.data.dataInfo.data)
+      })
+    },
+    // 中间的地图加载完了数据
+    async handleMapInitDone () {
+      const res = await this.getAllCollectionPoint()
+      console.log(res)
+      // 启动轮播队列
+      this.startQueue()
+    },
+    // 启动轮播队列
+    startQueue () {
+      this.$refs['box-map-center-g-c'].activeMap('河北')
     }
   }
 }
