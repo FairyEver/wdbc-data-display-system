@@ -125,31 +125,17 @@ export default {
     // 请求数据 这个函数最后应该返回接口的数据
     getData () {
       return new Promise(async (resolve, reject) => {
-        // const res = await this.$http.post(this.url, {
-        //   type: 2,
-        //   ...this.ajaxData
-        // })
-        // resolve(res.data)
-        resolve({
-          list: [
-            {name: '河北', value: 1000},
-            {name: '山东', value: 980},
-            {name: '江苏', value: 900},
-            {name: '辽宁', value: 850},
-            {name: '河南', value: 800},
-            {name: '安徽', value: 670},
-            {name: '陕西', value: 620},
-            {name: '山西', value: 600},
-            {name: '吉林', value: 550},
-            {name: '内蒙', value: 300}
-          ].reverse()
+        const res = await this.$http.post(this.url, {
+          type: 2,
+          ...this.ajaxData
         })
+        resolve(res.data)
       })
     },
     // 返回拼好的option
     optionMaker () {
       return new Promise(async (resolve, reject) => {
-        const data = this.transform(await this.getData()).list
+        const data = this.transform(await this.getData())
         const option = this.option
         option.yAxis.data = data.map(e => e.name)
         option.series[0].data = data.map(e => e.value)

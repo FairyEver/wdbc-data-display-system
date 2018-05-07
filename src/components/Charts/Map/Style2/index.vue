@@ -24,7 +24,9 @@ export default {
     return {
       // 宽高
       height: 0,
-      width: 0
+      width: 0,
+      // 上一个激活的区域名字
+      lastActiveMap: ''
     }
   },
   computed: {
@@ -166,10 +168,14 @@ export default {
     },
     // 激活某个地区
     activeMap (name = '河北') {
+      if (this.lastActiveMap) {
+        this.unActiveMap(this.lastActiveMap)
+      }
       this.chart.dispatchAction({
         type: 'mapSelect',
         name
       })
+      this.lastActiveMap = name
     },
     // 取消激活某个地区
     unActiveMap (name = '河北') {

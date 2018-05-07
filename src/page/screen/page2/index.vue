@@ -11,6 +11,8 @@
         <div ref="box-bar-top-1-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarTop10
             ref="box-bar-top-1-g-c"
+            :url="`${$root.host}/api/getFarmTop10`"
+            :transform="(data) => data.dataInfo.result"
             title-text="全国养殖户户数TOP10"
             @mounted="mountedChartNum++">
           </ChartBarTop10>
@@ -173,7 +175,9 @@ export default {
         '#E6E09F',
         '#90DEF5',
         '#4F9CE0'
-      ]
+      ],
+      // 所有地区
+      allCollectionPoint: []
     }
   },
   methods: {
@@ -193,14 +197,21 @@ export default {
     },
     // 中间的地图加载完了数据
     async handleMapInitDone () {
-      const res = await this.getAllCollectionPoint()
-      console.log(res)
+      this.allCollectionPoint = await this.getAllCollectionPoint()
       // 启动轮播队列
       this.startQueue()
     },
     // 启动轮播队列
     startQueue () {
-      this.$refs['box-map-center-g-c'].activeMap('河北')
+      
+      this.allCollectionPoint.reduce((p, point) => {
+        return p.then(() => {
+          return new Promise((resolve, reject) => {
+            this.$refs['box-map-center-g-c'].activeMap(point.areaName)
+            setTimeout(resolve, 1000)
+          })
+        })
+      }, Promise.resolve())
     }
   }
 }
