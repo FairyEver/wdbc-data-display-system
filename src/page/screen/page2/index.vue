@@ -146,6 +146,8 @@
           <ChartBarStyle2
             ref="box-bar-style2-2-g-c"
             title-text="全国养殖户年龄分布"
+            :url="`${$root.host}/api/getAgeDistributing`"
+            :transform="(data) => data.dataInfo.result"
             :auto-get-data="false"
             @mounted="mountedChartNum++">
           </ChartBarStyle2>
