@@ -112,11 +112,11 @@ export default {
         // resolve(res.data)
         resolve({
           list: [
-            {name: '30岁以下', value: 3885},
-            {name: '30-35', value: 33544},
-            {name: '35-40', value: 61497},
-            {name: '40-45', value: 29520},
-            {name: '45岁以上', value: 7466}
+            {name: '2年以下', value: 3885},
+            {name: '2-5年', value: 33544},
+            {name: '5-10年', value: 61497},
+            {name: '10-15年', value: 29520},
+            {name: '15年以上', value: 7466}
           ]
         })
       })

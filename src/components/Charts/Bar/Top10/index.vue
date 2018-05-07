@@ -60,13 +60,6 @@ export default {
           bottom: this.gridBottom,
           containLabel: true
         },
-        // tooltip: {
-        //   trigger: 'item',
-        //   formatter: function (params, ticket, callback) {
-        //     var res = params.name + ' : ' + params.value
-        //     return res
-        //   }
-        // },
         yAxis: {
           data: [],
           axisLine: {
