@@ -182,7 +182,9 @@ export default {
       this.updateSize(height, width)
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
-          this.chart.setOption(await this.optionMaker())
+          if (this.autoGetData) {
+            this.chart.setOption(await this.optionMaker())
+          }
           if (this.interval) {
             this.intervalObj = setInterval(this.refresh, this.interval)
           }

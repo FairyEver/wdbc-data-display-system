@@ -141,6 +141,7 @@
           <ChartBarStyle2
             ref="box-bar-style2-2-g-c"
             title-text="全国养殖户年龄分布"
+            :auto-get-data="false"
             @mounted="mountedChartNum++">
           </ChartBarStyle2>
         </div>
@@ -149,6 +150,7 @@
           <ChartPieStyle2
             ref="box-pie-style2-2-g-c"
             title-text="全国养殖户从业年限分布"
+            :auto-get-data="false"
             @mounted="mountedChartNum++">
           </ChartPieStyle2>
         </div>
