@@ -24,6 +24,12 @@ export default {
       type: Function,
       required: false,
       default: (data) => data
+    },
+    // 图表第一次初始化的时候就先请求一次数据
+    autoGetData: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   data () {
