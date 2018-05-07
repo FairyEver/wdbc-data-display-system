@@ -15,7 +15,7 @@ export default {
     titleColor: {type: String, required: false, default: '#FFF'},
     titleSize: {type: String, required: false, default: '18'},
     // 地图激活的区域
-    mapType: {type: String, required: false, default: ''},
+    mapType: {type: String, required: false, default: 'hebei'},
     // 地图数据
     mapdata: {type: Array, required: false, default: () => []}
   },
@@ -109,7 +109,7 @@ export default {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(this.option)
         })
-        .thne(() => {
+        .then(() => {
           this.activeMap()
         })
     },
