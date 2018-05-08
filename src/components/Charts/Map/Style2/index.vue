@@ -133,6 +133,8 @@ export default {
       return new Promise(async (resolve, reject) => {
         const data = this.transform(await this.getData())
         const option = this.option
+        option.visualMap.min = data.map(data => Number(data.value)).reduce((min, e) => e < min ? e : min, 0)
+        option.visualMap.max = data.map(data => Number(data.value)).reduce((max, e) => e > max ? e : max, 0)
         option.series[0].data = data
         resolve(option)
       })
