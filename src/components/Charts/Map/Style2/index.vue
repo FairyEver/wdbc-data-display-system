@@ -126,18 +126,6 @@ export default {
           ...this.ajaxData
         })
         resolve(res.data)
-        // resolve({
-        //   list: [
-        //     {'name': '湖南省', 'all': '1450'},
-        //     {'name': '广东省', 'all': '31'},
-        //     {'name': '广西壮族自治区', 'all': '38'},
-        //     {'name': '上海市', 'all': '19'},
-        //     {'name': '海南省', 'all': '17'}
-        //   ].map(e => ({
-        //     name: e.name,
-        //     value: e.all
-        //   }))
-        // })
       })
     },
     // 返回拼好的option
