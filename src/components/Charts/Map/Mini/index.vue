@@ -118,7 +118,6 @@ export default {
     },
     // 激活某个地区
     activeMap () {
-      console.log(this.option)
       this.chart.setOption(this.option)
     }
   }
