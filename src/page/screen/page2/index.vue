@@ -140,7 +140,7 @@
           <div ref="box-map-mini-g" class="flex-item grow">
             <ChartMapMini
               ref="box-map-mini-g-c"
-              :title-text="`${mapMiniType}养殖户年龄分布`"
+              :title-text="`${mapMiniType}养殖户分布`"
               :map-type="mapMiniType"
               :map-data="mapMiniData"
               @mounted="mountedChartNum++">
@@ -151,7 +151,7 @@
         <div ref="box-bar-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarStyle2
             ref="box-bar-style2-2-g-c"
-            title-text="全国养殖户年龄分布"
+            :title-text="`${mapMiniType}养殖户年龄分布`"
             :url="`${$root.host}/api/getAgeDistributing`"
             :transform="(data) => data.dataInfo.result"
             :auto-get-data="false"
@@ -162,9 +162,9 @@
         <div ref="box-pie-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartPieStyle2
             ref="box-pie-style2-2-g-c"
+            :title-text="`${mapMiniType}养殖户从业年限分布`"
             :url="`${$root.host}/api/getFeedingPeriodDistributing`"
             :transform="(data) => data.dataInfo.result"
-            title-text="全国养殖户从业年限分布"
             :auto-get-data="false"
             @mounted="mountedChartNum++">
           </ChartPieStyle2>
@@ -229,7 +229,9 @@ export default {
       this.allCollectionPoint.reduce((p, point) => {
         return p.then(() => {
           return new Promise(async (resolve, reject) => {
+            // 更新中间的地图
             this.$refs['box-map-center-g-c'].activeMap(point.areaName)
+            // 更新右上角的地图
             this.mapMiniData = await this.getCityFarmerCountByProvince(point.areaCode)
             this.mapMiniType = point.areaName
             this.$nextTick(() => {
