@@ -48,14 +48,17 @@ export default {
         tooltip: {
           show: false
         },
-        toolbox: {
-          show: false
-        },
-        roamController: {
+        visualMap: {
+          type: 'continuous',
           show: true,
-          x: 'right',
-          mapTypeControl: {
-            'china': true
+          min: this.mapData.map(data => Number(data.value)).reduce((min, e) => e < min ? e : min, 0),
+          max: this.mapData.map(data => Number(data.value)).reduce((max, e) => e > max ? e : max, 0),
+          itemWidth: 8,
+          itemHeight: 50,
+          color: ['#1EB2BD', '#134C55'],
+          text: ['高', '低'],
+          textStyle: {
+            color: '#2DB1FF'
           }
         },
         series: [
@@ -115,6 +118,7 @@ export default {
     },
     // 激活某个地区
     activeMap () {
+      console.log(this.option)
       this.chart.setOption(this.option)
     }
   }

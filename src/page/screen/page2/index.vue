@@ -210,6 +210,13 @@ export default {
         resolve(res.data.dataInfo.data)
       })
     },
+    // [数据获取] 获取省下所有城市的养殖户数量 右上角使用的
+    getCityFarmerCountByProvince (areaId) {
+      return new Promise(async (resolve, reject) => {
+        const res = await this.$http.post(this.$root.host + '/api/getCityFarmerCountByProvince?areaId=' + areaId)
+        resolve(res.data.dataInfo.result)
+      })
+    },
     // 中间的地图加载完了数据
     async handleMapInitDone () {
       // 获取全国的地区
@@ -221,13 +228,14 @@ export default {
     startQueue () {
       this.allCollectionPoint.reduce((p, point) => {
         return p.then(() => {
-          return new Promise((resolve, reject) => {
+          return new Promise(async (resolve, reject) => {
             this.$refs['box-map-center-g-c'].activeMap(point.areaName)
+            this.mapMiniData = await this.getCityFarmerCountByProvince(point.areaCode)
             this.mapMiniType = point.areaName
             this.$nextTick(() => {
               this.$refs['box-map-mini-g-c'].activeMap()
             })
-            setTimeout(resolve, 1000)
+            setTimeout(resolve, 3000)
           })
         })
       }, Promise.resolve())
