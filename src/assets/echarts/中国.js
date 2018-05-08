@@ -55,7 +55,7 @@ export default {
       },
       "properties": {
         "cp": [111.670801, 40.818311],
-        "name": "内蒙古",
+        "name": "内蒙古自治区",
         "childNum": 2
       }
     },
@@ -321,7 +321,7 @@ export default {
       },
       "properties": {
         "cp": [91.132212, 29.660361],
-        "name": "西藏",
+        "name": "自藏自治区",
         "childNum": 1
       }
     },

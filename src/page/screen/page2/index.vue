@@ -140,7 +140,9 @@
           <div ref="box-map-mini-g" class="flex-item grow">
             <ChartMapMini
               ref="box-map-mini-g-c"
-              title-text="全国养殖户年龄分布"
+              :title-text="`${mapMiniType}养殖户年龄分布`"
+              :map-type="mapMiniType"
+              :map-data="mapMiniData"
               @mounted="mountedChartNum++">
             </ChartMapMini>
           </div>
@@ -187,7 +189,10 @@ export default {
         '#4F9CE0'
       ],
       // 所有地区
-      allCollectionPoint: []
+      allCollectionPoint: [],
+      // 右上角的小地图
+      mapMiniType: 'hebei',
+      mapMiniData: []
     }
   },
   methods: {
@@ -218,6 +223,10 @@ export default {
         return p.then(() => {
           return new Promise((resolve, reject) => {
             this.$refs['box-map-center-g-c'].activeMap(point.areaName)
+            this.mapMiniType = point.areaName
+            this.$nextTick(() => {
+              this.$refs['box-map-mini-g-c'].activeMap()
+            })
             setTimeout(resolve, 1000)
           })
         })

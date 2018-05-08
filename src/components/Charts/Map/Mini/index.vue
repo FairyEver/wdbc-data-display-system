@@ -17,7 +17,7 @@ export default {
     // 地图激活的区域
     mapType: {type: String, required: false, default: 'hebei'},
     // 地图数据
-    mapdata: {type: Array, required: false, default: () => []}
+    mapData: {type: Array, required: false, default: () => []}
   },
   data () {
     return {
@@ -92,7 +92,7 @@ export default {
                 shadowOffsetY: 4
               }
             },
-            data: this.mapdata
+            data: this.mapData
           }
         ]
       }
