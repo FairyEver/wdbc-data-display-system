@@ -1,7 +1,7 @@
 <template>
   <div class="container flex-group col abs-full">
     <div class="flex-item flex-group col center screen-header" style="height: 80px;">
-      <p class="title">智慧蛋鸡全国行情大数据平台 养殖户分布</p>
+      <p class="title">智慧蛋鸡全国行情大数据平台 养殖户分布{{distributingBottomRed}}</p>
     </div>
     <!-- row -->
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
@@ -217,9 +217,13 @@ export default {
         .then(async () => {
           // 中间的三个小圆圈
           const dis = await this.getEggColorChickenDistributing()
-          this.distributingbottomRed = dis[0]
-          this.distributingbottomPink = dis[1]
-          this.distributingbottomWhite = dis[2]
+          console.log(dis.join('-'))
+          this.$nextTick(() => {
+            this.distributingBottomRed = 12
+            this.distributingBottomPink = 22
+            this.distributingBottomWhite = 33
+          })
+          console.log(this)
         })
     },
     // [数据获取] 获得所有的地区
