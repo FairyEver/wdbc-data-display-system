@@ -57,7 +57,7 @@
             <div ref="box-pie-style3-c1-g" class="flex-item grow">
               <ChartPieStyle3
                 ref="box-pie-style3-c1-g-c"
-                :data="30"
+                :data="distributingBottomRed"
                 :color-light="pieColors[0]"
                 @mounted="mountedChartNum++">
               </ChartPieStyle3>
@@ -70,7 +70,7 @@
             <div ref="box-pie-style3-c2-g" class="flex-item grow">
               <ChartPieStyle3
                 ref="box-pie-style3-c2-g-c"
-                :data="40"
+                :data="distributingBottomPink"
                 :color-light="pieColors[1]"
                 @mounted="mountedChartNum++">
               </ChartPieStyle3>
@@ -83,7 +83,7 @@
             <div ref="box-pie-style3-c3-g" class="flex-item grow">
               <ChartPieStyle3
                 ref="box-pie-style3-c3-g-c"
-                :data="80"
+                :data="distributingBottomWhite"
                 :color-light="pieColors[2]"
                 @mounted="mountedChartNum++">
               </ChartPieStyle3>
@@ -105,7 +105,7 @@
                 <ChartPieStyle3
                   ref="box-pie-style3-r1-g-c"
                   :radius="['60%', '70%']"
-                  :data="30"
+                  :data="distributingRightRed"
                   :color-light="pieColors[0]"
                   @mounted="mountedChartNum++">
                 </ChartPieStyle3>
@@ -117,7 +117,7 @@
                 <ChartPieStyle3
                   ref="box-pie-style3-r2-g-c"
                   :radius="['60%', '70%']"
-                  :data="10"
+                  :data="distributingRightPink"
                   :color-light="pieColors[1]"
                   @mounted="mountedChartNum++">
                 </ChartPieStyle3>
@@ -129,7 +129,7 @@
                 <ChartPieStyle3
                   ref="box-pie-style3-r3-g-c"
                   :radius="['60%', '70%']"
-                  :data="60"
+                  :data="distributingRightWhite"
                   :color-light="pieColors[2]"
                   @mounted="mountedChartNum++">
                 </ChartPieStyle3>
@@ -199,7 +199,15 @@ export default {
       mapMiniType: 'hebei',
       mapMiniData: [],
       // 当前激活的地区编码
-      areaCode: ''
+      areaCode: '',
+      // 分布 中间下面
+      distributingBottomRed: 0,
+      distributingBottomPink: 0,
+      distributingBottomWhite: 0,
+      // 分布 右侧
+      distributingRightRed: 0,
+      distributingRightPink: 0,
+      distributingRightWhite: 0
     }
   },
   methods: {
