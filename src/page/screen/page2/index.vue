@@ -216,14 +216,12 @@ export default {
       this.init()
         .then(async () => {
           // 中间的三个小圆圈
-          const dis = await this.getEggColorChickenDistributing()
-          console.log(dis.join('-'))
-          this.$nextTick(() => {
-            this.distributingBottomRed = 12
-            this.distributingBottomPink = 22
-            this.distributingBottomWhite = 33
-          })
-          console.log(this)
+          this.getEggColorChickenDistributing()
+            .then((dis) => {
+              this.distributingBottomRed = dis[0]
+              this.distributingBottomPink = dis[1]
+              this.distributingBottomWhite = dis[2]
+            })
         })
     },
     // [数据获取] 获得所有的地区
@@ -281,6 +279,10 @@ export default {
           })
         })
       }, Promise.resolve())
+        .then(() => {
+          console.log('round')
+          this.startQueue()
+        })
     }
   }
 }
