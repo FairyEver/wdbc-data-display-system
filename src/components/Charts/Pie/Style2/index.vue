@@ -18,12 +18,7 @@ export default {
     // 发送请求的时候带的参数
     ajaxData: {type: Object, required: false, default: () => ({})},
     // 发送请求的间隔
-    interval: {type: Number, required: false, default: 10000},
-    // grid 设置
-    gridTop: {type: String, required: false, default: '40'},
-    gridBottom: {type: String, required: false, default: '20'},
-    gridLeft: {type: String, required: false, default: '20'},
-    gridRight: {type: String, required: false, default: '5%'}
+    interval: {type: Number, required: false, default: 10000}
   },
   data () {
     return {
@@ -105,20 +100,10 @@ export default {
     // 请求数据 这个函数最后应该返回接口的数据
     getData () {
       return new Promise(async (resolve, reject) => {
-        const res = await this.$http.post(this.url, {
-          type: 2,
-          ...this.ajaxData
+        const res = await this.$http.get(this.url, {
+          params: this.ajaxData
         })
         resolve(res.data)
-        // resolve({
-        //   list: [
-        //     {name: '2年以下', value: 3885},
-        //     {name: '2-5年', value: 33544},
-        //     {name: '5-10年', value: 61497},
-        //     {name: '10-15年', value: 29520},
-        //     {name: '15年以上', value: 7466}
-        //   ]
-        // })
       })
     },
     // 返回拼好的option

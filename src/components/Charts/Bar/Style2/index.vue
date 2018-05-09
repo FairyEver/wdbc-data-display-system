@@ -60,15 +60,7 @@ export default {
           bottom: this.gridBottom,
           containLabel: true
         },
-        // tooltip: {
-        //   trigger: 'item',
-        //   formatter: function (params, ticket, callback) {
-        //     var res = params.name + ' : ' + params.value
-        //     return res
-        //   }
-        // },
         xAxis: {
-          // data: this.data.map(e => e.name).reverse(),
           data: [],
           interval: 500,
           axisLine: {
@@ -151,20 +143,10 @@ export default {
     // 请求数据 这个函数最后应该返回接口的数据
     getData () {
       return new Promise(async (resolve, reject) => {
-        const res = await this.$http.post(this.url, {
-          type: 2,
-          ...this.ajaxData
+        const res = await this.$http.get(this.url, {
+          params: this.ajaxData
         })
         resolve(res.data)
-        // resolve({
-        //   list: [
-        //     {name: '30岁以下', value: 3885},
-        //     {name: '30-35', value: 33544},
-        //     {name: '35-40', value: 61497},
-        //     {name: '40-45', value: 29520},
-        //     {name: '45岁以上', value: 7466}
-        //   ]
-        // })
       })
     },
     // 返回拼好的option

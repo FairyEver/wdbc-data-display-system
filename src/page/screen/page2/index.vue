@@ -153,8 +153,10 @@
             ref="box-bar-style2-2-g-c"
             :title-text="`${mapMiniType}养殖户年龄分布`"
             :url="`${$root.host}/api/getAgeDistributing`"
+            :ajaxData="{ areaId: areaCode }"
             :transform="(data) => data.dataInfo.result"
             :auto-get-data="false"
+            :interval="0"
             @mounted="mountedChartNum++">
           </ChartBarStyle2>
         </div>
@@ -164,8 +166,10 @@
             ref="box-pie-style2-2-g-c"
             :title-text="`${mapMiniType}养殖户从业年限分布`"
             :url="`${$root.host}/api/getFeedingPeriodDistributing`"
+            :ajaxData="{ areaId: areaCode }"
             :transform="(data) => data.dataInfo.result"
             :auto-get-data="false"
+            :interval="0"
             @mounted="mountedChartNum++">
           </ChartPieStyle2>
         </div>
@@ -176,6 +180,7 @@
 
 <script>
 import mixin from '../mixin'
+import _get from 'lodash.get'
 export default {
   mixins: [
     mixin
@@ -192,7 +197,9 @@ export default {
       allCollectionPoint: [],
       // 右上角的小地图
       mapMiniType: 'hebei',
-      mapMiniData: []
+      mapMiniData: [],
+      // 当前激活的地区编码
+      areaCode: ''
     }
   },
   methods: {
@@ -206,15 +213,23 @@ export default {
     // [数据获取] 获得所有的地区
     getCountryAllCollectionPoint () {
       return new Promise(async (resolve, reject) => {
-        const res = await this.$http.post(this.$root.host + '/api/getCountryAllCollectionPoint')
+        const res = await this.$http.get(`${this.$root.host}/api/getCountryAllCollectionPoint`)
         resolve(res.data.dataInfo.data)
       })
     },
     // [数据获取] 获取省下所有城市的养殖户数量 右上角使用的
     getCityFarmerCountByProvince (areaId) {
       return new Promise(async (resolve, reject) => {
-        const res = await this.$http.post(this.$root.host + '/api/getCityFarmerCountByProvince?areaId=' + areaId)
+        const res = await this.$http.get(`${this.$root.host}/api/getCityFarmerCountByProvince?areaId=${areaId}`)
         resolve(res.data.dataInfo.result)
+      })
+    },
+    // [数据获取] 获取圆环的数据 包括下面的还有侧面的
+    getEggColorChickenDistributing (areaId) {
+      return new Promise(async (resolve, reject) => {
+        const url = areaId ? `${this.$root.host}/api/getEggColorChickenDistributing?areaId=${areaId}` : `${this.$root.host}/api/getEggColorChickenDistributing`
+        const res = await this.$http.get(url)
+        resolve(_get(res, 'data.dataInfo.result', [0, 0, 0]))
       })
     },
     // 中间的地图加载完了数据
@@ -234,8 +249,15 @@ export default {
             // 更新右上角的地图
             this.mapMiniData = await this.getCityFarmerCountByProvince(point.areaCode)
             this.mapMiniType = point.areaName
+
+            console.log(await this.getEggColorChickenDistributing(point.areaCode))
+
+            // 更新右边其他图
+            this.areaCode = point.areaCode
             this.$nextTick(() => {
               this.$refs['box-map-mini-g-c'].activeMap()
+              this.$refs['box-pie-style2-2-g-c'].refresh()
+              this.$refs['box-bar-style2-2-g-c'].refresh()
             })
             setTimeout(resolve, 3000)
           })
