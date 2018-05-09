@@ -29,6 +29,11 @@ export default {
       intervalObj: null
     }
   },
+  watch: {
+    data () {
+      this.refresh()
+    }
+  },
   computed: {
     // 容器样式
     style () {

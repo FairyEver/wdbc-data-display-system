@@ -214,8 +214,12 @@ export default {
     async init2 () {
       // 初始化图表
       this.init()
-        .then(() => {
-          //
+        .then(async () => {
+          // 中间的三个小圆圈
+          const dis = await this.getEggColorChickenDistributing()
+          this.distributingbottomRed = dis[0]
+          this.distributingbottomPink = dis[1]
+          this.distributingbottomWhite = dis[2]
         })
     },
     // [数据获取] 获得所有的地区
@@ -257,9 +261,11 @@ export default {
             // 更新右上角的地图
             this.mapMiniData = await this.getCityFarmerCountByProvince(point.areaCode)
             this.mapMiniType = point.areaName
-
-            console.log(await this.getEggColorChickenDistributing(point.areaCode))
-
+            // 右边的三个小圆圈
+            const dis = await this.getEggColorChickenDistributing(point.areaCode)
+            this.distributingRightRed = dis[0]
+            this.distributingRightPink = dis[1]
+            this.distributingRightWhite = dis[2]
             // 更新右边其他图
             this.areaCode = point.areaCode
             this.$nextTick(() => {
