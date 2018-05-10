@@ -1,7 +1,7 @@
 <template>
   <div class="container flex-group col abs-full">
     <div class="flex-item flex-group col center screen-header" style="height: 80px;">
-      <p class="title">智慧蛋鸡全国行情大数据平台 养殖户分布{{distributingBottomRed}}</p>
+      <p class="title">智慧蛋鸡大数据平台 养殖户分布</p>
     </div>
     <!-- row -->
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
@@ -44,6 +44,7 @@
         <div ref="box-map-center-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartMapStyle2
             ref="box-map-center-g-c"
+            title-text="全国养殖户分布"
             :url="`${$root.host}/api/getCountryFarmDistributing`"
             :transform="(data) => data.dataInfo.result"
             @initDone="handleMapInitDone"
@@ -250,6 +251,7 @@ export default {
     async handleMapInitDone () {
       // 获取全国的地区
       this.allCollectionPoint = await this.getCountryAllCollectionPoint()
+      console.log('获取全国的地区 end')
       // 启动轮播队列
       this.startQueue()
     },

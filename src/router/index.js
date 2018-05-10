@@ -66,14 +66,18 @@ export default new Router({
           name: 'screen-page1',
           component: resolve => { require(['@/page/screen/page1'], resolve) }
         },
-        ...dev ? [
-          {
-            title: '页面2',
-            path: 'screen/page2',
-            name: 'screen-page2',
-            component: resolve => { require(['@/page/screen/page2'], resolve) }
-          }
-        ] : []
+        {
+          title: '页面2',
+          path: 'screen/page2',
+          name: 'screen-page2',
+          component: resolve => { require(['@/page/screen/page2'], resolve) }
+        },
+        {
+          title: '页面3',
+          path: 'screen/page3',
+          name: 'screen-page3',
+          component: resolve => { require(['@/page/screen/page3'], resolve) }
+        }
       ]
     }
   ]
