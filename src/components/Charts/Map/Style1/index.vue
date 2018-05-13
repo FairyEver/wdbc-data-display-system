@@ -20,8 +20,8 @@ export default {
       // 宽高
       height: 0,
       width: 0,
-      // 定时器
-      intervalObj: null
+      // 上一个激活的区域名字
+      lastActiveMap: ''
     }
   },
   computed: {
@@ -160,12 +160,26 @@ export default {
       this.updateSize(height, width)
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
-          // this.chart.setOption(await this.optionMaker())
           this.chart.setOption(this.option)
-          // this.intervalObj = setInterval(async () => {
-          //   this.chart.setOption(await this.optionMaker())
-          // }, this.interval)
         })
+    },
+    // 激活某个地区
+    activeMap (name = '河北省') {
+      if (this.lastActiveMap) {
+        this.unActiveMap(this.lastActiveMap)
+      }
+      this.chart.dispatchAction({
+        type: 'mapSelect',
+        name
+      })
+      this.lastActiveMap = name
+    },
+    // 取消激活某个地区
+    unActiveMap (name = '河北省') {
+      this.chart.dispatchAction({
+        type: 'mapUnSelect',
+        name
+      })
     }
   }
 }

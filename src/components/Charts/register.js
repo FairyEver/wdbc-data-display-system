@@ -12,6 +12,7 @@ Vue.component('ChartCountStyle3', resolve => { require(['@/components/Charts/Cou
 
 Vue.component('ChartLineBase', resolve => { require(['@/components/Charts/Line/Base/index.vue'], resolve) })
 Vue.component('ChartLineBasePlus', resolve => { require(['@/components/Charts/Line/BasePlus/index.vue'], resolve) })
+Vue.component('ChartLineBaseStaticData', resolve => { require(['@/components/Charts/Line/BaseStaticData/index.vue'], resolve) })
 Vue.component('ChartLineMulti', resolve => { require(['@/components/Charts/Line/Multi/index.vue'], resolve) })
 
 Vue.component('ChartMapStyle1', resolve => { require(['@/components/Charts/Map/Style1/index.vue'], resolve) })

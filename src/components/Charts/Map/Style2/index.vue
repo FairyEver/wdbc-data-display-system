@@ -157,7 +157,7 @@ export default {
       this.chart.setOption(await this.optionMaker())
     },
     // 激活某个地区
-    activeMap (name = '河北') {
+    activeMap (name = '河北省') {
       if (this.lastActiveMap) {
         this.unActiveMap(this.lastActiveMap)
       }
@@ -168,7 +168,7 @@ export default {
       this.lastActiveMap = name
     },
     // 取消激活某个地区
-    unActiveMap (name = '河北') {
+    unActiveMap (name = '河北省') {
       this.chart.dispatchAction({
         type: 'mapUnSelect',
         name
