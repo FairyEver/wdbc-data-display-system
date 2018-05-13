@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const dev = process.env.NODE_ENV === 'development'
+// const dev = process.env.NODE_ENV === 'development'
 
 Vue.use(Router)
 
