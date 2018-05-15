@@ -11,13 +11,13 @@ export default {
   ],
   props: {
     // 标题
-    titleText: {type: String, required: false, default: 'Chart'},
+    titleText: {type: String, required: false, default: ''},
     titleColor: {type: String, required: false, default: '#FFF'},
     titleSize: {type: String, required: false, default: '18'},
     // 接口地址
     data: {type: Array, required: false, default: () => []},
     // grid 设置
-    gridTop: {type: String, required: false, default: '60'},
+    gridTop: {type: String, required: false, default: '20'},
     gridBottom: {type: String, required: false, default: '20'},
     gridLeft: {type: String, required: false, default: '20'},
     gridRight: {type: String, required: false, default: '5%'},
@@ -47,6 +47,7 @@ export default {
     option () {
       return {
         title: {
+          show: this.titleText !== '',
           text: this.titleText,
           top: '10',
           left: 'center',

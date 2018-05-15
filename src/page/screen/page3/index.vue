@@ -4,7 +4,7 @@
       <p class="title">智慧蛋鸡大数据平台 生产规模</p>
     </div>
     <!-- row -->
-    <div class="flex-item flex-group row" style="height: 180px; padding: 5px; margin-top: -10px;">
+    <div class="flex-item flex-group row" style="height: 160px; padding: 5px; margin-top: -10px;">
       <div class="flex-item grow flex-group row">
         <div class="flex-item grow flex-group col hov" style="margin: 5px;">
           <div class="flex-item cell-title">年产蛋规模</div>
@@ -61,15 +61,14 @@
               <span>蛋数量</span>
             </div>
             <div class="flex-item grow page-3-card-content">
-              <p class="page-3-card-content-number">530</p>
-              <p class="page-3-card-content-unit">万人</p>
+              <p class="page-3-card-content-number" style="font-size: 16px">{{countL1}}</p>
+              <p class="page-3-card-content-unit">单位：枚</p>
             </div>
           </div>
           <div class="flex-item grow" ref="box-line-base-sd-l-1-g">
             <ChartLineBaseStaticData
               ref="box-line-base-sd-l-1-g-c"
               :data="dataL1"
-              title-text="历史趋势"
               grid-right="20"
               series-color="#11CDD9"
               :series-label-text-color="$color.bg"
@@ -83,15 +82,14 @@
               <span>受精率</span>
             </div>
             <div class="flex-item grow page-3-card-content">
-              <p class="page-3-card-content-number">97</p>
-              <p class="page-3-card-content-unit">百分之</p>
+              <p class="page-3-card-content-number">{{countL2}}</p>
+              <p class="page-3-card-content-unit">单位：%</p>
             </div>
           </div>
           <div class="flex-item grow" ref="box-line-base-sd-l-2-g">
             <ChartLineBaseStaticData
               ref="box-line-base-sd-l-2-g-c"
               :data="dataL2"
-              title-text="历史趋势"
               grid-right="20"
               series-color="#11CDD9"
               :series-label-text-color="$color.bg"
@@ -105,15 +103,14 @@
               <span>产蛋率</span>
             </div>
             <div class="flex-item grow page-3-card-content">
-              <p class="page-3-card-content-number">12</p>
-              <p class="page-3-card-content-unit">百分之</p>
+              <p class="page-3-card-content-number">{{countL3}}</p>
+              <p class="page-3-card-content-unit">单位：%</p>
             </div>
           </div>
           <div class="flex-item grow" ref="box-line-base-sd-l-3-g">
             <ChartLineBaseStaticData
               ref="box-line-base-sd-l-3-g-c"
               :data="dataL3"
-              title-text="历史趋势"
               grid-right="20"
               series-color="#11CDD9"
               :series-label-text-color="$color.bg"
@@ -127,11 +124,11 @@
         <div class="flex-item grow hov" ref="box-map-style3-1-g" style="margin: 5px;">
           <ChartMapStyle3
             ref="box-map-style3-1-g-c"
-            title-text="全国数据"
+            title-text="生产基地全国分布"
             @mounted="mountedChartNum++">
           </ChartMapStyle3>
         </div>
-        <div class="flex-item flex-group row" style="height: 240px;">
+        <div class="flex-item flex-group row" style="height: 229px;">
           <div class="flex-item grow hov" style="margin: 5px;">
             <img class="page-3-image" :src="`${path}/static/image/${String(areasActive)}-1.png`">
           </div>
@@ -152,15 +149,14 @@
               <span>数量</span>
             </div>
             <div class="flex-item grow page-3-card-content">
-              <p class="page-3-card-content-number">530</p>
-              <p class="page-3-card-content-unit">万人</p>
+              <p class="page-3-card-content-number">{{countR1}}</p>
+              <p class="page-3-card-content-unit">单位：只</p>
             </div>
           </div>
           <div class="flex-item grow" ref="box-line-base-sd-r-1-g">
             <ChartLineBaseStaticData
               ref="box-line-base-sd-r-1-g-c"
               :data="dataR1"
-              title-text="历史趋势"
               grid-right="20"
               series-color="#11CDD9"
               :series-label-text-color="$color.bg"
@@ -174,15 +170,14 @@
               <span>孵化率</span>
             </div>
             <div class="flex-item grow page-3-card-content">
-              <p class="page-3-card-content-number">530</p>
-              <p class="page-3-card-content-unit">万人</p>
+              <p class="page-3-card-content-number">{{countR2}}</p>
+              <p class="page-3-card-content-unit">单位：%</p>
             </div>
           </div>
           <div class="flex-item grow" ref="box-line-base-sd-r-2-g">
             <ChartLineBaseStaticData
               ref="box-line-base-sd-r-2-g-c"
               :data="dataR2"
-              title-text="历史趋势"
               grid-right="20"
               series-color="#11CDD9"
               :series-label-text-color="$color.bg"
@@ -196,15 +191,14 @@
               <span>蛋雏比</span>
             </div>
             <div class="flex-item grow page-3-card-content">
-              <p class="page-3-card-content-number">530</p>
-              <p class="page-3-card-content-unit">万人</p>
+              <p class="page-3-card-content-number">{{countR3}}</p>
+              <p class="page-3-card-content-unit"></p>
             </div>
           </div>
           <div class="flex-item grow" ref="box-line-base-sd-r-3-g">
             <ChartLineBaseStaticData
               ref="box-line-base-sd-r-3-g-c"
               :data="dataR3"
-              title-text="历史趋势"
               grid-right="20"
               series-color="#11CDD9"
               :series-label-text-color="$color.bg"
@@ -219,7 +213,7 @@
 
 <script>
 import mixin from '../mixin'
-// import _get from 'lodash.get'
+import _last from 'lodash.last'
 import dataSide from './data.json'
 const dev = process.env.NODE_ENV === 'development'
 export default {
@@ -237,6 +231,12 @@ export default {
         '山东省',
         '云南省'
       ],
+      countL1: 0,
+      countL2: 0,
+      countL3: 0,
+      countR1: 0,
+      countR2: 0,
+      countR3: 0,
       dataL1: [],
       dataL2: [],
       dataL3: [],
@@ -275,6 +275,14 @@ export default {
             this.dataR1 = dataSide.all[i][3]
             this.dataR2 = dataSide.all[i][4]
             this.dataR3 = dataSide.all[i][5]
+            //
+            this.countL1 = _last(dataSide.all[i][0]).value
+            this.countL2 = _last(dataSide.all[i][1]).value
+            this.countL3 = _last(dataSide.all[i][2]).value
+            this.countR1 = _last(dataSide.all[i][3]).value
+            this.countR2 = _last(dataSide.all[i][4]).value
+            this.countR3 = _last(dataSide.all[i][5]).value
+            //
             this.$nextTick(() => {
               this.$refs['box-line-base-sd-l-1-g-c'].refresh()
               this.$refs['box-line-base-sd-l-2-g-c'].refresh()
@@ -347,7 +355,7 @@ export default {
   border-radius: 4px;
 }
 .page-3-card-content-number {
-  font-size: 30px;
+  font-size: 26px;
   text-align: center;
   margin: 0px;
   padding: 0px;

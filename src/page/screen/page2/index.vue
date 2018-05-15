@@ -63,9 +63,7 @@
                 @mounted="mountedChartNum++">
               </ChartPieStyle3>
             </div>
-            <div class="flex-item center-pie-title" :style="{color: pieColors[0]}">
-              红壳蛋鸡养殖户
-            </div>
+            <div class="flex-item center-pie-title" :style="{color: pieColors[0]}">红壳蛋鸡养殖户</div>
           </div>
           <div class="flex-item grow flex-group col">
             <div ref="box-pie-style3-c2-g" class="flex-item grow">
@@ -76,9 +74,7 @@
                 @mounted="mountedChartNum++">
               </ChartPieStyle3>
             </div>
-            <div class="flex-item center-pie-title" :style="{color: pieColors[1]}">
-              红壳蛋鸡养殖户
-            </div>
+            <div class="flex-item center-pie-title" :style="{color: pieColors[1]}">粉壳蛋鸡养殖户</div>
           </div>
           <div class="flex-item grow flex-group col">
             <div ref="box-pie-style3-c3-g" class="flex-item grow">
@@ -89,9 +85,7 @@
                 @mounted="mountedChartNum++">
               </ChartPieStyle3>
             </div>
-            <div class="flex-item center-pie-title" :style="{color: pieColors[2]}">
-              红壳蛋鸡养殖户
-            </div>
+            <div class="flex-item center-pie-title" :style="{color: pieColors[2]}">白壳蛋鸡养殖户</div>
           </div>
         </div>
       </div>

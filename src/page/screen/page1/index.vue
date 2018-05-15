@@ -211,9 +211,9 @@ export default {
       useMixinAutoInit: false,
       activeL: 'null',
       optionsL: [
-        {name: '白壳鸡蛋', value: 1},
-        {name: '红壳鸡蛋', value: 2},
-        {name: '粉壳鸡蛋', value: 3},
+        {name: '红壳鸡蛋', value: 1},
+        {name: '粉壳鸡蛋', value: 2},
+        {name: '白壳鸡蛋', value: 3},
         {name: '玉米', value: 4},
         {name: '豆粕', value: 5},
         {name: '淘汰鸡', value: 6}
