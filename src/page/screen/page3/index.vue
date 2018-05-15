@@ -124,12 +124,12 @@
       </div>
       <!-- 中 -->
       <div class="flex-item grow flex-group col">
-        <div class="flex-item grow hov" ref="box-map-style1-1-g" style="margin: 5px;">
-          <ChartMapStyle1
-            ref="box-map-style1-1-g-c"
+        <div class="flex-item grow hov" ref="box-map-style3-1-g" style="margin: 5px;">
+          <ChartMapStyle3
+            ref="box-map-style3-1-g-c"
             title-text="全国数据"
             @mounted="mountedChartNum++">
-          </ChartMapStyle1>
+          </ChartMapStyle3>
         </div>
         <div class="flex-item flex-group row" style="height: 240px;">
           <div class="flex-item grow hov" style="margin: 5px;">
@@ -220,6 +220,7 @@
 <script>
 import mixin from '../mixin'
 // import _get from 'lodash.get'
+import dataSide from './data.json'
 export default {
   mixins: [
     mixin
@@ -235,48 +236,12 @@ export default {
         '山东省',
         '云南省'
       ],
-      dataL1: [
-        {name: 'A', value: 20},
-        {name: 'B', value: 10},
-        {name: 'C', value: 30},
-        {name: 'D', value: 40},
-        {name: 'E', value: 20}
-      ],
-      dataL2: [
-        {name: 'A', value: 10},
-        {name: 'B', value: 20},
-        {name: 'C', value: 60},
-        {name: 'D', value: 50},
-        {name: 'E', value: 60}
-      ],
-      dataL3: [
-        {name: 'A', value: 20},
-        {name: 'B', value: 10},
-        {name: 'C', value: 40},
-        {name: 'D', value: 10},
-        {name: 'E', value: 30}
-      ],
-      dataR1: [
-        {name: 'A', value: 10},
-        {name: 'B', value: 20},
-        {name: 'C', value: 10},
-        {name: 'D', value: 50},
-        {name: 'E', value: 30}
-      ],
-      dataR2: [
-        {name: 'A', value: 20},
-        {name: 'B', value: 10},
-        {name: 'C', value: 30},
-        {name: 'D', value: 50},
-        {name: 'E', value: 20}
-      ],
-      dataR3: [
-        {name: 'A', value: 30},
-        {name: 'B', value: 10},
-        {name: 'C', value: 20},
-        {name: 'D', value: 50},
-        {name: 'E', value: 30}
-      ]
+      dataL1: [],
+      dataL2: [],
+      dataL3: [],
+      dataR1: [],
+      dataR2: [],
+      dataR3: []
     }
   },
   methods: {
@@ -292,7 +257,7 @@ export default {
         return p.then(() => {
           return new Promise(resolve => {
             // 更新中间的地图
-            this.$refs['box-map-style1-1-g-c'].activeMap(e)
+            this.$refs['box-map-style3-1-g-c'].activeMap(e)
             const temp = [
               {name: 'A', value: Math.round(Math.random() * 100)},
               {name: 'B', value: Math.round(Math.random() * 100)},
@@ -301,12 +266,12 @@ export default {
               {name: 'E', value: Math.round(Math.random() * 100)}
             ]
             this.areasActive = i
-            this.dataL1 = temp
-            this.dataL2 = temp
-            this.dataL3 = temp
-            this.dataR1 = temp
-            this.dataR2 = temp
-            this.dataR3 = temp
+            this.dataL1 = dataSide.all[i][0]
+            this.dataL2 = dataSide.all[i][1]
+            this.dataL3 = dataSide.all[i][2]
+            this.dataR1 = dataSide.all[i][3]
+            this.dataR2 = dataSide.all[i][4]
+            this.dataR3 = dataSide.all[i][5]
             this.$nextTick(() => {
               this.$refs['box-line-base-sd-l-1-g-c'].refresh()
               this.$refs['box-line-base-sd-l-2-g-c'].refresh()
