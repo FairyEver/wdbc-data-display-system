@@ -73,32 +73,10 @@ export default {
         },
         series: [
           {
-            name: '行情数据',
+            name: '雏鸡',
             type: 'scatter',
             coordinateSystem: 'geo',
-            symbolSize: 5,
-            label: {
-              normal: {
-                formatter: '{b}',
-                position: 'right',
-                show: false
-              },
-              emphasis: {
-                show: true
-              }
-            },
-            itemStyle: {
-              normal: {
-                color: '#f4e925'
-              }
-            },
-            data: data.zj
-          },
-          {
-            name: '行情数据2',
-            type: 'scatter',
-            coordinateSystem: 'geo',
-            symbolSize: 5,
+            symbolSize: 10,
             label: {
               normal: {
                 formatter: '{b}',
@@ -114,7 +92,34 @@ export default {
                 color: '#FFF'
               }
             },
-            data: data.dj
+            data: data.zj
+          },
+          {
+            name: '蛋鸡',
+            type: 'effectScatter',
+            coordinateSystem: 'geo',
+            data: data.dj,
+            symbolSize: 14,
+            showEffectOn: 'render',
+            rippleEffect: {
+              brushType: 'stroke'
+            },
+            hoverAnimation: true,
+            label: {
+              normal: {
+                formatter: '{b}',
+                position: 'right',
+                show: false
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: '#eac736',
+                shadowBlur: 10,
+                shadowColor: '#05C3F9'
+              }
+            },
+            zlevel: 1
           },
           {
             type: 'map',
