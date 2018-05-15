@@ -122,6 +122,9 @@ export default {
                 formatter: '{b}',
                 position: 'right',
                 show: false
+              },
+              emphasis: {
+                show: true
               }
             },
             itemStyle: {

@@ -61,8 +61,8 @@
               <span>蛋数量</span>
             </div>
             <div class="flex-item grow page-3-card-content">
-              <p class="page-3-card-content-number" style="font-size: 16px">{{countL1}}</p>
-              <p class="page-3-card-content-unit">单位：枚</p>
+              <p class="page-3-card-content-number">{{countL1}}</p>
+              <p class="page-3-card-content-unit">万枚</p>
             </div>
           </div>
           <div class="flex-item grow" ref="box-line-base-sd-l-1-g">
@@ -83,7 +83,7 @@
             </div>
             <div class="flex-item grow page-3-card-content">
               <p class="page-3-card-content-number">{{countL2}}</p>
-              <p class="page-3-card-content-unit">单位：%</p>
+              <p class="page-3-card-content-unit">%</p>
             </div>
           </div>
           <div class="flex-item grow" ref="box-line-base-sd-l-2-g">
@@ -104,7 +104,7 @@
             </div>
             <div class="flex-item grow page-3-card-content">
               <p class="page-3-card-content-number">{{countL3}}</p>
-              <p class="page-3-card-content-unit">单位：%</p>
+              <p class="page-3-card-content-unit">%</p>
             </div>
           </div>
           <div class="flex-item grow" ref="box-line-base-sd-l-3-g">
@@ -145,12 +145,11 @@
         <div class="flex-item grow hov flex-group" style="margin: 5px;">
           <div class="flex-item flex-group col" style="width: 100px">
             <div class="flex-item page-3-card-title">
-              <span>健母雏</span>
-              <span>数量</span>
+              <span>健母率</span>
             </div>
             <div class="flex-item grow page-3-card-content">
               <p class="page-3-card-content-number">{{countR1}}</p>
-              <p class="page-3-card-content-unit">单位：只</p>
+              <p class="page-3-card-content-unit">%</p>
             </div>
           </div>
           <div class="flex-item grow" ref="box-line-base-sd-r-1-g">
@@ -171,7 +170,7 @@
             </div>
             <div class="flex-item grow page-3-card-content">
               <p class="page-3-card-content-number">{{countR2}}</p>
-              <p class="page-3-card-content-unit">单位：%</p>
+              <p class="page-3-card-content-unit">%</p>
             </div>
           </div>
           <div class="flex-item grow" ref="box-line-base-sd-r-2-g">
@@ -269,14 +268,17 @@ export default {
             // 更新中间的地图
             this.$refs['box-map-style3-1-g-c'].activeMap(e)
             this.areasActive = i
-            this.dataL1 = dataSide.all[i][0]
+            this.dataL1 = dataSide.all[i][0].map(e => ({
+              name: e.name,
+              value: Math.round(e.value / 100) / 100
+            }))
             this.dataL2 = dataSide.all[i][1]
             this.dataL3 = dataSide.all[i][2]
             this.dataR1 = dataSide.all[i][3]
             this.dataR2 = dataSide.all[i][4]
             this.dataR3 = dataSide.all[i][5]
             //
-            this.countL1 = _last(dataSide.all[i][0]).value
+            this.countL1 = Math.round(_last(dataSide.all[i][0]).value / 100) / 100
             this.countL2 = _last(dataSide.all[i][1]).value
             this.countL3 = _last(dataSide.all[i][2]).value
             this.countR1 = _last(dataSide.all[i][3]).value
@@ -359,6 +361,8 @@ export default {
   text-align: center;
   margin: 0px;
   padding: 0px;
+  color: #F39656;
+  font-weight: bold;
 }
 .page-3-card-content-unit {
   text-align: center;
