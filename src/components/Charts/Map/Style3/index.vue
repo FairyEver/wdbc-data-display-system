@@ -5,7 +5,6 @@
 <script>
 import mixin from '@/components/Charts/mixin.js'
 import data from './data.json'
-const mapData = [...data.zj, ...data.dj]
 export default {
   mixins: [
     mixin
@@ -93,7 +92,29 @@ export default {
                 color: '#f4e925'
               }
             },
-            data: mapData
+            data: data.zj
+          },
+          {
+            name: '行情数据2',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            symbolSize: 5,
+            label: {
+              normal: {
+                formatter: '{b}',
+                position: 'right',
+                show: false
+              },
+              emphasis: {
+                show: true
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: '#FFF'
+              }
+            },
+            data: data.dj
           },
           {
             type: 'map',
