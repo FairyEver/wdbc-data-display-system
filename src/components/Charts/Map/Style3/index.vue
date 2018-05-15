@@ -43,6 +43,18 @@ export default {
             fontSize: this.titleSize
           }
         },
+        legend: {
+          icon: 'circle',
+          x: 'center',
+          y: '10%',
+          data: [
+            '雏鸡',
+            '蛋鸡'
+          ],
+          textStyle: {
+            color: '#fff'
+          }
+        },
         tooltip: {
           show: false,
           trigger: 'item'

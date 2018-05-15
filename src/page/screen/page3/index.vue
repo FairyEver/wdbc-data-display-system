@@ -8,22 +8,22 @@
       <div class="flex-item grow flex-group row">
         <div class="flex-item grow flex-group col hov" style="margin: 5px;">
           <div class="flex-item cell-title">年产蛋规模</div>
-          <div class="flex-item grow cell-number">394</div>
+          <div class="flex-item grow cell-number">445</div>
           <div class="flex-item cell-unit">万套</div>
         </div>
         <div class="flex-item grow flex-group col hov" style="margin: 5px;">
           <div class="flex-item cell-title">纯系</div>
-          <div class="flex-item grow cell-number">60000</div>
-          <div class="flex-item cell-unit">万套</div>
+          <div class="flex-item grow cell-number">7</div>
+          <div class="flex-item cell-unit">万只</div>
         </div>
         <div class="flex-item grow flex-group col hov" style="margin: 5px;">
           <div class="flex-item cell-title">祖代</div>
-          <div class="flex-item grow cell-number">380000</div>
+          <div class="flex-item grow cell-number">38</div>
           <div class="flex-item cell-unit">万套</div>
         </div>
         <div class="flex-item grow flex-group col hov" style="margin: 5px;">
           <div class="flex-item cell-title">父母代</div>
-          <div class="flex-item grow cell-number">3500000</div>
+          <div class="flex-item grow cell-number">400</div>
           <div class="flex-item cell-unit">万套</div>
         </div>
       </div>
@@ -31,22 +31,22 @@
         <div class="flex-item grow flex-group col hov" style="margin: 5px;">
           <div class="flex-item cell-title">年孵化能力</div>
           <div class="flex-item grow cell-number">28000</div>
-          <div class="flex-item cell-unit">万套</div>
+          <div class="flex-item cell-unit">万只</div>
         </div>
         <div class="flex-item grow flex-group col hov" style="margin: 5px;">
           <div class="flex-item cell-title">孵化基地</div>
           <div class="flex-item grow cell-number">9</div>
-          <div class="flex-item cell-unit">万套</div>
+          <div class="flex-item cell-unit">个</div>
         </div>
         <div class="flex-item grow flex-group col hov" style="margin: 5px;">
           <div class="flex-item cell-title">孵化厅</div>
           <div class="flex-item grow cell-number">14</div>
-          <div class="flex-item cell-unit">万套</div>
+          <div class="flex-item cell-unit">个</div>
         </div>
         <div class="flex-item grow flex-group col hov" style="margin: 5px;">
           <div class="flex-item cell-title">单厅孵化能力</div>
           <div class="flex-item grow cell-number">2000</div>
-          <div class="flex-item cell-unit">万套</div>
+          <div class="flex-item cell-unit">万只</div>
         </div>
       </div>
     </div>
