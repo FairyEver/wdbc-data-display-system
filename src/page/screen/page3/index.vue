@@ -133,13 +133,13 @@
         </div>
         <div class="flex-item flex-group row" style="height: 240px;">
           <div class="flex-item grow hov" style="margin: 5px;">
-            <img class="page-3-image" :src="`/static/image/${String(areasActive)}-1.png`">
+            <img class="page-3-image" :src="`${path}/static/image/${String(areasActive)}-1.png`">
           </div>
           <div class="flex-item grow hov" style="margin: 5px;">
-            <img class="page-3-image" :src="`/static/image/${String(areasActive)}-2.png`">
+            <img class="page-3-image" :src="`${path}/static/image/${String(areasActive)}-2.png`">
           </div>
           <div class="flex-item grow hov" style="margin: 5px;">
-            <img class="page-3-image" :src="`/static/image/${String(areasActive)}-3.png`">
+            <img class="page-3-image" :src="`${path}/static/image/${String(areasActive)}-3.png`">
           </div>
         </div>
       </div>
@@ -221,6 +221,7 @@
 import mixin from '../mixin'
 // import _get from 'lodash.get'
 import dataSide from './data.json'
+const dev = process.env.NODE_ENV === 'development'
 export default {
   mixins: [
     mixin
@@ -242,6 +243,15 @@ export default {
       dataR1: [],
       dataR2: [],
       dataR3: []
+    }
+  },
+  computed: {
+    path () {
+      if (dev) {
+        return ''
+      } else {
+        return '/b'
+      }
     }
   },
   methods: {

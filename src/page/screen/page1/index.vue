@@ -268,7 +268,9 @@ export default {
       return new Promise(async (resolve, reject) => {
         const res = await this.getProvinceHadProduct(this.allPoint[this.activePoint].areaCode)
         this.optionsR = res.map(e => Number(e)).map(e => this.optionsL.find(ele => ele.value === e))
-        this.activeQuotationType = this.optionsR[0].value
+        if (this.optionsR[0]) {
+          this.activeQuotationType = this.optionsR[0].value
+        }
         resolve()
       })
     },
