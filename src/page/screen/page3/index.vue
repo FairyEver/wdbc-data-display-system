@@ -258,13 +258,6 @@ export default {
           return new Promise(resolve => {
             // 更新中间的地图
             this.$refs['box-map-style3-1-g-c'].activeMap(e)
-            const temp = [
-              {name: 'A', value: Math.round(Math.random() * 100)},
-              {name: 'B', value: Math.round(Math.random() * 100)},
-              {name: 'C', value: Math.round(Math.random() * 100)},
-              {name: 'D', value: Math.round(Math.random() * 100)},
-              {name: 'E', value: Math.round(Math.random() * 100)}
-            ]
             this.areasActive = i
             this.dataL1 = dataSide.all[i][0]
             this.dataL2 = dataSide.all[i][1]
