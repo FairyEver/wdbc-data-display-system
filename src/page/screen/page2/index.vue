@@ -245,7 +245,6 @@ export default {
     async handleMapInitDone () {
       // 获取全国的地区
       this.allCollectionPoint = await this.getCountryAllCollectionPoint()
-      console.log('获取全国的地区 end')
       // 启动轮播队列
       this.startQueue()
     },
