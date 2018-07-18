@@ -114,31 +114,7 @@ export default {
       }
     }
   },
-  mounted () {
-    this.$emit('mounted')
-  },
   methods: {
-    // 请求数据 这个函数最后应该返回接口的数据
-    getData () {
-      return new Promise(async (resolve, reject) => {
-        const res = await this.$http.post(this.url, {
-          type: 2,
-          ...this.ajaxData
-        })
-        resolve(res.data)
-      })
-    },
-    // 返回拼好的option
-    optionMaker () {
-      return new Promise(async (resolve, reject) => {
-        const data = this.transform(await this.getData())
-        const option = this.option
-        option.visualMap.min = data.map(data => Number(data.value)).reduce((min, e) => e < min ? e : min, 0)
-        option.visualMap.max = data.map(data => Number(data.value)).reduce((max, e) => e > max ? e : max, 0)
-        option.series[0].data = data
-        resolve(option)
-      })
-    },
     // 初始化
     init ({height, width}) {
       this.updateSize(height, width)
@@ -151,28 +127,6 @@ export default {
             this.intervalObj = setInterval(this.refresh, this.interval)
           }
         })
-    },
-    // 更新数据
-    async refresh () {
-      this.chart.setOption(await this.optionMaker())
-    },
-    // 激活某个地区
-    activeMap (name = '河北省') {
-      if (this.lastActiveMap) {
-        this.unActiveMap(this.lastActiveMap)
-      }
-      this.chart.dispatchAction({
-        type: 'mapSelect',
-        name
-      })
-      this.lastActiveMap = name
-    },
-    // 取消激活某个地区
-    unActiveMap (name = '河北省') {
-      this.chart.dispatchAction({
-        type: 'mapUnSelect',
-        name
-      })
     }
   }
 }

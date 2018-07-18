@@ -5,136 +5,34 @@
     </div>
     <!-- row -->
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
-      <!-- 左侧 -->
-      <div class="flex-item flex-group col" style="width: 25%;">
-        <!-- 全国养殖户户数TOP10 -->
-        <div ref="box-bar-top-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarTop10
-            ref="box-bar-top-1-g-c"
-            :url="`${$root.host}/api/getFarmTop10`"
-            :transform="(data) => data.dataInfo.result"
-            title-text="全国养殖户户数TOP10"
-            @mounted="mountedChartNum++">
-          </ChartBarTop10>
-        </div>
-        <!-- 全国养殖户年龄分布 -->
-        <div ref="box-bar-style2-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarStyle2
-            ref="box-bar-style2-1-g-c"
-            :url="`${$root.host}/api/getAgeDistributing`"
-            :transform="(data) => data.dataInfo.result"
-            title-text="全国养殖户年龄分布"
-            @mounted="mountedChartNum++">
-          </ChartBarStyle2>
-        </div>
-        <!-- 全国养殖户从业年限分布 -->
-        <div ref="box-pie-style2-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartPieStyle2
-            ref="box-pie-style2-1-g-c"
-            :url="`${$root.host}/api/getFeedingPeriodDistributing`"
-            :transform="(data) => data.dataInfo.result"
-            title-text="全国养殖户从业年限分布"
-            @mounted="mountedChartNum++">
-          </ChartPieStyle2>
-        </div>
-      </div>
       <!-- 中间 -->
       <div class="flex-item grow flex-group col">
         <!-- 地图 -->
         <div ref="box-map-center-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartMapStyle5
+          <!-- <ChartMapStyle5
             ref="box-map-center-g-c"
             title-text="问题解答次数全国分布"
             :url="`${$root.host}/api/getCountryFarmDistributing`"
             :transform="(data) => data.dataInfo.result"
             @initDone="handleMapInitDone"
             @mounted="mountedChartNum++">
-          </ChartMapStyle5>
-        </div>
-        <!-- 三种蛋鸡分布 -->
-        <div class="flex-item hov flex-group row" style="height: 160px; margin: 5px; padding: 20px 0px;">
-          <!-- 三块 -->
-          <div class="flex-item grow flex-group col">
-            <div ref="box-pie-style3-c1-g" class="flex-item grow">
-              <ChartPieStyle3
-                ref="box-pie-style3-c1-g-c"
-                :data="distributingBottomRed"
-                :color-light="pieColors[0]"
-                @mounted="mountedChartNum++">
-              </ChartPieStyle3>
-            </div>
-            <div class="flex-item center-pie-title" :style="{color: pieColors[0]}">红壳蛋鸡养殖户</div>
-          </div>
-          <div class="flex-item grow flex-group col">
-            <div ref="box-pie-style3-c2-g" class="flex-item grow">
-              <ChartPieStyle3
-                ref="box-pie-style3-c2-g-c"
-                :data="distributingBottomPink"
-                :color-light="pieColors[1]"
-                @mounted="mountedChartNum++">
-              </ChartPieStyle3>
-            </div>
-            <div class="flex-item center-pie-title" :style="{color: pieColors[1]}">粉壳蛋鸡养殖户</div>
-          </div>
-          <div class="flex-item grow flex-group col">
-            <div ref="box-pie-style3-c3-g" class="flex-item grow">
-              <ChartPieStyle3
-                ref="box-pie-style3-c3-g-c"
-                :data="distributingBottomWhite"
-                :color-light="pieColors[2]"
-                @mounted="mountedChartNum++">
-              </ChartPieStyle3>
-            </div>
-            <div class="flex-item center-pie-title" :style="{color: pieColors[2]}">白壳蛋鸡养殖户</div>
-          </div>
+          </ChartMapStyle5> -->
         </div>
       </div>
       <!-- 右侧 -->
       <div class="flex-item flex-group col" style="width: 25%;">
-        <!-- 全国养殖户户数TOP10 -->
-        <!-- 全国养殖户年龄分布 -->
-        <!-- <div ref="box-bar-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarStyle2
-            ref="box-bar-style2-2-g-c"
-            :title-text="`${mapMiniType}养殖户年龄分布`"
-            :url="`${$root.host}/api/getAgeDistributing`"
-            :ajaxData="{ areaId: areaCode }"
-            :transform="(data) => data.dataInfo.result"
-            :auto-get-data="false"
-            :interval="0"
-            @mounted="mountedChartNum++">
-          </ChartBarStyle2>
-        </div> -->
-        <!-- 全国养殖户从业年限分布 -->
-        <div ref="box-bar-top-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarTop10
-            ref="box-bar-top-1-g-c"
-            :url="`${$root.host}/api/getFarmTop10`"
-            :transform="(data) => data.dataInfo.result"
-            title-text="全国养殖户户数TOP10"
-            @mounted="mountedChartNum++">
-          </ChartBarTop10>
+        <div ref="provinceQuestion" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarRank
+            ref="provinceQuestionChart"
+            title-text="各省提问排名">
+          </ChartBarRank>
         </div>
-        <div class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarTop10
-            :url="`${$root.host}/api/getFarmTop10`"
-            :transform="(data) => data.dataInfo.result"
-            title-text="全国养殖户户数TOP10"
-            @mounted="mountedChartNum++">
-          </ChartBarTop10>
+        <div ref="diseaseType" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarRank
+            ref="diseaseTypeChart"
+            title-text="疾病类型排名">
+          </ChartBarRank>
         </div>
-        <!-- <div ref="box-pie-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartPieStyle2
-            ref="box-pie-style2-2-g-c"
-            :title-text="`${mapMiniType}养殖户从业年限分布`"
-            :url="`${$root.host}/api/getFeedingPeriodDistributing`"
-            :ajaxData="{ areaId: areaCode }"
-            :transform="(data) => data.dataInfo.result"
-            :auto-get-data="false"
-            :interval="0"
-            @mounted="mountedChartNum++">
-          </ChartPieStyle2>
-        </div> -->
       </div>
     </div>
   </div>
@@ -142,11 +40,15 @@
 
 <script>
 import mixin from '../mixin'
-import _get from 'lodash.get'
+import ChartBarRank from '@/components/Charts/Bar/rank/index.vue'
+
 export default {
   mixins: [
     mixin
   ],
+  components: {
+    ChartBarRank
+  },
   data () {
     return {
       useMixinAutoInit: false,
@@ -172,92 +74,9 @@ export default {
       distributingRightWhite: 0
     }
   },
-  methods: {
-    async init2 () {
-      // 初始化图表
-      this.init()
-        .then(async () => {
-          // 中间的三个小圆圈
-          this.getEggColorChickenDistributing()
-            .then((dis) => {
-              this.distributingBottomRed = dis[0]
-              this.distributingBottomPink = dis[1]
-              this.distributingBottomWhite = dis[2]
-            })
-        })
-    },
-    // [数据获取] 获得所有的地区
-    getCountryAllCollectionPoint () {
-      return new Promise(async (resolve, reject) => {
-        const res = await this.$http.get(`${this.$root.host}/api/getCountryAllCollectionPoint`)
-        resolve(res.data.dataInfo.data)
-      })
-    },
-    // [数据获取] 获取省下所有城市的养殖户数量 右上角使用的
-    getCityFarmerCountByProvince (areaId) {
-      return new Promise(async (resolve, reject) => {
-        const res = await this.$http.get(`${this.$root.host}/api/getCityFarmerCountByProvince?areaId=${areaId}`)
-        resolve(res.data.dataInfo.result)
-      })
-    },
-    // [数据获取] 获取圆环的数据 包括下面的还有侧面的
-    getEggColorChickenDistributing (areaId) {
-      return new Promise(async (resolve, reject) => {
-        const url = areaId ? `${this.$root.host}/api/getEggColorChickenDistributing?areaId=${areaId}` : `${this.$root.host}/api/getEggColorChickenDistributing`
-        const res = await this.$http.get(url)
-        resolve(_get(res, 'data.dataInfo.result', [0, 0, 0]))
-      })
-    },
-    // 中间的地图加载完了数据
-    async handleMapInitDone () {
-      // 获取全国的地区
-      this.allCollectionPoint = await this.getCountryAllCollectionPoint()
-      // 启动轮播队列
-      this.startQueue()
-    },
-    // 启动轮播队列
-    startQueue () {
-      this.allCollectionPoint.reduce((p, point) => {
-        return p.then(() => {
-          return new Promise(async (resolve, reject) => {
-            // 更新中间的地图
-            this.$refs['box-map-center-g-c'].activeMap(point.areaName)
-            // 更新右上角的地图
-            this.mapMiniData = await this.getCityFarmerCountByProvince(point.areaCode)
-            this.mapMiniType = point.areaName
-            // 右边的三个小圆圈
-            const dis = await this.getEggColorChickenDistributing(point.areaCode)
-            this.distributingRightRed = dis[0]
-            this.distributingRightPink = dis[1]
-            this.distributingRightWhite = dis[2]
-            // 更新右边其他图
-            this.areaCode = point.areaCode
-            this.$nextTick(() => {
-              this.$refs['box-map-mini-g-c'].activeMap()
-              this.$refs['box-pie-style2-2-g-c'].refresh()
-              this.$refs['box-bar-style2-2-g-c'].refresh()
-            })
-            setTimeout(resolve, 3000)
-          })
-        })
-      }, Promise.resolve())
-        .then(() => {
-          console.log('round')
-          this.startQueue()
-        })
-    }
+  mounted () {
+    this.$refs.provinceQuestionChart.init(this.$refs.provinceQuestion.offsetHeight, this.$refs.provinceQuestion.offsetWidth)
+    this.$refs.diseaseTypeChart.init(this.$refs.diseaseType.offsetHeight, this.$refs.diseaseType.offsetWidth)
   }
 }
 </script>
-
-<style lang="scss">
-.center-pie-title {
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  &.mini {
-    height: 24px;
-    line-height: 24px;
-  }
-}
-</style>
