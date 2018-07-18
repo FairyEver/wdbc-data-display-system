@@ -5,136 +5,30 @@
     </div>
     <!-- row -->
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
-      <!-- 左侧 -->
-      <div class="flex-item flex-group col" style="width: 25%;">
-        <!-- 全国养殖户户数TOP10 -->
-        <div ref="box-bar-top-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarTop10
-            ref="box-bar-top-1-g-c"
-            :url="`${$root.host}/api/getFarmTop10`"
-            :transform="(data) => data.dataInfo.result"
-            title-text="全国养殖户户数TOP10"
-            @mounted="mountedChartNum++">
-          </ChartBarTop10>
-        </div>
-        <!-- 全国养殖户年龄分布 -->
-        <div ref="box-bar-style2-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarStyle2
-            ref="box-bar-style2-1-g-c"
-            :url="`${$root.host}/api/getAgeDistributing`"
-            :transform="(data) => data.dataInfo.result"
-            title-text="全国养殖户年龄分布"
-            @mounted="mountedChartNum++">
-          </ChartBarStyle2>
-        </div>
-        <!-- 全国养殖户从业年限分布 -->
-        <div ref="box-pie-style2-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartPieStyle2
-            ref="box-pie-style2-1-g-c"
-            :url="`${$root.host}/api/getFeedingPeriodDistributing`"
-            :transform="(data) => data.dataInfo.result"
-            title-text="全国养殖户从业年限分布"
-            @mounted="mountedChartNum++">
-          </ChartPieStyle2>
-        </div>
-      </div>
       <!-- 中间 -->
       <div class="flex-item grow flex-group col">
         <!-- 地图 -->
-        <div ref="box-map-center-g" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="QuestionAnswer" class="flex-item grow hov" style="margin: 5px;">
           <ChartMapStyle5
-            ref="box-map-center-g-c"
-            title-text="问题解答次数全国分布"
-            :url="`${$root.host}/api/getCountryFarmDistributing`"
-            :transform="(data) => data.dataInfo.result"
-            @initDone="handleMapInitDone"
-            @mounted="mountedChartNum++">
+            ref="QuestionAnswerChart"
+            title-text="问题解答次数全国分布">
           </ChartMapStyle5>
-        </div>
-        <!-- 三种蛋鸡分布 -->
-        <div class="flex-item hov flex-group row" style="height: 160px; margin: 5px; padding: 20px 0px;">
-          <!-- 三块 -->
-          <div class="flex-item grow flex-group col">
-            <div ref="box-pie-style3-c1-g" class="flex-item grow">
-              <ChartPieStyle3
-                ref="box-pie-style3-c1-g-c"
-                :data="distributingBottomRed"
-                :color-light="pieColors[0]"
-                @mounted="mountedChartNum++">
-              </ChartPieStyle3>
-            </div>
-            <div class="flex-item center-pie-title" :style="{color: pieColors[0]}">红壳蛋鸡养殖户</div>
-          </div>
-          <div class="flex-item grow flex-group col">
-            <div ref="box-pie-style3-c2-g" class="flex-item grow">
-              <ChartPieStyle3
-                ref="box-pie-style3-c2-g-c"
-                :data="distributingBottomPink"
-                :color-light="pieColors[1]"
-                @mounted="mountedChartNum++">
-              </ChartPieStyle3>
-            </div>
-            <div class="flex-item center-pie-title" :style="{color: pieColors[1]}">粉壳蛋鸡养殖户</div>
-          </div>
-          <div class="flex-item grow flex-group col">
-            <div ref="box-pie-style3-c3-g" class="flex-item grow">
-              <ChartPieStyle3
-                ref="box-pie-style3-c3-g-c"
-                :data="distributingBottomWhite"
-                :color-light="pieColors[2]"
-                @mounted="mountedChartNum++">
-              </ChartPieStyle3>
-            </div>
-            <div class="flex-item center-pie-title" :style="{color: pieColors[2]}">白壳蛋鸡养殖户</div>
-          </div>
         </div>
       </div>
       <!-- 右侧 -->
-      <div class="flex-item flex-group col" style="width: 25%;">
-        <!-- 全国养殖户户数TOP10 -->
-        <!-- 全国养殖户年龄分布 -->
-        <!-- <div ref="box-bar-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarStyle2
-            ref="box-bar-style2-2-g-c"
-            :title-text="`${mapMiniType}养殖户年龄分布`"
-            :url="`${$root.host}/api/getAgeDistributing`"
-            :ajaxData="{ areaId: areaCode }"
-            :transform="(data) => data.dataInfo.result"
-            :auto-get-data="false"
-            :interval="0"
-            @mounted="mountedChartNum++">
-          </ChartBarStyle2>
-        </div> -->
-        <!-- 全国养殖户从业年限分布 -->
-        <div ref="box-bar-top-1-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarTop10
-            ref="box-bar-top-1-g-c"
-            :url="`${$root.host}/api/getFarmTop10`"
-            :transform="(data) => data.dataInfo.result"
-            title-text="全国养殖户户数TOP10"
-            @mounted="mountedChartNum++">
-          </ChartBarTop10>
+      <div class="flex-item flex-group col" style="width: 35%;">
+        <div ref="provinceQuestion" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarRank
+            ref="provinceQuestionChart"
+            title-text="各省提问排名">
+          </ChartBarRank>
         </div>
-        <div class="flex-item grow hov" style="margin: 5px;">
-          <ChartBarTop10
-            :url="`${$root.host}/api/getFarmTop10`"
-            :transform="(data) => data.dataInfo.result"
-            title-text="全国养殖户户数TOP10"
-            @mounted="mountedChartNum++">
-          </ChartBarTop10>
+        <div ref="diseaseType" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarRank
+            ref="diseaseTypeChart"
+            title-text="疾病类型排名">
+          </ChartBarRank>
         </div>
-        <!-- <div ref="box-pie-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
-          <ChartPieStyle2
-            ref="box-pie-style2-2-g-c"
-            :title-text="`${mapMiniType}养殖户从业年限分布`"
-            :url="`${$root.host}/api/getFeedingPeriodDistributing`"
-            :ajaxData="{ areaId: areaCode }"
-            :transform="(data) => data.dataInfo.result"
-            :auto-get-data="false"
-            :interval="0"
-            @mounted="mountedChartNum++">
-          </ChartPieStyle2>
-        </div> -->
       </div>
     </div>
   </div>
@@ -142,11 +36,17 @@
 
 <script>
 import mixin from '../mixin'
-import _get from 'lodash.get'
+import ChartBarRank from '@/components/Charts/Bar/rank/index.vue'
+import ChartMapStyle5 from '@/components/Charts/Map/Style5/index.vue'
+
 export default {
   mixins: [
     mixin
   ],
+  components: {
+    ChartMapStyle5,
+    ChartBarRank
+  },
   data () {
     return {
       useMixinAutoInit: false,
@@ -172,6 +72,7 @@ export default {
       distributingRightWhite: 0
     }
   },
+<<<<<<< HEAD
   methods: {
     async init2 () {
       // 初始化图表
@@ -255,18 +156,12 @@ export default {
           }
         })
     }
+=======
+  mounted () {
+    this.$refs.QuestionAnswerChart.init(this.$refs.QuestionAnswer.offsetHeight, this.$refs.QuestionAnswer.offsetWidth)
+    this.$refs.provinceQuestionChart.init(this.$refs.provinceQuestion.offsetHeight, this.$refs.provinceQuestion.offsetWidth)
+    this.$refs.diseaseTypeChart.init(this.$refs.diseaseType.offsetHeight, this.$refs.diseaseType.offsetWidth)
+>>>>>>> 94d0d352e40a2d99496899b1b9ca86cf0c9e14d6
   }
 }
 </script>
-
-<style lang="scss">
-.center-pie-title {
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  &.mini {
-    height: 24px;
-    line-height: 24px;
-  }
-}
-</style>

@@ -12,21 +12,13 @@ export default {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
-    titleSize: {type: String, required: false, default: '18'},
-    // 接口地址
-    url: {type: String, required: false, default: 'x.mock'},
-    // 发送请求的时候带的参数
-    ajaxData: {type: Object, required: false, default: () => ({})},
-    // 发送请求的间隔
-    interval: {type: Number, required: false, default: 10000}
+    titleSize: {type: String, required: false, default: '18'}
   },
   data () {
     return {
       // 宽高
       height: 0,
-      width: 0,
-      // 上一个激活的区域名字
-      lastActiveMap: ''
+      width: 0
     }
   },
   computed: {
@@ -55,7 +47,7 @@ export default {
           type: 'continuous',
           show: true,
           min: 0,
-          max: 10000,
+          max: 12443,
           itemWidth: 8,
           itemHeight: 50,
           color: ['#1EB2BD', '#134C55'],
@@ -108,71 +100,145 @@ export default {
                 shadowOffsetY: 4
               }
             },
-            data: []
+            data: [
+              {
+                name: '香港特别行政区',
+                value: '2'
+              },
+              {
+                name: '青海省',
+                value: '9'
+              },
+              {
+                name: '海南省',
+                value: '15'
+              },
+              {
+                name: '上海市',
+                value: '47'
+              },
+              {
+                name: '广西壮族自治区',
+                value: '98'
+              },
+              {
+                name: '广东省',
+                value: '271'
+              },
+              {
+                name: '贵州省',
+                value: '302'
+              },
+              {
+                name: '宁夏回族自治区',
+                value: '322'
+              },
+              {
+                name: '福建省',
+                value: '337'
+              },
+              {
+                name: '天津市',
+                value: '384'
+              },
+              {
+                name: '重庆市',
+                value: '388'
+              },
+              {
+                name: '浙江省',
+                value: '532'
+              },
+              {
+                name: '北京市',
+                value: '618'
+              },
+              {
+                name: '四川省',
+                value: '668'
+              },
+              {
+                name: '江西省',
+                value: '1008'
+              },
+              {
+                name: '新疆维吾尔自治区',
+                value: '1065'
+              },
+              {
+                name: '甘肃省',
+                value: '1077'
+              },
+              {
+                name: '黑龙江省',
+                value: '1110'
+              },
+              {
+                name: '湖南省',
+                value: '1398'
+              },
+              {
+                name: '吉林省',
+                value: '1407'
+              },
+              {
+                name: '内蒙古自治区',
+                value: '1467'
+              },
+              {
+                name: '云南省',
+                value: '1632'
+              },
+              {
+                name: '陕西省',
+                value: '1983'
+              },
+              {
+                name: '山西省',
+                value: '2507'
+              },
+              {
+                name: '辽宁省',
+                value: '3025'
+              },
+              {
+                name: '安徽省',
+                value: '3182'
+              },
+              {
+                name: '湖北省',
+                value: '4996'
+              },
+              {
+                name: '江苏省',
+                value: '5059'
+              },
+              {
+                name: '山东省',
+                value: '8897'
+              },
+              {
+                name: '河南省',
+                value: '9452'
+              },
+              {
+                name: '河北省',
+                value: '12443'
+              }
+            ]
           }
         ]
       }
     }
   },
-  mounted () {
-    this.$emit('mounted')
-  },
   methods: {
-    // 请求数据 这个函数最后应该返回接口的数据
-    getData () {
-      return new Promise(async (resolve, reject) => {
-        const res = await this.$http.post(this.url, {
-          type: 2,
-          ...this.ajaxData
-        })
-        resolve(res.data)
-      })
-    },
-    // 返回拼好的option
-    optionMaker () {
-      return new Promise(async (resolve, reject) => {
-        const data = this.transform(await this.getData())
-        const option = this.option
-        option.visualMap.min = data.map(data => Number(data.value)).reduce((min, e) => e < min ? e : min, 0)
-        option.visualMap.max = data.map(data => Number(data.value)).reduce((max, e) => e > max ? e : max, 0)
-        option.series[0].data = data
-        resolve(option)
-      })
-    },
     // 初始化
-    init ({height, width}) {
+    init (height, width) {
       this.updateSize(height, width)
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
-          this.chart.setOption(await this.optionMaker())
-          // 告诉外面 数据加载完了
-          this.$emit('initDone')
-          if (this.interval) {
-            this.intervalObj = setInterval(this.refresh, this.interval)
-          }
+          this.chart.setOption(this.option)
         })
-    },
-    // 更新数据
-    async refresh () {
-      this.chart.setOption(await this.optionMaker())
-    },
-    // 激活某个地区
-    activeMap (name = '河北省') {
-      if (this.lastActiveMap) {
-        this.unActiveMap(this.lastActiveMap)
-      }
-      this.chart.dispatchAction({
-        type: 'mapSelect',
-        name
-      })
-      this.lastActiveMap = name
-    },
-    // 取消激活某个地区
-    unActiveMap (name = '河北省') {
-      this.chart.dispatchAction({
-        type: 'mapUnSelect',
-        name
-      })
     }
   }
 }
