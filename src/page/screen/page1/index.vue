@@ -259,11 +259,17 @@ export default {
     startQueue () {
       this.optionsR.reduce((p, option) => p.then(() => new Promise((resolve, reject) => {
         this.activeQuotationType = option.value
-        this.$nextTick(this.$refs['box-line-base-2-g-c'].refresh)
+        this.$nextTick(() => {
+          if (this.$refs['box-line-base-2-g-c']) {
+            this.$refs['box-line-base-2-g-c'].refresh()
+          }
+        })
         setTimeout(resolve, 3000)
       })), Promise.resolve())
         .then(() => {
-          this.handleRoundEnd()
+          if (this.$refs['box-line-base-2-g-c']) {
+            this.handleRoundEnd()
+          }
         })
     },
     // 更新 optionsR
@@ -298,11 +304,18 @@ export default {
       // 更新 optionsR
       await this.updateOptionsR()
       // 触发更新 右上角指数
-      this.$refs['box-count-style2-4-g-c'].refresh()
-      this.$refs['box-count-style2-5-g-c'].refresh()
-      this.$refs['box-count-style2-6-g-c'].refresh()
-      // 右侧 中间
-      this.$refs['box-line-multi-3-g-c'].refresh()
+      const charts = [
+        'box-count-style2-4-g-c',
+        'box-count-style2-5-g-c',
+        'box-count-style2-6-g-c',
+        // 右侧 中间
+        'box-line-multi-3-g-c'
+      ]
+      charts.forEach(chart => {
+        if (this.$refs[chart]) {
+          this.$refs[chart].refresh()
+        }
+      })
       // 右侧 下面
       this.startQueue()
     }
