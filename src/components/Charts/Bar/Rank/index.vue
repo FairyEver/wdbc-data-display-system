@@ -61,7 +61,7 @@ export default {
           containLabel: true
         },
         yAxis: {
-          data: ['巴西','印尼','美国','印度','中国','世界人口(万)'],
+          data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)'],
           axisLine: {
             // 坐标轴
             lineStyle: {
@@ -123,7 +123,7 @@ export default {
         ]
       }
     }
-  },
+  }
   // mounted () {
   //   this.$emit('mounted')
   // },

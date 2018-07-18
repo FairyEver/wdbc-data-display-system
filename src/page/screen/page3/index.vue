@@ -266,7 +266,9 @@ export default {
         return p.then(() => {
           return new Promise(resolve => {
             // 更新中间的地图
-            this.$refs['box-map-style3-1-g-c'].activeMap(e)
+            if (this.$refs['box-map-style3-1-g-c']) {
+              this.$refs['box-map-style3-1-g-c'].activeMap(e)
+            }
             this.areasActive = i
             this.dataL1 = dataSide.all[i][0].map(e => ({
               name: e.name,
@@ -286,19 +288,28 @@ export default {
             this.countR3 = _last(dataSide.all[i][5]).value
             //
             this.$nextTick(() => {
-              this.$refs['box-line-base-sd-l-1-g-c'].refresh()
-              this.$refs['box-line-base-sd-l-2-g-c'].refresh()
-              this.$refs['box-line-base-sd-l-3-g-c'].refresh()
-              this.$refs['box-line-base-sd-r-1-g-c'].refresh()
-              this.$refs['box-line-base-sd-r-2-g-c'].refresh()
-              this.$refs['box-line-base-sd-r-3-g-c'].refresh()
+              const charts = [
+                'box-line-base-sd-l-1-g-c',
+                'box-line-base-sd-l-2-g-c',
+                'box-line-base-sd-l-3-g-c',
+                'box-line-base-sd-r-1-g-c',
+                'box-line-base-sd-r-2-g-c',
+                'box-line-base-sd-r-3-g-c'
+              ]
+              charts.forEach(chart => {
+                if (this.$refs[chart]) {
+                  this.$refs[chart].refresh()
+                }
+              })
             })
             setTimeout(resolve, 3000)
           })
         })
       }, Promise.resolve())
         .then(() => {
-          this.round()
+          if (this.$refs['box-line-base-sd-l-1-g-c']) {
+            this.round()
+          }
         })
     },
     start () {

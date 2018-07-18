@@ -221,7 +221,9 @@ export default {
         return p.then(() => {
           return new Promise(async (resolve, reject) => {
             // 更新中间的地图
-            this.$refs['box-map-center-g-c'].activeMap(point.areaName)
+            if (this.$refs['box-map-center-g-c']) {
+              this.$refs['box-map-center-g-c'].activeMap(point.areaName)
+            }
             // 更新右上角的地图
             this.mapMiniData = await this.getCityFarmerCountByProvince(point.areaCode)
             this.mapMiniType = point.areaName
@@ -233,17 +235,24 @@ export default {
             // 更新右边其他图
             this.areaCode = point.areaCode
             this.$nextTick(() => {
-              this.$refs['box-map-mini-g-c'].activeMap()
-              this.$refs['box-pie-style2-2-g-c'].refresh()
-              this.$refs['box-bar-style2-2-g-c'].refresh()
+              if (this.$refs['box-map-mini-g-c']) {
+                this.$refs['box-map-mini-g-c'].activeMap()
+              }
+              if (this.$refs['box-pie-style2-2-g-c']) {
+                this.$refs['box-pie-style2-2-g-c'].refresh()
+              }
+              if (this.$refs['box-bar-style2-2-g-c']) {
+                this.$refs['box-bar-style2-2-g-c'].refresh()
+              }
             })
             setTimeout(resolve, 3000)
           })
         })
       }, Promise.resolve())
         .then(() => {
-          console.log('round')
-          this.startQueue()
+          if (this.$refs['box-map-mini-g-c']) {
+            this.startQueue()
+          }
         })
     }
   }
