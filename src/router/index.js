@@ -77,6 +77,18 @@ export default new Router({
           path: 'screen/page3',
           name: 'screen-page3',
           component: resolve => { require(['@/page/screen/page3'], resolve) }
+        },
+        {
+          title: '页面4',
+          path: 'screen/page4',
+          name: 'screen-page4',
+          component: resolve => { require(['@/page/screen/page4'], resolve) }
+        },
+        {
+          title: '页面5',
+          path: 'screen/page5',
+          name: 'screen-page5',
+          component: resolve => { require(['@/page/screen/page5'], resolve) }
         }
       ]
     }

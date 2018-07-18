@@ -18,6 +18,7 @@ Vue.component('ChartLineMulti', resolve => { require(['@/components/Charts/Line/
 Vue.component('ChartMapStyle1', resolve => { require(['@/components/Charts/Map/Style1/index.vue'], resolve) })
 Vue.component('ChartMapStyle2', resolve => { require(['@/components/Charts/Map/Style2/index.vue'], resolve) })
 Vue.component('ChartMapStyle3', resolve => { require(['@/components/Charts/Map/Style3/index.vue'], resolve) })
+Vue.component('ChartMapStyle5', resolve => { require(['@/components/Charts/Map/Style5/index.vue'], resolve) })
 Vue.component('ChartMapMini', resolve => { require(['@/components/Charts/Map/Mini/index.vue'], resolve) })
 
 Vue.component('ChartPieBase', resolve => { require(['@/components/Charts/Pie/Base/index.vue'], resolve) })
