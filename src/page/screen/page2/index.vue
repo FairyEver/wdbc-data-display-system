@@ -205,11 +205,12 @@ export default {
       distributingRightPink: 0,
       distributingRightWhite: 0,
       // app 注册
-      applog: '养殖户数：300万'
+      applog: ''
     }
   },
   methods: {
     async init2 () {
+      this.applog = '养殖户数：300万'
       // 初始化图表
       this.init()
         .then(async () => {

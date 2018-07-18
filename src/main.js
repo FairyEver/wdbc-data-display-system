@@ -9,12 +9,16 @@ import '@/components/Charts/register.js'
 import '@/mock/index.js'
 
 import color from '@/style/color.js'
+// modal
+import SweetModal from 'sweet-modal-vue/src/plugin.js'
 
 Vue.config.productionTip = false
 
 Vue.prototype.$http = axios
 
 Vue.prototype.$color = color
+
+Vue.use(SweetModal)
 
 Vue.prototype.$toRGB = (color, rgba = null) => {
   var sColor = color.toLowerCase()

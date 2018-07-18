@@ -69,7 +69,7 @@
               </li>
             </ul>
           </div>
-          <div ref="box-line-base-plus-1-g" class="flex-item grow">
+          <div ref="box-line-base-plus-1-g" class="flex-item grow" @click="modalshow">
             <ChartLineBasePlus
               ref="box-line-base-plus-1-g-c"
               title-text="全国价格信息"
@@ -88,11 +88,11 @@
       <div class="flex-item grow flex-group col">
         <div ref="box-map-style1-1-g" class="flex-item grow middle">
             <p class="middle-text">{{applog}}</p>
-            <ChartMapStyle1
-                ref="box-map-style1-1-g-c"
-                title-text="全国采集点分布"
-                @mounted="mountedChartNum++">
-            </ChartMapStyle1>
+          <ChartMapStyle1
+            ref="box-map-style1-1-g-c"
+            title-text="全国采集点分布"
+            @mounted="mountedChartNum++">
+          </ChartMapStyle1>
         </div>
         <div ref="box-table-style1-1-g" class="flex-item hov" style="height: 300px; margin: 5px;">
           <ChartTableStyle1
@@ -197,37 +197,50 @@
         </div>
       </div>
     </div>
+    <sweet-modal ref="modal" width="864px">
+      <div class="modal-chart" :style="styles">
+        <zxchart :styles="styles"></zxchart>
+      </div>
+    </sweet-modal>
   </div>
 </template>
 
 <script>
 import mixin from '../mixin'
 import _get from 'lodash.get'
+import zxchart from './cmoponent/zxchart/index'
 export default {
   mixins: [
     mixin
   ],
   data () {
     return {
-        useMixinAutoInit: false,
-        activeL: 'null',
-        optionsL: [
-            {name: '红壳鸡蛋', value: 1},
-            {name: '粉壳鸡蛋', value: 2},
-            {name: '白壳鸡蛋', value: 3},
-            {name: '玉米', value: 4},
-            {name: '豆粕', value: 5},
-            {name: '淘汰鸡', value: 6}
-        ],
-        // 右下角的option
-        optionsR: [],
-        // 全国所有的地区
-        allPoint: [],
-        activePoint: 0,
-        activeQuotationType: 0,
-        // App 注册数
-        applog: 'App注册数：3000万'
+      useMixinAutoInit: false,
+      activeL: 'null',
+      optionsL: [
+        {name: '红壳鸡蛋', value: 1},
+        {name: '粉壳鸡蛋', value: 2},
+        {name: '白壳鸡蛋', value: 3},
+        {name: '玉米', value: 4},
+        {name: '豆粕', value: 5},
+        {name: '淘汰鸡', value: 6}
+      ],
+      // 右下角的option
+      optionsR: [],
+      // 全国所有的地区
+      allPoint: [],
+      activePoint: 0,
+      activeQuotationType: 0,
+      // App 注册数
+      applog: '',
+      styles: {
+        height: '500px',
+        width: '800px'
+      }
     }
+  },
+  components: {
+    'zxchart': zxchart
   },
   computed: {
     activePointCode () {
@@ -248,6 +261,7 @@ export default {
       this.allPoint = await this.getAllCollectionPoint()
       // 更新 optionsR
       await this.updateOptionsR()
+      this.applog = 'App注册数：3000万'
       // 初始化图表
       this.init()
         .then(() => {
@@ -305,6 +319,9 @@ export default {
       this.$refs['box-line-multi-3-g-c'].refresh()
       // 右侧 下面
       this.startQueue()
+    },
+    modalshow () {
+      this.$refs.modal.open()
     }
   }
 }
