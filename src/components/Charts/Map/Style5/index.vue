@@ -12,21 +12,13 @@ export default {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
-    titleSize: {type: String, required: false, default: '18'},
-    // 接口地址
-    url: {type: String, required: false, default: 'x.mock'},
-    // 发送请求的时候带的参数
-    ajaxData: {type: Object, required: false, default: () => ({})},
-    // 发送请求的间隔
-    interval: {type: Number, required: false, default: 10000}
+    titleSize: {type: String, required: false, default: '18'}
   },
   data () {
     return {
       // 宽高
       height: 0,
-      width: 0,
-      // 上一个激活的区域名字
-      lastActiveMap: ''
+      width: 0
     }
   },
   computed: {

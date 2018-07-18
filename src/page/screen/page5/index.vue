@@ -16,7 +16,7 @@
         </div>
       </div>
       <!-- 右侧 -->
-      <div class="flex-item flex-group col" style="width: 25%;">
+      <div class="flex-item flex-group col" style="width: 35%;">
         <div ref="provinceQuestion" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarRank
             ref="provinceQuestionChart"
@@ -76,7 +76,6 @@ export default {
     this.$refs.QuestionAnswerChart.init(this.$refs.QuestionAnswer.offsetHeight, this.$refs.QuestionAnswer.offsetWidth)
     this.$refs.provinceQuestionChart.init(this.$refs.provinceQuestion.offsetHeight, this.$refs.provinceQuestion.offsetWidth)
     this.$refs.diseaseTypeChart.init(this.$refs.diseaseType.offsetHeight, this.$refs.diseaseType.offsetWidth)
-    console.log(this.$refs)
   }
 }
 </script>
