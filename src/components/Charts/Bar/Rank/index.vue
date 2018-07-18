@@ -110,49 +110,6 @@ export default {
         ]
       }
     }
-<<<<<<< .merge_file_gO2Yl8
-  }
-  // mounted () {
-  //   this.$emit('mounted')
-  // },
-  // methods: {
-  //   // 请求数据 这个函数最后应该返回接口的数据
-  //   getData () {
-  //     return new Promise(async (resolve, reject) => {
-  //       const res = await this.$http.post(this.url, {
-  //         type: 2,
-  //         ...this.ajaxData
-  //       })
-  //       resolve(res.data)
-  //     })
-  //   },
-  //   // 返回拼好的option
-  //   optionMaker () {
-  //     return new Promise(async (resolve, reject) => {
-  //       const data = this.transform(await this.getData())
-  //       const option = this.option
-  //       option.yAxis.data = data.map(e => e.name)
-  //       option.series[0].data = data.map(e => e.value)
-  //       resolve(option)
-  //     })
-  //   },
-  //   // 初始化
-  //   init ({height, width}) {
-  //     this.updateSize(height, width)
-  //       .then(async () => {
-  //         this.chart = this.echarts.init(this.$refs.chart)
-  //         this.chart.setOption(await this.optionMaker())
-  //         if (this.interval) {
-  //           this.intervalObj = setInterval(this.refresh, this.interval)
-  //         }
-  //       })
-  //   },
-  //   // 更新数据
-  //   async refresh () {
-  //     this.chart.setOption(await this.optionMaker())
-  //   }
-  // }
-=======
   },
   methods: {
     // 初始化
@@ -164,6 +121,5 @@ export default {
         })
     }
   }
->>>>>>> .merge_file_eY0fqn
 }
 </script>
