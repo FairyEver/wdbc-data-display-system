@@ -8,15 +8,11 @@
       <!-- 中间 -->
       <div class="flex-item grow flex-group col">
         <!-- 地图 -->
-        <div ref="box-map-center-g" class="flex-item grow hov" style="margin: 5px;">
-          <!-- <ChartMapStyle5
-            ref="box-map-center-g-c"
-            title-text="问题解答次数全国分布"
-            :url="`${$root.host}/api/getCountryFarmDistributing`"
-            :transform="(data) => data.dataInfo.result"
-            @initDone="handleMapInitDone"
-            @mounted="mountedChartNum++">
-          </ChartMapStyle5> -->
+        <div ref="QuestionAnswer" class="flex-item grow hov" style="margin: 5px;">
+          <ChartMapStyle5
+            ref="QuestionAnswerChart"
+            title-text="问题解答次数全国分布">
+          </ChartMapStyle5>
         </div>
       </div>
       <!-- 右侧 -->
@@ -41,12 +37,14 @@
 <script>
 import mixin from '../mixin'
 import ChartBarRank from '@/components/Charts/Bar/rank/index.vue'
+import ChartMapStyle5 from '@/components/Charts/Map/Style5/index.vue'
 
 export default {
   mixins: [
     mixin
   ],
   components: {
+    ChartMapStyle5,
     ChartBarRank
   },
   data () {
@@ -75,8 +73,10 @@ export default {
     }
   },
   mounted () {
+    this.$refs.QuestionAnswerChart.init(this.$refs.QuestionAnswer.offsetHeight, this.$refs.QuestionAnswer.offsetWidth)
     this.$refs.provinceQuestionChart.init(this.$refs.provinceQuestion.offsetHeight, this.$refs.provinceQuestion.offsetWidth)
     this.$refs.diseaseTypeChart.init(this.$refs.diseaseType.offsetHeight, this.$refs.diseaseType.offsetWidth)
+    console.log(this.$refs)
   }
 }
 </script>
