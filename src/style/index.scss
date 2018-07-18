@@ -56,6 +56,20 @@ html, body {
             box-shadow: 0px 0px 0px 1px lighten($colorBg, 30%);
           }
         }
+        .middle {
+            position: relative;
+            .middle-text {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                position: absolute;
+                top: 50px;
+                text-align: center;
+                font-size: 30px;
+                font-weight: 500;
+                color: #FED628
+            }
+        }
       }
       .layout-main__main {
         height: 100%;

@@ -41,7 +41,8 @@
       <!-- 中间 -->
       <div class="flex-item grow flex-group col">
         <!-- 地图 -->
-        <div ref="box-map-center-g" class="flex-item grow hov" style="margin: 5px;">
+        <div ref="box-map-center-g" class="flex-item grow hov middle" style="margin: 5px;">
+          <p class="middle-text">{{applog}}</p>
           <ChartMapStyle2
             ref="box-map-center-g-c"
             title-text="全国养殖户分布"
@@ -202,7 +203,9 @@ export default {
       // 分布 右侧
       distributingRightRed: 0,
       distributingRightPink: 0,
-      distributingRightWhite: 0
+      distributingRightWhite: 0,
+      // app 注册
+      applog: '养殖户数：300万'
     }
   },
   methods: {
