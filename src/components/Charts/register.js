@@ -4,6 +4,7 @@ Vue.component('ChartBarBase', resolve => { require(['@/components/Charts/Bar/Bas
 Vue.component('ChartBarStack', resolve => { require(['@/components/Charts/Bar/Stack/index.vue'], resolve) })
 Vue.component('ChartBarMulti', resolve => { require(['@/components/Charts/Bar/Multi/index.vue'], resolve) })
 Vue.component('ChartBarTop10', resolve => { require(['@/components/Charts/Bar/Top10/index.vue'], resolve) })
+Vue.component('ChartBarRank', resolve => { require(['@/components/Charts/Bar/rank/index.vue'], resolve) })
 Vue.component('ChartBarStyle2', resolve => { require(['@/components/Charts/Bar/Style2/index.vue'], resolve) })
 
 Vue.component('ChartCountStyle1', resolve => { require(['@/components/Charts/Count/Style1/index.vue'], resolve) })
@@ -18,6 +19,7 @@ Vue.component('ChartLineMulti', resolve => { require(['@/components/Charts/Line/
 Vue.component('ChartMapStyle1', resolve => { require(['@/components/Charts/Map/Style1/index.vue'], resolve) })
 Vue.component('ChartMapStyle2', resolve => { require(['@/components/Charts/Map/Style2/index.vue'], resolve) })
 Vue.component('ChartMapStyle3', resolve => { require(['@/components/Charts/Map/Style3/index.vue'], resolve) })
+Vue.component('ChartMapStyle5', resolve => { require(['@/components/Charts/Map/Style5/index.vue'], resolve) })
 Vue.component('ChartMapMini', resolve => { require(['@/components/Charts/Map/Mini/index.vue'], resolve) })
 
 Vue.component('ChartPieBase', resolve => { require(['@/components/Charts/Pie/Base/index.vue'], resolve) })

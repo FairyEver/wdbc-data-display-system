@@ -86,12 +86,13 @@
       </div>
       <!-- 中间 -->
       <div class="flex-item grow flex-group col">
-        <div ref="box-map-style1-1-g" class="flex-item grow">
-          <ChartMapStyle1
-            ref="box-map-style1-1-g-c"
-            title-text="全国采集点分布"
-            @mounted="mountedChartNum++">
-          </ChartMapStyle1>
+        <div ref="box-map-style1-1-g" class="flex-item grow middle">
+            <p class="middle-text">{{applog}}</p>
+            <ChartMapStyle1
+                ref="box-map-style1-1-g-c"
+                title-text="全国采集点分布"
+                @mounted="mountedChartNum++">
+            </ChartMapStyle1>
         </div>
         <div ref="box-table-style1-1-g" class="flex-item hov" style="height: 300px; margin: 5px;">
           <ChartTableStyle1
@@ -208,22 +209,24 @@ export default {
   ],
   data () {
     return {
-      useMixinAutoInit: false,
-      activeL: 'null',
-      optionsL: [
-        {name: '红壳鸡蛋', value: 1},
-        {name: '粉壳鸡蛋', value: 2},
-        {name: '白壳鸡蛋', value: 3},
-        {name: '玉米', value: 4},
-        {name: '豆粕', value: 5},
-        {name: '淘汰鸡', value: 6}
-      ],
-      // 右下角的option
-      optionsR: [],
-      // 全国所有的地区
-      allPoint: [],
-      activePoint: 0,
-      activeQuotationType: 0
+        useMixinAutoInit: false,
+        activeL: 'null',
+        optionsL: [
+            {name: '红壳鸡蛋', value: 1},
+            {name: '粉壳鸡蛋', value: 2},
+            {name: '白壳鸡蛋', value: 3},
+            {name: '玉米', value: 4},
+            {name: '豆粕', value: 5},
+            {name: '淘汰鸡', value: 6}
+        ],
+        // 右下角的option
+        optionsR: [],
+        // 全国所有的地区
+        allPoint: [],
+        activePoint: 0,
+        activeQuotationType: 0,
+        // App 注册数
+        applog: 'App注册数：3000万'
     }
   },
   computed: {
