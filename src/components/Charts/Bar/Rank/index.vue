@@ -53,11 +53,7 @@ export default {
           containLabel: true
         },
         yAxis: {
-<<<<<<< .merge_file_gO2Yl8
-          data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)'],
-=======
           data: ['云南省', '陕西省', '山西省', '辽宁省', '安徽省', '湖北省', '江苏省', '山东省', '河南省', '河北省'],
->>>>>>> .merge_file_eY0fqn
           axisLine: {
             // 坐标轴
             lineStyle: {
