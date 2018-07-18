@@ -54,11 +54,7 @@ export default {
           containLabel: true
         },
         yAxis: {
-<<<<<<< HEAD
-          data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)'],
-=======
           data: ['云南省', '陕西省', '山西省', '辽宁省', '安徽省', '湖北省', '江苏省', '山东省', '河南省', '河北省'],
->>>>>>> 9fa9e2840396e0ad2119079552d2b7bef70cd0f4
           axisLine: {
             // 坐标轴
             lineStyle: {
@@ -114,49 +110,6 @@ export default {
         ]
       }
     }
-<<<<<<< HEAD
-  }
-  // mounted () {
-  //   this.$emit('mounted')
-  // },
-  // methods: {
-  //   // 请求数据 这个函数最后应该返回接口的数据
-  //   getData () {
-  //     return new Promise(async (resolve, reject) => {
-  //       const res = await this.$http.post(this.url, {
-  //         type: 2,
-  //         ...this.ajaxData
-  //       })
-  //       resolve(res.data)
-  //     })
-  //   },
-  //   // 返回拼好的option
-  //   optionMaker () {
-  //     return new Promise(async (resolve, reject) => {
-  //       const data = this.transform(await this.getData())
-  //       const option = this.option
-  //       option.yAxis.data = data.map(e => e.name)
-  //       option.series[0].data = data.map(e => e.value)
-  //       resolve(option)
-  //     })
-  //   },
-  //   // 初始化
-  //   init ({height, width}) {
-  //     this.updateSize(height, width)
-  //       .then(async () => {
-  //         this.chart = this.echarts.init(this.$refs.chart)
-  //         this.chart.setOption(await this.optionMaker())
-  //         if (this.interval) {
-  //           this.intervalObj = setInterval(this.refresh, this.interval)
-  //         }
-  //       })
-  //   },
-  //   // 更新数据
-  //   async refresh () {
-  //     this.chart.setOption(await this.optionMaker())
-  //   }
-  // }
-=======
   },
   methods: {
     // 初始化
@@ -168,6 +121,5 @@ export default {
         })
     }
   }
->>>>>>> 9fa9e2840396e0ad2119079552d2b7bef70cd0f4
 }
 </script>
