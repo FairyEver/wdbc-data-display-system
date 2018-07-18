@@ -17,7 +17,8 @@ export default {
     gridTop: {type: String, required: false, default: '40'},
     gridBottom: {type: String, required: false, default: '20'},
     gridLeft: {type: String, required: false, default: '20'},
-    gridRight: {type: String, required: false, default: '5%'}
+    gridRight: {type: String, required: false, default: '5%'},
+    chartColor: {type: String, required: false, default: '#DD9C38'}
   },
   data () {
     return {
@@ -101,7 +102,7 @@ export default {
             barMaxWidth: 14,
             itemStyle: {
               normal: {
-                color: '#DD9C38',
+                color: this.chartColor,
                 barBorderRadius: [0, 1, 1, 0]
               }
             }

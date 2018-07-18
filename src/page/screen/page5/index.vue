@@ -26,7 +26,8 @@
         <div ref="diseaseType" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarRank
             ref="diseaseTypeChart"
-            title-text="疾病类型排名">
+            title-text="疾病类型排名"
+            chart-color="#5ea2db">
           </ChartBarRank>
         </div>
       </div>
