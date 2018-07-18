@@ -13,25 +13,18 @@ export default {
     titleText: {type: String, required: false, default: 'Chart'},
     titleColor: {type: String, required: false, default: '#FFF'},
     titleSize: {type: String, required: false, default: '18'},
-    // // 接口地址
-    // url: {type: String, required: false, default: 'x.mock'},
-    // // 发送请求的时候带的参数
-    // ajaxData: {type: Object, required: false, default: () => ({})},
-    // // 发送请求的间隔
-    // interval: {type: Number, required: false, default: 10000},
     // grid 设置
     gridTop: {type: String, required: false, default: '40'},
     gridBottom: {type: String, required: false, default: '20'},
     gridLeft: {type: String, required: false, default: '20'},
-    gridRight: {type: String, required: false, default: '5%'}
+    gridRight: {type: String, required: false, default: '5%'},
+    chartColor: {type: String, required: false, default: '#DD9C38'}
   },
   data () {
     return {
       // 宽高
       height: 0,
-      width: 0,
-      // 定时器
-      intervalObj: null
+      width: 0
     }
   },
   computed: {
@@ -61,7 +54,11 @@ export default {
           containLabel: true
         },
         yAxis: {
+<<<<<<< HEAD
           data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)'],
+=======
+          data: ['云南省', '陕西省', '山西省', '辽宁省', '安徽省', '湖北省', '江苏省', '山东省', '河南省', '河北省'],
+>>>>>>> 9fa9e2840396e0ad2119079552d2b7bef70cd0f4
           axisLine: {
             // 坐标轴
             lineStyle: {
@@ -105,17 +102,11 @@ export default {
         series: [
           {
             type: 'bar',
-            data: [
-              {
-                name: '2012年',
-                type: 'bar',
-                data: [19325, 23438, 31000, 121594, 134141, 681807]
-              }
-            ],
+            data: ['1632', '1983', '2507', '3025', '3182', '4996', '5059', '8897', '9452', '12443'],
             barMaxWidth: 14,
             itemStyle: {
               normal: {
-                color: '#DD9C38',
+                color: this.chartColor,
                 barBorderRadius: [0, 1, 1, 0]
               }
             }
@@ -123,6 +114,7 @@ export default {
         ]
       }
     }
+<<<<<<< HEAD
   }
   // mounted () {
   //   this.$emit('mounted')
@@ -164,5 +156,18 @@ export default {
   //     this.chart.setOption(await this.optionMaker())
   //   }
   // }
+=======
+  },
+  methods: {
+    // 初始化
+    init (height, width) {
+      this.updateSize(height, width)
+        .then(async () => {
+          this.chart = this.echarts.init(this.$refs.chart)
+          this.chart.setOption(this.option)
+        })
+    }
+  }
+>>>>>>> 9fa9e2840396e0ad2119079552d2b7bef70cd0f4
 }
 </script>
