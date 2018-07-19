@@ -86,8 +86,7 @@
       </div>
       <!-- 中间 -->
       <div class="flex-item grow flex-group col">
-        <div ref="box-map-style1-1-g" class="flex-item grow middle">
-            <p class="middle-text">{{applog}}</p>
+        <div ref="box-map-style1-1-g" class="flex-item grow">
           <ChartMapStyle1
             ref="box-map-style1-1-g-c"
             title-text="全国采集点分布"
@@ -235,8 +234,7 @@ export default {
       styles: {
         height: '800px',
         width: '1500px'
-      },
-      applog: ''
+      }
     }
   },
   components: {
@@ -265,7 +263,6 @@ export default {
       this.allPoint = await this.getAllCollectionPoint()
       // 更新 optionsR
       await this.updateOptionsR()
-      this.applog = 'App注册数：90926'
       // 初始化图表
       this.init()
         .then(() => {
