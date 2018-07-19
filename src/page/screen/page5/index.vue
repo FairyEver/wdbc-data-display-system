@@ -12,7 +12,7 @@
           <ChartMapStyle5
             ref="QuestionAnswerChart"
             title-text="问题解答次数全国分布"
-            sub-text="交流次数：396812次  问题总数：5018例  问题类型： 51类">
+            sub-text="交流次数：48753次  问题总数：5018例  问题类型： 51类">
           </ChartMapStyle5>
         </div>
       </div>
