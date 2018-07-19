@@ -171,9 +171,6 @@ export default {
       return new Promise(async (resolve, reject) => {
         const data = this.transform(await this.getData()).list
         const option = this.option
-        console.log('*************************************')
-        console.log(data)
-        console.log('*************************************')
         option.xAxis.data = data.map(e => e.name)
         option.series[0].data = data.map(e => e.value)
         resolve(option)
