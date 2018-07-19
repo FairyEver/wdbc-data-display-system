@@ -325,8 +325,8 @@ export default {
     mapPlayRound () {
       // 地图播放了一遍
       // 代码移植过来的 不需要做什么了
-      // console.log('地图播放完了一圈')
-      // console.log('autoPlay = ' + this.autoPlay)
+      // // console.log('地图播放完了一圈')
+      // // console.log('autoPlay = ' + this.autoPlay)
       // if (this.dataNavActive === 'all') {
       //   this.dataNavActive = 'hong'
       //   this.autoPlay = true
@@ -337,7 +337,7 @@ export default {
       //   this.dataNavActive = 'fen'
       //   this.autoPlay = true
       // } else {
-      //   console.log('跳转页面到page2')
+      //   // console.log('跳转页面到page2')
       //   this.$router.push({
       //     name: 'page2',
       //     params: {
