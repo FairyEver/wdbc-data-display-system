@@ -121,9 +121,9 @@ export default {
           } else {
             this.symbol = '-'
           }
-          this.countupObj = new this.CountUp(this.$refs.num, 0, data.num, 0, 2, {useGrouping: false})
-          this.countupObj2 = new this.CountUp(this.$refs.num2, 0, Math.abs(data.num2))
-          this.countupObj3 = new this.CountUp(this.$refs.num3, 0, data.num3, 2)
+          this.countupObj = new this.CountUp(this.$refs.num, 0, data.num ? data.num : 0, 0, 2, {useGrouping: false})
+          this.countupObj2 = new this.CountUp(this.$refs.num2, 0, Math.abs(data.num2 ? data.num2 : 0))
+          this.countupObj3 = new this.CountUp(this.$refs.num3, 0, data.num3 ? data.num3 : 0, 2)
           this.countupObj.start()
           this.countupObj2.start()
           this.countupObj3.start()
