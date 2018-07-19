@@ -18,7 +18,10 @@ export default {
     gridBottom: {type: String, required: false, default: '20'},
     gridLeft: {type: String, required: false, default: '20'},
     gridRight: {type: String, required: false, default: '5%'},
-    chartColor: {type: String, required: false, default: '#DD9C38'}
+    // chart
+    yAxisData: {type: Array, required: false, default: () => []},
+    seriesData: {type: Array, required: false, default: () => []},
+    seriesColor: {type: String, required: false, default: '#DD9C38'}
   },
   data () {
     return {
@@ -54,7 +57,7 @@ export default {
           containLabel: true
         },
         yAxis: {
-          data: ['云南省', '陕西省', '山西省', '辽宁省', '安徽省', '湖北省', '江苏省', '山东省', '河南省', '河北省'],
+          data: this.yAxisData,
           axisLine: {
             // 坐标轴
             lineStyle: {
@@ -98,11 +101,11 @@ export default {
         series: [
           {
             type: 'bar',
-            data: ['1632', '1983', '2507', '3025', '3182', '4996', '5059', '8897', '9452', '12443'],
+            data: this.seriesData,
             barMaxWidth: 14,
             itemStyle: {
               normal: {
-                color: this.chartColor,
+                color: this.seriesColor,
                 barBorderRadius: [0, 1, 1, 0]
               }
             }

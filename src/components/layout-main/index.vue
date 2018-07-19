@@ -9,10 +9,6 @@
       <div>
         <router-link class="link" v-for="(link, index) in links" :key="index" :to="{name: link.name}">{{link.title}}</router-link>
       </div>
-      <!-- <div>
-        <button @click="$root.toggleFullScreen" class="btn">切换全屏</button>
-        <button @click="$root.reloadPage" class="btn">刷新页面</button>
-      </div> -->
     </div>
     <div v-if="!dashboard" class="layout-main__dashboard-btn" @click="dashboard = true">
       打开控制台
@@ -29,7 +25,7 @@ export default {
   data () {
     return {
       routerSetting,
-      dashboard: false
+      dashboard: true
     }
   },
   computed: {

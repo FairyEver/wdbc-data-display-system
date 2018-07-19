@@ -61,31 +61,31 @@ export default new Router({
         //   component: resolve => { require(['@/page/screen/demo/demo8'], resolve) }
         // },
         {
-          title: '页面1',
-          path: 'screen/page1',
-          name: 'screen-page1',
-          component: resolve => { require(['@/page/screen/page1'], resolve) }
-        },
-        {
-          title: '页面2',
+          title: '养殖户分布',
           path: 'screen/page2',
           name: 'screen-page2',
           component: resolve => { require(['@/page/screen/page2'], resolve) }
         },
         {
-          title: '页面3',
-          path: 'screen/page3',
-          name: 'screen-page3',
-          component: resolve => { require(['@/page/screen/page3'], resolve) }
-        },
-        {
-          title: '页面4',
+          title: '存栏信息',
           path: 'screen/page4',
           name: 'screen-page4',
           component: resolve => { require(['@/page/screen/page4'], resolve) }
         },
         {
-          title: '页面5',
+          title: '市场行情',
+          path: 'screen/page1',
+          name: 'screen-page1',
+          component: resolve => { require(['@/page/screen/page1'], resolve) }
+        },
+        // {
+        //   title: '页面3',
+        //   path: 'screen/page3',
+        //   name: 'screen-page3',
+        //   component: resolve => { require(['@/page/screen/page3'], resolve) }
+        // },
+        {
+          title: '坐堂兽医',
           path: 'screen/page5',
           name: 'screen-page5',
           component: resolve => { require(['@/page/screen/page5'], resolve) }

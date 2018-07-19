@@ -148,7 +148,7 @@ export default {
   watch: {
     ready (value) {
       if (value) {
-        console.log(`map/china/simple [${this.name}] [watch: ready is ${value}]`)
+        // console.log(`map/china/simple [${this.name}] [watch: ready is ${value}]`)
         this.init()
       }
     },
@@ -159,16 +159,16 @@ export default {
       if (this.chart === null) {
         return
       }
-      console.log(`map/china/simple [${this.name}] [组件尺寸变化 ${value.height}*${value.width}]`)
+      // console.log(`map/china/simple [${this.name}] [组件尺寸变化 ${value.height}*${value.width}]`)
       this.dispose()
       this.init()
     },
     data (value, oldValue) {
-      console.log(`map/china/simple [${this.name}] [检测到了数据更新]`)
+      // console.log(`map/china/simple [${this.name}] [检测到了数据更新]`)
       this.refresh()
     },
     autoPlay (value) {
-      console.log(`map/china/simple [${this.name}] [监听到了autoPlay变化为${value}]`)
+      // console.log(`map/china/simple [${this.name}] [监听到了autoPlay变化为${value}]`)
       // 监视这个值实现控制自动播放
       if (value) {
         this.playStart()
@@ -187,7 +187,7 @@ export default {
     }
   },
   mounted () {
-    console.log(`map/china/simple [${this.name}] [mounted]`)
+    // console.log(`map/china/simple [${this.name}] [mounted]`)
   },
   methods: {
     inArray (arr, obj) {
@@ -203,7 +203,7 @@ export default {
     playStart () {
       // 开始自动播放
       if (this.autoPlayTimer === null) {
-        console.log(`map/china/simple [${this.name}] [playStart]`)
+        // console.log(`map/china/simple [${this.name}] [playStart]`)
         this.autoPlayTimer = setInterval(() => {
           this.playCount()
         }, this.autoPlayTimeSpace)
@@ -212,7 +212,7 @@ export default {
     playStop () {
       // 停止自动播放
       if (this.autoPlayTimer !== null) {
-        console.log(`map/china/simple [${this.name}] [playStop]`)
+        // console.log(`map/china/simple [${this.name}] [playStop]`)
         clearInterval(this.autoPlayTimer)
         // 还原数据
         this.autoPlayTimer = null
@@ -260,7 +260,7 @@ export default {
     dispose () {
       // 销毁
       this.chart.dispose()
-      console.log(`map/china/simple [${this.name}] [实例销毁]`)
+      // console.log(`map/china/simple [${this.name}] [实例销毁]`)
     },
     init () {
       // 初始化
@@ -283,7 +283,7 @@ export default {
           }
         })
         this.activeMap(this.defaultActiveName)
-        console.log(`map/china/simple [${this.name}] [图表实例化完毕]`)
+        // console.log(`map/china/simple [${this.name}] [图表实例化完毕]`)
       })
     },
     updateOption () {
@@ -298,7 +298,7 @@ export default {
         // 更新设置
         this.updateOption()
         // 重新设置图表
-        console.log('this.option', this.option)
+        // console.log('this.option', this.option)
         this.chart.setOption(this.option)
         this.activeMap(this.selectedMap)
         if (this.autoPlay) {

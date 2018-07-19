@@ -92,12 +92,12 @@ export default {
   watch: {
     ready (value) {
       if (value) {
-        // console.log(`map/china/simple [${this.name}] [watch: ready is ${value}]`)
+        // // console.log(`map/china/simple [${this.name}] [watch: ready is ${value}]`)
         this.init()
       }
     },
     size (value) {
-      // console.log(`pie/type1 [${this.name}] [组件尺寸变化 ${value.height}*${value.width}]`)
+      // // console.log(`pie/type1 [${this.name}] [组件尺寸变化 ${value.height}*${value.width}]`)
       if (this.chart === null) {
         return
       }
@@ -105,25 +105,25 @@ export default {
       this.init()
     },
     name (value) {
-      // console.log(`pie/type1 [${this.name}] [name变化 ${this.name}]`)
+      // // console.log(`pie/type1 [${this.name}] [name变化 ${this.name}]`)
       if (this.chart === null) {
         return
       }
       this.refresh()
     },
     data (value, oldValue) {
-      // console.log(`pie/type1 [${this.name}] [检测到了数据更新]`)
+      // // console.log(`pie/type1 [${this.name}] [检测到了数据更新]`)
       this.refresh()
     }
   },
   mounted () {
-    // console.log(`pie/type1 [${this.name}] [mounted]`)
+    // // console.log(`pie/type1 [${this.name}] [mounted]`)
   },
   methods: {
     dispose () {
       // 销毁
       this.chart.dispose()
-      // console.log(`pie/type1 [${this.name}] [实例销毁]`)
+      // // console.log(`pie/type1 [${this.name}] [实例销毁]`)
     },
     init () {
       // 初始化
@@ -132,7 +132,7 @@ export default {
         this.option.title.text = this.name
         this.option.series[0].data = this.data
         this.chart.setOption(this.option)
-        // console.log(`pie/type1 [${this.name}] [图表实例化完毕]`)
+        // // console.log(`pie/type1 [${this.name}] [图表实例化完毕]`)
       })
     },
     refresh () {

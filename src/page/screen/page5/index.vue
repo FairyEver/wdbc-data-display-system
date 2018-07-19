@@ -20,14 +20,18 @@
         <div ref="provinceQuestion" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarRank
             ref="provinceQuestionChart"
-            title-text="各省提问排名">
+            title-text="各省提问排名"
+            :y-axis-data="chartData.question.yAxisData"
+            :series-data="chartData.question.seriesData">
           </ChartBarRank>
         </div>
         <div ref="diseaseType" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarRank
             ref="diseaseTypeChart"
             title-text="疾病类型排名"
-            chart-color="#5ea2db">
+            :y-axis-data="chartData.disease.yAxisData"
+            :series-data="chartData.disease.seriesData"
+            series-color="#5ea2db">
           </ChartBarRank>
         </div>
       </div>
@@ -39,6 +43,7 @@
 import mixin from '../mixin'
 import ChartBarRank from '@/components/Charts/Bar/rank/index.vue'
 import ChartMapStyle5 from '@/components/Charts/Map/Style5/index.vue'
+import chartData from './data.json'
 
 export default {
   mixins: [
@@ -50,6 +55,7 @@ export default {
   },
   data () {
     return {
+      chartData: {},
       useMixinAutoInit: false,
       pieColors: [
         '#E6E09F',
@@ -72,6 +78,9 @@ export default {
       distributingRightPink: 0,
       distributingRightWhite: 0
     }
+  },
+  created () {
+    this.chartData = chartData
   },
   mounted () {
     this.$refs.QuestionAnswerChart.init(this.$refs.QuestionAnswer.offsetHeight, this.$refs.QuestionAnswer.offsetWidth)
