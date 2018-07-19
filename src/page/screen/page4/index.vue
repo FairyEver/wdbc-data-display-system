@@ -8,7 +8,7 @@
     :h-item-l1="280"
     :h-item-r1="280">
 
-    <template slot="title">智慧蛋鸡大数据平台 产蛋鸡数信息</template>
+    <template slot="title">智慧蛋鸡大数据平台 存栏信息</template>
 
     <template slot="l1">
       <bar
@@ -21,7 +21,7 @@
     </template>
     <template slot="l2">
       <pie
-        name="全国产蛋鸡数区间分布"
+        name="全国产蛋鸡数量区间分布"
         :ready="layoutReady"
         :size="offsetSize.l2"
         :data="cunLanFenBu"
@@ -30,7 +30,7 @@
     </template>
     <template slot="l3">
       <pie
-        name="全国品种占比"
+        name="全国产蛋鸡品种占比"
         :ready="layoutReady"
         :size="offsetSize.l3"
         :data="pinZhongZhanBi"
@@ -59,7 +59,7 @@
 
     <template slot="r1">
       <cunlan-info
-        :name="rName + rType + '产蛋鸡数'"
+        :name="rName + rType + '产蛋鸡分布'"
         :ready="layoutReady"
         :size="offsetSize.r1"
         :value="r1Value"
@@ -72,7 +72,7 @@
     </template>
     <template slot="r2">
       <pie
-        :name="rName + '产蛋鸡数区间分布'"
+        :name="rName + '产蛋鸡数量区间分布'"
         :ready="layoutReady"
         :size="offsetSize.r2"
         :data="r2Data"
@@ -81,7 +81,7 @@
     </template>
     <template slot="r3">
       <pie
-        :name="rName + '蛋鸡品种占比'"
+        :name="rName + '产蛋鸡品种占比'"
         :ready="layoutReady"
         :size="offsetSize.r3"
         :data="r3Data"
@@ -121,6 +121,7 @@ export default {
   data () {
     return {
       // 新版数据
+      chanDanHouBei,
       pinZhongChina,
       pinZhongPiece,
       cunLan,
@@ -224,9 +225,7 @@ export default {
     },
     // 地图的标题
     mapTitle () {
-      // let data = this.cunLanInfoChina.filter(e => e.name === this.dataNavActive)[0]
-      // return '全国产蛋鸡数 ' + this.qian(data.cl) + ' 万只'
-      return `产蛋鸡数${chanDanHouBei[this.dataNavActive].cd} 后备鸡数${chanDanHouBei[this.dataNavActive].hb}`
+      return `产蛋鸡数 ${this.chanDanHouBei[this.dataNavActive].cd} 后备鸡数 ${this.chanDanHouBei[this.dataNavActive].hb}`
     },
     rType () {
       // 右侧有所卡片共享的数据分类 比如'红壳蛋鸡'
@@ -327,8 +326,6 @@ export default {
     mapPlayRound () {
       // 地图播放了一遍
       // 代码移植过来的 不需要做什么了
-      // // console.log('地图播放完了一圈')
-      // // console.log('autoPlay = ' + this.autoPlay)
       // if (this.dataNavActive === 'all') {
       //   this.dataNavActive = 'hong'
       //   this.autoPlay = true
@@ -339,7 +336,6 @@ export default {
       //   this.dataNavActive = 'fen'
       //   this.autoPlay = true
       // } else {
-      //   // console.log('跳转页面到page2')
       //   this.$router.push({
       //     name: 'page2',
       //     params: {

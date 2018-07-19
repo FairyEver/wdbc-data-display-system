@@ -3,7 +3,6 @@
 </template>
 
 <script>
-// import echarts from '../../../../plugins/echarts'
 import echarts from '@/components/Charts/echarts.js'
 export default {
   props: {
@@ -19,20 +18,14 @@ export default {
       }
     },
     // 默认向外提交的模拟用户选择了哪个地区 这个地区如果没有 就从数据中取第一个
-    defaultActiveName: { default: '河北' },
+    defaultActiveName: { default: '河北省' },
     // 自动播放相关
     autoPlay: { default: false },
     autoPlayTimeSpace: { default: 3000 },
     // 可以使用的地区 除了这几个地区 其它的都不能点 不能激活
     ableSpace: {
       default: () => {
-        return [
-          '河北',
-          '山东',
-          '辽宁',
-          '江苏',
-          '湖北'
-        ]
+        return [ '河北省', '山东省', '辽宁省', '江苏省', '湖北省' ]
       }
     }
   },
@@ -148,7 +141,6 @@ export default {
   watch: {
     ready (value) {
       if (value) {
-        // console.log(`map/china/simple [${this.name}] [watch: ready is ${value}]`)
         this.init()
       }
     },
@@ -159,16 +151,13 @@ export default {
       if (this.chart === null) {
         return
       }
-      // console.log(`map/china/simple [${this.name}] [组件尺寸变化 ${value.height}*${value.width}]`)
       this.dispose()
       this.init()
     },
     data (value, oldValue) {
-      // console.log(`map/china/simple [${this.name}] [检测到了数据更新]`)
       this.refresh()
     },
     autoPlay (value) {
-      // console.log(`map/china/simple [${this.name}] [监听到了autoPlay变化为${value}]`)
       // 监视这个值实现控制自动播放
       if (value) {
         this.playStart()
@@ -186,9 +175,6 @@ export default {
       }
     }
   },
-  mounted () {
-    // console.log(`map/china/simple [${this.name}] [mounted]`)
-  },
   methods: {
     inArray (arr, obj) {
       // 返回是否在指定的数组中出现
@@ -203,7 +189,6 @@ export default {
     playStart () {
       // 开始自动播放
       if (this.autoPlayTimer === null) {
-        // console.log(`map/china/simple [${this.name}] [playStart]`)
         this.autoPlayTimer = setInterval(() => {
           this.playCount()
         }, this.autoPlayTimeSpace)
@@ -212,7 +197,6 @@ export default {
     playStop () {
       // 停止自动播放
       if (this.autoPlayTimer !== null) {
-        // console.log(`map/china/simple [${this.name}] [playStop]`)
         clearInterval(this.autoPlayTimer)
         // 还原数据
         this.autoPlayTimer = null
@@ -227,8 +211,11 @@ export default {
     playCount () {
       // 自动播放的每一步
       if (this.activeCount >= this.ableSpace.length) {
-        this.playStop()
-        this.$emit('playRound')
+        // this.playStop()
+        // this.$emit('playRound')
+        this.activeCount = 0
+        this.selectedMap = this.ableSpace[this.activeCount]
+        this.activeCount += 1
       } else {
         // 更新激活的区域
         // 在所有的数据中循环
@@ -260,7 +247,6 @@ export default {
     dispose () {
       // 销毁
       this.chart.dispose()
-      // console.log(`map/china/simple [${this.name}] [实例销毁]`)
     },
     init () {
       // 初始化
@@ -283,7 +269,6 @@ export default {
           }
         })
         this.activeMap(this.defaultActiveName)
-        // console.log(`map/china/simple [${this.name}] [图表实例化完毕]`)
       })
     },
     updateOption () {
@@ -298,7 +283,6 @@ export default {
         // 更新设置
         this.updateOption()
         // 重新设置图表
-        // console.log('this.option', this.option)
         this.chart.setOption(this.option)
         this.activeMap(this.selectedMap)
         if (this.autoPlay) {

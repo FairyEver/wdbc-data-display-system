@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import echarts from '../../../../plugins/echarts'
+import echarts from '@/components/Charts/echarts.js'
 export default {
   props: {
     name: { default: '未命名图表' },
@@ -117,7 +117,6 @@ export default {
   watch: {
     ready (value) {
       if (value) {
-        // console.log(`map/china/simple [${this.name}] [watch: ready is ${value}]`)
         this.init()
       }
     },
@@ -146,13 +145,11 @@ export default {
     }
   },
   mounted () {
-    // console.log(`map/china/simple [${this.name}] [mounted]`)
   },
   methods: {
     dispose () {
       // 销毁
       this.chart.dispose()
-      // console.log(`map/china/simple [${this.name}] [实例销毁]`)
     },
     init () {
       // 初始化
@@ -162,7 +159,6 @@ export default {
         this.updateOption()
         // 重新设置图表
         this.chart.setOption(this.option)
-        // console.log(`map/china/simple [${this.name}] [图表实例化完毕]`)
       })
     },
     updateOption () {

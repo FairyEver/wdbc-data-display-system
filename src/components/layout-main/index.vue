@@ -31,7 +31,7 @@ export default {
   data () {
     return {
       routerSetting,
-      dashboard: true
+      dashboard: false
     }
   },
   computed: {

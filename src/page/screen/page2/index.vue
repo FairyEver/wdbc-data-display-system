@@ -210,7 +210,7 @@ export default {
   },
   methods: {
     async init2 () {
-      this.applog = '养殖户数：74488'
+      this.applog = 'APP注册数: 90926  养殖户数: 74488'
       // 初始化图表
       this.init()
         .then(async () => {
@@ -247,7 +247,6 @@ export default {
     },
     // 中间的地图加载完了数据
     async handleMapInitDone () {
-      console.log('handleMapInitDone')
       // 获取全国的地区
       this.allCollectionPoint = await this.getCountryAllCollectionPoint()
       // 启动轮播队列

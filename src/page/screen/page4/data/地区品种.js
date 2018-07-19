@@ -6,7 +6,7 @@ let r = () => Math.round(Math.random() * 1234)
 
 export default [
   {
-    name: '山东',
+    name: '山东省',
     value: [
       {"name":"烟台市","hong":"89.3 ","fen":"1.2 ","bai":"0.0 ","all":"90.5 "},
       {"name":"临沂市","hong":"206.3 ","fen":"34.1 ","bai":"0.5 ","all":"241.0 "},
@@ -28,7 +28,7 @@ export default [
     ]
   },
   {
-    name: '江苏',
+    name: '江苏省',
     value: [
       {"name":"盐城市","hong":"497.6 ","fen":"21.8 ","bai":"0.0 ","all":"519.3 "},
       {"name":"徐州市","hong":"188.5 ","fen":"12.3 ","bai":"0.0 ","all":"200.8 "},
@@ -46,7 +46,7 @@ export default [
     ]
   },
   {
-    name: '河北',
+    name: '河北省',
     value: [
       {"name":"承德市","hong":"64.4 ","fen":"0.0 ","bai":"0.0 ","all":"64.4 "},
       {"name":"张家口市","hong":"259.4 ","fen":"0.0 ","bai":"1.3 ","all":"260.8 "},
@@ -62,7 +62,7 @@ export default [
     ]
   },
   {
-    name: '湖北',
+    name: '湖北省',
     value: [
       {"name":"恩施土家族苗族自治州","hong":"0.0 ","fen":"0.0 ","bai":"0.0 ","all":"0.0 "},
       {"name":"十堰市","hong":"0.0 ","fen":"0.5 ","bai":"0.0 ","all":"0.5 "},
@@ -84,7 +84,7 @@ export default [
     ]
   },
   {
-    name: '辽宁',
+    name: '辽宁省',
     value: [
       {"name":"大连市","hong":"183.4 ","fen":"0.0 ","bai":"0.0 ","all":"183.4 "},
       {"name":"朝阳市","hong":"194.9 ","fen":"1.6 ","bai":"0.5 ","all":"197.0 "},
