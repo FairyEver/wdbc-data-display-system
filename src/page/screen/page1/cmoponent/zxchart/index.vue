@@ -10,73 +10,129 @@ export default {
       echarts,
       option: {
         title: {
-          text: '玉米',
+          text: '全国价格信息',
           textStyle: {
-            color: ['red']
+            color: ['#ffffff'],
+            fontSize: 30
           },
-          left: 'center'
+          y: 0,
+          x: 10
         },
         tooltip: {
           show: true,
           trigger: 'axis',
-          backgroundColor: ['skyblue'],
+          backgroundColor: ['#ffffff'],
           textStyle: {
             color: ['#003']
           }
         },
-        legend: {
-          data: ['销量']
+        grid: {
+          left: '2%',
+          right: '5%',
+          bottom: '10%',
+          containLabel: true
         },
-        dataZoom: [{
-          show: true,
-          realtime: true,
-          start: 20,
-          end: 80
-        }, {
-          type: 'inside',
-          realtime: true,
-          start: 20,
-          end: 80
-        }],
+        legend: {
+          data: ['白壳鸡蛋', '红壳鸡蛋', '粉壳鸡蛋', '玉米', '豆粕43', '淘汰鸡'],
+          textStyle: {
+            color: ['#ffffff'],
+            fontSize: 20
+          }
+        },
+        dataZoom: [
+          {
+            show: true,
+            realtime: true,
+            start: 20,
+            end: 80,
+            handleColor: 'yellow'
+          },
+          {
+            type: 'inside',
+            realtime: true,
+            start: 20,
+            end: 80
+          }
+        ],
         xAxis: {
-          data: ['0', '1', '2', '3', '4', '5'],
-          boundaryGap: false
+          data: [
+            '2017年7月',
+            '2017年8月',
+            '2017年9月',
+            '2017年10月',
+            '2017年11月',
+            '2017年12月',
+            '2018年1月',
+            '2018年2月',
+            '2018年3月',
+            '2018年4月',
+            '2018年5月',
+            '2018年6月',
+            '2018年7月'
+          ],
+          boundaryGap: false,
+          axisLine: {
+            lineStyle: {
+              color: '#ffffff'
+            }
+          },
+          axisLabel: {
+            show: true,
+            textStyle: {
+              color: '#fff',
+              fontSize: 16
+            }
+          }
         },
         yAxis: {
-
+          axisLine: {
+            lineStyle: {
+              color: '#ffffff'
+            }
+          },
+          axisLabel: {
+            show: true,
+            textStyle: {
+              color: '#fff',
+              fontSize: 16
+            }
+          }
         },
         series: [
           {
-            name: '折线A',
+            name: '白壳鸡蛋',
             type: 'line',
-            data: [5, 20, 36, 10, 10, 20],
-            showSymbol: false,
-            markLine: { // 设置警戒线（图表标线）
-              silent: true, // 图形是否不响应和触发鼠标事件
-              lineStyle: {
-                normal: {
-                  type: 'solid'
-                }
-              },
-              data: []
-            }
-          },
-          {
-            name: '折线B',
-            type: 'line',
-            data: [15, 22, 10, 30, 20, 40],
+            data: [3.1, 5, 7, 4.3, 4.26, 4.35, 4.33, 4.4, 3.55, 3.6, 3.4, 3.4, 3.5],
             showSymbol: false
           },
           {
-            name: '折线C',
+            name: '红壳鸡蛋',
             type: 'line',
-            data: [21, 14, 16, 21, 12, 16],
+            data: [5.8, 5.5, 6.5, 4.5, 4.75, 5.1, 5, 5.03, 4.25, 4.25, 4.3, 4.3, 4.05],
             showSymbol: false
           },
           {
-            name: '折线D',
+            name: '粉壳鸡蛋',
             type: 'line',
-            data: [25, 8, 12, 30, 26, 22],
+            data: [4.5, 6.5, 7, 5.8, 6, 6.5, 6.5, 6.6, 6.2, 5.2, 4.8, 4.8, 4.8],
+            showSymbol: false
+          },
+          {
+            name: '玉米',
+            type: 'line',
+            data: [2920, 3450, 3400, 2980, 2220, 2180, 2360, 2300, 2400, 2450, 3380, 2400, 2400],
+            showSymbol: false
+          },
+          {
+            name: '豆粕43',
+            type: 'line',
+            data: [3660, 3560, 4200, 4050, 3850, 3850, 3830, 3780, 3950, 4150, 3960, 3900, 3900],
+            showSymbol: false
+          },
+          {
+            name: '淘汰鸡',
+            type: 'line',
+            data: [6, 7.5, 8, 7.2, 7.2, 7.3, 6.8, 5.5, 5.8, 6, 6, 6.65, 5.8],
             showSymbol: false
           }
         ]
@@ -86,6 +142,31 @@ export default {
   mounted () {
     this.chart = this.echarts.init(this.$refs.chart)
     this.chart.setOption(this.option)
+
+    let arr = [
+      ['日期', '白壳鸡蛋', '红壳鸡蛋', '粉壳鸡蛋', '玉米', '豆粕43', '淘汰鸡'],
+      ['2017年7月', '3.1', '5.8', '4.5', '2920', '3660', '6'],
+      ['2017年8月', '5', '5.5', '6.5', '3450', '3560', '7.5'],
+      ['2017年9月', '7', '6.5', '7', '3400', '4200', '8'],
+      ['2017年10月', '4.3', '4.5', '5.8', '2980', '4050', '7.2'],
+      ['2017年11月', '4.26', '4.75', '6', '2220', '3850', '7.2'],
+      ['2017年12月', '4.35', '5.1', '6.5', '2180', '3850', '7.3'],
+      ['2018年1月', '4.33', '5', '6.5', '2360', '3830', '6.8'],
+      ['2018年2月', '4.4', '5.03', '6.6', '2300', '3780', '5.5'],
+      ['2018年3月', '3.55', '4.25', '6.2', '2400', '3950', '5.8'],
+      ['2018年4月', '3.6', '4.25', '5.2', '2450', '4150', '6'],
+      ['2018年5月', '3.4', '4.3', '4.8', '3380', '3960', '6'],
+      ['2018年6月', '3.4', '4.3', '4.8', '2400', '3900', '6.65'],
+      ['2018年7月', '3.5', '4.05', '4.8', '2400', '3900', '5.8']
+    ]
+    let obj = {}
+    arr[0].forEach((e, i) => {
+      obj[e] = []
+      for (let index = 1; index < arr.length; index++) {
+        obj[e].push(Number(arr[index][i]))
+      }
+    })
+    console.log(obj)
   }
 }
 </script>
