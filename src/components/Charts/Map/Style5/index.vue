@@ -47,7 +47,7 @@ export default {
           type: 'continuous',
           show: true,
           min: 0,
-          max: 12443,
+          max: 1000,
           itemWidth: 8,
           itemHeight: 50,
           color: ['#1EB2BD', '#134C55'],
@@ -102,128 +102,120 @@ export default {
             },
             data: [
               {
-                name: '香港特别行政区',
+                name: '广东省',
                 value: '2'
               },
               {
-                name: '青海省',
-                value: '9'
-              },
-              {
-                name: '海南省',
-                value: '15'
+                name: '广西省',
+                value: '2'
               },
               {
                 name: '上海市',
-                value: '47'
-              },
-              {
-                name: '广西壮族自治区',
-                value: '98'
-              },
-              {
-                name: '广东省',
-                value: '271'
+                value: '7'
               },
               {
                 name: '贵州省',
-                value: '302'
-              },
-              {
-                name: '宁夏回族自治区',
-                value: '322'
-              },
-              {
-                name: '福建省',
-                value: '337'
-              },
-              {
-                name: '天津市',
-                value: '384'
-              },
-              {
-                name: '重庆市',
-                value: '388'
-              },
-              {
-                name: '浙江省',
-                value: '532'
-              },
-              {
-                name: '北京市',
-                value: '618'
+                value: '14'
               },
               {
                 name: '四川省',
-                value: '668'
+                value: '20'
               },
               {
-                name: '江西省',
-                value: '1008'
+                name: '重庆市',
+                value: '23'
               },
               {
-                name: '新疆维吾尔自治区',
-                value: '1065'
+                name: '北京市',
+                value: '29'
               },
               {
-                name: '甘肃省',
-                value: '1077'
-              },
-              {
-                name: '黑龙江省',
-                value: '1110'
+                name: '宁夏回族自治区',
+                value: '29'
               },
               {
                 name: '湖南省',
-                value: '1398'
+                value: '30'
+              },
+              {
+                name: '浙江省',
+                value: '37'
+              },
+              {
+                name: '福建省',
+                value: '40'
+              },
+              {
+                name: '天津市',
+                value: '40'
+              },
+              {
+                name: '江西省',
+                value: '58'
+              },
+              {
+                name: '海南省',
+                value: '59'
+              },
+              {
+                name: '甘肃省',
+                value: '61'
               },
               {
                 name: '吉林省',
-                value: '1407'
+                value: '84'
               },
               {
-                name: '内蒙古自治区',
-                value: '1467'
-              },
-              {
-                name: '云南省',
-                value: '1632'
-              },
-              {
-                name: '陕西省',
-                value: '1983'
-              },
-              {
-                name: '山西省',
-                value: '2507'
-              },
-              {
-                name: '辽宁省',
-                value: '3025'
-              },
-              {
-                name: '安徽省',
-                value: '3182'
-              },
-              {
-                name: '湖北省',
-                value: '4996'
+                name: '黑龙江省',
+                value: '88'
               },
               {
                 name: '江苏省',
-                value: '5059'
+                value: '161'
               },
               {
-                name: '山东省',
-                value: '8897'
+                name: '辽宁省',
+                value: '162'
+              },
+              {
+                name: '陕西省',
+                value: '173'
+              },
+              {
+                name: '内蒙古自治区',
+                value: '176'
+              },
+              {
+                name: '云南省',
+                value: '181'
+              },
+              {
+                name: '安徽省',
+                value: '202'
+              },
+              {
+                name: '新疆维吾尔自治区',
+                value: '214'
+              },
+              {
+                name: '山西省',
+                value: '270'
+              },
+              {
+                name: '湖北省',
+                value: '322'
               },
               {
                 name: '河南省',
-                value: '9452'
+                value: '416'
+              },
+              {
+                name: '山东省',
+                value: '585'
               },
               {
                 name: '河北省',
-                value: '12443'
+                value: '1533'
               }
             ]
           }

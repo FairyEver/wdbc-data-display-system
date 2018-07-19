@@ -81,7 +81,6 @@ export default {
   },
   created () {
     this.chartData = chartData
-    console.log(this.chartData)
   },
   mounted () {
     this.$refs.QuestionAnswerChart.init(this.$refs.QuestionAnswer.offsetHeight, this.$refs.QuestionAnswer.offsetWidth)
