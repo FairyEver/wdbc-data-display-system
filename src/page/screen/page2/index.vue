@@ -247,7 +247,6 @@ export default {
     },
     // 中间的地图加载完了数据
     async handleMapInitDone () {
-      console.log('handleMapInitDone')
       // 获取全国的地区
       this.allCollectionPoint = await this.getCountryAllCollectionPoint()
       // 启动轮播队列

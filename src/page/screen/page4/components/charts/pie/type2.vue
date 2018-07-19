@@ -107,7 +107,6 @@ export default {
   },
   watch: {
     size (value) {
-      // console.log(`pie/type2 [${this.name}] [组件尺寸变化 ${value.height}*${value.width}]`)
       if (this.chart === null) {
         return
       }
@@ -115,19 +114,16 @@ export default {
       this.init()
     },
     data (value, oldValue) {
-      // console.log(`pie/type2 [${this.name}] [检测到了数据更新]`)
       this.refresh()
     }
   },
   mounted () {
-    // console.log(`pie/type2 [${this.name}] [mounted]`)
     this.init()
   },
   methods: {
     dispose () {
       // 销毁
       this.chart.dispose()
-      // console.log(`pie/type2 [${this.name}] [实例销毁]`)
     },
     init () {
       // 初始化
@@ -135,7 +131,6 @@ export default {
         this.chart = echarts.init(this.$refs.chart)
         this.refreshOption()
         this.chart.setOption(this.option)
-        // console.log(`pie/type2 [${this.name}] [图表实例化完毕]`)
       })
     },
     refresh () {

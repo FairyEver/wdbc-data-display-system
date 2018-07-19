@@ -144,9 +144,7 @@ export default {
       this.updateSize(height, width)
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
-          console.log('1')
           this.chart.setOption(await this.optionMaker())
-          console.log('2')
           // 告诉外面 数据加载完了
           this.$emit('initDone')
           if (this.interval) {

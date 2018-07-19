@@ -200,7 +200,6 @@ export default {
     },
     // 新的一圈
     newRound () {
-      console.log('newRound')
     }
   }
 }

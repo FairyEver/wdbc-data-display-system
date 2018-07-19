@@ -81,18 +81,7 @@ export default {
     }
   },
   computed: {
-    // titleStyle () {
-    //   // 顶部标题栏的样式
-    //   return {
-    //     height: this.heightTitle + 'px',
-    //     backgroundColor: '#171F29',
-    //     color: '#31AF8B',
-    //     lineHeight: this.heightTitle + 'px',
-    //     fontSize: '30px'
-    //   }
-    // },
     logoStyle () {
-      // logo容器的样式
       return {
         height: this.heightTitle + 'px'
       }
