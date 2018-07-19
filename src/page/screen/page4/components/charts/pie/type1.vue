@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import echarts from '../../../plugins/echarts'
+import echarts from '@/components/Charts/echarts.js'
 export default {
   props: {
     name: { default: '未命名图表' },

@@ -321,7 +321,7 @@ export default {
       },
       "properties": {
         "cp": [91.132212, 29.660361],
-        "name": "自藏自治区",
+        "name": "西藏自治区",
         "childNum": 1
       }
     },

@@ -178,16 +178,16 @@ export default {
     mapType () {
       // 地图区域
       switch (this.province) {
-        case '山东':
-          return 'shandong'
-        case '江苏':
-          return 'jiangsu'
-        case '河北':
-          return 'hebei'
-        case '湖北':
-          return 'hubei'
-        case '辽宁':
-          return 'liaoning'
+        case '山东省':
+          return '山东省'
+        case '江苏省':
+          return '江苏省'
+        case '河北省':
+          return '河北省'
+        case '湖北省':
+          return '湖北省'
+        case '辽宁省':
+          return '辽宁省'
         default:
           return null
       }

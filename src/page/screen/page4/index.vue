@@ -121,6 +121,7 @@ export default {
   data () {
     return {
       // 新版数据
+      chanDanHouBei,
       pinZhongChina,
       pinZhongPiece,
       cunLan,
@@ -224,9 +225,7 @@ export default {
     },
     // 地图的标题
     mapTitle () {
-      // let data = this.cunLanInfoChina.filter(e => e.name === this.dataNavActive)[0]
-      // return '全国产蛋鸡数 ' + this.qian(data.cl) + ' 万只'
-      return `产蛋鸡数${chanDanHouBei[this.dataNavActive].cd} 后备鸡数${chanDanHouBei[this.dataNavActive].hb}`
+      return `产蛋鸡数${this.chanDanHouBei[this.dataNavActive].cd} 后备鸡数${this.chanDanHouBei[this.dataNavActive].hb}`
     },
     rType () {
       // 右侧有所卡片共享的数据分类 比如'红壳蛋鸡'
@@ -296,6 +295,9 @@ export default {
     refreshR1Data (value) {
       // 更新r1相关的数据
       let r1Data = this.cunLanInfoPiece.filter(e => (e.name === this.rName) && (e.type === this.dataNavActive))
+      console.log('this.rName', this.rName)
+      console.log('value', value)
+      console.log('r1Data', r1Data)
       this.r1Value = value
       this.r1Info = {
         cd: r1Data[0].cd,
@@ -304,6 +306,7 @@ export default {
       }
     },
     mapClick (params) {
+      console.log('params', params)
       // 更新地图下面的数据
       if (params.data) {
         let data = params.data

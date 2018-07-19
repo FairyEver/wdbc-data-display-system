@@ -4,7 +4,7 @@
 
 <script>
 // 这个组件不单独使用，只是生成一个小饼图
-import echarts from '../../../plugins/echarts'
+import echarts from '@/components/Charts/echarts.js'
 export default {
   props: {
     name: { default: '未命名图表' },

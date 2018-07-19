@@ -5,6 +5,7 @@
 <script>
 // import echarts from '../../../../plugins/echarts'
 import echarts from '@/components/Charts/echarts.js'
+// import echarts from 'echarts'
 export default {
   props: {
     name: { default: '未命名图表' },
@@ -19,7 +20,7 @@ export default {
       }
     },
     // 默认向外提交的模拟用户选择了哪个地区 这个地区如果没有 就从数据中取第一个
-    defaultActiveName: { default: '河北' },
+    defaultActiveName: { default: '河北省' },
     // 自动播放相关
     autoPlay: { default: false },
     autoPlayTimeSpace: { default: 3000 },
@@ -27,11 +28,11 @@ export default {
     ableSpace: {
       default: () => {
         return [
-          '河北',
-          '山东',
-          '辽宁',
-          '江苏',
-          '湖北'
+          '河北省',
+          '山东省',
+          '辽宁省',
+          '江苏省',
+          '湖北省'
         ]
       }
     }
@@ -164,7 +165,8 @@ export default {
       this.init()
     },
     data (value, oldValue) {
-      // console.log(`map/china/simple [${this.name}] [检测到了数据更新]`)
+      console.log(`map/china/simple [${this.name}] [检测到了数据更新]`)
+      console.log('value', value)
       this.refresh()
     },
     autoPlay (value) {
