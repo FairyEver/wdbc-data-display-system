@@ -8,11 +8,11 @@
     :h-item-l1="280"
     :h-item-r1="280">
 
-    <template slot="title">智慧蛋鸡行业大数据展示</template>
+    <template slot="title">智慧蛋鸡大数据平台 产蛋鸡数信息</template>
 
     <template slot="l1">
       <bar
-        name="全国存栏量"
+        name="全国产蛋鸡数量"
         :ready="layoutReady"
         :size="offsetSize.l1"
         :data="dataTop10"
@@ -21,7 +21,7 @@
     </template>
     <template slot="l2">
       <pie
-        name="全国存栏区间分布"
+        name="全国产蛋鸡数区间分布"
         :ready="layoutReady"
         :size="offsetSize.l2"
         :data="cunLanFenBu"
@@ -59,7 +59,7 @@
 
     <template slot="r1">
       <cunlan-info
-        :name="rName + rType + '存栏'"
+        :name="rName + rType + '产蛋鸡数'"
         :ready="layoutReady"
         :size="offsetSize.r1"
         :value="r1Value"
@@ -72,7 +72,7 @@
     </template>
     <template slot="r2">
       <pie
-        :name="rName + '存栏区间分布'"
+        :name="rName + '产蛋鸡数区间分布'"
         :ready="layoutReady"
         :size="offsetSize.r2"
         :data="r2Data"
@@ -102,11 +102,12 @@ import pie from './components/charts/pie/type1'
 import cunlanInfo from './components/component/cunlan/cunlan'
 
 // 下面是新的数据
-import pinZhongChina from './data/new/page1/全国品种.js'
-import pinZhongPiece from './data/new/page1/地区品种.js'
-import cunLan from './data/new/page1/全国存栏区间.js'
-import cunLanInfoChina from './data/new/page1/每种存栏的四项数据_全国.js'
-import cunLanInfoPiece from './data/new/page1/每种存栏的四项数据_地区.js'
+import chanDanHouBei from './data/产蛋鸡数和后备鸡数'
+import pinZhongChina from './data/全国品种.js'
+import pinZhongPiece from './data/地区品种.js'
+import cunLan from './data/全国存栏区间.js'
+import cunLanInfoChina from './data/每种存栏的四项数据_全国.js'
+import cunLanInfoPiece from './data/每种存栏的四项数据_地区.js'
 
 export default {
   components: {
@@ -133,7 +134,7 @@ export default {
       // 颜色设置
       colorTitle: '#55EDDC',
       nav: [
-        { label: '蛋鸡存栏', value: 'page1' },
+        { label: '蛋鸡产蛋鸡数', value: 'page1' },
         { label: '养殖户分布', value: 'page2' },
         { label: '行情数据', value: 'page3' }
       ],
@@ -171,7 +172,7 @@ export default {
       ]
     },
     cunLanFenBu () {
-      // 全国存栏区间分布
+      // 全国产蛋鸡数区间分布
       let builder = (name) => {
         let temp = 0
         this.cunLan.forEach(e => { temp += Number(e[name]) })
@@ -223,8 +224,9 @@ export default {
     },
     // 地图的标题
     mapTitle () {
-      let data = this.cunLanInfoChina.filter(e => e.name === this.dataNavActive)[0]
-      return '全国存栏 ' + this.qian(data.cl) + ' 万只'
+      // let data = this.cunLanInfoChina.filter(e => e.name === this.dataNavActive)[0]
+      // return '全国产蛋鸡数 ' + this.qian(data.cl) + ' 万只'
+      return `产蛋鸡数${chanDanHouBei[this.dataNavActive].cd} 后备鸡数${chanDanHouBei[this.dataNavActive].hb}`
     },
     rType () {
       // 右侧有所卡片共享的数据分类 比如'红壳蛋鸡'
@@ -242,7 +244,7 @@ export default {
       }
     },
     r2Data () {
-      // r2数据 地区的存栏区间
+      // r2数据 地区的产蛋鸡数区间
       let data = cunLan.filter(e => e.name === this.rName)
       if (data.length > 0) {
         return [
