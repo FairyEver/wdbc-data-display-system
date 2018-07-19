@@ -1,6 +1,7 @@
 <template>
   <div :style="style" class="body">
-    <div class="title" :style="styleColor">{{name}} {{value}}{{dw}}</div>
+    <!-- <div class="title" :style="styleColor">{{name}} {{value}}{{dw}}</div> -->
+    <div class="title" :style="styleColor">{{name}}</div>
     <div class="content">
       <div class="info" v-if="type === 1">
         <!-- 数字信息 -->

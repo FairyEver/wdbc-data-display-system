@@ -1,18 +1,18 @@
 export default {
   all: {
-    cd: 1,
-    hb: 11
+    cd: 55106,
+    hb: 3245
   },
   hong: {
-    cd: 2,
-    hb: 22
+    cd: 38089,
+    hb: 2243
   },
   bai: {
-    cd: 3,
-    hb: 33
+    cd: 1422,
+    hb: 83
   },
   fen: {
-    cd: 4,
-    hb: 44
+    cd: 15596,
+    hb: 918
   }
 }

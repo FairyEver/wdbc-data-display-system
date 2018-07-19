@@ -8,7 +8,7 @@
     :h-item-l1="280"
     :h-item-r1="280">
 
-    <template slot="title">智慧蛋鸡大数据平台 产蛋鸡数信息</template>
+    <template slot="title">智慧蛋鸡大数据平台 存栏信息</template>
 
     <template slot="l1">
       <bar
@@ -21,7 +21,7 @@
     </template>
     <template slot="l2">
       <pie
-        name="全国产蛋鸡数区间分布"
+        name="全国产蛋鸡数量区间分布"
         :ready="layoutReady"
         :size="offsetSize.l2"
         :data="cunLanFenBu"
@@ -30,7 +30,7 @@
     </template>
     <template slot="l3">
       <pie
-        name="全国品种占比"
+        name="全国产蛋鸡品种占比"
         :ready="layoutReady"
         :size="offsetSize.l3"
         :data="pinZhongZhanBi"
@@ -59,7 +59,7 @@
 
     <template slot="r1">
       <cunlan-info
-        :name="rName + rType + '产蛋鸡数'"
+        :name="rName + rType + '产蛋鸡分布'"
         :ready="layoutReady"
         :size="offsetSize.r1"
         :value="r1Value"
@@ -72,7 +72,7 @@
     </template>
     <template slot="r2">
       <pie
-        :name="rName + '产蛋鸡数区间分布'"
+        :name="rName + '产蛋鸡数量区间分布'"
         :ready="layoutReady"
         :size="offsetSize.r2"
         :data="r2Data"
@@ -81,7 +81,7 @@
     </template>
     <template slot="r3">
       <pie
-        :name="rName + '蛋鸡品种占比'"
+        :name="rName + '产蛋鸡品种占比'"
         :ready="layoutReady"
         :size="offsetSize.r3"
         :data="r3Data"
@@ -225,7 +225,7 @@ export default {
     },
     // 地图的标题
     mapTitle () {
-      return `产蛋鸡数${this.chanDanHouBei[this.dataNavActive].cd} 后备鸡数${this.chanDanHouBei[this.dataNavActive].hb}`
+      return `产蛋鸡数 ${this.chanDanHouBei[this.dataNavActive].cd} 后备鸡数 ${this.chanDanHouBei[this.dataNavActive].hb}`
     },
     rType () {
       // 右侧有所卡片共享的数据分类 比如'红壳蛋鸡'
