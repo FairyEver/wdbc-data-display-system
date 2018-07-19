@@ -205,7 +205,7 @@ export default {
     },
     minnum (data = []) {
       let min = data.sort((a, b) => a - b)[0]
-      min > 1000 ? min = 2000 : min = Math.floor(min - 2)
+      min > 1000 ? min = 2000 : min = Math.floor(min)
       return min
     }
   }
