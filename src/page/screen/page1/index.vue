@@ -72,7 +72,7 @@
           <div ref="box-line-base-plus-1-g" class="flex-item grow" @click="modalshow">
             <ChartLineBasePlus
               ref="box-line-base-plus-1-g-c"
-              title-text="全国价格信息"
+              :title-text="`全国${activeQuotationTypeNameL}价格信息`"
               :url="`${$root.host}/api/getProductPrice`"
               :series-color="$color.cyan"
               :series-label-text-color="$color.bg"
@@ -251,6 +251,10 @@ export default {
     },
     activeQuotationTypeName () {
       const option = this.optionsR.find(e => e.value === this.activeQuotationType)
+      return option ? option.name : ''
+    },
+    activeQuotationTypeNameL () {
+      const option = this.optionsL.find(e => e.value - 1 === this.activeL)
       return option ? option.name : ''
     }
   },

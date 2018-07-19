@@ -94,8 +94,8 @@ export default {
               color: this.yAxisSplitLineColor
             }
           },
-          min: function(v) {
-            return Math.floor(v.min * 2 - v.max);
+          min: function (v) {
+            return Math.floor(v.min * 2 - v.max)
           }
         },
         series: [
