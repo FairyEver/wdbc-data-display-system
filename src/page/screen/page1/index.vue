@@ -197,7 +197,7 @@
         </div>
       </div>
     </div>
-    <sweet-modal ref="modal" width="864px">
+    <sweet-modal ref="modal" width="1564px">
       <div class="modal-chart" :style="styles">
         <zxchart :styles="styles"></zxchart>
       </div>
@@ -233,8 +233,8 @@ export default {
       activeQuotationType: 0,
       // App 注册数
       styles: {
-        height: '500px',
-        width: '800px'
+        height: '800px',
+        width: '1500px'
       },
       applog: ''
     }
@@ -265,7 +265,7 @@ export default {
       this.allPoint = await this.getAllCollectionPoint()
       // 更新 optionsR
       await this.updateOptionsR()
-      this.applog = 'App注册数：3000万'
+      this.applog = 'App注册数：90926'
       // 初始化图表
       this.init()
         .then(() => {
