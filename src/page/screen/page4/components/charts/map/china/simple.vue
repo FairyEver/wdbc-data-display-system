@@ -3,9 +3,7 @@
 </template>
 
 <script>
-// import echarts from '../../../../plugins/echarts'
 import echarts from '@/components/Charts/echarts.js'
-// import echarts from 'echarts'
 export default {
   props: {
     name: { default: '未命名图表' },
@@ -183,8 +181,6 @@ export default {
       }
     }
   },
-  mounted () {
-  },
   methods: {
     inArray (arr, obj) {
       // 返回是否在指定的数组中出现
@@ -221,8 +217,11 @@ export default {
     playCount () {
       // 自动播放的每一步
       if (this.activeCount >= this.ableSpace.length) {
-        this.playStop()
-        this.$emit('playRound')
+        // this.playStop()
+        // this.$emit('playRound')
+        this.activeCount = 0
+        this.selectedMap = this.ableSpace[this.activeCount]
+        this.activeCount += 1
       } else {
         // 更新激活的区域
         // 在所有的数据中循环

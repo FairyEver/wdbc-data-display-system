@@ -4,7 +4,6 @@
 
 <script>
 import echarts from '@/components/Charts/echarts.js'
-// import echarts from 'echarts'
 export default {
   props: {
     name: { default: '未命名图表' },
