@@ -11,6 +11,7 @@ export default {
   props: {
     // 标题
     titleText: {type: String, required: false, default: 'Chart'},
+    subText: {type: String, required: false, default: ''},
     titleColor: {type: String, required: false, default: '#FFF'},
     titleSize: {type: String, required: false, default: '18'}
   },
@@ -32,12 +33,18 @@ export default {
     option () {
       return {
         title: {
-          text: this.titleText,
+          text: `${this.titleText}\n\n`,
+          subtext: this.subText,
           top: '10',
           left: 'center',
           textStyle: {
             color: this.titleColor,
-            fontSize: this.titleSize
+            fontSize: this.titleSize,
+            height: 500
+          },
+          subtextStyle: {
+            fontSize: 20,
+            color: '#FED628'
           }
         },
         tooltip: {
