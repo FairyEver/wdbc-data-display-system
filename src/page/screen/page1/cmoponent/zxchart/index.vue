@@ -199,8 +199,14 @@ export default {
       for (let attr in this.option) {
         option[attr] = this.option[attr]
       }
+      this.option.yAxis.min = this.minnum(series[0].data)
       option.series = series
       this.chart.setOption(option)
+    },
+    minnum (data = []) {
+      let min = data.sort((a, b) => a - b)[0]
+      min > 1000 ? min = 2000 : min = Math.floor(min - 2)
+      return min
     }
   }
 }
