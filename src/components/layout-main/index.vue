@@ -7,7 +7,13 @@
     </div>
     <div v-if="dashboard" class="layout-main__dashboard">
       <div>
-        <router-link class="link" v-for="(link, index) in links" :key="index" :to="{name: link.name}">{{link.title}}</router-link>
+        <router-link
+          class="link"
+          v-for="(link, index) in links"
+          :key="index"
+          :to="{name: link.name}">
+          {{link.title}}
+        </router-link>
       </div>
     </div>
     <div v-if="!dashboard" class="layout-main__dashboard-btn" @click="dashboard = true">

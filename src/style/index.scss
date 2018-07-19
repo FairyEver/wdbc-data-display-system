@@ -122,6 +122,10 @@ html, body {
           font-size: 12px;
           text-decoration: none;
           margin-right: 10px;
+          opacity: .5;
+          &.router-link-active {
+            opacity: 1;
+          }
         }
         .btn {
           color: $colorBg;
