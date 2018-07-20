@@ -225,7 +225,7 @@ export default {
     },
     // 地图的标题
     mapTitle () {
-      return `产蛋鸡数 ${this.chanDanHouBei[this.dataNavActive].cd} 后备鸡数 ${this.chanDanHouBei[this.dataNavActive].hb}`
+      return `产蛋鸡数 ${this.chanDanHouBei[this.dataNavActive].cd}万只  后备鸡数 ${this.chanDanHouBei[this.dataNavActive].hb}万只`
     },
     rType () {
       // 右侧有所卡片共享的数据分类 比如'红壳蛋鸡'

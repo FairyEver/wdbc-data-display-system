@@ -204,7 +204,8 @@ export default {
       this.chart.setOption(option)
     },
     minnum (data = []) {
-      let min = data.sort((a, b) => a - b)[0]
+      const _data = [...data]
+      let min = _data.sort((a, b) => a - b)[0]
       min > 1000 ? min = 2000 : min = Math.floor(min)
       return min
     }
