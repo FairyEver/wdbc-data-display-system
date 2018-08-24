@@ -48,7 +48,7 @@ export default {
           {
             name: '占比',
             type: 'pie',
-            center: ['50%', '55%'],
+            center: ['50%', '65%'],
             radius: ['25%', '50%'],
             avoidLabelOverlap: true,
             itemStyle: {

@@ -180,11 +180,11 @@ export default {
         return temp
       }
       return [
-        { name: '＜1000', value: builder('1000') },
-        { name: '1000-3000', value: builder('1000-3000') },
-        { name: '3000-5000', value: builder('3000-5000') },
+        { name: '＜5000', value: builder('5000') },
         { name: '5000-10000', value: builder('5000-10000') },
-        { name: '>10000', value: builder('10000') }
+        { name: '10000-50000', value: builder('10000-50000') },
+        { name: '50000-10万', value: builder('50000-100000') },
+        { name: '>10万', value: builder('100000') }
       ]
     },
     dataTop10 () {
@@ -247,11 +247,11 @@ export default {
       let data = cunLan.filter(e => e.name === this.rName)
       if (data.length > 0) {
         return [
-          {name: '＜1000', value: data[0]['1000']},
-          {name: '1000-3000', value: data[0]['1000-3000']},
-          {name: '3000-5000', value: data[0]['3000-5000']},
+          {name: '＜5000', value: data[0]['5000']},
           {name: '5000-10000', value: data[0]['5000-10000']},
-          {name: '>10000', value: data[0]['10000']}
+          {name: '10000-50000', value: data[0]['10000-50000']},
+          {name: '50000-10万', value: data[0]['50000-100000']},
+          {name: '>10万', value: data[0]['100000']}
         ]
       } else {
         return []
