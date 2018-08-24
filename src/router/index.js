@@ -89,6 +89,12 @@ export default new Router({
           path: 'screen/page5',
           name: 'screen-page5',
           component: resolve => { require(['@/page/screen/page5'], resolve) }
+        },
+        {
+          title: '电商交易',
+          path: 'screen/page6',
+          name: 'screen-page6',
+          component: resolve => { require(['@/page/screen/page6'], resolve) }
         }
       ]
     }
