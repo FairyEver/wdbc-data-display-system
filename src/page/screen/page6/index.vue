@@ -7,20 +7,20 @@
     <div class="flex-item grow flex-group row" style="padding: 5px; margin-top: -10px;">
       <!-- 左侧 -->
       <div class="flex-item flex-group col" style="width: 25%;">
-        <!-- 三大指数 -->
-        <div class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px;">
-          今日全国行情指数
-        </div>
         <!-- 全国指数 -->
         <div ref="box-bar-stack2-1-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarStack2
             ref="box-bar-stack2-1-g-c"
+            title-text="全国省份销售额排名"
+            :data="dataL1"
             @mounted="mountedChartNum++">
           </ChartBarStack2>
         </div>
         <div ref="box-bar-stack2-2-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartBarStack2
             ref="box-bar-stack2-2-g-c"
+            title-text="全国超市销售额排名"
+            :data="dataL2"
             @mounted="mountedChartNum++">
           </ChartBarStack2>
         </div>
@@ -31,8 +31,7 @@
         <div ref="box-map-style6-g" class="flex-item grow" style="margin: 5px;">
           <ChartMapStyle6
             ref="box-map-style6-g-c"
-            title-text="问题解答次数全国分布"
-            sub-text="累计交流：48753次  解决问题：10903例  问题类型：67类"
+            :data="dataMap"
             @mounted="mountedChartNum++">
           </ChartMapStyle6>
         </div>
@@ -51,7 +50,7 @@
               title-text="订单总数"
               :url="`${$root.host}/api/marketQuotationHomeIndex`"
               :ajax-data="{name: 'djzs'}"
-              :transform="(data) => data.dataInfo.quotationData"
+              :transform="(data) => dataR1[0]"
               :interval="0"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
@@ -62,7 +61,7 @@
               title-text="已交货订单数"
               :url="`${$root.host}/api/marketQuotationHomeIndex`"
               :ajax-data="{name: 'cbzs'}"
-              :transform="(data) => data.dataInfo.quotationData"
+              :transform="(data) => dataR1[1]"
               :interval="0"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
@@ -73,7 +72,7 @@
               title-text="支付订单数量"
               :url="`${$root.host}/api/marketQuotationHomeIndex`"
               :ajax-data="{name: 'ylzs'}"
-              :transform="(data) => data.dataInfo.quotationData"
+              :transform="(data) => dataR1[2]"
               :interval="0"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
@@ -82,6 +81,7 @@
         <div ref="box-pie-style-3-g" class="flex-item grow hov" style="margin: 5px;">
           <ChartPieStyle4
             ref="box-pie-style-3-g-c"
+            :data="dataPie"
             title-text="各产品销售状况"
             @mounted="mountedChartNum++">
           </ChartPieStyle4>
@@ -94,12 +94,24 @@
 <script>
 import mixin from '../mixin'
 import _get from 'lodash.get'
+import dataL1 from './data/L1'
+import dataL2 from './data/L2'
+import dataMap from './data/map'
+import dataPie from './data/pie'
+import dataR1 from './data/R1'
 export default {
   mixins: [
     mixin
   ],
   data () {
     return {
+      //
+      dataL1,
+      dataL2,
+      dataMap,
+      dataPie,
+      dataR1,
+      //
       useMixinAutoInit: false,
       activeL: 'null',
       optionsL: [

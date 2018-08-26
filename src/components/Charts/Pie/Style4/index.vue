@@ -14,22 +14,7 @@ export default {
     titleColor: {type: String, required: false, default: '#FFF'},
     titleSize: {type: String, required: false, default: '18'},
     // 数据
-    data: {
-      default: () => [
-        {
-          value: 400,
-          name: '疫苗'
-        },
-        {
-          value: 335,
-          name: '雏鸡'
-        },
-        {
-          value: 310,
-          name: '饲料'
-        }
-      ]
-    },
+    data: {default: () => []},
     // 图例
     legendTop: {type: String, required: false, default: '40'},
     legendTextColor: {type: String, required: false, default: '#FFF'}
@@ -96,8 +81,8 @@ export default {
         },
         series: [{
           type: 'pie',
-          radius: '55%',
-          center: ['50%', '60%'],
+          radius: ['40%', '60%'],
+          center: ['50%', '50%'],
           data: this.data,
           roseType: 'rose',
           animationType: 'scale',

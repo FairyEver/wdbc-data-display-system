@@ -9,6 +9,24 @@ export default {
     mixin
   ],
   props: {
+    data: {type: Object, default: () => ({yAxis: [], series: []})},
+    // 标题
+    titleText: {type: String, required: false, default: 'Chart'},
+    titleColor: {type: String, required: false, default: '#FFF'},
+    titleSize: {type: String, required: false, default: '18'},
+    // 图例
+    legendTop: {type: String, required: false, default: '40'},
+    legendTextColor: {type: String, required: false, default: '#FFF'},
+    // grid 设置
+    gridTop: {type: String, required: false, default: '80'},
+    gridBottom: {type: String, required: false, default: '20'},
+    gridLeft: {type: String, required: false, default: '20'},
+    gridRight: {type: String, required: false, default: '5%'},
+    // 坐标轴
+    xAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
+    yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
+    yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
+    seriesColor: {type: Array, default: () => ['#f845f1', '#ad46f3', '#5045f6', '#4777f5', '#44aff0', '#45dbf7', '#f6d54a', '#f69846', '#ff4343']}
   },
   data () {
     return {
@@ -30,7 +48,13 @@ export default {
     option () {
       return {
         title: {
-          text: 'Awesome Chart'
+          text: this.titleText,
+          top: '10',
+          left: 'center',
+          textStyle: {
+            color: this.titleColor,
+            fontSize: this.titleSize
+          }
         },
         tooltip: {
           trigger: 'axis',
@@ -39,98 +63,73 @@ export default {
           }
         },
         legend: {
-          data: ['云上贵州', '政法平台', '互联网舆情', '部门交换', '网格化管理']
+          top: this.legendTop,
+          textStyle: {
+            color: this.legendTextColor
+          },
+          data: this.data.series.map(e => e.name)
         },
         grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
+          left: this.gridLeft,
+          right: this.gridRight,
+          top: this.gridTop,
+          bottom: this.gridBottom,
           containLabel: true
         },
         xAxis: {
-          type: 'value'
+          type: 'value',
+          axisLine: {
+            lineStyle: {
+              color: this.xAxisAxisLineColor
+            }
+          }
         },
         yAxis: {
           type: 'category',
-          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+          data: this.data.yAxis,
+          axisLine: {
+            lineStyle: {
+              color: this.yAxisAxisLineColor
+            }
+          },
+          splitLine: {
+            lineStyle: {
+              color: this.yAxisSplitLineColor
+            }
+          }
         },
-        series: [{
-          name: '云上贵州',
+        series: this.data.series.map((e, index) => ({
+          name: e.name,
           type: 'bar',
+          barMaxWidth: 25,
           stack: '总量',
+          itemStyle: {
+            color: this.seriesColor[index],
+            barBorderRadius: index === this.data.series.length - 1 ? [0, 4, 4, 0] : 0
+          },
           label: {
             normal: {
               show: true,
-              position: 'insideRight'
+              position: 'inside'
             }
           },
-          data: [320, 302, 301, 334, 390, 330, 320]
-        },
-        {
-          name: '政法平台',
-          type: 'bar',
-          stack: '总量',
-          label: {
-            normal: {
-              show: true,
-              position: 'insideRight'
-            }
-          },
-          data: [120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-          name: '互联网舆情',
-          type: 'bar',
-          stack: '总量',
-          label: {
-            normal: {
-              show: true,
-              position: 'insideRight'
-            }
-          },
-          data: [220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-          name: '部门交换',
-          type: 'bar',
-          stack: '总量',
-          label: {
-            normal: {
-              show: true,
-              position: 'insideRight'
-            }
-          },
-          data: [150, 212, 201, 154, 190, 330, 410]
-        },
-        {
-          name: '网格化管理',
-          type: 'bar',
-          stack: '总量',
-          label: {
-            normal: {
-              show: true,
-              position: 'insideRight'
-            }
-          },
-          data: [820, 832, 901, 934, 1290, 1330, 1320]
-        }]
+          data: e.data
+        }))
       }
     }
   },
   mounted () {
     this.$emit('mounted')
   },
+  watch: {
+    data: {
+      deep: true,
+      handler () {
+        this.refresh()
+      }
+    }
+  },
   methods: {
-    // 请求数据 这个函数最后应该返回接口的数据
-    getData () {
-      return new Promise(async (resolve, reject) => {
-        const res = await this.$http.post(this.url, {
-          type: 2,
-          ...this.ajaxData
-        })
-        resolve(res.data)
-      })
-    },
     // 返回拼好的option
     optionMaker () {
       return this.option
@@ -141,13 +140,10 @@ export default {
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(this.optionMaker())
-          if (this.interval) {
-            this.intervalObj = setInterval(this.refresh, this.interval)
-          }
         })
     },
     // 更新数据
-    async refresh () {
+    refresh () {
       this.chart.setOption(this.optionMaker())
     }
   }
