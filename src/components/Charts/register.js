@@ -23,6 +23,7 @@ Vue.component('ChartMapMini', resolve => { require(['@/components/Charts/Map/Min
 Vue.component('ChartPieBase', resolve => { require(['@/components/Charts/Pie/Base/index.vue'], resolve) })
 Vue.component('ChartPieStyle2', resolve => { require(['@/components/Charts/Pie/Style2/index.vue'], resolve) })
 Vue.component('ChartPieStyle3', resolve => { require(['@/components/Charts/Pie/Style3/index.vue'], resolve) })
+Vue.component('ChartPieStyle4', resolve => { require(['@/components/Charts/Pie/Style4/index.vue'], resolve) })
 
 Vue.component('ChartRadarStyle1', resolve => { require(['@/components/Charts/Radar/Style1/index.vue'], resolve) })
 
