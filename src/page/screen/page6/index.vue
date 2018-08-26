@@ -12,7 +12,17 @@
           今日全国行情指数
         </div>
         <!-- 全国指数 -->
-        <div class="flex-item flex-group row hov" style="margin: 5px; height: 300px;">
+        <div ref="box-bar-stack2-1-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarStack2
+            ref="box-bar-stack2-1-g-c"
+            @mounted="mountedChartNum++">
+          </ChartBarStack2>
+        </div>
+        <div ref="box-bar-stack2-2-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartBarStack2
+            ref="box-bar-stack2-2-g-c"
+            @mounted="mountedChartNum++">
+          </ChartBarStack2>
         </div>
       </div>
       <!-- 中间 -->
