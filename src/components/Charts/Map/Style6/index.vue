@@ -227,13 +227,16 @@ export default {
   },
   methods: {
     // 初始化
-    init (height, width) {
+    init ({height, width}) {
       this.updateSize(height, width)
         .then(async () => {
           this.chart = this.echarts.init(this.$refs.chart)
           this.chart.setOption(this.option)
         })
     }
+  },
+  mounted () {
+    this.$emit('mounted')
   }
 }
 </script>

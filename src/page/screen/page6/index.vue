@@ -8,7 +8,7 @@
       <!-- 左侧 -->
       <div class="flex-item flex-group col" style="width: 25%;">
         <!-- 三大指数 -->
-        <div class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px; margin-right: -100px;">
+        <div class="flex-item" style="text-align: center; line-height: 30px; font-size: 16px;">
           今日全国行情指数
         </div>
         <!-- 全国指数 -->
@@ -27,12 +27,14 @@
       </div>
       <!-- 中间 -->
       <div class="flex-item grow flex-group col">
-        <div ref="box-map-style1-1-g" class="flex-item grow">
-          <ChartMapStyle1
-            ref="box-map-style1-1-g-c"
-            title-text="全国采集点分布"
+        <!-- 地图 -->
+        <div ref="box-map-style6-g" class="flex-item grow" style="margin: 5px;">
+          <ChartMapStyle6
+            ref="box-map-style6-g-c"
+            title-text="问题解答次数全国分布"
+            sub-text="累计交流：48753次  解决问题：10903例  问题类型：67类"
             @mounted="mountedChartNum++">
-          </ChartMapStyle1>
+          </ChartMapStyle6>
         </div>
       </div>
       <!-- 右侧 -->
