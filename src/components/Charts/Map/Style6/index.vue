@@ -3,7 +3,14 @@
 </template>
 
 <script>
+/* eslint-disable */
 import mixin from '@/components/Charts/mixin.js'
+Array.prototype.max = function(){ 
+  return Math.max.apply({},this)
+} 
+Array.prototype.min = function(){ 
+  return Math.min.apply({},this)
+}
 export default {
   mixins: [
     mixin
@@ -13,8 +20,8 @@ export default {
   },
   data () {
     return {
-      titleText: '累计交易额 ¥12,000',
-      subText: '雏鸡 ¥12,000 饲料 ¥12,000 疫苗 ¥12,000',
+      titleText: '累计交易额 ¥1,197,925,503',
+      subText: '雏鸡 ¥1,195,570,049 饲料 ¥2,355,454.35 疫苗 ¥0',
       // 宽高
       height: 0,
       width: 0
@@ -50,9 +57,9 @@ export default {
         },
         visualMap: {
           type: 'continuous',
+          min: this.data.map(e => e.value).min(),
+          max: this.data.map(e => e.value).max(),
           show: true,
-          min: 0,
-          max: 1000,
           itemWidth: 8,
           itemHeight: 50,
           color: ['#1EB2BD', '#134C55'],

@@ -4,7 +4,7 @@
     <p class="num" :style="styleNum">
       <span ref="num"></span>
     </p>
-    <p class="sub-title" :style="styleSubTitle">
+    <p v-show="row3" class="sub-title" :style="styleSubTitle">
       <span v-if="symbol !== '='">{{symbol}}</span>
       <span v-show="symbol !== '='" ref="num2"></span>
       <span v-if="symbol === '='">持平</span>
@@ -29,6 +29,8 @@ export default {
     titleText: {type: String, required: false, default: 'Chart'},
     titleSize: {type: String, required: false, default: '24'},
     subtitleSize: {type: String, required: false, default: '18'},
+    // 第三行
+    row3: {type: Boolean, required: false, default: true},
     // 数字
     numSize: {type: String, required: false, default: '64'},
     // 接口地址

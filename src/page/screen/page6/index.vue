@@ -43,37 +43,40 @@
           订单数据
         </div>
         <!-- 地区指数 -->
-        <div class="flex-item flex-group row" style="height: 200px; padding: 5px; margin-left: -100px;">
+        <div class="flex-item flex-group row" style="height: 200px; padding: 5px; margin-left: -120px;">
           <div ref="box-count-style2-1-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
               ref="box-count-style2-1-g-c"
-              title-text="订单总数"
+              title-text="已完成订单数"
               :url="`${$root.host}/api/marketQuotationHomeIndex`"
               :ajax-data="{name: 'djzs'}"
               :transform="(data) => dataR1[0]"
               :interval="0"
+              :row3="false"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
           <div ref="box-count-style2-2-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
               ref="box-count-style2-2-g-c"
-              title-text="已交货订单数"
+              title-text="待付款订单"
               :url="`${$root.host}/api/marketQuotationHomeIndex`"
               :ajax-data="{name: 'cbzs'}"
               :transform="(data) => dataR1[1]"
               :interval="0"
+              :row3="false"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
           <div ref="box-count-style2-3-g" class="flex-item grow hov" style="margin: 5px;">
             <ChartCountStyle2
               ref="box-count-style2-3-g-c"
-              title-text="支付订单数量"
+              title-text="待发货订单"
               :url="`${$root.host}/api/marketQuotationHomeIndex`"
               :ajax-data="{name: 'ylzs'}"
               :transform="(data) => dataR1[2]"
               :interval="0"
+              :row3="false"
               @mounted="mountedChartNum++">
             </ChartCountStyle2>
           </div>
