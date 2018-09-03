@@ -205,12 +205,16 @@ export default {
       distributingRightPink: 0,
       distributingRightWhite: 0,
       // app 注册
-      applog: ''
+      applog: '',
+      applogTimer: null
     }
   },
   methods: {
     async init2 () {
-      this.applog = 'APP注册数: 90926  养殖户数: 74488'
+      this.applogTimer = setInterval(async () => {
+        const { farmerCount, totalCount } = await this.getRegisterPeopleCount()
+        this.applog = `APP注册数: ${totalCount}  养殖户数: ${farmerCount}`
+      }, 1000)
       // 初始化图表
       this.init()
         .then(async () => {
@@ -228,6 +232,13 @@ export default {
       return new Promise(async (resolve, reject) => {
         const res = await this.$http.get(`${this.$root.host}/api/getCountryAllCollectionPoint`)
         resolve(res.data.dataInfo.data)
+      })
+    },
+    // [数据获取] 得到注册数
+    getRegisterPeopleCount () {
+      return new Promise(async (resolve, reject) => {
+        const res = await this.$http.get(`${this.$root.host}/api/getRegisterPeopleCount`)
+        resolve(res.data.dataInfo)
       })
     },
     // [数据获取] 获取省下所有城市的养殖户数量 右上角使用的
