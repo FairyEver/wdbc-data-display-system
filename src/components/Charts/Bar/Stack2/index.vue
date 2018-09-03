@@ -26,7 +26,7 @@ export default {
     xAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
     yAxisAxisLineColor: {type: String, required: false, default: '#FFF'},
     yAxisSplitLineColor: {type: String, required: false, default: '#0F3551'},
-    seriesColor: {type: Array, default: () => ['#f845f1', '#ad46f3', '#5045f6', '#4777f5', '#44aff0', '#45dbf7', '#f6d54a', '#f69846', '#ff4343']}
+    seriesColor: {type: Array, default: () => ['#5ea2db', '#db5c5e', '#f7d09c']}
   },
   data () {
     return {

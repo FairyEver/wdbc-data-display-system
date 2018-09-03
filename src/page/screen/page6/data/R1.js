@@ -1,16 +1,16 @@
 export default [
   {
-    num: 13850,
+    num: 13616,
     num2: 0,
     num3: 0
   },
   {
-    num: 300,
+    num: 258,
     num2: 0,
     num3: 0
   },
   {
-    num: 197,
+    num: 190,
     num2: 0,
     num3: 0
   }

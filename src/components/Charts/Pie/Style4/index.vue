@@ -84,7 +84,6 @@ export default {
           radius: ['40%', '60%'],
           center: ['50%', '50%'],
           data: this.data,
-          roseType: 'rose',
           animationType: 'scale',
           animationEasing: 'elasticOut'
         }]
