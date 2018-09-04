@@ -1,6 +1,6 @@
 <template>
   <layout
-    :auto-play.sync="autoPlay"
+    :auto-play="false"
     :data-nav="dataNav"
     :data-nav-active.sync="dataNavActive"
     :offset-size.sync="offsetSize"
@@ -276,11 +276,9 @@ export default {
       this.refreshR1Data(this.pinZhongChina.filter(e => e.name === this.rName)[0][value])
     }
   },
-  // mounted () {
-  //   if (this.$route.params.autoPlay) {
-  //     this.autoPlay = true
-  //   }
-  // },
+  mounted () {
+    this.autoPlay = true
+  },
   methods: {
     qian (n) {
       // 整型转字符串

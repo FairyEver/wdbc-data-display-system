@@ -209,12 +209,15 @@ export default {
       applogTimer: null
     }
   },
+  beforeDestroy () {
+    clearInterval(this.applogTimer)
+  },
   methods: {
     async init2 () {
       this.applogTimer = setInterval(async () => {
         const { farmerCount, totalCount } = await this.getRegisterPeopleCount()
         this.applog = `APP注册数: ${totalCount}  养殖户数: ${farmerCount}`
-      }, 1000)
+      }, 10000)
       // 初始化图表
       this.init()
         .then(async () => {
