@@ -14,10 +14,14 @@ export default {
       playing: false,
       playIndex: 0,
       pageList: [
+        'screen-page7',
+        'screen-page10',
+        'screen-page9',
+        'screen-page8',
         'screen-page2',
         'screen-page4',
-        'screen-page1',
-        'screen-page6'
+        'screen-page6',
+        'screen-page1'
       ]
     }
   },
@@ -38,9 +42,12 @@ export default {
       this.playing = true
       const delay = Number(this.$route.query.delay || 30000)
       this.playIndex = this.pageList.findIndex(e => e === this.$route.name)
+      if (this.playIndex === undefined) {
+        this.playIndex = -1
+      }
       setInterval(() => {
         let next = this.playIndex + 1
-        if (next === this.pageList.length) {
+        if (next >= this.pageList.length) {
           next = 0
         }
         this.$router.push({
