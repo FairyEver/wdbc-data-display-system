@@ -12,16 +12,24 @@ export default {
   data () {
     return {
       playing: false,
-      playIndex: 0,
+      now: 0,
       pageList: [
         'screen-page7',
-        'screen-page10',
         'screen-page9',
         'screen-page8',
         'screen-page2',
         'screen-page4',
         'screen-page6',
         'screen-page1'
+      ],
+      pageDelay: [
+        40,
+        8,
+        10,
+        13,
+        8,
+        5,
+        10
       ]
     }
   },
@@ -40,21 +48,27 @@ export default {
         return
       }
       this.playing = true
-      const delay = Number(this.$route.query.delay || 30000)
-      this.playIndex = this.pageList.findIndex(e => e === this.$route.name)
-      if (this.playIndex === undefined) {
-        this.playIndex = -1
+      // 检查当前是第几个
+      this.now = this.pageList.findIndex(e => e === this.$route.name)
+      if (this.now === undefined) {
+        this.now = 0
       }
-      setInterval(() => {
-        let next = this.playIndex + 1
+      // 循环播放
+      const startNext = () => {
+        let next = this.now + 1
         if (next >= this.pageList.length) {
           next = 0
         }
-        this.$router.push({
-          name: this.pageList[next]
-        })
-        this.playIndex = next
-      }, delay)
+        console.log(`${this.pageDelay[this.now]}秒后切换到${this.pageList[next]}`)
+        setTimeout(() => {
+          this.$router.push({
+            name: this.pageList[next]
+          })
+          this.now = next
+          startNext()
+        }, this.pageDelay[this.now] * 1000);
+      }
+      startNext()
     }
   }
 }

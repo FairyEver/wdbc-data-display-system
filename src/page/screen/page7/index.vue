@@ -8,3 +8,14 @@
     </iframe>
   </div>
 </template>
+
+<script>
+export default {
+  mounted () {
+    setTimeout(() => {
+      this.$emit('ok')
+    }, 3000)
+  }
+}
+</script>
+

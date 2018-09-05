@@ -18,12 +18,12 @@ export default new Router({
           name: 'screen-page7',
           component: resolve => { require(['@/page/screen/page7'], resolve) }
         },
-        {
-          title: '鸡舍环境监控',
-          path: 'screen/page10',
-          name: 'screen-page10',
-          component: resolve => { require(['@/page/screen/page10'], resolve) }
-        },
+        // {
+        //   title: '鸡舍环境监控',
+        //   path: 'screen/page10',
+        //   name: 'screen-page10',
+        //   component: resolve => { require(['@/page/screen/page10'], resolve) }
+        // },
         {
           title: '物流运输一',
           path: 'screen/page9',
