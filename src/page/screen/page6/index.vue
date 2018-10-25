@@ -89,6 +89,14 @@
             @mounted="mountedChartNum++">
           </ChartPieStyle4>
         </div>
+        <div ref="box-pie-style-3-2-g" class="flex-item grow hov" style="margin: 5px;">
+          <ChartPieStyle4
+            ref="box-pie-style-3-2-g-c"
+            :data="dataPie2"
+            title-text="雏鸡品种销售状况"
+            @mounted="mountedChartNum++">
+          </ChartPieStyle4>
+        </div>
       </div>
     </div>
   </div>
@@ -101,6 +109,7 @@ import dataL1 from './data/L1'
 import dataL2 from './data/L2'
 import dataMap from './data/map'
 import dataPie from './data/pie'
+import dataPie2 from './data/pie2'
 import dataR1 from './data/R1'
 export default {
   mixins: [
@@ -113,6 +122,7 @@ export default {
       dataL2,
       dataMap,
       dataPie,
+      dataPie2,
       dataR1,
       //
       useMixinAutoInit: false,

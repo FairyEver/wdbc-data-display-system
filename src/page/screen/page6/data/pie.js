@@ -4,11 +4,11 @@ export default [
     name: '疫苗'
   },
   {
-    value: 379772047.09,
+    value: 471854244.82,
     name: '雏鸡'
   },
   {
-    value: 129632632.23,
+    value: 166619977.54,
     name: '饲料'
   }
 ]

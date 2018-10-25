@@ -66,7 +66,7 @@ export default {
           })
           this.now = next
           startNext()
-        }, this.pageDelay[this.now] * 1000);
+        }, this.pageDelay[this.now] * 1000)
       }
       startNext()
     }
