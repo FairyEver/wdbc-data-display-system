@@ -18,24 +18,6 @@ export default new Router({
           name: 'screen-page7',
           component: resolve => { require(['@/page/screen/page7'], resolve) }
         },
-        // {
-        //   title: '鸡舍环境监控',
-        //   path: 'screen/page10',
-        //   name: 'screen-page10',
-        //   component: resolve => { require(['@/page/screen/page10'], resolve) }
-        // },
-        {
-          title: '物流运输一',
-          path: 'screen/page9',
-          name: 'screen-page9',
-          component: resolve => { require(['@/page/screen/page9'], resolve) }
-        },
-        {
-          title: '物流运输二',
-          path: 'screen/page8',
-          name: 'screen-page8',
-          component: resolve => { require(['@/page/screen/page8'], resolve) }
-        },
         {
           title: '养殖户分布',
           path: 'screen/page2',
@@ -49,16 +31,28 @@ export default new Router({
           component: resolve => { require(['@/page/screen/page4'], resolve) }
         },
         {
+          title: '市场行情',
+          path: 'screen/page1',
+          name: 'screen-page1',
+          component: resolve => { require(['@/page/screen/page1'], resolve) }
+        },
+        {
           title: '电商交易',
           path: 'screen/page6',
           name: 'screen-page6',
           component: resolve => { require(['@/page/screen/page6'], resolve) }
         },
         {
-          title: '市场行情',
-          path: 'screen/page1',
-          name: 'screen-page1',
-          component: resolve => { require(['@/page/screen/page1'], resolve) }
+          title: '物流运输一',
+          path: 'screen/page9',
+          name: 'screen-page9',
+          component: resolve => { require(['@/page/screen/page9'], resolve) }
+        },
+        {
+          title: '物流运输二',
+          path: 'screen/page8',
+          name: 'screen-page8',
+          component: resolve => { require(['@/page/screen/page8'], resolve) }
         },
         {
           title: '坐堂兽医',
